@@ -8,37 +8,62 @@ import { useState } from "react";
 // Toast for form feedback
 import FormToast from "../components/FormToast";
 
+// Language support
+import { useLanguage } from "../context/LanguageContext";
+
+// API
+import api from "../utils/api";
+
 function Consultation() {
+  const { t } = useLanguage();
+
   // Form states
+  const [title, setTitle] = useState("");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [service, setService] = useState("");
   const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   // Toast state
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState("success");
 
   // Handle form submit
-  const handleConsultationSubmit = (e) => {
+  const handleConsultationSubmit = async (e) => {
     e.preventDefault();
 
     // Basic validation
     if (!fullName.trim() || !email.trim() || !service.trim() || !message.trim()) {
       setToastType("error");
-      setToastMessage("Please fill in all fields.");
+      setToastMessage(t("fillAllFields"));
       return;
     }
 
-    // Success message
-    setToastType("success");
-    setToastMessage("Consultation request sent successfully.");
+    setSubmitting(true);
+    try {
+      await api.post("/consultation", {
+        fullName: title ? `${title} ${fullName}` : fullName,
+        email,
+        service,
+        message,
+      });
 
-    // Clear form
-    setFullName("");
-    setEmail("");
-    setService("");
-    setMessage("");
+      setToastType("success");
+      setToastMessage(t("consultationSuccess"));
+
+      // Clear form
+      setTitle("");
+      setFullName("");
+      setEmail("");
+      setService("");
+      setMessage("");
+    } catch (err) {
+      setToastType("error");
+      setToastMessage(err.response?.data?.error || "Failed to send request. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -182,52 +207,71 @@ function Consultation() {
             <form onSubmit={handleConsultationSubmit}>
               <div className="consultation-form-grid">
                 <div>
-                  <label>Full Name</label>
+                  <label>{t("title")}</label>
+                  <select
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                  >
+                    <option value="">{t("selectTitle")}</option>
+                    <option value="Mr">{t("mr")}</option>
+                    <option value="Mrs">{t("mrs")}</option>
+                    <option value="Ms">{t("ms")}</option>
+                    <option value="Dr">{t("dr")}</option>
+                    <option value="">{t("preferNotToSay")}</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label>{t("fullName")}</label>
                   <input
                     type="text"
-                    placeholder="Enter your full name"
+                    placeholder={t("fullNamePlaceholder")}
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                   />
                 </div>
+              </div>
 
+              <div className="consultation-form-grid">
                 <div>
-                  <label>Email Address</label>
+                  <label>{t("emailAddress")}</label>
                   <input
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder={t("emailPlaceholder")}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
+
+                <div>
+                  <label>{t("selectService")}</label>
+                  <select
+                    value={service}
+                    onChange={(e) => setService(e.target.value)}
+                  >
+                    <option value="">{t("chooseService")}</option>
+                    <option value="Event and Wedding Flowers">
+                      {t("eventWedding")}
+                    </option>
+                    <option value="Garden Planning and Care">
+                      {t("gardenPlanning")}
+                    </option>
+                    <option value="Planterior Design">
+                      {t("planteriorDesign")}
+                    </option>
+                  </select>
+                </div>
               </div>
 
-              <label>Select Service</label>
-              <select
-                value={service}
-                onChange={(e) => setService(e.target.value)}
-              >
-                <option value="">Choose a service</option>
-                <option value="Event and Wedding Flowers">
-                  Event and Wedding Flowers
-                </option>
-                <option value="Garden Planning and Care">
-                  Garden Planning and Care
-                </option>
-                <option value="Planterior Design">
-                  Planterior Design
-                </option>
-              </select>
-
-              <label>Project Details</label>
+              <label>{t("projectDetails")}</label>
               <textarea
-                placeholder="Tell us about your event, garden, or interior vision..."
+                placeholder={t("projectPlaceholder")}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
 
-              <button type="submit" className="consultation-submit-btn">
-                Send Request
+              <button type="submit" className="consultation-submit-btn" disabled={submitting}>
+                {submitting ? "..." : t("sendRequest")}
               </button>
             </form>
           </div>

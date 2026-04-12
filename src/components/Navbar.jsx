@@ -1,14 +1,29 @@
 import { Link } from "react-router-dom";
 import logoImage from "../assets/images/Logo1.png";
-import { useContext } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
+import { useLanguage } from "../context/LanguageContext";
 import SearchBar from "./SearchBar";
 function Navbar() {
   const { cartItems } = useContext(CartContext);
   const { user, isAdmin } = useContext(AuthContext);
+  const { language, changeLanguage, languages, t } = useLanguage();
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef(null);
   const cartCount = cartItems.length;
   const accountLink = user ? (isAdmin ? "/admin/dashboard" : "/account") : "/login";
+
+  const currentLang = languages.find((l) => l.code === language);
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
   return (
     <nav className="navbar-container">
       <Link to="/" className="logo-wrapper">
@@ -17,11 +32,11 @@ function Navbar() {
       </Link>
       <div className="nav-row">
         <div className="nav-menu">
-          <Link to="/shop">Shop</Link>
-          <Link to="/plantfinder">Plant Finder</Link>
-          <Link to="/customize">Customize Bouquets</Link>
-          <Link to="/birth-month">Birth Month Flowers</Link>
-          <Link to="/consultation">Our Services</Link>
+          <Link to="/shop">{t("shop")}</Link>
+          <Link to="/plantfinder">{t("plantFinder")}</Link>
+          <Link to="/customize">{t("customizeBouquets")}</Link>
+          <Link to="/birth-month">{t("birthMonthFlowers")}</Link>
+          <Link to="/consultation">{t("ourServices")}</Link>
         </div>
         <div className="nav-icons">
           <div className="nav-search-wrapper">
@@ -41,6 +56,24 @@ function Navbar() {
             </svg>
             {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </Link>
+          <div className="lang-selector" ref={langRef}>
+            <button className="lang-toggle" onClick={() => setLangOpen(!langOpen)} title="Change language">
+              {currentLang?.flag} <span className="lang-code">{currentLang?.code.toUpperCase()}</span>
+            </button>
+            {langOpen && (
+              <div className="lang-dropdown">
+                {languages.map((l) => (
+                  <button
+                    key={l.code}
+                    className={`lang-option ${l.code === language ? "lang-option--active" : ""}`}
+                    onClick={() => { changeLanguage(l.code); setLangOpen(false); }}
+                  >
+                    <span>{l.flag}</span> {l.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
       <hr className="nav-divider" />

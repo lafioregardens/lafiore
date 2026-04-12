@@ -6,6 +6,7 @@ import StarRating from "../components/StarRating";
 import FormToast from "../components/FormToast";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
+import { useLanguage } from "../context/LanguageContext";
 import api from "../utils/api";
 import products from "../data/products";
 import { getCareGuide } from "../data/plantCareGuide";
@@ -15,9 +16,11 @@ function ProductDetail() {
   const { id } = useParams();
   const { addToCart } = useContext(CartContext);
   const { user } = useContext(AuthContext);
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState("description");
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
+  const [reviewName, setReviewName] = useState("");
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState("success");
   const [reviews, setReviews] = useState([]);
@@ -78,14 +81,14 @@ function ProductDetail() {
   };
 
   const handleSubmitReview = async () => {
-    if (!user) {
-      setToastType("error");
-      setToastMessage("Please log in to leave a review");
-      return;
-    }
     if (rating === 0) {
       setToastType("error");
-      setToastMessage("Please select a rating");
+      setToastMessage(t("selectRating"));
+      return;
+    }
+    if (!user && !reviewName.trim()) {
+      setToastType("error");
+      setToastMessage(t("enterName"));
       return;
     }
 
@@ -93,6 +96,8 @@ function ProductDetail() {
       await api.post(`/products/${product.id}/reviews`, {
         rating,
         comment: review,
+        name: user ? user.displayName : reviewName.trim(),
+        anonymous: !user,
       });
       const res = await api.get(`/products/${product.id}/reviews`);
       const list = res.data?.data || [];
@@ -102,9 +107,10 @@ function ProductDetail() {
         setAvgRating(Math.round(avg * 10) / 10);
       }
       setToastType("success");
-      setToastMessage("Review submitted! Thank you.");
+      setToastMessage(t("reviewSuccess"));
       setRating(0);
       setReview("");
+      setReviewName("");
     } catch (err) {
       setToastType("error");
       setToastMessage("Failed to submit: " + (err.response?.data?.error || err.message));
@@ -345,10 +351,10 @@ function ProductDetail() {
             />
 
             <div className="product-reviews-section">
-              <h2>Customer Reviews</h2>
+              <h2>{t("customerReviews")}</h2>
               <div className="product-reviews-list">
                 {reviews.length === 0 ? (
-                  <p className="reviews-empty">No reviews yet. Be the first to review!</p>
+                  <p className="reviews-empty">{t("noReviews")}</p>
                 ) : (
                   reviews.map((r) => (
                     <div key={r._id} className="review-item">
@@ -366,9 +372,20 @@ function ProductDetail() {
               </div>
 
               <div className="product-review-form">
-                <h3>Leave a Review</h3>
+                <h3>{t("leaveReview")}</h3>
+                {!user && (
+                  <div className="form-group">
+                    <label>{t("yourName")}</label>
+                    <input
+                      type="text"
+                      placeholder={t("yourName")}
+                      value={reviewName}
+                      onChange={(e) => setReviewName(e.target.value)}
+                    />
+                  </div>
+                )}
                 <div className="form-group">
-                  <label>Rating</label>
+                  <label>{t("rating")}</label>
                   <StarRating
                     rating={rating}
                     mode="input"
@@ -377,15 +394,15 @@ function ProductDetail() {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Your Review</label>
+                  <label>{t("yourReview")}</label>
                   <textarea
-                    placeholder="Share your thoughts about this product..."
+                    placeholder={t("reviewPlaceholder")}
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
                   />
                 </div>
                 <button className="review-submit-btn" onClick={handleSubmitReview}>
-                  Submit Review
+                  {t("submitReview")}
                 </button>
               </div>
             </div>
