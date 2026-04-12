@@ -28,11 +28,15 @@ export function AuthProvider({ children }) {
         if (token) {
           try {
             const res = await api.get("/auth/me");
+            console.log("Auth ME response:", res.data?.data);
             if (res.data?.data?.role === "admin") {
+              console.log("Setting isAdmin to true");
               setIsAdmin(true);
+            } else {
+              console.log("Role is not admin, role is:", res.data?.data?.role);
             }
           } catch (err) {
-            console.warn("Could not restore session from backend", err.message);
+            console.warn("Could not restore session from backend", err);
             // Still keep user logged in via Firebase even if backend is offline
           }
         }
@@ -103,14 +107,18 @@ export function AuthProvider({ children }) {
       try {
         const backendRes = await api.post("/auth/google", {
           idToken,
+          email: firebaseRes.user.email,
+          name: firebaseRes.user.displayName,
         });
+        console.log("Google auth response:", backendRes.data?.data);
         localStorage.setItem("lafiore_token", backendRes.data.data.token);
 
         if (backendRes.data.data.role === "admin") {
+          console.log("Setting isAdmin to true from Google login");
           setIsAdmin(true);
         }
       } catch (err) {
-        console.warn("Backend Google auth failed, using Firebase only", err.message);
+        console.warn("Backend Google auth failed, using Firebase only", err);
       }
 
       return firebaseRes.user;

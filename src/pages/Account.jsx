@@ -9,6 +9,8 @@ function Account() {
   const { user, isAdmin, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  console.log("Account page loaded. isAdmin:", isAdmin, "user:", user?.email);
+
   const handleLogout = async () => {
     try {
       await logout();
