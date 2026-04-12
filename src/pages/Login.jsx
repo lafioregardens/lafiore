@@ -1,10 +1,16 @@
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import Footer from "../components/Footer";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import FormToast from "../components/FormToast";
+import { AuthContext } from "../context/AuthContext";
 
 function Login() {
+  // Auth & Navigation
+  const { googleLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   // Form state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,8 +21,9 @@ function Login() {
   // Toast state
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState("success");
+  const [loading, setLoading] = useState(false);
 
-  // Handle login button
+  // Handle email/password login
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -37,6 +44,20 @@ function Login() {
     // Success (for now)
     setToastType("success");
     setToastMessage("Logged in successfully.");
+  };
+
+  // Handle Google login
+  const handleGoogleLogin = async () => {
+    try {
+      setLoading(true);
+      await googleLogin();
+      navigate("/");
+    } catch (err) {
+      setToastType("error");
+      setToastMessage(err.message || "Google sign-in failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -92,14 +113,30 @@ function Login() {
             <button className="login-btn">Log In</button>
           </form>
 
+          <div className="auth-divider">
+            <span>or</span>
+          </div>
+
+          <button
+            type="button"
+            className="google-btn"
+            onClick={handleGoogleLogin}
+            disabled={loading}
+          >
+            <img src="/google-icon.svg" alt="" width="18" height="18" />
+            Continue with Google
+          </button>
+
           <p className="signup-text">
-            Don’t have an account?{" "}
+            Don't have an account?{" "}
             <Link to="/signup" className="signup-link">
               Sign Up
             </Link>
           </p>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

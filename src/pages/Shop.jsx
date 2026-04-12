@@ -1,12 +1,10 @@
 import Navbar from "../components/Navbar";
-import { useContext, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import categories from "../data/categories";
 import products from "../data/products";
-import { CartContext } from "../context/CartContext";
 
 function Shop() {
-  const { addToCart } = useContext(CartContext);
-
   const [selectedMainCategory, setSelectedMainCategory] = useState("All");
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -143,26 +141,6 @@ function Shop() {
     setCurrentPage(1);
   };
 
-  const handleAddToCart = (product) => {
-    const cartItem = {
-      id: product.id,
-      month: "Shop Product",
-      flower: product.name,
-      description: product.description,
-      price: product.price || "AED 0.00",
-      details: {
-        mainCategory: product.mainCategory,
-        subCategory: product.subCategories?.length
-          ? product.subCategories.join(", ")
-          : "Not specified",
-        tags: product.tags.join(", "),
-        rating: `${product.rating}/5`,
-      },
-    };
-
-    addToCart(cartItem);
-  };
-
   const renderStars = (rating) => {
     return "★".repeat(rating) + "☆".repeat(5 - rating);
   };
@@ -278,55 +256,49 @@ function Shop() {
               <>
                 <div className="shop-grid">
                   {paginatedProducts.map((product) => (
-                    <article className="shop-card" key={product.id}>
-                      <div className="shop-card-image-wrapper">
-                        {product.image ? (
-                          <img
-                            src={product.image}
-                            alt={product.name}
-                            className="shop-card-real-image"
-                          />
-                        ) : (
-                          <div className="shop-card-image"></div>
-                        )}
-                      </div>
-
-                      <div className="shop-card-content">
-                        <div className="shop-card-rating-row">
-                          <span className="shop-card-stars">
-                            {renderStars(product.rating)}
-                          </span>
-                          <span className="shop-card-rating-number">
-                            {product.rating}.0
-                          </span>
+                    <Link
+                      to={`/product/${product.id}`}
+                      key={product.id}
+                      className="shop-card-link"
+                    >
+                      <article className="shop-card">
+                        <div className="shop-card-image-wrapper">
+                          {product.image ? (
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="shop-card-real-image"
+                            />
+                          ) : (
+                            <div className="shop-card-image-placeholder">
+                              <span className="shop-card-placeholder-icon">
+                                {product.mainCategory === "Bouquets" ? "💐" : "🌿"}
+                              </span>
+                              <span className="shop-card-placeholder-label">
+                                {product.name}
+                              </span>
+                            </div>
+                          )}
                         </div>
 
-                        <h3>{product.name}</h3>
-
-                        <p className="shop-card-description">
-                          {product.description}
-                        </p>
-
-                        <div className="shop-card-tags">
-                          {product.tags.slice(0, 2).map((tag) => (
-                            <span key={tag} className="shop-card-tag">
-                              {tag}
+                        <div className="shop-card-content">
+                          <div className="shop-card-rating-row">
+                            <span className="shop-card-stars">
+                              {renderStars(product.rating)}
                             </span>
-                          ))}
-                        </div>
+                            <span className="shop-card-rating-number">
+                              {product.rating}.0
+                            </span>
+                          </div>
 
-                        <div className="shop-card-price">
-                          {product.price || "Price on request"}
-                        </div>
+                          <h3>{product.name}</h3>
 
-                        <button
-                          className="shop-add-btn"
-                          onClick={() => handleAddToCart(product)}
-                        >
-                          Add to Cart
-                        </button>
-                      </div>
-                    </article>
+                          <div className="shop-card-price">
+                            {product.price || "Price on request"}
+                          </div>
+                        </div>
+                      </article>
+                    </Link>
                   ))}
                 </div>
 

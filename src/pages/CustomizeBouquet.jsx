@@ -1,5 +1,6 @@
 import { useState, useMemo, useContext } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { CartContext } from "../context/CartContext";
 
 import aster from "../assets/custombouquet/aster.jpg";
@@ -514,6 +515,8 @@ function CustomizeBouquet() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

@@ -1,15 +1,20 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 
 import carnationb from "../assets/birthmonth/carnationb.jpg";
-
-
-
-
-
-
-
+import daffodilsb from "../assets/birthmonth/daffodilsb.jpg";
+import daisyb from "../assets/birthmonth/daisyb.jpg";
+import lilyb from "../assets/birthmonth/lilyb.jpg";
+import roseb from "../assets/birthmonth/roseb.jpg";
+import asterb from "../assets/birthmonth/asterb.jpg";
+import chrysanthemumb from "../assets/birthmonth/chrysanthemumb.jpg";
+import gladiolusb from "../assets/birthmonth/gladiolusb.jpg";
+import larkspurb from "../assets/birthmonth/larkspurb.jpg";
+import marigoldb from "../assets/birthmonth/marigoldb.jpg";
+import narcissusb from "../assets/birthmonth/narcissusb.jpg";
+import violetsb from "../assets/birthmonth/violetsb.jpg";
 
 function BirthMonthFlowers() {
   const { addToCart } = useContext(CartContext);
@@ -31,7 +36,7 @@ function BirthMonthFlowers() {
       meaning: "Symbolizes loyalty, wisdom, and faithfulness.",
       colors: ["Purple", "Blue", "White"],
       price: "AED 90.00",
-      image: "",
+      image: violetsb,
     },
     {
       id: 3,
@@ -40,7 +45,7 @@ function BirthMonthFlowers() {
       meaning: "Represents new beginnings, hope, and joy.",
       colors: ["Yellow", "White"],
       price: "AED 80.00",
-      image: "",
+      image: daffodilsb,
     },
     {
       id: 4,
@@ -49,7 +54,7 @@ function BirthMonthFlowers() {
       meaning: "Symbolizes innocence, purity, and happiness.",
       colors: ["White", "Pink", "Yellow"],
       price: "AED 75.00",
-      image: "",
+      image: daisyb,
     },
     {
       id: 5,
@@ -58,7 +63,7 @@ function BirthMonthFlowers() {
       meaning: "Represents devotion, grace, and beauty.",
       colors: ["White", "Pink", "Orange"],
       price: "AED 95.00",
-      image: "",
+      image: lilyb,
     },
     {
       id: 6,
@@ -67,7 +72,7 @@ function BirthMonthFlowers() {
       meaning: "Symbolizes love, passion, and appreciation.",
       colors: ["Red", "Pink", "White", "Yellow"],
       price: "AED 110.00",
-      image: "",
+      image: roseb,
     },
     {
       id: 7,
@@ -76,7 +81,7 @@ function BirthMonthFlowers() {
       meaning: "Represents positivity, dignity, and strong bonds.",
       colors: ["Purple", "Blue", "Pink"],
       price: "AED 88.00",
-      image: "",
+      image: larkspurb,
     },
     {
       id: 8,
@@ -85,7 +90,7 @@ function BirthMonthFlowers() {
       meaning: "Symbolizes strength, integrity, and remembrance.",
       colors: ["Red", "Pink", "White", "Yellow"],
       price: "AED 92.00",
-      image: "",
+      image: gladiolusb,
     },
     {
       id: 9,
@@ -94,7 +99,7 @@ function BirthMonthFlowers() {
       meaning: "Represents love, wisdom, and elegance.",
       colors: ["Purple", "Pink", "White"],
       price: "AED 86.00",
-      image: "",
+      image: asterb,
     },
     {
       id: 10,
@@ -103,7 +108,7 @@ function BirthMonthFlowers() {
       meaning: "Symbolizes warmth, creativity, and passion.",
       colors: ["Orange", "Yellow"],
       price: "AED 78.00",
-      image: "",
+      image: marigoldb,
     },
     {
       id: 11,
@@ -112,7 +117,7 @@ function BirthMonthFlowers() {
       meaning: "Represents friendship, honesty, and happiness.",
       colors: ["White", "Yellow", "Pink", "Purple"],
       price: "AED 98.00",
-      image: "",
+      image: chrysanthemumb,
     },
     {
       id: 12,
@@ -121,7 +126,7 @@ function BirthMonthFlowers() {
       meaning: "Symbolizes hope, self-worth, and renewal.",
       colors: ["White", "Yellow"],
       price: "AED 84.00",
-      image: "",
+      image: narcissusb,
     },
   ];
 
@@ -150,6 +155,8 @@ function BirthMonthFlowers() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }
@@ -173,20 +180,21 @@ function BirthMonthCard({ item, addToCart }) {
 
   return (
     <article className="birth-month-card">
-      {item.image ? (
-        <img
-          src={item.image}
-          alt={item.flower}
-          className="birth-month-card-image-real"
-        />
-      ) : (
-        <div className="birth-month-card-image"></div>
-      )}
+      <div className="birth-month-image-container">
+        <span className="birth-month-badge">{item.month}</span>
+        {item.image ? (
+          <img
+            src={item.image}
+            alt={item.flower}
+            className="birth-month-image"
+          />
+        ) : (
+          <div className="birth-month-image"></div>
+        )}
+      </div>
 
-      <div className="birth-month-card-content">
-        <p className="birth-month-label">{item.month}</p>
-
-        <h2>{item.flower}</h2>
+      <div className="birth-month-content">
+        <h2 className="birth-month-flower-name">{item.flower}</h2>
 
         <p className="birth-month-meaning">{item.meaning}</p>
 

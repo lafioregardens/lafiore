@@ -1,10 +1,16 @@
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import Footer from "../components/Footer";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import FormToast from "../components/FormToast";
+import { AuthContext } from "../context/AuthContext";
 
 function SignUp() {
+  // Auth & Navigation
+  const { googleLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   // Form state
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,8 +24,9 @@ function SignUp() {
   // Toast state
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState("success");
+  const [loading, setLoading] = useState(false);
 
-  // Handle signup
+  // Handle email/password signup
   const handleSignUp = (e) => {
     e.preventDefault();
 
@@ -43,6 +50,20 @@ function SignUp() {
 
     setToastType("success");
     setToastMessage("Account created successfully.");
+  };
+
+  // Handle Google signup
+  const handleGoogleSignUp = async () => {
+    try {
+      setLoading(true);
+      await googleLogin();
+      navigate("/");
+    } catch (err) {
+      setToastType("error");
+      setToastMessage(err.message || "Google sign-up failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -116,15 +137,30 @@ function SignUp() {
             <button className="signup-btn">Create Account</button>
           </form>
 
-          <p
-            className="login-text">
+          <div className="auth-divider">
+            <span>or</span>
+          </div>
+
+          <button
+            type="button"
+            className="google-btn"
+            onClick={handleGoogleSignUp}
+            disabled={loading}
+          >
+            <img src="/google-icon.svg" alt="" width="18" height="18" />
+            Sign up with Google
+          </button>
+
+          <p className="login-text">
             Already have an account?{" "}
             <Link to="/login" className="login-link">
-            Login
+              Login
             </Link>
           </p>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

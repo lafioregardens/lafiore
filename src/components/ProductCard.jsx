@@ -1,0 +1,95 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import StarRating from "./StarRating";
+import { CartContext } from "../context/CartContext";
+import "./ProductCard.css";
+
+function ProductCard({ product, linkToDetail = true }) {
+  const { addToCart } = useContext(CartContext);
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart({
+      id: product.id,
+      flower: product.name,
+      description: product.description,
+      price: product.price,
+      image: product.image,
+      details: {
+        category: product.mainCategory,
+        tags: product.tags?.join(", "),
+      },
+    });
+  };
+
+  const cardContent = (
+    <article className="product-card">
+      {/* Sold Out Badge */}
+      {product.stock === 0 && (
+        <span className="product-badge product-badge--soldout">Sold Out</span>
+      )}
+
+      {/* Product Image */}
+      <div className="product-image">
+        {product.image ? (
+          <img src={product.image} alt={product.name} className="product-img" />
+        ) : (
+          <div className="product-img-placeholder">
+            <span className="product-img-placeholder-icon">
+              {product.mainCategory === "Bouquets" ? "💐" : "🌿"}
+            </span>
+            <span className="product-img-placeholder-label">{product.name}</span>
+          </div>
+        )}
+      </div>
+
+      {/* Product Info */}
+      <div className="product-info">
+        {/* Star Rating */}
+        <div className="product-rating">
+          <StarRating rating={product.rating || 0} mode="display" size="sm" />
+        </div>
+
+        {/* Product Name */}
+        <h3 className="product-name">{product.name}</h3>
+
+        {/* Colour Swatches */}
+        {product.colours && product.colours.length > 0 && (
+          <div className="product-swatches">
+            {product.colours.map((color) => (
+              <span
+                key={color}
+                className="product-swatch"
+                style={{ backgroundColor: color }}
+                title={color}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Product Price */}
+        <div className="product-price">{product.price}</div>
+
+        {/* Add to Cart Button */}
+        <button
+          className="product-btn"
+          onClick={handleAddToCart}
+          disabled={product.stock === 0}
+        >
+          {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
+          <span className="btn-arrow">→</span>
+        </button>
+      </div>
+    </article>
+  );
+
+  // Wrap in Link if linkToDetail is true
+  if (linkToDetail) {
+    return <Link to={`/product/${product.id}`} className="product-card-link">{cardContent}</Link>;
+  }
+
+  return cardContent;
+}
+
+export default ProductCard;

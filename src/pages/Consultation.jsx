@@ -1,5 +1,6 @@
-// Import navbar
+// Import navbar and footer
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 // React hooks
 import { useState } from "react";
@@ -232,6 +233,8 @@ function Consultation() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

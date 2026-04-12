@@ -1,93 +1,556 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { useState, useEffect, useRef } from "react";
 
-function Home() {
+/* ─────────────────────────────────────
+   DATA
+───────────────────────────────────── */
+const faqs = [
+  { question: "Do you deliver across the UAE?", answer: "Yes! We deliver to all emirates. Same-day delivery is available for orders placed before 12pm within Dubai." },
+  { question: "Can I customize my bouquet?", answer: "Absolutely. Use our Customize Bouquet tool to pick your flowers, colors, and arrangement style. We'll craft it fresh just for you." },
+  { question: "How long do the flowers last?", answer: "With proper care, our bouquets last 7–10 days. Each order comes with a care card to help you keep them fresh longer." },
+  { question: "How do I care for my flowers?", answer: "Cut stems at a 45-degree angle before placing in clean water. Remove any leaves below the waterline. Change water every 2-3 days and keep your bouquet away from direct sunlight and heat sources. Trim stems every few days for best results." },
+  { question: "How do I care for my plants?", answer: "Water your plants when the top inch of soil feels dry. Ensure proper drainage to prevent root rot. Most indoor plants thrive in indirect sunlight. Wipe leaves occasionally to remove dust and allow better light absorption." },
+  { question: "Do you offer corporate or bulk orders?", answer: "Yes, we cater to events, offices, and bulk gifting. Reach out through our consultation form and we'll get back to you within 24 hours." },
+  { question: "What if I'm not happy with my order?", answer: "Your satisfaction is our priority. Contact us within 24 hours of delivery and we'll make it right — no questions asked." },
+  { question: "What payment methods do you accept?", answer: "We accept all major credit cards, debit cards, Apple Pay, and cash on delivery for select areas within Dubai." },
+  { question: "Can I schedule a delivery for a specific date?", answer: "Yes! You can choose your preferred delivery date and time during checkout. We recommend ordering at least 24 hours in advance for guaranteed availability." },
+  { question: "Do you provide care instructions with orders?", answer: "Every bouquet comes with a detailed care card including tips on water changes, placement, and how to extend your flowers' lifespan." },
+];
+
+const reviews = [
+  { name: "Sara A.",     location: "Dubai",     text: "The bouquet was absolutely stunning — fresher than anything I've ever ordered online. Will be a regular customer!", stars: 5, image: "" },
+  { name: "Mohammed K.", location: "Abu Dhabi", text: "Ordered a custom arrangement for my wife's birthday. She cried happy tears. Thank you LaFiore!", stars: 5, image: "" },
+  { name: "Priya R.",    location: "Sharjah",   text: "The plant finder tool is genius. Got exactly the right plant for my apartment. Delivery was fast and well-packaged.", stars: 5, image: "" },
+  { name: "Layla H.",    location: "Dubai",     text: "I've ordered three times now and every single time the quality has been perfect. My go-to flower shop.", stars: 5, image: "" },
+];
+
+const products = [
+  { name: "Rose Deluxe Bouquet", price: "AED 200", tag: "Bestseller", image: "" },
+  { name: "Lavender Plant",      price: "AED 95",  tag: "New", image: "" },
+  { name: "Scented Candle Set",  price: "AED 60",  tag: null, image: "" },
+  { name: "Garden Tool Set",     price: "AED 60",  tag: null, image: "" },
+];
+
+/* ─────────────────────────────────────
+   HERO CANVAS
+   Side trees + petals — matches screenshot
+───────────────────────────────────── */
+function HeroCanvas() {
+  const canvasRef = useRef(null);
+  const animRef   = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const hero   = canvas.parentElement;
+    const ctx    = canvas.getContext("2d");
+    let W, H;
+
+    /* seeded rng — consistent tree shape */
+    let _s = 0x9e3779b9;
+    const rng = () => { _s ^= _s << 13; _s ^= _s >> 17; _s ^= _s << 5; return (_s >>> 0) / 4294967296; };
+
+    function resize() {
+      W = canvas.width  = hero.offsetWidth;
+      H = canvas.height = hero.offsetHeight;
+    }
+
+    /* bezier point helper */
+    const bzPt = (x1,y1,ax,ay,bx,by,x2,y2,t) => {
+      const m = 1 - t;
+      return {
+        x: m*m*m*x1 + 3*m*m*t*ax + 3*m*t*t*bx + t*t*t*x2,
+        y: m*m*m*y1 + 3*m*m*t*ay + 3*m*t*t*by + t*t*t*y2,
+      };
+    };
+
+    /* ── build one tree ── */
+    function buildTree(baseX, heightFrac, depth) {
+      const branches = [], tips = [];
+      function gen(x1, y1, a, l, d, gs) {
+        if (d < 0 || l < 4) return;
+        const x2 = x1 + Math.cos(a) * l;
+        const y2 = y1 + Math.sin(a) * l;
+        const bd = (rng() - 0.5) * 0.28;
+        const cpx1 = x1 + Math.cos(a + bd * 0.4) * l * 0.36 + (rng() - 0.5) * 9;
+        const cpy1 = y1 + Math.sin(a + bd * 0.4) * l * 0.36 + (rng() - 0.5) * 6;
+        const cpx2 = x1 + Math.cos(a + bd * 0.8) * l * 0.73 + (rng() - 0.5) * 7;
+        const cpy2 = y1 + Math.sin(a + bd * 0.8) * l * 0.73 + (rng() - 0.5) * 5;
+        const th   = Math.max(0.4, Math.pow(d / depth, 1.7) * 9);
+        const ge   = gs + 0.09 + rng() * 0.04;
+        branches.push({ x1, y1, x2, y2, cpx1, cpy1, cpx2, cpy2, th, d, gs, ge });
+
+        /* blossoms scattered all along every branch */
+        const count = d <= 1 ? 4 : d <= 2 ? 3 : d <= 3 ? 2 : 1;
+        for (let i = 0; i < count; i++) {
+          const m = bzPt(x1, y1, cpx1, cpy1, cpx2, cpy2, x2, y2, rng());
+          tips.push({ x: m.x + (rng() - 0.5) * 5, y: m.y + (rng() - 0.5) * 5, d });
+        }
+        if (d === 0) return;
+        const sp = 0.25 + rng() * 0.13;
+        const ln = (rng() - 0.5) * 0.09;
+        const cs = ge - 0.04 + rng() * 0.02;
+        gen(x2, y2, a - sp + ln, l * (0.65 + rng() * 0.07), d - 1, cs);
+        gen(x2, y2, a + sp + ln, l * (0.62 + rng() * 0.07), d - 1, cs + rng() * 0.02);
+        if (d > 1 && rng() < 0.5)
+          gen(x2, y2, a + ln * 0.4, l * (0.69 + rng() * 0.05), d - 1, cs + 0.01);
+      }
+      gen(baseX, H + 10, -Math.PI / 2, H * heightFrac, depth, 0);
+      const maxG = branches.length ? Math.max(...branches.map(b => b.ge)) : 1;
+      return { branches, tips, maxG };
+    }
+
+    /* ── draw branch ── */
+    function drawBranch(b, p) {
+      if (p <= 0) return;
+      const t = Math.min(1, p);
+      ctx.beginPath();
+      ctx.moveTo(b.x1, b.y1);
+      const steps = Math.max(6, t * 16 | 0);
+      for (let i = 1; i <= steps; i++) {
+        const pt = bzPt(b.x1, b.y1, b.cpx1, b.cpy1, b.cpx2, b.cpy2, b.x2, b.y2, (i / steps) * t);
+        ctx.lineTo(pt.x, pt.y);
+      }
+      const rv = (68 + b.d * 3) | 0;
+      const gv = (78 + b.d * 12) | 0;
+      const bv = (40 + b.d * 4) | 0;
+      const av = 0.28 + b.d * 0.07;
+      ctx.strokeStyle = `rgba(${rv},${gv},${bv},${av})`;
+      ctx.lineWidth   = b.th;
+      ctx.lineCap     = "round";
+      ctx.stroke();
+    }
+
+    /* ── draw blossom ── */
+    function drawBlossom(tx, ty, r, op, dry, al = 1) {
+      op  = Math.max(0, Math.min(1, op));
+      if (op < 0.02) return;
+      dry = Math.max(0, Math.min(1, dry || 0));
+      const R = Math.min(255, (215 + op * 28 - dry * 108) | 0);
+      const G = Math.min(255, (82  + op * 32 - dry * 42)  | 0);
+      const B = Math.min(255, (102 + op * 28 - dry * 74)  | 0);
+      const rr = r * 0.42 * op;
+      const ry = r * 0.68 * op;
+
+      if (op > 0.25 && dry < 0.55) {
+        const glow = ctx.createRadialGradient(tx, ty, 0, tx, ty, r * 2);
+        glow.addColorStop(0, `rgba(${R+30},${G+20},${B+20},${0.18 * op * al * (1 - dry)})`);
+        glow.addColorStop(1, "rgba(255,200,210,0)");
+        ctx.fillStyle = glow;
+        ctx.fillRect(tx - r * 2.2, ty - r * 2.2, r * 4.4, r * 4.4);
+      }
+
+      for (let i = 0; i < 5; i++) {
+        const a = (i / 5) * Math.PI * 2;
+        ctx.save();
+        ctx.translate(tx, ty);
+        ctx.rotate(a + (rng() - 0.5) * 0.22);
+        ctx.translate(0, -r * 0.26 * op);
+        ctx.scale(op, op);
+        const pg = ctx.createRadialGradient(0, -ry * 0.28, 0, 0, ry * 0.18, ry * 1.4);
+        pg.addColorStop(0, `rgba(${Math.min(255,R+45)},${Math.min(255,G+35)},${Math.min(255,B+40)},${0.96 * al})`);
+        pg.addColorStop(0.55, `rgba(${R},${G},${B},${0.82 * al})`);
+        pg.addColorStop(1, `rgba(${Math.max(0,R-35)},${Math.max(0,G-28)},${Math.max(0,B-25)},${0.42 * al})`);
+        ctx.beginPath();
+        ctx.moveTo(0, ry * 0.38);
+        ctx.bezierCurveTo(-rr * 1.12, -ry * 0.1, -rr * 0.88, -ry * 0.82, 0, -ry);
+        ctx.bezierCurveTo(rr * 0.88, -ry * 0.82, rr * 1.12, -ry * 0.1, 0, ry * 0.38);
+        ctx.fillStyle = pg;
+        ctx.fill();
+        ctx.restore();
+      }
+
+      if (op > 0.3 && dry < 0.92) {
+        const cg = ctx.createRadialGradient(tx, ty, 0, tx, ty, r * 0.28 * op);
+        cg.addColorStop(0, `rgba(${(255 - dry * 110) | 0},${(235 - dry * 130) | 0},${(155 - dry * 100) | 0},${0.96 * al})`);
+        cg.addColorStop(1, `rgba(${(218 - dry * 88) | 0},${(175 - dry * 98) | 0},${(92 - dry * 62) | 0},${0.5 * al})`);
+        ctx.beginPath();
+        ctx.arc(tx, ty, r * 0.28 * op, 0, Math.PI * 2);
+        ctx.fillStyle = cg;
+        ctx.fill();
+      }
+    }
+
+    /* ── falling petal ── */
+    class Petal {
+      constructor(x, y, scattered = false) {
+        this.reset(x, y, scattered);
+      }
+      reset(x, y, scattered = false) {
+        this.x   = x !== undefined ? x : rng() * W;
+        this.y   = scattered ? rng() * H : -10;
+        this.w   = 3 + rng() * 7;
+        this.h   = this.w * (0.32 + rng() * 0.35);
+        this.vx  = (rng() - 0.5) * 2.2;
+        this.vy  = -(rng() * 1.6 + 0.2);
+        this.rot = rng() * Math.PI * 2;
+        this.vr  = (rng() - 0.5) * 0.06;
+        this.sT  = rng() * 100; this.sS = 0.005 + rng() * 0.013; this.sA = 0.5 + rng() * 1.4;
+        this.fT  = rng() * 100; this.fS = 0.015 + rng() * 0.02;
+        this.g   = 0.009 + rng() * 0.012;
+        this.dr  = 0.993;
+        this.al  = 0.5 + rng() * 0.4;
+        this.isGreen = rng() < 0.3;
+        this.dead = false;
+      }
+      update() {
+        this.sT += this.sS; this.fT += this.fS;
+        this.vx += Math.sin(this.sT) * 0.028;
+        this.vy += this.g;
+        this.vx *= this.dr; this.vy *= this.dr;
+        this.x  += this.vx + Math.sin(this.sT) * this.sA;
+        this.y  += this.vy;
+        this.rot += this.vr;
+        if (this.y > H + 40) this.dead = true;
+      }
+      draw() {
+        const fl = Math.cos(this.fT);
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rot);
+        ctx.scale(fl, 1);
+        ctx.globalAlpha = this.al * (0.18 + Math.abs(fl) * 0.82);
+        const hw = this.w, hh = this.h;
+        ctx.beginPath();
+        ctx.moveTo(0, hh * 0.42);
+        ctx.bezierCurveTo(-hw * 1.15, -hh * 0.08, -hw * 0.88, -hh * 0.82, 0, -hh);
+        ctx.bezierCurveTo(hw * 0.88, -hh * 0.82, hw * 1.15, -hh * 0.08, 0, hh * 0.42);
+        ctx.fillStyle = this.isGreen ? "rgba(95,138,72,0.72)" : "rgba(208,125,150,0.88)";
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    /* ── state ── */
+    let trees = [], blossoms = [], petals = [];
+    let growT = 1, bloomT = 0, lastTs = null;
+
+    function initScene() {
+      _s = 0x9e3779b9; // reset seed
+      trees = []; blossoms = [];
+
+      /* two trees left side, two right side — rooted at canvas bottom */
+      trees.push(buildTree(W * 0.04, 0.62, 6));
+      trees.push(buildTree(W * 0.18, 0.50, 5));
+      trees.push(buildTree(W * 0.82, 0.50, 5));
+      trees.push(buildTree(W * 0.96, 0.62, 6));
+
+      /* blossoms from tips */
+      for (const tree of trees) {
+        for (const tp of tree.tips) {
+          const r = (tp.d <= 1 ? 8 : tp.d <= 2 ? 6 : 4) + rng() * 4;
+          blossoms.push({ x: tp.x, y: tp.y, r, dl: rng() * 0.22 });
+        }
+      }
+
+      /* petals — start scattered so it looks alive immediately */
+      petals = Array.from({ length: 65 }, () => new Petal(undefined, undefined, true));
+    }
+
+    function animate(ts) {
+      if (!lastTs) lastTs = ts;
+      const dt = Math.min(ts - lastTs, 32);
+      lastTs = ts;
+
+      if (growT  < 1) growT  = Math.min(1, growT  + dt / 2800);
+      if (bloomT < 1) bloomT = Math.min(1, bloomT + dt / 2500);
+
+      ctx.clearRect(0, 0, W, H);
+
+      /* branches */
+      for (const tree of trees) {
+        const gp = growT * (tree.maxG + 0.06);
+        for (const b of tree.branches) {
+          if (gp < b.gs) continue;
+          drawBranch(b, (gp - b.gs) / (b.ge - b.gs));
+        }
+      }
+
+      /* blossoms */
+      for (const bl of blossoms) {
+        const op = Math.max(0, (bloomT - bl.dl) / (1 - bl.dl + 0.01));
+        drawBlossom(bl.x, bl.y, bl.r, Math.min(1, op * 1.35), 0);
+      }
+
+      /* petals */
+      for (const p of petals) {
+        p.update();
+        p.draw();
+        if (p.dead) p.reset(rng() * W, -10, false);
+      }
+
+      /* centre vignette — keeps text readable */
+      const vg = ctx.createRadialGradient(W / 2, H * 0.45, H * 0.05, W / 2, H * 0.45, W * 0.72);
+      vg.addColorStop(0, "rgba(246,240,230,0)");
+      vg.addColorStop(1, "rgba(246,240,230,0.28)");
+      ctx.fillStyle = vg;
+      ctx.fillRect(0, 0, W, H);
+
+      animRef.current = requestAnimationFrame(animate);
+    }
+
+    function init() {
+      resize();
+      initScene();
+      animate(performance.now());
+    }
+
+    const handleResize = () => { resize(); initScene(); };
+    window.addEventListener("resize", handleResize);
+    const timer = setTimeout(init, 80);
+
+    return () => {
+      clearTimeout(timer);
+      cancelAnimationFrame(animRef.current);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} className="hero-canvas" />;
+}
+
+/* ─────────────────────────────────────
+   FAQ ITEM
+───────────────────────────────────── */
+function FAQItem({ question, answer }) {
+  const [open, setOpen] = useState(false);
   return (
-    <div>
+    <div className={`faq-item ${open ? "faq-open" : ""}`}>
+      <button className="faq-question" onClick={() => setOpen(!open)}>
+        <span>{question}</span>
+        <span className="faq-icon">{open ? "−" : "+"}</span>
+      </button>
+      <div className={`faq-answer-wrap ${open ? "open" : ""}`}>
+        <p className="faq-answer">{answer}</p>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────
+   SCROLL REVEAL HOOK
+───────────────────────────────────── */
+function useInView(threshold = 0.12) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setInView(true); },
+      { threshold }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return [ref, inView];
+}
+
+/* ─────────────────────────────────────
+   HOME PAGE
+───────────────────────────────────── */
+function Home() {
+  const [featRef, featIn]      = useInView();
+  const [shopRef, shopIn]      = useInView();
+  const [aboutRef, aboutIn]    = useInView();
+  const [consultRef, consultIn] = useInView();
+  const [faqRef, faqIn]        = useInView();
+  const [revRef, revIn]        = useInView();
+
+  return (
+    <div className="lf-root">
       <Navbar />
 
       <main className="home-page">
+
+        {/* ── HERO ── */}
         <section className="hero-section">
-          <h1 className="hero-title">Grow Beauty, One Bloom at a Time.</h1>
-
-          <p className="hero-subtitle">
-            Premium plants, flowers, and garden essentials delivered with love.
-          </p>
-
-          <div className="hero-buttons">
-            <button className="hero-btn shop-btn">Shop Now</button>
-            <button className="hero-btn plant-btn">Try Plant Finder</button>
-            <button className="hero-btn custom-btn">Customize Bouquet</button>
-            <Link to="/birth-month" className="hero-btn birth-btn">
-  Birth Month Flowers
-</Link>
+          <HeroCanvas />
+          <div className="hero-content">
+            <div className="hero-eyebrow">— Est. Dubai, UAE —</div>
+            <h1 className="hero-title">
+              <span className="hero-line">Grow Beauty,</span>
+              <span className="hero-line accent">One Bloom</span>
+              <span className="hero-line">at a Time.</span>
+            </h1>
+            <p className="hero-subtitle">
+              Premium plants, flowers &amp; garden essentials — delivered with intention.
+            </p>
+            <div className="hero-actions">
+              <Link to="/shop" className="btn-primary">Shop Now</Link>
+              <div className="hero-secondary-btns">
+                <Link to="/plant-finder" className="btn-ghost">Try Plant Finder</Link>
+                <Link to="/customize-bouquet" className="btn-ghost">Customize Bouquet</Link>
+                <Link to="/birth-month" className="btn-ghost">Birth Month Flowers</Link>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="feature-cards-section">
-          <div className="feature-card">
-            <h2>Exquisite Bouquets</h2>
-            <div className="feature-image"></div>
-            <p>
-              Browse our selection of expertly crafted bouquets for every
-              occasion.
-            </p>
-            <button className="feature-price-btn">AED 180.00</button>
+        {/* ── MARQUEE ── */}
+        <div className="marquee-strip" aria-hidden="true">
+          <div className="marquee-track">
+            {["Fresh Daily","Hand-Crafted","UAE-Wide Delivery","Custom Bouquets","Plant Finder","Same-Day Dubai"].map((t,i) => (
+              <span key={i} className="marquee-item">{t} <span className="marquee-dot">✦</span></span>
+            ))}
+            {["Fresh Daily","Hand-Crafted","UAE-Wide Delivery","Custom Bouquets","Plant Finder","Same-Day Dubai"].map((t,i) => (
+              <span key={`b${i}`} className="marquee-item">{t} <span className="marquee-dot">✦</span></span>
+            ))}
           </div>
+        </div>
 
-          <div className="feature-card">
-            <h2>Find Your Perfect Plant</h2>
-            <div className="feature-image"></div>
-            <p>
-              Answer a few questions and get personalized plant
-              recommendations.
-            </p>
-            <button className="feature-price-btn">AED 155.00</button>
+        {/* ── FEATURE CARDS ── */}
+        <section ref={featRef} className={`feature-section ${featIn ? "visible" : ""}`}>
+          <div className="section-header">
+            <p className="section-eyebrow">What We Offer</p>
+            <h2 className="section-title">Crafted for Every Moment</h2>
           </div>
-
-          <div className="feature-card">
-            <h2>Custom Arrangements</h2>
-            <div className="feature-image"></div>
-            <p>
-              Create a bespoke bouquet catered to your tastes and preferences.
-            </p>
-            <button className="feature-price-btn">AED 170.00</button>
+          <div className="feature-grid">
+            {[
+              { 
+                title: "Exquisite Bouquets", 
+                desc: "Expertly crafted bouquets for every occasion, sourced fresh daily.", 
+                price: "AED 180",
+                icon: "🌸",
+                link: "/shop",
+                image: ""
+              },
+              { 
+                title: "Find Your Perfect Plant", 
+                desc: "Answer a few questions and get personalized plant recommendations.", 
+                price: "AED 155",
+                icon: "🌿",
+                link: "/plant-finder",
+                image: ""
+              },
+              { 
+                title: "Custom Arrangements", 
+                desc: "Create a bespoke bouquet tailored to your exact tastes and preferences.", 
+                price: "AED 170",
+                icon: "✨",
+                link: "/customize-bouquet",
+                image: ""
+              },
+            ].map((card, i) => (
+              <div key={i} className="feature-card" style={{ "--delay": `${i * 0.12}s` }}>
+                <div className="feature-card-image">
+                  <img src={card.image} alt={card.title} className="feature-img" />
+                  <div className="feature-icon">{card.icon}</div>
+                </div>
+                <div className="feature-card-body">
+                  <h3 className="feature-card-title">{card.title}</h3>
+                  <p className="feature-card-desc">{card.desc}</p>
+                  <Link to={card.link} className="feature-card-btn">
+                    <span>{card.price}</span>
+                    <span className="btn-arrow">→</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
-        <section className="shop-section">
-          <h2 className="shop-title">Shop Our Collection</h2>
-
-          <p className="shop-subtitle">
-            Explore our range of beautiful blooms and unique plants
-          </p>
-
+        {/* ── SHOP ── */}
+        <section ref={shopRef} className={`shop-section ${shopIn ? "visible" : ""}`}>
+          <div className="shop-header">
+            <div>
+              <p className="section-eyebrow">Our Products</p>
+              <h2 className="section-title">Shop the Collection</h2>
+            </div>
+            <p className="shop-header-sub">Explore our range of beautiful blooms and unique plants</p>
+          </div>
           <div className="shop-grid">
-            <div className="product-card">
-              <div className="product-image"></div>
-              <h3>Rose Deluxe Bouquet</h3>
-              <button className="product-btn">AED 200.00</button>
-            </div>
-
-            <div className="product-card">
-              <div className="product-image"></div>
-              <h3>Lavender Plant</h3>
-              <button className="product-btn">AED 95.00</button>
-            </div>
-
-            <div className="product-card">
-              <div className="product-image"></div>
-              <h3>Scented Candle Set</h3>
-              <button className="product-btn">AED 60.00</button>
-            </div>
-
-            <div className="product-card">
-              <div className="product-image"></div>
-              <h3>Garden Tool Set</h3>
-              <button className="product-btn">AED 60.00</button>
-            </div>
+            {products.map((p, i) => (
+              <div key={i} className="product-card" style={{ "--delay": `${i * 0.1}s` }}>
+                {p.tag && <span className="product-tag">{p.tag}</span>}
+                <div className="product-image">
+                  {p.image ? (
+                    <img src={p.image} alt={p.name} className="product-img" />
+                  ) : (
+                    <div className="product-img-placeholder">🌸</div>
+                  )}
+                </div>
+                <div className="product-info">
+                  <h3 className="product-name">{p.name}</h3>
+                  <button className="product-btn">
+                    {p.price} <span className="btn-arrow">→</span>
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
+
+        {/* ── ABOUT ── */}
+        <section ref={aboutRef} className={`about-section ${aboutIn ? "visible" : ""}`}>
+          <div className="about-image-col">
+            <div className="about-img-main">
+              <div style={{ color: "#D8896F", fontSize: "120px", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", height: "400px" }}>🌿</div>
+            </div>
+          </div>
+          <div className="about-text-col">
+            <p className="section-eyebrow">Our Story</p>
+            <h2 className="about-title">Rooted in Passion,<br />Blooming with Purpose</h2>
+            <p className="about-body">LaFiore was born from a deep love for nature and a belief that beauty should be accessible to everyone. Founded in Dubai, we source the freshest blooms and most resilient plants to bring a little garden into your everyday life.</p>
+            <p className="about-body">Every arrangement is crafted by hand, with care and intention. We don't just sell flowers — we create moments.</p>
+          </div>
+        </section>
+
+        {/* ── CONSULTATION ── */}
+        <section ref={consultRef} className={`consultation-section ${consultIn ? "visible" : ""}`}>
+          <div className="consult-bg" />
+          <div className="consult-content">
+            <p className="consult-eyebrow">Need Help Choosing?</p>
+            <h2 className="consult-title">Let's Create Something<br />Beautiful Together</h2>
+            <p className="consult-body">Not sure where to start? Our floral experts are here to guide you — from a single stem to a full event arrangement.</p>
+            <Link to="/services#consultation" className="btn-primary light">Book a Free Consultation</Link>
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section ref={faqRef} className={`faq-section ${faqIn ? "visible" : ""}`}>
+          <div className="faq-header">
+            <p className="section-eyebrow">Got Questions?</p>
+            <h2 className="section-title">Frequently Asked</h2>
+          </div>
+          <div className="faq-list">
+            {faqs.map((faq, i) => (
+              <FAQItem key={i} question={faq.question} answer={faq.answer} />
+            ))}
+          </div>
+        </section>
+
+        {/* ── REVIEWS ── */}
+        <section ref={revRef} className={`reviews-section ${revIn ? "visible" : ""}`}>
+          <div className="section-header centered">
+            <p className="section-eyebrow">Testimonials</p>
+            <h2 className="section-title">What Our Customers Say</h2>
+          </div>
+          <div className="reviews-grid">
+            {reviews.map((r, i) => (
+              <div key={i} className="review-card">
+                <div className="review-image">
+                  {r.image ? (
+                    <img src={r.image} alt={r.name} className="reviewer-img" />
+                  ) : (
+                    <div style={{ width: "60px", height: "60px", borderRadius: "50%", background: "var(--pink)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px" }}>👤</div>
+                  )}
+                </div>
+                <div className="review-stars">{"★".repeat(r.stars)}</div>
+                <p className="review-text">"{r.text}"</p>
+                <div className="review-author">
+                  <span className="review-name">{r.name}</span>
+                  <span className="review-location">{r.location}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── FOOTER SEPARATOR ── */}
+        <div className="footer-separator"></div>
+
+        <Footer />
+
       </main>
     </div>
   );

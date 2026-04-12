@@ -1,0 +1,15 @@
+.bouquet-visualiser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.bouquet-canvas {
+  border-radius: 12px;
+  border: 1px solid var(--green-pale);
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 100%;
+  height: auto;
+}
