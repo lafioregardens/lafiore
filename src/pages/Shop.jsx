@@ -1,10 +1,12 @@
 import Navbar from "../components/Navbar";
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 import categories from "../data/categories";
 import products from "../data/products";
 
 function Shop() {
+  const { t } = useLanguage();
   const [selectedMainCategory, setSelectedMainCategory] = useState("All");
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -152,15 +154,15 @@ function Shop() {
       <main className="shop-page">
         <section className="shop-banner">
           <div className="shop-banner-inner">
-            <h1>Shop Our Collection</h1>
-            <p>Beautiful Plants, Flowers & Gifts for Every Occasion</p>
+            <h1>{t("shopCollection")}</h1>
+            <p>{t("beautifulPlantsFlowers")}</p>
           </div>
         </section>
 
         <section className="shop-layout">
           <aside className="shop-sidebar">
             <div className="shop-sidebar-box">
-              <h3>Categories</h3>
+              <h3>{t("categories")}</h3>
 
               <div className="shop-sidebar-list">
                 {categories.map((category) => (
@@ -201,7 +203,7 @@ function Shop() {
             </div>
 
             <div className="shop-sidebar-box">
-              <h3>Price</h3>
+              <h3>{t("price")}</h3>
 
               <div className="shop-price-filter">
                 <input
@@ -221,18 +223,18 @@ function Shop() {
             </div>
 
             <div className="shop-sidebar-box">
-              <h3>Sort</h3>
+              <h3>{t("sort")}</h3>
 
               <select
                 className="shop-sidebar-select"
                 value={sortBy}
                 onChange={handleSortChange}
               >
-                <option value="default">Default</option>
-                <option value="name-asc">Name: A to Z</option>
-                <option value="name-desc">Name: Z to A</option>
-                <option value="price-low-high">Price: Low to High</option>
-                <option value="price-high-low">Price: High to Low</option>
+                <option value="default">{t("sortDefault")}</option>
+                <option value="name-asc">{t("sortNameAsc")}</option>
+                <option value="name-desc">{t("sortNameDesc")}</option>
+                <option value="price-low-high">{t("sortPriceLow")}</option>
+                <option value="price-high-low">{t("sortPriceHigh")}</option>
               </select>
             </div>
           </aside>
@@ -242,13 +244,13 @@ function Shop() {
               <input
                 type="text"
                 className="shop-search-input"
-                placeholder="Search products..."
+                placeholder={t("searchProducts")}
                 value={searchTerm}
                 onChange={handleSearchChange}
               />
 
               <p className="shop-results-count">
-                {filteredProducts.length} products found
+                {filteredProducts.length} {t("productsFound")}
               </p>
             </div>
 
@@ -309,7 +311,7 @@ function Shop() {
                       disabled={currentPage === 1}
                       onClick={() => setCurrentPage((prev) => prev - 1)}
                     >
-                      Previous
+                      {t("previous")}
                     </button>
 
                     <div className="pagination-numbers">
@@ -350,15 +352,15 @@ function Shop() {
                       disabled={currentPage === totalPages}
                       onClick={() => setCurrentPage((prev) => prev + 1)}
                     >
-                      Next
+                      {t("next")}
                     </button>
                   </div>
                 )}
               </>
             ) : (
               <div className="shop-empty-box">
-                <h2>No products found</h2>
-                <p>Try changing your category, search, or price filter.</p>
+                <h2>{t("noProductsFound")}</h2>
+                <p>{t("tryChangingFilter")}</p>
               </div>
             )}
           </div>

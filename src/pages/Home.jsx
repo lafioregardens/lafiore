@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState, useEffect, useRef } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 /* ─────────────────────────────────────
    DATA
@@ -349,6 +350,7 @@ function useInView(threshold = 0.12) {
    HOME PAGE
 ───────────────────────────────────── */
 function Home() {
+  const { t } = useLanguage();
   const [featRef, featIn]      = useInView();
   const [shopRef, shopIn]      = useInView();
   const [aboutRef, aboutIn]    = useInView();
@@ -366,21 +368,21 @@ function Home() {
         <section className="hero-section">
           <HeroCanvas />
           <div className="hero-content">
-            <div className="hero-eyebrow">— Est. Dubai, UAE —</div>
+            <div className="hero-eyebrow">— {t("estDubaiUAE")} —</div>
             <h1 className="hero-title">
-              <span className="hero-line">Grow Beauty,</span>
-              <span className="hero-line accent">One Bloom</span>
-              <span className="hero-line">at a Time.</span>
+              <span className="hero-line">{t("growBeauty")}</span>
+              <span className="hero-line accent">{t("oneBloom")}</span>
+              <span className="hero-line">{t("atATime")}</span>
             </h1>
             <p className="hero-subtitle">
-              Premium plants, flowers &amp; garden essentials — delivered with intention.
+              {t("premiumPlants")}
             </p>
             <div className="hero-actions">
-              <Link to="/shop" className="btn-primary">Shop Now</Link>
+              <Link to="/shop" className="btn-primary">{t("shopNow")}</Link>
               <div className="hero-secondary-btns">
-                <Link to="/plantfinder" className="btn-ghost">Try Plant Finder</Link>
-                <Link to="/customize" className="btn-ghost">Customize Bouquet</Link>
-                <Link to="/birth-month" className="btn-ghost">Birth Month Flowers</Link>
+                <Link to="/plantfinder" className="btn-ghost">{t("tryPlantFinder")}</Link>
+                <Link to="/customize" className="btn-ghost">{t("customizeBouquets")}</Link>
+                <Link to="/birth-month" className="btn-ghost">{t("birthMonthFlowers")}</Link>
               </div>
             </div>
           </div>
@@ -389,11 +391,11 @@ function Home() {
         {/* ── MARQUEE ── */}
         <div className="marquee-strip" aria-hidden="true">
           <div className="marquee-track">
-            {["Fresh Daily","Hand-Crafted","UAE-Wide Delivery","Custom Bouquets","Plant Finder","Same-Day Dubai"].map((t,i) => (
-              <span key={i} className="marquee-item">{t} <span className="marquee-dot">✦</span></span>
+            {[t("freshDaily"),t("handCrafted"),t("uaeWideDelivery"),t("customBouquets"),t("plantFinder"),t("sameDayDubai")].map((item,i) => (
+              <span key={i} className="marquee-item">{item} <span className="marquee-dot">✦</span></span>
             ))}
-            {["Fresh Daily","Hand-Crafted","UAE-Wide Delivery","Custom Bouquets","Plant Finder","Same-Day Dubai"].map((t,i) => (
-              <span key={`b${i}`} className="marquee-item">{t} <span className="marquee-dot">✦</span></span>
+            {[t("freshDaily"),t("handCrafted"),t("uaeWideDelivery"),t("customBouquets"),t("plantFinder"),t("sameDayDubai")].map((item,i) => (
+              <span key={`b${i}`} className="marquee-item">{item} <span className="marquee-dot">✦</span></span>
             ))}
           </div>
         </div>
@@ -401,30 +403,30 @@ function Home() {
         {/* ── FEATURE CARDS ── */}
         <section ref={featRef} className={`feature-section ${featIn ? "visible" : ""}`}>
           <div className="section-header">
-            <p className="section-eyebrow">What We Offer</p>
-            <h2 className="section-title">Crafted for Every Moment</h2>
+            <p className="section-eyebrow">{t("whatWeOffer")}</p>
+            <h2 className="section-title">{t("craftedEveryMoment")}</h2>
           </div>
           <div className="feature-grid">
             {[
-              { 
-                title: "Exquisite Bouquets", 
-                desc: "Expertly crafted bouquets for every occasion, sourced fresh daily.", 
+              {
+                title: t("exquisiteBouquets"),
+                desc: t("expertlyCraftedBouquets"),
                 price: "AED 180",
                 icon: "🌸",
                 link: "/shop",
                 image: ""
               },
-              { 
-                title: "Find Your Perfect Plant", 
-                desc: "Answer a few questions and get personalized plant recommendations.", 
+              {
+                title: t("findPerfectPlant"),
+                desc: t("answerQuestions"),
                 price: "AED 155",
                 icon: "🌿",
                 link: "/plantfinder",
                 image: ""
               },
-              { 
-                title: "Custom Arrangements", 
-                desc: "Create a bespoke bouquet tailored to your exact tastes and preferences.", 
+              {
+                title: t("customArrangements"),
+                desc: t("createBespokeBouquet"),
                 price: "AED 170",
                 icon: "✨",
                 link: "/customize",
@@ -453,10 +455,10 @@ function Home() {
         <section ref={shopRef} className={`shop-section ${shopIn ? "visible" : ""}`}>
           <div className="shop-header">
             <div>
-              <p className="section-eyebrow">Our Products</p>
-              <h2 className="section-title">Shop the Collection</h2>
+              <p className="section-eyebrow">{t("ourProducts")}</p>
+              <h2 className="section-title">{t("shopCollection")}</h2>
             </div>
-            <p className="shop-header-sub">Explore our range of beautiful blooms and unique plants</p>
+            <p className="shop-header-sub">{t("exploreRange")}</p>
           </div>
           <div className="shop-grid">
             {products.map((p, i) => (
@@ -488,10 +490,10 @@ function Home() {
             </div>
           </div>
           <div className="about-text-col">
-            <p className="section-eyebrow">Our Story</p>
-            <h2 className="about-title">Rooted in Passion,<br />Blooming with Purpose</h2>
-            <p className="about-body">LaFiore was born from a deep love for nature and a belief that beauty should be accessible to everyone. Founded in Dubai, we source the freshest blooms and most resilient plants to bring a little garden into your everyday life.</p>
-            <p className="about-body">Every arrangement is crafted by hand, with care and intention. We don't just sell flowers — we create moments.</p>
+            <p className="section-eyebrow">{t("ourStory")}</p>
+            <h2 className="about-title">{t("rootedPassion")}</h2>
+            <p className="about-body">{t("laFioreStory1")}</p>
+            <p className="about-body">{t("laFioreStory2")}</p>
           </div>
         </section>
 
@@ -499,18 +501,18 @@ function Home() {
         <section ref={consultRef} className={`consultation-section ${consultIn ? "visible" : ""}`}>
           <div className="consult-bg" />
           <div className="consult-content">
-            <p className="consult-eyebrow">Need Help Choosing?</p>
-            <h2 className="consult-title">Let's Create Something<br />Beautiful Together</h2>
-            <p className="consult-body">Not sure where to start? Our floral experts are here to guide you — from a single stem to a full event arrangement.</p>
-            <Link to="/services#consultation" className="btn-primary light">Book a Free Consultation</Link>
+            <p className="consult-eyebrow">{t("needHelpChoosing")}</p>
+            <h2 className="consult-title">{t("createSomethingBeautiful")}</h2>
+            <p className="consult-body">{t("floralExpertsGuide")}</p>
+            <Link to="/services#consultation" className="btn-primary light">{t("bookFreeConsultation")}</Link>
           </div>
         </section>
 
         {/* ── FAQ ── */}
         <section ref={faqRef} className={`faq-section ${faqIn ? "visible" : ""}`}>
           <div className="faq-header">
-            <p className="section-eyebrow">Got Questions?</p>
-            <h2 className="section-title">Frequently Asked</h2>
+            <p className="section-eyebrow">{t("gotQuestions")}</p>
+            <h2 className="section-title">{t("frequentlyAsked")}</h2>
           </div>
           <div className="faq-list">
             {faqs.map((faq, i) => (
@@ -522,8 +524,8 @@ function Home() {
         {/* ── REVIEWS ── */}
         <section ref={revRef} className={`reviews-section ${revIn ? "visible" : ""}`}>
           <div className="section-header centered">
-            <p className="section-eyebrow">Testimonials</p>
-            <h2 className="section-title">What Our Customers Say</h2>
+            <p className="section-eyebrow">{t("testimonials")}</p>
+            <h2 className="section-title">{t("whatCustomersSay")}</h2>
           </div>
           <div className="reviews-grid">
             {reviews.map((r, i) => (

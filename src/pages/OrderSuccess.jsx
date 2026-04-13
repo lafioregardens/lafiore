@@ -2,11 +2,13 @@ import { useSearchParams, Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { CartContext } from "../context/CartContext";
+import { useLanguage } from "../context/LanguageContext";
 import "./Checkout.css";
 
 function OrderSuccess() {
   const [searchParams] = useSearchParams();
   const { cartItems, clearCart } = useContext(CartContext);
+  const { t } = useLanguage();
   const [orderItems, setOrderItems] = useState([]);
   const [orderTotal, setOrderTotal] = useState(0);
   const orderId = searchParams.get("id") || "LAF" + Date.now();
@@ -66,30 +68,30 @@ function OrderSuccess() {
 
           {/* Success Content */}
           <div className="success-content">
-            <h1>Order Placed Successfully!</h1>
+            <h1>{t("orderSuccessful")}</h1>
             <p className="success-subtitle">
-              Thank you for your order. We're preparing your flowers with love.
+              {t("thankYouMessage")}
             </p>
 
             {/* Order Details */}
             <div className="order-details-box">
               <div className="order-detail-row">
-                <span className="detail-label">Order ID:</span>
+                <span className="detail-label">{t("orderId")}:</span>
                 <span className="detail-value">{orderId}</span>
               </div>
               <div className="order-detail-row">
-                <span className="detail-label">Total Amount:</span>
+                <span className="detail-label">{t("totalAmount")}:</span>
                 <span className="detail-value">AED {orderTotal.toFixed(2)}</span>
               </div>
               <div className="order-detail-row">
-                <span className="detail-label">Items:</span>
-                <span className="detail-value">{orderItems.length} item{orderItems.length !== 1 ? "s" : ""}</span>
+                <span className="detail-label">{t("items")}:</span>
+                <span className="detail-value">{orderItems.length} {t(orderItems.length !== 1 ? "items" : "item")}</span>
               </div>
             </div>
 
             {/* Order Summary */}
             <div className="success-summary">
-              <h3>Order Summary</h3>
+              <h3>{t("orderSummary")}</h3>
               <div className="summary-items-list">
                 {orderItems.map((item) => (
                   <div key={item.id} className="summary-item-row">

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logoImage from "../assets/images/Logo1.png";
 import { useContext, useState, useRef, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
@@ -6,19 +6,34 @@ import { AuthContext } from "../context/AuthContext";
 import { useLanguage } from "../context/LanguageContext";
 import SearchBar from "./SearchBar";
 function Navbar() {
+  const navigate = useNavigate();
   const { cartItems } = useContext(CartContext);
-  const { user, isAdmin } = useContext(AuthContext);
+  const { user, isAdmin, logout } = useContext(AuthContext);
   const { language, changeLanguage, languages, t } = useLanguage();
   const [langOpen, setLangOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const langRef = useRef(null);
+  const userMenuRef = useRef(null);
   const cartCount = cartItems.length;
   const accountLink = user ? (isAdmin ? "/admin/dashboard" : "/account") : "/login";
 
   const currentLang = languages.find((l) => l.code === language);
 
+  // Handle logout
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setUserMenuOpen(false);
+      navigate("/");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
   useEffect(() => {
     const handleClick = (e) => {
       if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target)) setUserMenuOpen(false);
     };
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
@@ -32,7 +47,7 @@ function Navbar() {
       </div>
       <div className="nav-row">
         <div className="nav-menu">
-          <Link to="/">Home</Link>
+          <Link to="/">{t("home")}</Link>
           <Link to="/shop">{t("shop")}</Link>
           <Link to="/plantfinder">{t("plantFinder")}</Link>
           <Link to="/customize">{t("customizeBouquets")}</Link>
@@ -43,12 +58,49 @@ function Navbar() {
           <div className="nav-search-wrapper">
             <SearchBar />
           </div>
-          <Link to={accountLink} className="icon-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-          </Link>
+          {user ? (
+            <div className="user-menu" ref={userMenuRef}>
+              <button
+                className="icon-link user-menu-toggle"
+                onClick={() => setUserMenuOpen(!userMenuOpen)}
+                title={user.displayName || user.email}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </button>
+              {userMenuOpen && (
+                <div className="user-dropdown">
+                  <div className="user-dropdown-header">
+                    <p className="user-name">{user.displayName || user.email}</p>
+                  </div>
+                  <Link to={accountLink} className="user-dropdown-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>{isAdmin ? t("adminDashboard") : t("myAccount")}</span>
+                  </Link>
+                  <button onClick={handleLogout} className="user-dropdown-item logout-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                      <polyline points="16 17 21 12 16 7"></polyline>
+                      <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>{t("logout")}</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link to="/login" className="icon-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </Link>
+          )}
           <Link to="/cart" className="icon-link cart-icon-wrapper">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="9" cy="21" r="1"></circle>

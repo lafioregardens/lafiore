@@ -1,0 +1,417 @@
+/* ══════════════════════════════════════════
+   COVER PAGE / SPLASH SCREEN
+   LA FIORE — Premium Botanical Design
+   ══════════════════════════════════════════ */
+
+.cover-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #f3e5d8 0%, #f9ede4 50%, #f5e8dc 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.cover-page.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Background Accent Elements ── */
+.cover-bg-accent {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatAccent 8s ease-in-out infinite;
+}
+
+.cover-bg-accent-1 {
+  top: 5%;
+  right: 8%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(201, 124, 124, 0.15) 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+.cover-bg-accent-2 {
+  bottom: 10%;
+  left: 5%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(201, 124, 124, 0.12) 0%, transparent 70%);
+  animation-delay: 2s;
+}
+
+@keyframes floatAccent {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(15px, -20px) scale(1.1);
+  }
+}
+
+/* ── Main Content ── */
+.cover-content {
+  text-align: center;
+  animation: fadeInContent 1s ease-out;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ── Decorative Lines ── */
+.cover-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(179, 84, 84, 0.4), transparent);
+  animation: expandLine 0.8s ease-out;
+}
+
+.cover-line-top {
+  animation-delay: 0.3s;
+}
+
+.cover-line-bottom {
+  animation-delay: 0.5s;
+}
+
+@keyframes expandLine {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 60px;
+    opacity: 1;
+  }
+}
+
+/* ── Icon Container ── */
+.cover-icon-wrapper {
+  margin: 20px 0;
+}
+
+.cover-icon {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
+  border-radius: 50%;
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 8px 32px rgba(201, 124, 124, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.05);
+  animation: floatIcon 4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transform-origin: center;
+}
+
+.cover-logo {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
+  display: block;
+  animation: rotateSlowly 8s linear infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotateSlowly {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Title ── */
+.cover-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 4.5rem;
+  font-weight: 300;
+  color: #6d4745;
+  margin: 0;
+  letter-spacing: 4px;
+  animation: slideInTitle 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  line-height: 1.1;
+}
+
+@keyframes slideInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Separator ── */
+.cover-separator {
+  width: 40px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(201, 124, 124, 0.5), transparent);
+  margin: 8px 0;
+  animation: scaleIn 0.8s ease-out 0.4s both;
+}
+
+@keyframes scaleIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 40px;
+    opacity: 1;
+  }
+}
+
+/* ── Tagline ── */
+.cover-tagline {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.05rem;
+  color: rgba(109, 71, 69, 0.75);
+  margin: 0;
+  letter-spacing: 0.5px;
+  max-width: 400px;
+  line-height: 1.8;
+  font-weight: 300;
+  animation: fadeInText 0.8s ease-out 0.4s both;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Decorative Dots ── */
+.cover-dots {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 12px;
+  animation: fadeInDots 0.8s ease-out 0.6s both;
+}
+
+.cover-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(201, 124, 124, 0.5);
+  animation: dotPulse 2s ease-in-out infinite;
+  box-shadow: 0 3px 8px rgba(201, 124, 124, 0.2);
+  transition: all 0.3s ease;
+}
+
+.cover-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.cover-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.cover-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInDots {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ══════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .cover-title {
+    font-size: 4rem;
+    letter-spacing: 3px;
+  }
+
+  .cover-icon {
+    width: 160px;
+    height: 160px;
+  }
+
+  .cover-logo {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cover-content {
+    gap: 20px;
+  }
+
+  .cover-title {
+    font-size: 3.2rem;
+    letter-spacing: 2.5px;
+  }
+
+  .cover-tagline {
+    font-size: 0.95rem;
+    max-width: 320px;
+  }
+
+  .cover-icon {
+    width: 140px;
+    height: 140px;
+  }
+
+  .cover-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cover-bg-accent-1 {
+    width: 250px;
+    height: 250px;
+    top: 8%;
+    right: 5%;
+  }
+
+  .cover-bg-accent-2 {
+    width: 200px;
+    height: 200px;
+    bottom: 8%;
+    left: 3%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cover-content {
+    gap: 16px;
+    padding: 0 20px;
+  }
+
+  .cover-title {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+
+  .cover-tagline {
+    font-size: 0.85rem;
+    max-width: 280px;
+    line-height: 1.6;
+  }
+
+  .cover-icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  .cover-logo {
+    width: 85px;
+    height: 85px;
+  }
+
+  .cover-dots span {
+    width: 6px;
+    height: 6px;
+  }
+
+  .cover-line {
+    width: 50px;
+  }
+
+  .cover-bg-accent-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    right: 0;
+    opacity: 0.4;
+  }
+
+  .cover-bg-accent-2 {
+    width: 180px;
+    height: 180px;
+    bottom: 5%;
+    left: -20px;
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 360px) {
+  .cover-title {
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+  }
+
+  .cover-tagline {
+    font-size: 0.75rem;
+  }
+
+  .cover-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cover-logo {
+    width: 70px;
+    height: 70px;
+  }
+}

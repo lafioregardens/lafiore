@@ -5,9 +5,9 @@ const LanguageContext = createContext();
 
 const languages = [
   { code: "en", label: "English", flag: "🇬🇧" },
-  { code: "ar", label: "عربي", flag: "🇦🇪" },
-  { code: "hi", label: "हिन्दी", flag: "🇮🇳" },
-  { code: "fr", label: "Français", flag: "🇫🇷" },
+  { code: "ar", label: "العربية", flag: "🇦🇪" },
+  { code: "es", label: "Español", flag: "🇪🇸" },
+  { code: "zh", label: "中文", flag: "🇨🇳" },
 ];
 
 export function LanguageProvider({ children }) {

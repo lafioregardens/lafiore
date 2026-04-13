@@ -40,6 +40,22 @@ const categories = [
   { name: "Hair Care" },
   { name: "Candles" },
   { name: "Apothecary" },
+  {
+    name: "Bouquets",
+    subcategories: ["All", "Fresh Bouquets", "Premium", "Romantic"],
+  },
+  {
+    name: "Pots",
+    subcategories: ["All", "Planters", "Terracotta", "Modern", "Smart"],
+  },
+  {
+    name: "Garden Sets",
+    subcategories: ["All", "Tool Kits", "Beginner", "Professional", "Luxury"],
+  },
+  {
+    name: "Candle Sets",
+    subcategories: ["All", "Candle Collections", "Wellness", "Premium"],
+  },
 ];
 
 export default categories;

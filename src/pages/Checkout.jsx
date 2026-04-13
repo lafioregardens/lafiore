@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
+import { useLanguage } from "../context/LanguageContext";
 import api from "../utils/api";
 import "./Checkout.css";
 
@@ -10,6 +11,7 @@ function Checkout() {
   const navigate = useNavigate();
   const { cartItems, clearCart } = useContext(CartContext);
   const { user } = useContext(AuthContext);
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -56,12 +58,12 @@ function Checkout() {
       !formData.area.trim() ||
       !formData.deliveryDate
     ) {
-      setError("Please fill in all required fields.");
+      setError(t("fillRequired"));
       return;
     }
 
     if (cartItems.length === 0) {
-      setError("Your cart is empty.");
+      setError(t("cartEmpty"));
       return;
     }
 
@@ -119,10 +121,10 @@ function Checkout() {
         <Navbar />
         <main className="checkout-page">
           <section className="checkout-empty">
-            <h1>Your cart is empty</h1>
-            <p>Add items to your cart before proceeding to checkout.</p>
+            <h1>{t("yourCartEmpty")}</h1>
+            <p>{t("addItemsCheckout")}</p>
             <a href="/shop" className="return-btn">
-              Back to Shop
+              {t("backHome")}
             </a>
           </section>
         </main>
@@ -138,16 +140,16 @@ function Checkout() {
         <div className="checkout-container">
           {/* Left: Form */}
           <div className="checkout-form-section">
-            <h1 className="checkout-title">Checkout</h1>
+            <h1 className="checkout-title">{t("checkout")}</h1>
 
             {error && <div className="error-message">{error}</div>}
 
             <form onSubmit={handleSubmit} className="checkout-form">
               {/* Contact Info */}
               <div className="form-section">
-                <h2>Contact Information</h2>
+                <h2>{t("contactInfo")}</h2>
                 <div className="form-group">
-                  <label>Full Name *</label>
+                  <label>{t("fullName")} *</label>
                   <input
                     type="text"
                     name="name"
@@ -159,7 +161,7 @@ function Checkout() {
                 </div>
                 <div className="form-row">
                   <div className="form-group">
-                    <label>Email *</label>
+                    <label>{t("email")} *</label>
                     <input
                       type="email"
                       name="email"
@@ -170,7 +172,7 @@ function Checkout() {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Phone *</label>
+                    <label>{t("phone")} *</label>
                     <input
                       type="tel"
                       name="phone"
@@ -185,9 +187,9 @@ function Checkout() {
 
               {/* Delivery Address */}
               <div className="form-section">
-                <h2>Delivery Address</h2>
+                <h2>{t("deliveryAddress")}</h2>
                 <div className="form-group">
-                  <label>Street Address *</label>
+                  <label>{t("street")} *</label>
                   <input
                     type="text"
                     name="street"
@@ -199,7 +201,7 @@ function Checkout() {
                 </div>
                 <div className="form-row">
                   <div className="form-group">
-                    <label>Area / District *</label>
+                    <label>{t("area")} *</label>
                     <input
                       type="text"
                       name="area"
@@ -210,7 +212,7 @@ function Checkout() {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Emirate *</label>
+                    <label>{t("emirate")} *</label>
                     <select
                       name="emirate"
                       value={formData.emirate}
@@ -230,9 +232,9 @@ function Checkout() {
 
               {/* Delivery Preference */}
               <div className="form-section">
-                <h2>Delivery Preference</h2>
+                <h2>{t("deliveryPreference")}</h2>
                 <div className="form-group">
-                  <label>Preferred Delivery Date *</label>
+                  <label>{t("deliveryDate")} *</label>
                   <input
                     type="date"
                     name="deliveryDate"
@@ -242,7 +244,7 @@ function Checkout() {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Delivery Time Slot</label>
+                  <label>{t("deliveryTime")}</label>
                   <div className="radio-group">
                     <label className="radio-label">
                       <input
@@ -252,7 +254,7 @@ function Checkout() {
                         checked={formData.deliveryTime === "morning"}
                         onChange={handleInputChange}
                       />
-                      Morning (8 AM - 12 PM)
+                      {t("morning")} (8 AM - 12 PM)
                     </label>
                     <label className="radio-label">
                       <input
@@ -262,7 +264,7 @@ function Checkout() {
                         checked={formData.deliveryTime === "afternoon"}
                         onChange={handleInputChange}
                       />
-                      Afternoon (12 PM - 4 PM)
+                      {t("afternoon")} (12 PM - 4 PM)
                     </label>
                     <label className="radio-label">
                       <input
@@ -272,7 +274,7 @@ function Checkout() {
                         checked={formData.deliveryTime === "evening"}
                         onChange={handleInputChange}
                       />
-                      Evening (4 PM - 8 PM)
+                      {t("evening")} (4 PM - 8 PM)
                     </label>
                   </div>
                 </div>
@@ -280,7 +282,7 @@ function Checkout() {
 
               {/* Order Notes */}
               <div className="form-section">
-                <h2>Order Notes (Optional)</h2>
+                <h2>{t("orderNotes")}</h2>
                 <div className="form-group">
                   <textarea
                     name="notes"
@@ -294,7 +296,7 @@ function Checkout() {
 
               {/* Payment Method */}
               <div className="form-section">
-                <h2>Payment Method</h2>
+                <h2>{t("paymentMethod")}</h2>
                 <div className="radio-group">
                   <label className="radio-label payment-option">
                     <input
@@ -305,8 +307,8 @@ function Checkout() {
                       onChange={handleInputChange}
                     />
                     <span className="radio-content">
-                      <span className="radio-title">Cash on Delivery</span>
-                      <span className="radio-desc">Pay when your order arrives</span>
+                      <span className="radio-title">{t("cashOnDelivery")}</span>
+                      <span className="radio-desc">{t("payOnDelivery")}</span>
                     </span>
                   </label>
                   <label className="radio-label payment-option">
@@ -318,8 +320,8 @@ function Checkout() {
                       onChange={handleInputChange}
                     />
                     <span className="radio-content">
-                      <span className="radio-title">Credit/Debit Card</span>
-                      <span className="radio-desc">Secure online payment</span>
+                      <span className="radio-title">{t("creditDebitCard")}</span>
+                      <span className="radio-desc">{t("secureOnlinePayment")}</span>
                     </span>
                   </label>
                 </div>
@@ -343,7 +345,7 @@ function Checkout() {
                     </div>
 
                     <div className="form-group">
-                      <label>Cardholder Name *</label>
+                      <label>{t("cardholderName")} *</label>
                       <input
                         type="text"
                         name="cardHolder"
@@ -355,7 +357,7 @@ function Checkout() {
                     </div>
 
                     <div className="form-group">
-                      <label>Card Number *</label>
+                      <label>{t("cardNumber")} *</label>
                       <input
                         type="text"
                         name="cardNumber"
@@ -375,7 +377,7 @@ function Checkout() {
 
                     <div className="form-row">
                       <div className="form-group">
-                        <label>Expiry Date *</label>
+                        <label>{t("expiryDate")} *</label>
                         <input
                           type="text"
                           name="expiryDate"
@@ -396,7 +398,7 @@ function Checkout() {
                         />
                       </div>
                       <div className="form-group">
-                        <label>CVV *</label>
+                        <label>{t("cvv")} *</label>
                         <input
                           type="text"
                           name="cvv"
@@ -436,7 +438,7 @@ function Checkout() {
           {/* Right: Order Summary */}
           <aside className="checkout-summary-section">
             <div className="checkout-summary">
-              <h2>Order Summary</h2>
+              <h2>{t("orderSummary")}</h2>
 
               {/* Items */}
               <div className="summary-items">
@@ -460,11 +462,11 @@ function Checkout() {
               {/* Totals */}
               <div className="summary-totals">
                 <div className="summary-row">
-                  <span>Subtotal</span>
+                  <span>{t("subtotal")}</span>
                   <span>AED {totalPrice.toFixed(2)}</span>
                 </div>
                 <div className="summary-row">
-                  <span>Delivery</span>
+                  <span>{t("freeDelivery")}</span>
                   <span className="free-text">Free</span>
                 </div>
               </div>
@@ -472,7 +474,7 @@ function Checkout() {
               <div className="summary-divider"></div>
 
               <div className="summary-total">
-                <span>Grand Total</span>
+                <span>{t("grandTotal")}</span>
                 <span>AED {totalPrice.toFixed(2)}</span>
               </div>
 
@@ -480,15 +482,15 @@ function Checkout() {
               <div className="trust-section">
                 <div className="trust-item">
                   <span className="trust-icon">🛡️</span>
-                  <span>Secure Checkout</span>
+                  <span>{t("safeCheckout")}</span>
                 </div>
                 <div className="trust-item">
                   <span className="trust-icon">🚚</span>
-                  <span>Free Delivery</span>
+                  <span>{t("freeDelivery")}</span>
                 </div>
                 <div className="trust-item">
                   <span className="trust-icon">💚</span>
-                  <span>Satisfaction Guaranteed</span>
+                  <span>{t("satisfactionGuaranteed")}</span>
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 // Existing pages
 import Home from './pages/Home'
@@ -31,13 +32,30 @@ import Toast from "./components/Toast";
 import ProtectedRoute from './components/ProtectedRoute'
 import AdminRoute from './components/AdminRoute'
 import Chatbot from './components/Chatbot'
+import CoverPage from './components/CoverPage'
 
 // Context
 import { AuthProvider } from './context/AuthContext'
 
 function App() {
+  const [showCover, setShowCover] = useState(true)
+
+  useEffect(() => {
+    // Check if cover was already shown in this session
+    const coverShown = sessionStorage.getItem('coverPageShown')
+    if (coverShown) {
+      setShowCover(false)
+    }
+  }, [])
+
+  const handleCoverComplete = () => {
+    setShowCover(false)
+    sessionStorage.setItem('coverPageShown', 'true')
+  }
+
   return (
     <AuthProvider>
+      {showCover && <CoverPage onComplete={handleCoverComplete} />}
       <Toast />
       <Chatbot />
       <Routes>

@@ -5,10 +5,12 @@ import { useState, useContext } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import FormToast from "../components/FormToast";
 import { AuthContext } from "../context/AuthContext";
+import { useLanguage } from "../context/LanguageContext";
 
 function Login() {
   // Auth & Navigation
   const { googleLogin } = useContext(AuthContext);
+  const { t } = useLanguage();
   const navigate = useNavigate();
 
   // Form state
@@ -30,7 +32,7 @@ function Login() {
     // Basic validation
     if (!email.trim() || !password.trim()) {
       setToastType("error");
-      setToastMessage("Please fill in all fields.");
+      setToastMessage(t("fillRequired"));
       return;
     }
 
@@ -66,8 +68,8 @@ function Login() {
 
       <main className="login-page">
         <section className="login-hero">
-          <h1>Welcome Back</h1>
-          <p>Log in to continue shopping and manage your orders.</p>
+          <h1>{t("welcome")}</h1>
+          <p>{t("loginContinue")}</p>
         </section>
 
         <section className="login-card">
@@ -79,24 +81,24 @@ function Login() {
             onClose={() => setToastMessage("")}
           />
 
-          <h2>Log In</h2>
+          <h2>{t("login")}</h2>
 
           <form onSubmit={handleLogin}>
-            <label>Email Address</label>
+            <label>{t("email")}</label>
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder={t("enterEmail")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <label>Password</label>
+            <label>{t("password")}</label>
 
             {/* Password input with toggle */}
             <div className="password-input-wrapper">
               <input
                 type={showPassword ? "text" : "password"}
-                placeholder="Enter your password"
+                placeholder={t("enterPassword")}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -110,11 +112,11 @@ function Login() {
               </button>
             </div>
 
-            <button className="login-btn">Log In</button>
+            <button className="login-btn">{t("login")}</button>
           </form>
 
           <div className="auth-divider">
-            <span>or</span>
+            <span>{t("or")}</span>
           </div>
 
           <button
@@ -124,13 +126,13 @@ function Login() {
             disabled={loading}
           >
             <img src="/google-icon.svg" alt="" width="18" height="18" />
-            Continue with Google
+            {t("continueGoogle")}
           </button>
 
           <p className="signup-text">
-            Don't have an account?{" "}
+            {t("noAccount")} {" "}
             <Link to="/signup" className="signup-link">
-              Sign Up
+              {t("signup")}
             </Link>
           </p>
         </section>

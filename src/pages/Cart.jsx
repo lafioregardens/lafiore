@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { flowerOptions } from "../data/flowers";
 import { BouquetVisualizer } from "../components/BouquetVisualizer";
+import { useLanguage } from "../context/LanguageContext";
 
 function Cart() {
   const {
@@ -13,6 +14,7 @@ function Cart() {
     decreaseQuantity,
     clearCart,
   } = useContext(CartContext);
+  const { t } = useLanguage();
 
   const [promoCode, setPromoCode] = useState("");
   const [modalBouquet, setModalBouquet] = useState(null);
@@ -29,9 +31,9 @@ function Cart() {
       <main className="cart-page">
         {/* Hero section */}
         <section className="cart-hero">
-          <h1 className="cart-title">Shopping Cart</h1>
+          <h1 className="cart-title">{t("shoppingCart")}</h1>
           <p className="cart-subtitle">
-            Review the items you’ve added before checkout.
+            {t("reviewItems")}
           </p>
         </section>
 
@@ -40,10 +42,10 @@ function Cart() {
           {cartItems.length === 0 ? (
             <div className="empty-cart-box">
               <div className="empty-cart-illustration">🛒</div>
-              <h2>Your cart is empty</h2>
-              <p>Add flowers and gifts to start building your order.</p>
+              <h2>{t("yourCartEmpty")}</h2>
+              <p>{t("addFlowersToStart")}</p>
               <Link to="/shop" className="continue-btn">
-                Continue Shopping
+                {t("continueShopping")}
               </Link>
             </div>
           ) : (
@@ -51,7 +53,7 @@ function Cart() {
               {/* Left: Items List */}
               <div className="cart-items-section">
                 <h2 className="cart-items-heading">
-                  {cartItems.length} Item{cartItems.length !== 1 ? "s" : ""} in Cart
+                  {cartItems.length} {t(cartItems.length !== 1 ? "items" : "item")} {t("inCart")}
                 </h2>
 
                 <div className="cart-items-list">

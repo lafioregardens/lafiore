@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -34,7 +36,7 @@ function Footer() {
 
         {/* Column 2 - Shop */}
         <div className="footer-col">
-          <h4 className="footer-heading">Shop</h4>
+          <h4 className="footer-heading">{t("shop")}</h4>
           <ul className="footer-links">
             <li><Link to="/shop">All Products</Link></li>
             <li><Link to="/shop">Bouquets</Link></li>
@@ -46,7 +48,7 @@ function Footer() {
 
         {/* Column 3 - Services */}
         <div className="footer-col">
-          <h4 className="footer-heading">Services</h4>
+          <h4 className="footer-heading">{t("ourServices")}</h4>
           <ul className="footer-links">
             <li><Link to="/plantfinder">Plant Finder</Link></li>
             <li><Link to="/customize">Customize Bouquet</Link></li>
@@ -70,7 +72,7 @@ function Footer() {
 
         {/* Column 5 - Contact */}
         <div className="footer-col">
-          <h4 className="footer-heading">Get In Touch</h4>
+          <h4 className="footer-heading">{t("contactUs")}</h4>
           <div className="footer-contact">
             <div className="contact-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -103,11 +105,11 @@ function Footer() {
             © 2026 La Fiore. All rights reserved.
           </p>
           <div className="footer-legal">
-            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/privacy">{t("privacyPolicy")}</Link>
             <span className="footer-divider">·</span>
-            <Link to="/terms">Terms of Service</Link>
+            <Link to="/terms">{t("termsOfService")}</Link>
             <span className="footer-divider">·</span>
-            <Link to="/refund">Refund Policy</Link>
+            <Link to="/refund">{t("refundPolicy")}</Link>
           </div>
         </div>
       </div>

@@ -2583,6 +2583,286 @@ const products = [
     ["Apothecary", "Skincare"],
     5
   ),
+
+  // =========================
+  // PRE-MADE BOUQUETS
+  // =========================
+  p(
+    244,
+    "The Azure Whisper",
+    "Bouquets",
+    "AED 250.00",
+    "A serene blend of blue delphiniums, white roses, and eucalyptus. Perfect for creating a calm, elegant atmosphere. Hand-arranged with care.",
+    ["Bouquets", "Premium", "Blue Tones"],
+    5,
+    "",
+    ["Fresh Bouquets"]
+  ),
+  p(
+    245,
+    "Meadow Sunbeams",
+    "Bouquets",
+    "AED 220.00",
+    "A cheerful arrangement of yellow sunflowers, golden roses, and green hydrangeas. Brings warmth and joy to any space.",
+    ["Bouquets", "Cheerful", "Yellow & Gold"],
+    5,
+    "",
+    ["Fresh Bouquets"]
+  ),
+  p(
+    246,
+    "Peach Romance",
+    "Bouquets",
+    "AED 280.00",
+    "Romantic peach roses paired with soft pink peonies, white baby's breath, and blush-toned greenery. A sophisticated choice for special occasions.",
+    ["Bouquets", "Romantic", "Peach & Pink"],
+    5,
+    "",
+    ["Fresh Bouquets"]
+  ),
+  p(
+    247,
+    "Ivory Elegance",
+    "Bouquets",
+    "AED 300.00",
+    "Luxurious white roses, white lisianthus, and cream hydrangeas accented with silver dollar eucalyptus. A timeless classic for weddings and celebrations.",
+    ["Bouquets", "Luxury", "White & Cream"],
+    5,
+    "",
+    ["Fresh Bouquets"]
+  ),
+  p(
+    248,
+    "Blush Serenity",
+    "Bouquets",
+    "AED 260.00",
+    "Soft blush roses, pink carnations, and pale pink ranunculus with protective foliage. Gentle and calming for any occasion.",
+    ["Bouquets", "Soft", "Pink Tones"],
+    5,
+    "",
+    ["Fresh Bouquets"]
+  ),
+  p(
+    249,
+    "Garden Fiesta",
+    "Bouquets",
+    "AED 240.00",
+    "A vibrant mix of red roses, orange gerberas, yellow sunflowers, and purple statice. A bold and colorful celebration of nature's palette.",
+    ["Bouquets", "Vibrant", "Multicolor"],
+    4,
+    "",
+    ["Fresh Bouquets"]
+  ),
+  p(
+    250,
+    "Amethyst Dream",
+    "Bouquets",
+    "AED 270.00",
+    "Deep purple lisianthus, lavender roses, and purple statice combined with white accents. A mystical and enchanting arrangement.",
+    ["Bouquets", "Elegant", "Purple Tones"],
+    5,
+    "",
+    ["Fresh Bouquets"]
+  ),
+  p(
+    251,
+    "Crimson Passion",
+    "Bouquets",
+    "AED 290.00",
+    "A dramatic arrangement of deep red roses, burgundy dahlias, and rich purple accents. Perfect for expressing deep emotions and romance.",
+    ["Bouquets", "Romantic", "Red & Burgundy"],
+    5,
+    "",
+    ["Fresh Bouquets"]
+  ),
+
+  // =========================
+  // POTS & PLANTERS
+  // =========================
+  p(
+    252,
+    "Classic Terracotta",
+    "Pots",
+    "AED 45.00",
+    "Traditional handcrafted terracotta pots in various sizes. Breathable and perfect for outdoor plants and succulents.",
+    ["Pots", "Traditional", "Terracotta"],
+    4,
+    "",
+    ["Planters"]
+  ),
+  p(
+    253,
+    "Fiberstone",
+    "Pots",
+    "AED 85.00",
+    "Lightweight composite pots with a sleek modern finish. Durable, weather-resistant, and available in neutral tones.",
+    ["Pots", "Modern", "Lightweight"],
+    5,
+    "",
+    ["Planters"]
+  ),
+  p(
+    254,
+    "Glazed Ceramic",
+    "Pots",
+    "AED 95.00",
+    "Beautiful glazed ceramic pots with artistic designs. Perfect for creating a decorative focal point in your home or garden.",
+    ["Pots", "Decorative", "Ceramic"],
+    5,
+    "",
+    ["Planters"]
+  ),
+  p(
+    255,
+    "Hanging Macrame",
+    "Pots",
+    "AED 65.00",
+    "Stylish macrame plant hangers for hanging baskets. Creates a bohemian aesthetic while supporting your favorite trailing plants.",
+    ["Pots", "Bohemian", "Hanging"],
+    4,
+    "",
+    ["Planters"]
+  ),
+  p(
+    256,
+    "Raw Cement",
+    "Pots",
+    "AED 110.00",
+    "Industrial-style raw concrete pots with a minimalist design. Perfect for contemporary interiors and adding an urban touch.",
+    ["Pots", "Industrial", "Concrete"],
+    4,
+    "",
+    ["Planters"]
+  ),
+  p(
+    257,
+    "Natures Cradle Planter",
+    "Pots",
+    "AED 75.00",
+    "Eco-friendly bio-based planter made from sustainable materials. Biodegradable and perfect for environmentally conscious gardeners.",
+    ["Pots", "Eco-Friendly", "Sustainable"],
+    5,
+    "",
+    ["Planters"]
+  ),
+  p(
+    258,
+    "Charcoal Black Morrava",
+    "Pots",
+    "AED 120.00",
+    "Elegant charcoal-colored pots with a modern matte finish. Suitable for both indoor and outdoor settings with sophisticated style.",
+    ["Pots", "Modern", "Charcoal"],
+    5,
+    "",
+    ["Planters"]
+  ),
+  p(
+    259,
+    "Wooden Troughs",
+    "Pots",
+    "AED 130.00",
+    "Rustic wooden planter troughs treated for durability. Perfect for creating raised garden displays with a natural aesthetic.",
+    ["Pots", "Rustic", "Wood"],
+    4,
+    "",
+    ["Planters"]
+  ),
+  p(
+    260,
+    "Self Watering Pots",
+    "Pots",
+    "AED 65.00",
+    "Innovative self-watering system keeps soil consistently moist. Ideal for busy plant lovers who want low-maintenance watering.",
+    ["Pots", "Smart", "Auto Watering"],
+    5,
+    "",
+    ["Planters"]
+  ),
+  p(
+    261,
+    "Smart AI Planter",
+    "Pots",
+    "AED 450.00",
+    "Advanced smart planter with soil sensors, app connectivity, and automated watering. Provides real-time plant health monitoring.",
+    ["Pots", "Smart Technology", "IoT Enabled"],
+    5,
+    "",
+    ["Planters"]
+  ),
+
+  // =========================
+  // GARDEN SETS
+  // =========================
+  p(
+    262,
+    "Starter Set",
+    "Garden Sets",
+    "AED 350.00",
+    "Perfect for beginners! Includes basic garden tools, seeds, soil mix, and care guide. Everything you need to start your gardening journey.",
+    ["Garden Sets", "Beginner", "Complete Kit"],
+    5,
+    "",
+    ["Tool Kits"]
+  ),
+  p(
+    263,
+    "Master Set",
+    "Garden Sets",
+    "AED 650.00",
+    "Comprehensive set with professional-grade tools, multiple seed varieties, fertilizers, and planters. Ideal for serious gardeners.",
+    ["Garden Sets", "Professional", "Complete Kit"],
+    5,
+    "",
+    ["Tool Kits"]
+  ),
+  p(
+    264,
+    "Premium Botanical Set",
+    "Garden Sets",
+    "AED 800.00",
+    "Luxury set including rare plant varieties, premium tools, botanical guides, and specialty potting mixes. A complete garden experience.",
+    ["Garden Sets", "Luxury", "Rare Plants"],
+    5,
+    "",
+    ["Tool Kits"]
+  ),
+
+  // =========================
+  // CANDLE SETS
+  // =========================
+  p(
+    265,
+    "The Desert Bloom Collection",
+    "Candle Sets",
+    "AED 180.00",
+    "A curated trio of scented candles inspired by desert flora. Includes exotic blooms, warm spices, and earthy botanicals.",
+    ["Candle Sets", "Collection", "Desert Inspired"],
+    5,
+    "",
+    ["Candle Collections"]
+  ),
+  p(
+    266,
+    "The Apothecary Wellness Trio",
+    "Candle Sets",
+    "AED 220.00",
+    "Three therapeutic candles blending essential oils and healing herbs. Perfect for meditation, relaxation, and creating a spa-like atmosphere.",
+    ["Candle Sets", "Wellness", "Therapeutic"],
+    5,
+    "",
+    ["Candle Collections"]
+  ),
+  p(
+    267,
+    "Signature Scented Candle Collection",
+    "Candle Sets",
+    "AED 250.00",
+    "A premium collection of signature scents hand-poured in eco-friendly containers. A luxurious gift set for the discerning candle lover.",
+    ["Candle Sets", "Premium", "Signature Scents"],
+    5,
+    "",
+    ["Candle Collections"]
+  ),
 ];
 
 export default products;
