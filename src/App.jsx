@@ -15,6 +15,10 @@ import Shop from "./pages/Shop";
 import Account from './pages/Account'
 import SearchResults from './pages/SearchResults'
 import ProductDetail from './pages/ProductDetail'
+import Checkout from './pages/Checkout'
+import OrderSuccess from './pages/OrderSuccess'
+import OrderTracking from './pages/OrderTracking'
+import TrackingDetails from './pages/TrackingDetails'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminInventory from './pages/admin/AdminInventory'
 import AdminOrders from './pages/admin/AdminOrders'
@@ -51,6 +55,10 @@ function App() {
         {/* New routes */}
         <Route path="/search" element={<SearchResults />} />
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order-success" element={<OrderSuccess />} />
+        <Route path="/tracking" element={<OrderTracking />} />
+        <Route path="/tracking/:orderId" element={<TrackingDetails />} />
         <Route
           path="/account"
           element={

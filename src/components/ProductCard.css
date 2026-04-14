@@ -116,9 +116,9 @@
 }
 
 .product-price {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--pink);
+  font-size: 20px;
+  font-weight: 700;
+  color: #2d3d24;
   margin-top: auto;
 }
 

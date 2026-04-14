@@ -42,7 +42,7 @@ function Chatbot() {
 
     // Contact
     if (msg.includes("contact") || msg.includes("phone") || msg.includes("email") || msg.includes("reach")) {
-      return "You can reach us at:\n- Email: hello@lafiore.ae\n- Phone: +971 4 XXX XXXX\n- Instagram: @lafioregardens\n- Or visit us at lafioregardens.vercel.app\n\nWe typically respond within 1 hour during business hours!";
+      return "You can reach us at:\n- Email: lafioregardens@gmail.com\n- Phone: +971 4 XXX XXXX\n- Instagram: @lafioregardens\n- Or visit us at lafioregardens.vercel.app\n\nWe typically respond within 1 hour during business hours!";
     }
 
     // Returns & Refunds
@@ -67,7 +67,7 @@ function Chatbot() {
 
     // Track Order
     if (msg.includes("track") || msg.includes("order status") || msg.includes("where is my")) {
-      return "To check your order status, go to your **Account page** after logging in. You'll find your order history and tracking details there. If you need help with a specific order, email us at hello@lafiore.ae with your order number!";
+      return "To check your order status, go to your **Account page** after logging in. You'll find your order history and tracking details there. If you need help with a specific order, email us at lafioregardens@gmail.com with your order number!";
     }
 
     // Pricing
@@ -150,15 +150,16 @@ function Chatbot() {
         aria-label="Open chat"
         title="Chat with La Fiore"
       >
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 14C2 7.92487 7.92487 2 14 2C20.0751 2 26 7.92487 26 14C26 20.0751 20.0751 26 14 26C11.2464 26 8.68131 25.2702 6.57368 23.9995L2.66667 25.3333L4.00052 21.4263C2.72976 19.3187 2 16.7536 2 14Z" fill="white" stroke="currentColor" strokeWidth="0.5"/>
-          <circle cx="14" cy="13" r="2.5" fill="currentColor"/>
-          <circle cx="14" cy="8.5" r="1.8" fill="currentColor" opacity="0.8"/>
-          <circle cx="18.5" cy="10.5" r="1.8" fill="currentColor" opacity="0.8"/>
-          <circle cx="19" cy="15.5" r="1.8" fill="currentColor" opacity="0.8"/>
-          <circle cx="15.5" cy="18.5" r="1.8" fill="currentColor" opacity="0.8"/>
-          <circle cx="9.5" cy="18.5" r="1.8" fill="currentColor" opacity="0.8"/>
-          <circle cx="8.5" cy="10.5" r="1.8" fill="currentColor" opacity="0.8"/>
+        <svg width="44" height="44" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Petals */}
+          <ellipse cx="16" cy="8" rx="4.5" ry="6.5" fill="white" opacity="0.92"/>
+          <ellipse cx="23" cy="13" rx="4.5" ry="6.5" fill="white" opacity="0.87" transform="rotate(72 23 13)"/>
+          <ellipse cx="21" cy="21.5" rx="4.5" ry="6.5" fill="white" opacity="0.82" transform="rotate(144 21 21.5)"/>
+          <ellipse cx="11" cy="21.5" rx="4.5" ry="6.5" fill="white" opacity="0.82" transform="rotate(-144 11 21.5)"/>
+          <ellipse cx="9" cy="13" rx="4.5" ry="6.5" fill="white" opacity="0.87" transform="rotate(-72 9 13)"/>
+          {/* Center */}
+          <circle cx="16" cy="15.5" r="4" fill="#f0d8a0"/>
+          <circle cx="16" cy="15.5" r="2.2" fill="#d4b46a"/>
         </svg>
       </button>
 

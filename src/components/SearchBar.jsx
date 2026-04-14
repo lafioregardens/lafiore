@@ -55,11 +55,14 @@ function SearchBar() {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter" && query) {
+    if (e.key === "Enter" && query.trim()) {
+      e.preventDefault();
+      const searchQuery = query.trim();
       setQuery("");
       setResults([]);
       setIsOpen(false);
-      navigate(`/search?q=${query}`);
+      setIsExpanded(false);
+      navigate(`/search?q=${searchQuery}`);
     }
   };
 

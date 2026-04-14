@@ -26,12 +26,13 @@ function Navbar() {
 
   return (
     <nav className="navbar-container">
-      <Link to="/" className="logo-wrapper">
+      <div className="logo-wrapper">
         <img src={logoImage} alt="LaFiore Logo" className="logo-image" />
         <div className="logo">LA FIORE</div>
-      </Link>
+      </div>
       <div className="nav-row">
         <div className="nav-menu">
+          <Link to="/">Home</Link>
           <Link to="/shop">{t("shop")}</Link>
           <Link to="/plantfinder">{t("plantFinder")}</Link>
           <Link to="/customize">{t("customizeBouquets")}</Link>

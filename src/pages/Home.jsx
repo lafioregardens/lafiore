@@ -378,8 +378,8 @@ function Home() {
             <div className="hero-actions">
               <Link to="/shop" className="btn-primary">Shop Now</Link>
               <div className="hero-secondary-btns">
-                <Link to="/plant-finder" className="btn-ghost">Try Plant Finder</Link>
-                <Link to="/customize-bouquet" className="btn-ghost">Customize Bouquet</Link>
+                <Link to="/plantfinder" className="btn-ghost">Try Plant Finder</Link>
+                <Link to="/customize" className="btn-ghost">Customize Bouquet</Link>
                 <Link to="/birth-month" className="btn-ghost">Birth Month Flowers</Link>
               </div>
             </div>
@@ -419,7 +419,7 @@ function Home() {
                 desc: "Answer a few questions and get personalized plant recommendations.", 
                 price: "AED 155",
                 icon: "🌿",
-                link: "/plant-finder",
+                link: "/plantfinder",
                 image: ""
               },
               { 
@@ -427,7 +427,7 @@ function Home() {
                 desc: "Create a bespoke bouquet tailored to your exact tastes and preferences.", 
                 price: "AED 170",
                 icon: "✨",
-                link: "/customize-bouquet",
+                link: "/customize",
                 image: ""
               },
             ].map((card, i) => (

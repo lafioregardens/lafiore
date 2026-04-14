@@ -2,27 +2,8 @@ import { useState, useMemo, useContext } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { CartContext } from "../context/CartContext";
-
-import aster from "../assets/custombouquet/aster.jpg";
-import babysbreath  from "../assets/custombouquet/babysbreath.jpg";
-import carnation from "../assets/custombouquet/carnation.jpeg";
-import Chrysanthemum from "../assets/custombouquet/Chrysanthemum.jpg";
-import daffodil from "../assets/custombouquet/daffodil.jpg";
-import daisy from "../assets/custombouquet/daisy.jpg";
-import gladiolus from "../assets/custombouquet/gladiolus.jpg";
-import iris from "../assets/custombouquet/iris.jpg";
-import larkspur from "../assets/custombouquet/larkspur.jpg";
-import lily from "../assets/custombouquet/lily.jpg";
-import marigold from "../assets/custombouquet/marigold.jpg";
-import narcissus from "../assets/custombouquet/narcissus.jpg";
-import Nasturtium from "../assets/custombouquet/Nasturtium.jpg";
-import orchid from "../assets/custombouquet/orchid.jpg";
-import pansy from "../assets/custombouquet/pansy.jpg";
-import peony from "../assets/custombouquet/peony.jpg";
-import Primrose from "../assets/custombouquet/Primrose.jpg";
-import rose from "../assets/custombouquet/rose.jpg";
-import tulip from "../assets/custombouquet/tulip.jpg";
-import Violets from "../assets/custombouquet/Violets.jpg";
+import { flowerOptions } from "../data/flowers";
+import { BouquetVisualizer } from "../components/BouquetVisualizer";
 
 function CustomizeBouquet() {
   const { addToCart } = useContext(CartContext);
@@ -39,149 +20,6 @@ function CustomizeBouquet() {
   // Stores the selected bouquet size
   const [selectedSize, setSelectedSize] = useState(null);
 
-  // Flower list with price and color options
-  const flowerOptions = [
-    {
-      id: 1,
-      name: "Carnation",
-      price: 8,
-      colors: ["Pink", "White", "Red", "Peach"],
-      image: carnation,
-    },
-    {
-      id: 2,
-      name: "Violet",
-      price: 7,
-      colors: ["Purple", "Blue", "White"],
-      image: Violets,
-    },
-    {
-      id: 3,
-      name: "Daffodil",
-      price: 9,
-      colors: ["Yellow", "White"],
-      image: daffodil,
-    },
-    {
-      id: 4,
-      name: "Daisy",
-      price: 7,
-      colors: ["White", "Yellow", "Pink"],
-      image: daisy,
-    },
-    {
-      id: 5,
-      name: "Lily",
-      price: 14,
-      colors: ["White", "Pink", "Orange"],
-      image: lily,
-    },
-    {
-      id: 6,
-      name: "Rose",
-      price: 12,
-      colors: ["Red", "Pink", "White", "Yellow"],
-      image: rose,
-    },
-    {
-      id: 7,
-      name: "Larkspur",
-      price: 10,
-      colors: ["Purple", "Blue", "Pink"],
-      image: larkspur,
-    },
-    {
-      id: 8,
-      name: "Gladiolus",
-      price: 11,
-      colors: ["White", "Pink", "Red", "Yellow"],
-      image: gladiolus,
-    },
-    {
-      id: 9,
-      name: "Aster",
-      price: 8,
-      colors: ["Purple", "Pink", "White"],
-      image: aster,
-    },
-    {
-      id: 10,
-      name: "Marigold",
-      price: 7,
-      colors: ["Orange", "Yellow"],
-      image: marigold,
-    },
-    {
-      id: 11,
-      name: "Chrysanthemum",
-      price: 9,
-      colors: ["White", "Yellow", "Pink", "Purple"],
-      image: Chrysanthemum,
-    },
-    {
-      id: 12,
-      name: "Narcissus",
-      price: 9,
-      colors: ["White", "Yellow"],
-      image: narcissus,
-    },
-    {
-      id: 13,
-      name: "Baby's Breath",
-      price: 6,
-      colors: ["White", "Pink"],
-      image: babysbreath,
-    },
-    {
-      id: 14,
-      name: "Pansy",
-      price: 7,
-      colors: ["Purple", "Yellow", "Blue"],
-      image: pansy,
-    },
-    {
-      id: 15,
-      name: "Nasturtium",
-      price: 7,
-      colors: ["Orange", "Red", "Yellow"],
-      image: Nasturtium,
-    },
-    {
-      id: 16,
-      name: "Tulips",
-      price: 10,
-      colors: ["Pink", "White", "Yellow", "Purple"],
-      image: tulip,
-    },
-    {
-      id: 17,
-      name: "Primrose",
-      price: 8,
-      colors: ["Pink", "Purple", "White", "Mixed"],
-      image: Primrose,
-    },
-    {
-      id: 18,
-      name: "Peony",
-      price: 15,
-      colors: ["Pink", "White", "Blush"],
-      image: peony,
-    },
-    {
-      id: 19,
-      name: "Iris",
-      price: 11,
-      colors: ["Purple", "Blue", "White"],
-      image: iris,
-    },
-    {
-      id: 20,
-      name: "Orchid",
-      price: 16,
-      colors: ["White", "Purple", "Pink"],
-      image: orchid,
-    },
-  ];
 
   // Wrapping options and their prices
   const wrappingOptions = [
@@ -301,6 +139,11 @@ function CustomizeBouquet() {
       price: `AED ${bouquetTotal.toFixed(2)}`,
       details: bouquetDetails,
       customType: "bouquet",
+      // Store visualization data for cart display
+      selectedFlowers: selectedFlowers,
+      selectedWrap: selectedWrap,
+      selectedSize: selectedSize,
+      image: null, // custom bouquets don't have a single image
     });
   };
 
@@ -335,185 +178,196 @@ function CustomizeBouquet() {
           </div>
         </section>
 
-        <section className="custom-bouquet-builder">
-          {/* STEP 1 */}
-          {step === 1 && (
-            <div className="bouquet-step-section">
-              <h2>Select Flowers</h2>
+        <div className="bouquet-page-layout">
+          {/* Left Column: Steps */}
+          <section className="custom-bouquet-builder">
+            {/* STEP 1 */}
+            {step === 1 && (
+              <div className="bouquet-step-section">
+                <h2>Select Flowers</h2>
 
-              <div className="bouquet-flower-grid">
-                {flowerOptions.map((flower) => (
-                  <FlowerCard
-                    key={flower.id}
-                    flower={flower}
-                    selectedFlowers={selectedFlowers}
-                    addFlower={addFlower}
-                    increaseFlower={increaseFlower}
-                    decreaseFlower={decreaseFlower}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* STEP 2 */}
-          {step === 2 && (
-            <div className="bouquet-step-section">
-              <h2>Select Wrapping</h2>
-
-              <div className="bouquet-option-grid">
-                {wrappingOptions.map((wrap) => (
-                  <button
-                    key={wrap.id}
-                    className={
-                      selectedWrap?.id === wrap.id
-                        ? "bouquet-option-card selected-option-card"
-                        : "bouquet-option-card"
-                    }
-                    onClick={() => setSelectedWrap(wrap)}
-                  >
-                    <h3>{wrap.name}</h3>
-                    <p>AED {wrap.price.toFixed(2)}</p>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* STEP 3 */}
-          {step === 3 && (
-            <div className="bouquet-step-section">
-              <h2>Select Size</h2>
-
-              <div className="bouquet-option-grid">
-                {sizeOptions.map((size) => (
-                  <button
-                    key={size.id}
-                    className={
-                      selectedSize?.id === size.id
-                        ? "bouquet-option-card selected-option-card"
-                        : "bouquet-option-card"
-                    }
-                    onClick={() => setSelectedSize(size)}
-                  >
-                    <h3>{size.name}</h3>
-                    <p>{size.price === 0 ? "No extra charge" : `+ AED ${size.price}`}</p>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* STEP 4 */}
-          {step === 4 && (
-            <div className="bouquet-step-section">
-              <h2>Review Your Bouquet</h2>
-
-              <div className="bouquet-review-box">
-                <div className="bouquet-review-block">
-                  <h3>Selected Flowers</h3>
-                  {selectedFlowers.length > 0 ? (
-                    selectedFlowers.map((item) => (
-                      <p key={`${item.flowerId}-${item.color}`}>
-                        {item.name} ({item.color}) x{item.quantity} — AED{" "}
-                        {(item.price * item.quantity).toFixed(2)}
-                      </p>
-                    ))
-                  ) : (
-                    <p>No flowers selected yet.</p>
-                  )}
-                </div>
-
-                <div className="bouquet-review-block">
-                  <h3>Wrapping</h3>
-                  <p>
-                    {selectedWrap
-                      ? `${selectedWrap.name} — AED ${selectedWrap.price.toFixed(2)}`
-                      : "No wrapping selected"}
-                  </p>
-                </div>
-
-                <div className="bouquet-review-block">
-                  <h3>Size</h3>
-                  <p>
-                    {selectedSize
-                      ? `${selectedSize.name} — AED ${selectedSize.price.toFixed(2)}`
-                      : "No size selected"}
-                  </p>
+                <div className="bouquet-flower-grid">
+                  {flowerOptions.map((flower) => (
+                    <FlowerCard
+                      key={flower.id}
+                      flower={flower}
+                      selectedFlowers={selectedFlowers}
+                      addFlower={addFlower}
+                      increaseFlower={increaseFlower}
+                      decreaseFlower={decreaseFlower}
+                    />
+                  ))}
                 </div>
               </div>
-            </div>
-          )}
-
-          {/* STEP 5 */}
-          {step === 5 && (
-            <div className="bouquet-step-section">
-              <h2>Add a Message</h2>
-              <p>This step is optional. You can write a gift note or skip it.</p>
-
-              <textarea
-                className="bouquet-message-box"
-                placeholder="Write your message here..."
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
-
-              <div className="bouquet-message-actions">
-                <button className="skip-message-btn" onClick={handleAddBouquetToCart}>
-                  Skip
-                </button>
-
-                <button className="save-message-btn" onClick={handleAddBouquetToCart}>
-                  Save & Add to Cart
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Live price summary */}
-          <div className="bouquet-live-summary">
-            <div className="bouquet-summary-row">
-              <span>Flowers:</span>
-              <span>AED {flowersTotal.toFixed(2)}</span>
-            </div>
-
-            <div className="bouquet-summary-row">
-              <span>Wrapping:</span>
-              <span>AED {wrapTotal.toFixed(2)}</span>
-            </div>
-
-            <div className="bouquet-summary-row">
-              <span>Size:</span>
-              <span>AED {sizeTotal.toFixed(2)}</span>
-            </div>
-
-            <div className="bouquet-summary-row bouquet-total-row">
-              <span>Total:</span>
-              <span>AED {bouquetTotal.toFixed(2)}</span>
-            </div>
-          </div>
-
-          {/* Navigation buttons */}
-          <div className="bouquet-navigation">
-            {step > 1 && step <= 5 && (
-              <button
-                className="bouquet-nav-btn secondary-btn"
-                onClick={() => setStep(step - 1)}
-              >
-                Previous
-              </button>
             )}
 
-            {step < 5 && (
-              <button
-                className="bouquet-nav-btn primary-btn"
-                onClick={() => setStep(step + 1)}
-              >
-                Next
-              </button>
+            {/* STEP 2 */}
+            {step === 2 && (
+              <div className="bouquet-step-section">
+                <h2>Select Wrapping</h2>
+
+                <div className="bouquet-option-grid">
+                  {wrappingOptions.map((wrap) => (
+                    <button
+                      key={wrap.id}
+                      className={
+                        selectedWrap?.id === wrap.id
+                          ? "bouquet-option-card selected-option-card"
+                          : "bouquet-option-card"
+                      }
+                      onClick={() => setSelectedWrap(wrap)}
+                    >
+                      <h3>{wrap.name}</h3>
+                      <p>AED {wrap.price.toFixed(2)}</p>
+                    </button>
+                  ))}
+                </div>
+              </div>
             )}
-          </div>
-        </section>
+
+            {/* STEP 3 */}
+            {step === 3 && (
+              <div className="bouquet-step-section">
+                <h2>Select Size</h2>
+
+                <div className="bouquet-option-grid">
+                  {sizeOptions.map((size) => (
+                    <button
+                      key={size.id}
+                      className={
+                        selectedSize?.id === size.id
+                          ? "bouquet-option-card selected-option-card"
+                          : "bouquet-option-card"
+                      }
+                      onClick={() => setSelectedSize(size)}
+                    >
+                      <h3>{size.name}</h3>
+                      <p>{size.price === 0 ? "No extra charge" : `+ AED ${size.price}`}</p>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* STEP 4 */}
+            {step === 4 && (
+              <div className="bouquet-step-section">
+                <h2>Review Your Bouquet</h2>
+
+                <div className="bouquet-review-box">
+                  <div className="bouquet-review-block">
+                    <h3>Selected Flowers</h3>
+                    {selectedFlowers.length > 0 ? (
+                      selectedFlowers.map((item) => (
+                        <p key={`${item.flowerId}-${item.color}`}>
+                          {item.name} ({item.color}) x{item.quantity} — AED{" "}
+                          {(item.price * item.quantity).toFixed(2)}
+                        </p>
+                      ))
+                    ) : (
+                      <p>No flowers selected yet.</p>
+                    )}
+                  </div>
+
+                  <div className="bouquet-review-block">
+                    <h3>Wrapping</h3>
+                    <p>
+                      {selectedWrap
+                        ? `${selectedWrap.name} — AED ${selectedWrap.price.toFixed(2)}`
+                        : "No wrapping selected"}
+                    </p>
+                  </div>
+
+                  <div className="bouquet-review-block">
+                    <h3>Size</h3>
+                    <p>
+                      {selectedSize
+                        ? `${selectedSize.name} — AED ${selectedSize.price.toFixed(2)}`
+                        : "No size selected"}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* STEP 5 */}
+            {step === 5 && (
+              <div className="bouquet-step-section">
+                <h2>Add a Message</h2>
+                <p>This step is optional. You can write a gift note or skip it.</p>
+
+                <textarea
+                  className="bouquet-message-box"
+                  placeholder="Write your message here..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+
+                <div className="bouquet-message-actions">
+                  <button className="skip-message-btn" onClick={handleAddBouquetToCart}>
+                    Skip
+                  </button>
+
+                  <button className="save-message-btn" onClick={handleAddBouquetToCart}>
+                    Save & Add to Cart
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Live price summary */}
+            <div className="bouquet-live-summary">
+              <div className="bouquet-summary-row">
+                <span>Flowers:</span>
+                <span>AED {flowersTotal.toFixed(2)}</span>
+              </div>
+
+              <div className="bouquet-summary-row">
+                <span>Wrapping:</span>
+                <span>AED {wrapTotal.toFixed(2)}</span>
+              </div>
+
+              <div className="bouquet-summary-row">
+                <span>Size:</span>
+                <span>AED {sizeTotal.toFixed(2)}</span>
+              </div>
+
+              <div className="bouquet-summary-row bouquet-total-row">
+                <span>Total:</span>
+                <span>AED {bouquetTotal.toFixed(2)}</span>
+              </div>
+            </div>
+
+            {/* Navigation buttons */}
+            <div className="bouquet-navigation">
+              {step > 1 && step <= 5 && (
+                <button
+                  className="bouquet-nav-btn secondary-btn"
+                  onClick={() => setStep(step - 1)}
+                >
+                  Previous
+                </button>
+              )}
+
+              {step < 5 && (
+                <button
+                  className="bouquet-nav-btn primary-btn"
+                  onClick={() => setStep(step + 1)}
+                >
+                  Next
+                </button>
+              )}
+            </div>
+          </section>
+
+          {/* Right Column: Bouquet Visualizer */}
+          <BouquetVisualizer
+            selectedFlowers={selectedFlowers}
+            flowerOptions={flowerOptions}
+            selectedWrap={selectedWrap}
+            selectedSize={selectedSize}
+          />
+        </div>
       </main>
 
       <Footer />

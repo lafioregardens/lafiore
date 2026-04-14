@@ -23,7 +23,7 @@ function Footer() {
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
               </svg>
             </a>
-            <a href="mailto:hello@lafiore.ae" className="social-link">
+            <a href="mailto:lafioregardens@gmail.com" className="social-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
@@ -37,10 +37,10 @@ function Footer() {
           <h4 className="footer-heading">Shop</h4>
           <ul className="footer-links">
             <li><Link to="/shop">All Products</Link></li>
-            <li><Link to="/shop/bouquets">Bouquets</Link></li>
-            <li><Link to="/shop/plants">Plants</Link></li>
-            <li><Link to="/shop/gifts">Gifts</Link></li>
-            <li><Link to="/shop/accessories">Accessories</Link></li>
+            <li><Link to="/shop">Bouquets</Link></li>
+            <li><Link to="/shop">Plants</Link></li>
+            <li><Link to="/shop">Gifts</Link></li>
+            <li><Link to="/shop">Accessories</Link></li>
           </ul>
         </div>
 
@@ -48,11 +48,11 @@ function Footer() {
         <div className="footer-col">
           <h4 className="footer-heading">Services</h4>
           <ul className="footer-links">
-            <li><Link to="/plant-finder">Plant Finder</Link></li>
-            <li><Link to="/customize-bouquet">Customize Bouquet</Link></li>
+            <li><Link to="/plantfinder">Plant Finder</Link></li>
+            <li><Link to="/customize">Customize Bouquet</Link></li>
             <li><Link to="/birth-month">Birth Month Flowers</Link></li>
-            <li><Link to="/services#consultation">Consultation</Link></li>
-            <li><Link to="/services#events">Events & Corporate</Link></li>
+            <li><Link to="/consultation">Consultation</Link></li>
+            <li><Link to="/consultation">Events & Corporate</Link></li>
           </ul>
         </div>
 
@@ -83,7 +83,7 @@ function Footer() {
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
-              <span>hello@lafiore.ae</span>
+              <span>lafioregardens@gmail.com</span>
             </div>
             <div className="contact-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
