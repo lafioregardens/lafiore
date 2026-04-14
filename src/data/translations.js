@@ -797,7 +797,7 @@ const translations = {
     searchExample: "例如：LAF1234567890",
     findOrderId: "如何找到您的订单号？",
     checkConfirmationEmail: "查看您的确认电子邮件",
-    startsWithLAF: "以"LAF"开头，后跟数字",
+    startsWithLAF: "以\"LAF\"开头，后跟数字",
     needOrderId: "追踪送货需要此信息",
     orderStatus: "订单状态",
     deliveryDetails: "送货详情",
