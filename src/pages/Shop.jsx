@@ -306,6 +306,14 @@ function Shop() {
                       className="shop-card-link"
                     >
                       <article className="shop-card">
+                        {/* Potted Plants Tag */}
+                        {product.mainCategory === "Plants" &&
+                         !(product.subCategories && product.subCategories.includes("Aquatic")) && (
+                          <span className="shop-card-badge shop-card-badge--potted">
+                            Potted Plants
+                          </span>
+                        )}
+
                         {/* Stock Status Badge - Low Stock */}
                         {product.stock !== undefined && product.stock > 0 && product.stock < 3 && (
                           <span className="shop-card-badge shop-card-badge--low">
