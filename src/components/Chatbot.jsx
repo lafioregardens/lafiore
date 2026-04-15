@@ -11,12 +11,37 @@ const quickReplies = [
   { label: "Contact Us", value: "contact" },
 ];
 
+const menuLinks = {
+  shop: { label: "Visit Shop", url: "/shop" },
+  services: { label: "Our Services", url: "/services" },
+  bouquet: { label: "Custom Bouquets", url: "/customize-bouquet" },
+  birthMonth: { label: "Birth Month Flowers", url: "/birth-month-flowers" },
+  plantFinder: { label: "Plant Finder", url: "/plant-finder" },
+  account: { label: "My Account", url: "/account" },
+  consultation: { label: "Book Consultation", url: "/consultation" },
+};
+
 function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [lastMenus, setLastMenus] = useState([]);
   const messagesEndRef = useRef(null);
+
+  // Detect if input is gibberish or unclear
+  const isGibberish = (message) => {
+    const msg = message.trim().toLowerCase();
+    // Too short or random characters
+    if (msg.length < 2) return true;
+    // Only special characters or numbers
+    if (!/[a-z]/i.test(msg)) return true;
+    // Random keyboard mashing (same key repeated)
+    if (/(.)\1{4,}/.test(msg)) return true;
+    // Too many spaces or symbols
+    if (msg.split(" ").filter(w => w.length === 0).length > msg.split(" ").length / 2) return true;
+    return false;
+  };
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -25,14 +50,22 @@ function Chatbot() {
   const getResponse = (message) => {
     const msg = message.toLowerCase();
 
+    // Check for gibberish/unclear input
+    if (isGibberish(message)) {
+      setLastMenus(["shop", "plantFinder", "services", "bouquet", "contact"]);
+      return "Sorry, I didn't quite understand that! 😊 Could you please rephrase your question? You can also explore our services using the buttons below:";
+    }
+
     // Greetings
     if (msg.match(/^(hi|hello|hey|hola|salam|good morning|good evening|assalam)/)) {
-      return "Hello! Welcome to La Fiore! I'm Lily, your virtual garden assistant. How can I help you today? You can ask me about our plants, delivery, services, or anything else!";
+      setLastMenus(["shop", "plantFinder", "services", "bouquet"]);
+      return "Hello! Welcome to La Fiore! I'm Lily, your virtual garden assistant. 🌿 How can I help you today?";
     }
 
     // Delivery & Shipping
     if (msg.includes("delivery") || msg.includes("ship") || msg.includes("deliver")) {
-      return "We offer **free delivery** across the UAE on orders over AED 100! Standard delivery takes 2-3 business days. Need it sooner? Express delivery (next-day) is available for AED 25. All plants are carefully packaged to arrive fresh and healthy.";
+      setLastMenus(["shop"]);
+      return "We offer **free delivery** across the UAE on orders over AED 100! 🚚\n\n**Standard:** 2-3 business days\n**Express:** Next-day delivery for AED 25\n\nAll plants are carefully packaged to arrive fresh and healthy. Ready to shop?";
     }
 
     // Hours & Location
@@ -52,27 +85,32 @@ function Chatbot() {
 
     // Custom Bouquet
     if (msg.includes("custom") || msg.includes("bouquet") || msg.includes("arrange")) {
-      return "Yes! We love creating custom bouquets! You can design your own on our **Customize Bouquets** page. Choose your flowers, colors, and wrapping style. Perfect for weddings, birthdays, or just because! Would you like me to take you there?";
+      setLastMenus(["bouquet"]);
+      return "Yes! We love creating custom bouquets! 💐\n\nYou can design your own and choose:\n- Your favorite flowers\n- Colors & style\n- Wrapping options\n\nPerfect for weddings, birthdays, anniversaries, or just because! Ready to create?";
     }
 
     // Services & Consultation
     if (msg.includes("service") || msg.includes("consult") || msg.includes("wedding") || msg.includes("event")) {
-      return "We offer three main services:\n\n1. **Event & Wedding Flowers** — Custom floral styling for your special day\n2. **Garden Planning & Care** — Personalized garden design and maintenance\n3. **Planterior Design** — Plant-focused interior styling\n\nBook a free consultation on our Services page!";
+      setLastMenus(["services", "consultation"]);
+      return "We offer three amazing services:\n\n✨ **Event & Wedding Flowers** — Custom floral styling for your special day\n🌳 **Garden Planning & Care** — Personalized garden design & maintenance\n🏡 **Planterior Design** — Plant-focused interior styling\n\nBook a free consultation to discuss your vision!";
     }
 
     // Plant Care
     if (msg.includes("care") || msg.includes("water") || msg.includes("sunlight") || msg.includes("plant tip")) {
-      return "Here are some general plant care tips:\n\n- **Watering**: Most indoor plants prefer soil to dry slightly between waterings\n- **Light**: Bright indirect light works for most houseplants\n- **Humidity**: Mist tropical plants regularly\n- **Fertilizer**: Feed monthly during spring and summer\n\nEach of our products comes with a detailed care guide! Visit any product page to see specific tips.";
+      setLastMenus(["plantFinder", "shop"]);
+      return "Great question! Here are some general plant care tips:\n\n💧 **Watering:** Most plants prefer soil to dry slightly between waterings\n☀️ **Light:** Bright indirect light works for most houseplants\n💨 **Humidity:** Mist tropical plants regularly\n🌱 **Fertilizer:** Feed monthly in spring/summer\n\nEach product comes with a detailed care guide! Want personalized recommendations?";
     }
 
     // Track Order
     if (msg.includes("track") || msg.includes("order status") || msg.includes("where is my")) {
-      return "To check your order status, go to your **Account page** after logging in. You'll find your order history and tracking details there. If you need help with a specific order, email us at lafioregardens@gmail.com with your order number!";
+      setLastMenus(["account"]);
+      return "To check your order status, go to your **Account page** after logging in! 📦\n\nYou'll find:\n- Order history\n- Tracking details\n- Delivery updates\n\nNeed help? Email us at lafioregardens@gmail.com with your order number!";
     }
 
     // Pricing
     if (msg.includes("price") || msg.includes("cost") || msg.includes("how much") || msg.includes("expensive")) {
-      return "Our products range from **AED 25 for small plants** to **AED 500+ for premium arrangements**. We have options for every budget! Browse our shop to find something perfect. We also offer free delivery on orders over AED 100.";
+      setLastMenus(["shop"]);
+      return "Great news! We have options for every budget! 💚\n\n💰 **Small plants:** AED 25+\n💐 **Bouquets:** AED 75-300\n🌳 **Large arrangements:** AED 300-500+\n\n✨ **BONUS:** Free delivery on orders over AED 100!\n\nLet's find something perfect for you!";
     }
 
     // Payment
@@ -82,17 +120,20 @@ function Chatbot() {
 
     // Gift
     if (msg.includes("gift") || msg.includes("birthday") || msg.includes("anniversary") || msg.includes("surprise")) {
-      return "Looking for the perfect gift? We have beautiful options!\n\n- **Bouquets** starting from AED 75\n- **Potted plants** that last forever\n- **Custom arrangements** for any occasion\n- **Birth Month Flowers** — a unique personalized touch!\n\nWe can add a gift card message too!";
+      setLastMenus(["bouquet", "birthMonth", "shop"]);
+      return "Perfect! We have amazing gift options! 🎁\n\n🌹 **Bouquets** starting from AED 75\n🪴 **Potted plants** that last forever\n💐 **Custom arrangements** for any occasion\n🌸 **Birth Month Flowers** — unique & personalized!\n\n✨ We add gift card messages too! What's the occasion?";
     }
 
     // Birth Month Flowers
     if (msg.includes("birth") || msg.includes("month flower") || msg.includes("zodiac")) {
-      return "Did you know each month has its own special flower? Check out our **Birth Month Flowers** page to discover yours! It's a beautiful and meaningful gift idea. Would you like me to take you there?";
+      setLastMenus(["birthMonth", "shop"]);
+      return "Did you know each month has its own special flower? 🌺\n\nOur **Birth Month Flowers** collection features:\n- Unique flowers for every month\n- Meaningful & personal gifts\n- Perfect for any celebration\n\nDiscover your birth flower and find the perfect gift!";
     }
 
     // Plant Finder
     if (msg.includes("find") || msg.includes("recommend") || msg.includes("suggest") || msg.includes("which plant")) {
-      return "Not sure which plant is right for you? Try our **Plant Finder** tool! Answer a few quick questions about your space, light, and experience level, and we'll recommend the perfect plants for you.";
+      setLastMenus(["plantFinder", "shop"]);
+      return "Not sure which plant is right for you? 🤔\n\nOur **Plant Finder** tool helps you discover the perfect match!\n\nJust answer a few quick questions about:\n- Your space & light\n- Your experience level\n- Your style preferences\n\nWe'll recommend plants perfectly suited to you!";
     }
 
     // Thank you
@@ -111,7 +152,8 @@ function Chatbot() {
     }
 
     // Default
-    return "I'd be happy to help! Here are some things I can assist with:\n\n- Delivery & shipping info\n- Plant care tips\n- Our services (weddings, gardens, interiors)\n- Custom bouquets\n- Payment options\n- Gift ideas\n\nOr feel free to ask me anything else! You can also visit us at lafioregardens.vercel.app";
+    setLastMenus(["shop", "plantFinder", "services", "bouquet", "birthMonth"]);
+    return "I'd be happy to help! 😊 Here's what I can assist with:\n\n🚚 Delivery & shipping info\n🌱 Plant care tips\n💐 Custom bouquets & gifts\n🏡 Our services (weddings, gardens, design)\n💳 Payment options\n🎁 Gift recommendations\n\nOr feel free to ask me anything! Ready to explore?";
   };
 
   const handleSend = async (text) => {
@@ -200,9 +242,28 @@ function Chatbot() {
               </div>
             )}
             {messages.map((msg, idx) => (
-              <div key={idx} className={`chatbot-msg chatbot-msg--${msg.role}`}>
-                {msg.role === "assistant" && <span className="chatbot-avatar">🌸</span>}
-                <p dangerouslySetInnerHTML={{ __html: formatMessage(msg.text) }} />
+              <div key={idx}>
+                <div className={`chatbot-msg chatbot-msg--${msg.role}`}>
+                  {msg.role === "assistant" && <span className="chatbot-avatar">🌸</span>}
+                  <p dangerouslySetInnerHTML={{ __html: formatMessage(msg.text) }} />
+                </div>
+                {msg.role === "assistant" && idx === messages.length - 1 && lastMenus.length > 0 && (
+                  <div className="chatbot-menu-buttons">
+                    {lastMenus.map((menuKey) => (
+                      <a
+                        key={menuKey}
+                        href={menuLinks[menuKey].url}
+                        className="chatbot-menu-link"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.location.href = menuLinks[menuKey].url;
+                        }}
+                      >
+                        {menuLinks[menuKey].label}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
             {loading && (
