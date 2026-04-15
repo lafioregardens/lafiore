@@ -135,8 +135,24 @@ function Chatbot() {
       return "Yes! We love creating custom bouquets! 💐\n\nYou can design your own and choose:\n- Your favorite flowers\n- Colors & style\n- Wrapping options\n\nPerfect for weddings, birthdays, anniversaries, or just because! Ready to create?";
     }
 
+    // Specific service explanations
+    if (msg.includes("planterior") || msg.includes("interior") || msg.includes("interior styling")) {
+      setLastMenus(["services", "consultation"]);
+      return "🏡 **Planterior Design** is our plant-focused interior styling service!\n\nWe transform your living and working spaces with:\n- Expert plant selection for your décor\n- Strategic placement for maximum impact\n- Style recommendations that match your aesthetic\n- Maintenance tips to keep plants thriving\n\nPerfect for homes, offices, restaurants, and retail spaces. Create a green, living atmosphere!";
+    }
+
+    if (msg.includes("garden") && (msg.includes("plan") || msg.includes("care"))) {
+      setLastMenus(["services", "consultation"]);
+      return "🌳 **Garden Planning & Care** is our personalized garden design and maintenance service!\n\nWe help with:\n- Custom garden design tailored to your space\n- Plant selection for climate & conditions\n- Seasonal planting guidance\n- Ongoing maintenance & care\n- Landscape transformation\n\nWhether it's a small balcony or a sprawling yard, we create beautiful gardens!";
+    }
+
+    if (msg.includes("wedding") || msg.includes("event") || (msg.includes("flower") && msg.includes("event"))) {
+      setLastMenus(["services", "consultation"]);
+      return "✨ **Event & Wedding Flowers** is our custom floral styling service!\n\nWe create stunning arrangements for:\n- Weddings & ceremonies\n- Corporate events\n- Celebrations & parties\n- Proposals & special moments\n- Decor installations\n\nOur team designs custom floral experiences that match your vision perfectly. From intimate gatherings to grand celebrations!";
+    }
+
     // Services & Consultation
-    if (msg.includes("service") || msg.includes("consult") || msg.includes("wedding") || msg.includes("event")) {
+    if (msg.includes("service") || msg.includes("consult")) {
       setLastMenus(["services", "consultation"]);
       return "We offer three amazing services:\n\n✨ **Event & Wedding Flowers** — Custom floral styling for your special day\n🌳 **Garden Planning & Care** — Personalized garden design & maintenance\n🏡 **Planterior Design** — Plant-focused interior styling\n\nBook a free consultation to discuss your vision!";
     }
