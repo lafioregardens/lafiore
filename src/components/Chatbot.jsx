@@ -50,10 +50,35 @@ function Chatbot() {
   const getResponse = (message) => {
     const msg = message.toLowerCase();
 
-    // Check for navigation requests
-    if (msg.includes("take me") || msg.includes("link to") || msg.includes("show me") || msg.includes("go to") || msg.includes("navigate") || msg.includes("page") || msg.match(/^(where|which page)/)) {
-      setLastMenus(["shop", "plantFinder", "services", "bouquet", "birthMonth", "account", "consultation"]);
-      return "I'd be happy to take you there! Here are the main pages you can visit:";
+    // Smart navigation - detect which page user is asking for
+    if (msg.includes("take me") || msg.includes("link to") || msg.includes("show me") || msg.includes("go to") || msg.includes("navigate")) {
+      // Detect specific pages
+      if (msg.includes("shop") || msg.includes("products") || msg.includes("buy") || msg.includes("browse")) {
+        setLastMenus(["shop"]);
+        return "Let me take you to our shop! 🛍️";
+      } else if (msg.includes("plant finder") || msg.includes("recommend") || msg.includes("find plant")) {
+        setLastMenus(["plantFinder"]);
+        return "Let's find the perfect plant for you! 🌱";
+      } else if (msg.includes("service") || msg.includes("wedding") || msg.includes("garden") || msg.includes("design")) {
+        setLastMenus(["services"]);
+        return "Check out our amazing services! 🏡";
+      } else if (msg.includes("custom") || msg.includes("bouquet") || msg.includes("arrange")) {
+        setLastMenus(["bouquet"]);
+        return "Let's create a beautiful custom bouquet! 💐";
+      } else if (msg.includes("birth") || msg.includes("month flower") || msg.includes("zodiac")) {
+        setLastMenus(["birthMonth"]);
+        return "Discover your birth month flower! 🌸";
+      } else if (msg.includes("account") || msg.includes("order") || msg.includes("track")) {
+        setLastMenus(["account"]);
+        return "Let me take you to your account! 👤";
+      } else if (msg.includes("consult") || msg.includes("booking")) {
+        setLastMenus(["consultation"]);
+        return "Book a consultation with us! 📞";
+      } else {
+        // Generic page request without specific page mentioned
+        setLastMenus(["shop", "plantFinder", "services", "bouquet", "birthMonth"]);
+        return "I'd be happy to take you there! Which page would you like to visit?";
+      }
     }
 
     // Check for gibberish/unclear input
