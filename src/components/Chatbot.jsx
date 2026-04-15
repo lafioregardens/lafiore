@@ -32,14 +32,29 @@ function Chatbot() {
   // Detect if input is gibberish or unclear
   const isGibberish = (message) => {
     const msg = message.trim().toLowerCase();
-    // Too short or random characters
+
+    // Too short
     if (msg.length < 2) return true;
+
     // Only special characters or numbers
     if (!/[a-z]/i.test(msg)) return true;
+
     // Random keyboard mashing (same key repeated)
     if (/(.)\1{4,}/.test(msg)) return true;
+
     // Too many spaces or symbols
     if (msg.split(" ").filter(w => w.length === 0).length > msg.split(" ").length / 2) return true;
+
+    // Random letter sequences without vowels (keyboard mashing like vbncxjm)
+    const words = msg.split(/\s+/);
+    for (let word of words) {
+      if (word.length > 3) {
+        // Check if word is mostly consonants without vowels (gibberish)
+        const vowels = (word.match(/[aeiou]/g) || []).length;
+        if (vowels === 0) return true; // No vowels = likely gibberish
+      }
+    }
+
     return false;
   };
 
@@ -99,7 +114,7 @@ function Chatbot() {
     // Check for gibberish/unclear input
     if (isGibberish(message)) {
       setLastMenus(["shop", "plantFinder", "services", "bouquet", "contact"]);
-      return "Sorry, I didn't quite understand that! 😊 Could you please rephrase your question? You can also explore our services using the buttons below:";
+      return "Sorry, unable to understand that! 😊 Could you please ask a clear question? I'm here to help with:\n\n- Delivery & shipping info\n- Plant care tips\n- Our services\n- Custom bouquets\n- And much more!\n\nFeel free to browse our pages or ask me anything!";
     }
 
     // Greetings
