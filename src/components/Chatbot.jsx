@@ -172,9 +172,11 @@ function Chatbot() {
       return "You're welcome! We're always happy to help at La Fiore. If you need anything else, just ask! Happy planting!";
     }
 
-    // Bye
-    if (msg.match(/^(bye|goodbye|see you|take care)/)) {
-      return "Goodbye! Thank you for visiting La Fiore. We hope to see you again soon! Happy planting!";
+    // Bye / End conversation
+    if (msg.match(/^(bye|goodbye|see you|take care|thanks|thank you|that's all)/)) {
+      setLastMenus([]);
+      // Return a response that will show end of convo message
+      return "Thank you for chatting with Lily! 💚 We hope we could help. Have a wonderful day and happy planting! Type 'mainpage' or 'main' anytime to restart the conversation.";
     }
 
     // Who are you
@@ -191,6 +193,14 @@ function Chatbot() {
     const userMessage = text || input.trim();
     if (!userMessage) return;
     setInput("");
+
+    // Check if user wants to go to main page
+    const msg = userMessage.toLowerCase();
+    if (msg.includes("main page") || msg.includes("mainpage") || msg.includes("home") || msg.match(/^(main|home|reset|restart)/)) {
+      setMessages([]);
+      setLastMenus([]);
+      return;
+    }
 
     setMessages((prev) => [...prev, { role: "user", text: userMessage }]);
     setLoading(true);
