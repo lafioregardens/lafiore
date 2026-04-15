@@ -58,12 +58,18 @@ export function CartProvider({ children }) {
     });
   };
 
-  // Increase quantity of item in cart
+  // Increase quantity of item in cart (respect stock limit)
   const increaseQuantity = (id) => {
     setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
+      prev.map((item) => {
+        if (item.id === id) {
+          // Check if increasing would exceed available stock
+          const maxQuantity = item.stock !== undefined ? item.stock : 999;
+          const newQuantity = Math.min(item.quantity + 1, maxQuantity);
+          return { ...item, quantity: newQuantity };
+        }
+        return item;
+      })
     );
   };
 

@@ -16,6 +16,7 @@ function ProductCard({ product, linkToDetail = true }) {
       description: product.description,
       price: product.price,
       image: product.image,
+      stock: product.stock,
       details: {
         category: product.mainCategory,
         tags: product.tags?.join(", "),

@@ -132,13 +132,19 @@ function Cart() {
                             <button
                               className="qty-btn"
                               onClick={() => decreaseQuantity(item.id)}
+                              disabled={item.quantity <= 1}
                             >
                               −
                             </button>
-                            <span className="qty-value">{item.quantity}</span>
+                            <span className="qty-value">
+                              {item.quantity}
+                              {item.stock !== undefined && <span style={{ fontSize: '11px', color: '#999', marginLeft: '4px' }}>/ {item.stock}</span>}
+                            </span>
                             <button
                               className="qty-btn"
                               onClick={() => increaseQuantity(item.id)}
+                              disabled={item.stock !== undefined && item.quantity >= item.stock}
+                              title={item.stock !== undefined && item.quantity >= item.stock ? `Only ${item.stock} available` : ""}
                             >
                               +
                             </button>

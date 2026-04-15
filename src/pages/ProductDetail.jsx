@@ -98,6 +98,7 @@ function ProductDetail() {
         description: product.description,
         price: product.price,
         image: product.image,
+        stock: product.stock,
         details: {
           category: product.mainCategory,
           tags: product.tags?.join(", "),
@@ -232,7 +233,7 @@ function ProductDetail() {
 
           <div className="product-actions-row">
             <div className="product-quantity">
-              <label>Quantity</label>
+              <label>Quantity {product?.stock !== undefined && `(Max: ${product.stock})`}</label>
               <div className="quantity-controls">
                 <button
                   type="button"
@@ -244,7 +245,11 @@ function ProductDetail() {
                 <span className="quantity-value">{quantity}</span>
                 <button
                   type="button"
-                  onClick={() => setQuantity((q) => q + 1)}
+                  onClick={() => setQuantity((q) => {
+                    const maxStock = product?.stock || 999;
+                    return Math.min(q + 1, maxStock);
+                  })}
+                  disabled={product?.stock !== undefined && quantity >= product.stock}
                 >
                   +
                 </button>
