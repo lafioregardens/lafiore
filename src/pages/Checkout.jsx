@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Toast from "../components/Toast";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
 import { useLanguage } from "../context/LanguageContext";
@@ -9,11 +10,12 @@ import "./Checkout.css";
 
 function Checkout() {
   const navigate = useNavigate();
-  const { cartItems, clearCart } = useContext(CartContext);
+  const { cartItems, clearCart, triggerToast } = useContext(CartContext);
   const { user } = useContext(AuthContext);
   const { t } = useLanguage();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [invalidFields, setInvalidFields] = useState([]);
 
   const [formData, setFormData] = useState({
     name: user?.displayName || "",
@@ -23,9 +25,9 @@ function Checkout() {
     area: "",
     emirate: "Dubai",
     deliveryDate: "",
-    deliveryTime: "morning",
+    deliveryTime: "",
     notes: "",
-    paymentMethod: "cash",
+    paymentMethod: "",
     cardNumber: "",
     cardHolder: "",
     expiryDate: "",
@@ -50,17 +52,24 @@ function Checkout() {
     setError("");
 
     // Validate required fields
-    if (
-      !formData.name.trim() ||
-      !formData.email.trim() ||
-      !formData.phone.trim() ||
-      !formData.street.trim() ||
-      !formData.area.trim() ||
-      !formData.deliveryDate
-    ) {
+    const emptyFields = [];
+    if (!formData.name.trim()) emptyFields.push("name");
+    if (!formData.email.trim()) emptyFields.push("email");
+    if (!formData.phone.trim()) emptyFields.push("phone");
+    if (!formData.street.trim()) emptyFields.push("street");
+    if (!formData.area.trim()) emptyFields.push("area");
+    if (!formData.deliveryDate) emptyFields.push("deliveryDate");
+    if (!formData.deliveryTime) emptyFields.push("deliveryTime");
+    if (!formData.paymentMethod) emptyFields.push("paymentMethod");
+
+    if (emptyFields.length > 0) {
+      setInvalidFields(emptyFields);
       setError(t("fillRequired"));
+      triggerToast("Please fill in all required fields");
       return;
     }
+
+    setInvalidFields([]);
 
     if (cartItems.length === 0) {
       setError(t("cartEmpty"));
@@ -94,17 +103,80 @@ function Checkout() {
       // Generate order ID
       const orderId = "LAF" + Date.now();
 
+      // Calculate delivery charge (free if > 150, else 5 AED)
+      const deliveryCharge = totalPrice > 150 ? 0 : 5;
+      const finalTotal = totalPrice + deliveryCharge;
+
+      // Save order to localStorage for tracking
+      const savedOrder = {
+        id: orderId,
+        status: "processing",
+        items: cartItems.map(item => ({
+          name: item.flower || item.name,
+          quantity: item.quantity,
+          price: item.price,
+        })),
+        subtotal: totalPrice,
+        deliveryCharge: deliveryCharge,
+        total: `AED ${finalTotal.toFixed(2)}`,
+        deliveryAddress: {
+          name: formData.name,
+          street: formData.street,
+          area: formData.area,
+          emirate: formData.emirate,
+          phone: formData.phone,
+        },
+        deliveryDate: formData.deliveryDate,
+        deliveryTime: formData.deliveryTime,
+        paymentMethod: formData.paymentMethod,
+        notes: formData.notes,
+        orderDate: new Date().toISOString().split('T')[0],
+        estimatedDelivery: formData.deliveryDate,
+        timeline: [
+          { status: "Order Placed", date: new Date().toISOString().split('T')[0], completed: true },
+          { status: "Processing", date: new Date().toISOString().split('T')[0], completed: true },
+          { status: "Preparing", date: formData.deliveryDate, completed: false },
+          { status: "Out for Delivery", date: formData.deliveryDate, completed: false },
+          { status: "Delivered", date: formData.deliveryDate, completed: false },
+        ],
+      };
+      const existingOrders = JSON.parse(localStorage.getItem("lafiore-orders") || "{}");
+      existingOrders[orderId] = savedOrder;
+      localStorage.setItem("lafiore-orders", JSON.stringify(existingOrders));
+
       // Try to POST to backend (optional - works without backend)
       try {
         await api.post("/orders", orderData);
       } catch (apiErr) {
-        // Backend not available - continue with success anyway
         console.log("Backend not available, continuing with offline order");
       }
 
-      // Clear cart and navigate to success page
+      // Decrement inventory stock for each item in the order
+      try {
+        const stockDecrementData = {
+          items: cartItems.map(item => ({
+            productId: item.id,
+            quantity: item.quantity
+          }))
+        };
+        await api.post("/inventory/decrement", stockDecrementData);
+        console.log("Inventory updated successfully");
+      } catch (inventoryErr) {
+        console.log("Inventory update failed, order still processed", inventoryErr);
+        // Don't fail the order if inventory update fails
+      }
+
+      // Navigate to success page with order data
+      navigate(`/order-success?id=${orderId}`, {
+        state: {
+          orderItems: cartItems,
+          orderTotal: finalTotal,
+          subtotal: totalPrice,
+          deliveryCharge: deliveryCharge
+        }
+      });
+      // Clear cart after navigation
       clearCart();
-      navigate(`/order-success?id=${orderId}`);
     } catch (err) {
       setError(
         err.response?.data?.error ||
@@ -135,6 +207,7 @@ function Checkout() {
   return (
     <div>
       <Navbar />
+      <Toast />
 
       <main className="checkout-page">
         <div className="checkout-container">
@@ -144,11 +217,11 @@ function Checkout() {
 
             {error && <div className="error-message">{error}</div>}
 
-            <form onSubmit={handleSubmit} className="checkout-form">
+            <form onSubmit={handleSubmit} className="checkout-form" noValidate>
               {/* Contact Info */}
               <div className="form-section">
                 <h2>{t("contactInfo")}</h2>
-                <div className="form-group">
+                <div className={`form-group ${invalidFields.includes("name") ? "invalid" : ""}`}>
                   <label>{t("fullName")} *</label>
                   <input
                     type="text"
@@ -156,11 +229,11 @@ function Checkout() {
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Your full name"
-                    required
                   />
+                  {invalidFields.includes("name") && <span className="field-error">This field is required</span>}
                 </div>
                 <div className="form-row">
-                  <div className="form-group">
+                  <div className={`form-group ${invalidFields.includes("email") ? "invalid" : ""}`}>
                     <label>{t("email")} *</label>
                     <input
                       type="email"
@@ -168,10 +241,10 @@ function Checkout() {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your@email.com"
-                      required
                     />
+                    {invalidFields.includes("email") && <span className="field-error">This field is required</span>}
                   </div>
-                  <div className="form-group">
+                  <div className={`form-group ${invalidFields.includes("phone") ? "invalid" : ""}`}>
                     <label>{t("phone")} *</label>
                     <input
                       type="tel"
@@ -179,8 +252,8 @@ function Checkout() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="+971 50 123 4567"
-                      required
                     />
+                    {invalidFields.includes("phone") && <span className="field-error">This field is required</span>}
                   </div>
                 </div>
               </div>
@@ -188,7 +261,7 @@ function Checkout() {
               {/* Delivery Address */}
               <div className="form-section">
                 <h2>{t("deliveryAddress")}</h2>
-                <div className="form-group">
+                <div className={`form-group ${invalidFields.includes("street") ? "invalid" : ""}`}>
                   <label>{t("street")} *</label>
                   <input
                     type="text"
@@ -196,11 +269,11 @@ function Checkout() {
                     value={formData.street}
                     onChange={handleInputChange}
                     placeholder="Building, House no., Street name"
-                    required
                   />
+                  {invalidFields.includes("street") && <span className="field-error">This field is required</span>}
                 </div>
                 <div className="form-row">
-                  <div className="form-group">
+                  <div className={`form-group ${invalidFields.includes("area") ? "invalid" : ""}`}>
                     <label>{t("area")} *</label>
                     <input
                       type="text"
@@ -208,8 +281,8 @@ function Checkout() {
                       value={formData.area}
                       onChange={handleInputChange}
                       placeholder="Downtown, Marina, etc."
-                      required
                     />
+                    {invalidFields.includes("area") && <span className="field-error">This field is required</span>}
                   </div>
                   <div className="form-group">
                     <label>{t("emirate")} *</label>
@@ -233,18 +306,18 @@ function Checkout() {
               {/* Delivery Preference */}
               <div className="form-section">
                 <h2>{t("deliveryPreference")}</h2>
-                <div className="form-group">
+                <div className={`form-group ${invalidFields.includes("deliveryDate") ? "invalid" : ""}`}>
                   <label>{t("deliveryDate")} *</label>
                   <input
                     type="date"
                     name="deliveryDate"
                     value={formData.deliveryDate}
                     onChange={handleInputChange}
-                    required
                   />
+                  {invalidFields.includes("deliveryDate") && <span className="field-error">This field is required</span>}
                 </div>
-                <div className="form-group">
-                  <label>{t("deliveryTime")}</label>
+                <div className={`form-group ${invalidFields.includes("deliveryTime") ? "invalid" : ""}`}>
+                  <label>{t("deliveryTime")} *</label>
                   <div className="radio-group">
                     <label className="radio-label">
                       <input
@@ -277,6 +350,7 @@ function Checkout() {
                       {t("evening")} (4 PM - 8 PM)
                     </label>
                   </div>
+                  {invalidFields.includes("deliveryTime") && <span className="field-error">This field is required</span>}
                 </div>
               </div>
 
@@ -295,8 +369,8 @@ function Checkout() {
               </div>
 
               {/* Payment Method */}
-              <div className="form-section">
-                <h2>{t("paymentMethod")}</h2>
+              <div className={`form-section ${invalidFields.includes("paymentMethod") ? "invalid-section" : ""}`}>
+                <h2>{t("paymentMethod")} *</h2>
                 <div className="radio-group">
                   <label className="radio-label payment-option">
                     <input
@@ -325,6 +399,7 @@ function Checkout() {
                     </span>
                   </label>
                 </div>
+                {invalidFields.includes("paymentMethod") && <span className="field-error">This field is required</span>}
 
                 {/* Card Details Form - Show only when card is selected */}
                 {formData.paymentMethod === "card" && (

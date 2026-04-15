@@ -5,7 +5,7 @@
 .checkout-page {
   background: var(--cream);
   min-height: calc(100vh - 200px);
-  padding: 80px 20px 60px;
+  padding: 200px 20px 60px;
 }
 
 .checkout-container {
@@ -85,7 +85,7 @@
   border-radius: 6px;
   font-size: 14px;
   font-family: inherit;
-  background: white;
+  background: var(--cream);
   color: var(--green-deep);
   transition: border-color 0.2s ease;
 }
@@ -345,7 +345,7 @@
 .order-success-page {
   background: var(--cream);
   min-height: calc(100vh - 200px);
-  padding: 60px 20px;
+  padding: 200px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -625,7 +625,7 @@
   border-radius: 6px;
   font-size: 14px;
   font-family: inherit;
-  background: white;
+  background: var(--cream);
   color: var(--green-deep);
 }
 
@@ -650,6 +650,56 @@
   color: #1e40af;
   text-align: center;
   line-height: 1.5;
+}
+.checkout-form .form-group input,
+.checkout-form .form-group textarea,
+.checkout-form .form-group select,
+.card-details-section .form-group input {
+  background: #f6f0e6 !important;
+  color: #2d3d24 !important;
+}
+
+/* Invalid field styling */
+.checkout-form .form-group.invalid input,
+.checkout-form .form-group.invalid textarea,
+.checkout-form .form-group.invalid select,
+.card-details-section .form-group.invalid input {
+  border: 2px solid #dc2626 !important;
+  background: #fee2e2 !important;
+}
+
+.field-error {
+  display: block;
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.form-section.invalid-section {
+  border-left: 4px solid #dc2626;
+  padding-left: 16px;
+}
+
+.form-section.invalid-section .radio-label {
+  border: 2px solid #dc2626 !important;
+}
+
+/* Date input calendar icon */
+input[type="date"] {
+  color-scheme: light;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: transparent;
+  filter: invert(0) brightness(0.5);
+  color: #2d3d24;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  filter: invert(0) brightness(0.3);
 }
 
 /* ============================================

@@ -20,18 +20,6 @@
   transform: translateY(-4px);
 }
 
-.product-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: var(--green-deep);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  z-index: 10;
-}
 
 .product-image {
   width: 100%;
@@ -120,6 +108,17 @@
   font-weight: 700;
   color: #2d3d24;
   margin-top: auto;
+}
+
+.product-low-stock {
+  background: #ea580c;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 4px;
 }
 
 .product-btn {

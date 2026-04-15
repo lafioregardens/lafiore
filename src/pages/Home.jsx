@@ -504,7 +504,7 @@ function Home() {
             <p className="consult-eyebrow">{t("needHelpChoosing")}</p>
             <h2 className="consult-title">{t("createSomethingBeautiful")}</h2>
             <p className="consult-body">{t("floralExpertsGuide")}</p>
-            <Link to="/services#consultation" className="btn-primary light">{t("bookFreeConsultation")}</Link>
+            <Link to="/consultation" className="btn-primary light">{t("bookFreeConsultation")}</Link>
           </div>
         </section>
 

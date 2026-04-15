@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 // React hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 // Toast for form feedback
 import FormToast from "../components/FormToast";
@@ -16,6 +17,7 @@ import api from "../utils/api";
 
 function Consultation() {
   const { t } = useLanguage();
+  const location = useLocation();
 
   // Form states
   const [title, setTitle] = useState("");
@@ -28,6 +30,20 @@ function Consultation() {
   // Toast state
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState("success");
+
+  // Scroll to hash anchor on page load or location change
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      const elementId = hash.replace("#", "");
+      setTimeout(() => {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 0);
+    }
+  }, [location]);
 
   // Handle form submit
   const handleConsultationSubmit = async (e) => {
@@ -87,13 +103,19 @@ function Consultation() {
             </p>
 
             <div className="consultation-hero-buttons">
-              <a href="#consultation-form" className="consultation-primary-btn">
+              <Link
+                to="/consultation#consultation-form"
+                className="consultation-primary-btn"
+              >
                 Book a Consultation
-              </a>
+              </Link>
 
-              <a href="#consultation-services" className="consultation-secondary-btn">
+              <Link
+                to="/consultation#consultation-services"
+                className="consultation-secondary-btn"
+              >
                 Explore Services
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -111,41 +133,47 @@ function Consultation() {
           </div>
 
           <div className="consultation-service-layout">
-            <article className="consultation-service-feature large-service">
-              <div className="consultation-service-image"></div>
-              <div className="consultation-service-text">
-                <h3>Event and Wedding Flowers</h3>
-                <p>
-                  Bespoke floral styling for weddings, intimate celebrations,
-                  engagements, launches, and special events. We design
-                  arrangements that match your theme, venue, and atmosphere.
-                </p>
-              </div>
-            </article>
+            <Link to="/service/event-wedding" style={{ textDecoration: 'none' }}>
+              <article className="consultation-service-feature large-service">
+                <div className="consultation-service-image"></div>
+                <div className="consultation-service-text">
+                  <h3>Event and Wedding Flowers</h3>
+                  <p>
+                    Bespoke floral styling for weddings, intimate celebrations,
+                    engagements, launches, and special events. We design
+                    arrangements that match your theme, venue, and atmosphere.
+                  </p>
+                </div>
+              </article>
+            </Link>
 
-            <article className="consultation-service-feature">
-              <div className="consultation-service-image"></div>
-              <div className="consultation-service-text">
-                <h3>Garden Planning and Care</h3>
-                <p>
-                  Personalized support for plant selection, layout planning,
-                  seasonal care, and greenery maintenance to help your garden
-                  flourish beautifully.
-                </p>
-              </div>
-            </article>
+            <Link to="/service/garden-planning" style={{ textDecoration: 'none' }}>
+              <article className="consultation-service-feature">
+                <div className="consultation-service-image"></div>
+                <div className="consultation-service-text">
+                  <h3>Garden Planning and Care</h3>
+                  <p>
+                    Personalized support for plant selection, layout planning,
+                    seasonal care, and greenery maintenance to help your garden
+                    flourish beautifully.
+                  </p>
+                </div>
+              </article>
+            </Link>
 
-            <article className="consultation-service-feature">
-              <div className="consultation-service-image"></div>
-              <div className="consultation-service-text">
-                <h3>Planterior Design</h3>
-                <p>
-                  Plant-focused interior styling that blends décor and greenery
-                  to create fresh, elegant, and calming spaces in homes,
-                  studios, and workspaces.
-                </p>
-              </div>
-            </article>
+            <Link to="/service/planterior-design" style={{ textDecoration: 'none' }}>
+              <article className="consultation-service-feature">
+                <div className="consultation-service-image"></div>
+                <div className="consultation-service-text">
+                  <h3>Planterior Design</h3>
+                  <p>
+                    Plant-focused interior styling that blends décor and greenery
+                    to create fresh, elegant, and calming spaces in homes,
+                    studios, and workspaces.
+                  </p>
+                </div>
+              </article>
+            </Link>
           </div>
         </section>
 

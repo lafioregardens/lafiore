@@ -2678,11 +2678,10 @@ button:hover .btn-arrow, a:hover .btn-arrow { transform: translateX(4px); }
 /*******************
       CART PAGE
  ***********************/
-
 .cart-page {
   background: var(--cream);
   min-height: calc(100vh - 200px);
-  padding: 80px 20px 60px;
+  padding: 200px 20px 60px;
 }
 
 .cart-hero {
@@ -5875,6 +5874,49 @@ select option {
 .shop-card-image-wrapper {
   width: 100%;
   padding: 14px 14px 0;
+  overflow: visible;
+  border-radius: 10px;
+  position: relative;
+  background: white;
+}
+
+.shop-card-sold-out-tag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  color: #2d3d24;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 20;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  pointer-events: none;
+}
+
+.shop-card-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 10;
+}
+
+.shop-card-badge--low {
+  background: #ea580c;
+}
+
+.shop-card {
+  position: relative;
 }
 
 .shop-card-real-image {

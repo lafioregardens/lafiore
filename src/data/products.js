@@ -8,6 +8,95 @@ import kale from "../assets/products/plants/kale.jpeg";
 import spinach from "../assets/products/plants/spinach.jpeg";
 import strawberry from "../assets/products/plants/strawberry.jpeg";
 import zucchini from "../assets/products/plants/zucchini.jpeg";
+// import moneyplant from "../assets/products/plants/moneyplant.jpeg";
+// import hibiscus from "../assets/products/plants/hibiscus.jpeg";
+// import jadeplant from "../assets/products/plants/jadeplant.jpeg";
+// import boxwood from "../assets/products/plants/boxwood.jpeg";
+// import hydrangea from "../assets/products/plants/hydrangea.jpeg";
+// import hosta from "../assets/products/plants/hosta.jpeg";
+// import lavender from "../assets/products/plants/lavender.jpeg";
+// import agave from "../assets/products/plants/agave.jpeg";
+// import fern from "../assets/products/plants/fern.jpeg";
+// import ornamentalgrass from "../assets/products/plants/ornamentalgrass.jpeg";
+// import petunia from "../assets/products/plants/petunia.jpeg";
+// import azalea from "../assets/products/plants/azalea.jpeg";
+// import boxhedge from "../assets/products/plants/boxhedge.jpeg";
+// import succulentmix from "../assets/products/plants/succulentmix.jpeg";
+// import bougainvillea from "../assets/products/plants/bougainvillea.jpeg";
+// import snakeplant from "../assets/products/plants/snakeplant.jpeg";
+// import monstera from "../assets/products/plants/monstera.jpeg";
+// import peace from "../assets/products/plants/peace.jpeg";
+// import spider from "../assets/products/plants/spider.jpeg";
+// import pothos from "../assets/products/plants/pothos.jpeg";
+// import zz from "../assets/products/plants/zz.jpeg";
+// import fiddle from "../assets/products/plants/fiddle.jpeg";
+// import aloe from "../assets/products/plants/aloe.jpeg";
+// import rubber from "../assets/products/plants/rubber.jpeg";
+// import bird from "../assets/products/plants/bird.jpeg";
+// import orchid from "../assets/products/plants/orchid.jpeg";
+// import tulip from "../assets/products/plants/tulip.jpeg";
+// import sunflower from "../assets/products/plants/sunflower.jpeg";
+// import chrysanthemum from "../assets/products/plants/chrysanthemum.jpeg";
+// import poinsettia from "../assets/products/plants/poinsettia.jpeg";
+// import daffodil from "../assets/products/plants/daffodil.jpeg";
+// import marigold from "../assets/products/plants/marigold.jpeg";
+// import pansy from "../assets/products/plants/pansy.jpeg";
+// import dahlia from "../assets/products/plants/dahlia.jpeg";
+// import poppy from "../assets/products/plants/poppy.jpeg";
+// import sweetpea from "../assets/products/plants/sweetpea.jpeg";
+// import waterlily from "../assets/products/plants/waterlily.jpeg";
+// import lotus from "../assets/products/plants/lotus.jpeg";
+// import waterhyacinth from "../assets/products/plants/waterhyacinth.jpeg";
+// import papyrus from "../assets/products/plants/papyrus.jpeg";
+// import cattail from "../assets/products/plants/cattail.jpeg";
+// import duckweed from "../assets/products/plants/duckweed.jpeg";
+// import frogbit from "../assets/products/plants/frogbit.jpeg";
+// import anubias from "../assets/products/plants/anubias.jpeg";
+// import javamoss from "../assets/products/plants/javamoss.jpeg";
+// import hornwort from "../assets/products/plants/hornwort.jpeg";
+// import peppermint from "../assets/products/plants/peppermint.jpeg";
+// import echinacea from "../assets/products/plants/echinacea.jpeg";
+// import turmeric from "../assets/products/plants/turmeric.jpeg";
+// import calendula from "../assets/products/plants/calendula.jpeg";
+// import chamomile from "../assets/products/plants/chamomile.jpeg";
+// import ginkgo from "../assets/products/plants/ginkgo.jpeg";
+// import ginger from "../assets/products/plants/ginger.jpeg";
+// import lemonbalm from "../assets/products/plants/lemonbalm.jpeg";
+// import tulsi from "../assets/products/plants/tulsi.jpeg";
+// import ashwagandha from "../assets/products/plants/ashwagandha.jpeg";
+// import oaktree from "../assets/products/plants/oaktree.jpeg";
+// import mapletree from "../assets/products/plants/mapletree.jpeg";
+// import bonsai from "../assets/products/plants/bonsai.jpeg";
+// import appletree from "../assets/products/plants/appletree.jpeg";
+// import pinetree from "../assets/products/plants/pinetree.jpeg";
+// import cherryblossom from "../assets/products/plants/cherryblossom.jpeg";
+// import birch from "../assets/products/plants/birch.jpeg";
+// import palm from "../assets/products/plants/palm.jpeg";
+// import olive from "../assets/products/plants/olive.jpeg";
+// import willow from "../assets/products/plants/willow.jpeg";
+// import areca from "../assets/products/plants/areca.jpeg";
+// import parlour from "../assets/products/plants/parlour.jpeg";
+// import nasturtium from "../assets/products/flowers/nasturtium.jpeg";
+// import violet from "../assets/products/flowers/violet.jpeg";
+// import borage from "../assets/products/flowers/borage.jpeg";  
+// import squash from "../assets/products/flowers/squash.jpeg";
+// import dandelion from "../assets/products/flowers/dandelion.jpeg";
+// import cornflower from "../assets/products/flowers/cornflower.jpeg";
+// import pansyflower from "../assets/products/flowers/pansyflower.jpeg";
+// import honeysuckle from "../assets/products/flowers/honeysuckle.jpeg";
+// import chiveblossom from "../assets/products/flowers/chiveblossom.jpeg";
+// import beebalm from "../assets/products/flowers/beebalm.jpeg";
+// import daisy from "../assets/products/flowers/daisy.jpeg";
+import espresso from "../assets/products/soaps/espresso.jpeg";
+import charcoaldetox from "../assets/products/soaps/charcoaldetox.jpeg";
+import lavenderoat from "../assets/products/soaps/lavenderoat.jpeg";
+import roseclay from "../assets/products/soaps/roseclay.jpeg";
+import eucalyptusmint from "../assets/products/soaps/eucalyptusmint.jpeg";
+import lemongrassginger from "../assets/products/soaps/lemongrassginger.jpeg";
+import milkandshea from "../assets/products/soaps/milkandshea.jpeg";
+import sandalwoodsaffron from "../assets/products/soaps/sandalwoodsaffron.jpeg";
+import seasaltkelp from "../assets/products/soaps/seasaltkelp.jpeg";
+import turmerichoney from "../assets/products/soaps/turmerichoney.jpeg";
 
 const p = (
   id,
@@ -1726,7 +1815,8 @@ const products = [
     "AED 18.00",
     "Used for digging small holes, planting seedlings, and transferring soil into pots.",
     ["Tools", "Hand Tool"],
-    4
+    4,
+    ""
   ),
   p(
     154,
@@ -2103,7 +2193,9 @@ const products = [
     "AED 35.00",
     "A calming bar infused with dried lavender buds and colloidal oatmeal to gently exfoliate and soothe sensitive skin.",
     ["Soaps", "Soothing"],
-    5
+    5,
+    lavenderoat,
+    ["Natural Ingredients"]
   ),
   p(
     195,
@@ -2112,7 +2204,9 @@ const products = [
     "AED 40.00",
     "Deeply cleansing bar that pulls impurities from pores. Ideal for oily and acne-prone skin types.",
     ["Soaps", "Detox"],
-    5
+    5,
+    charcoaldetox,
+    ["Natural Ingredients"]
   ),
   p(
     196,
@@ -2121,7 +2215,9 @@ const products = [
     "AED 38.00",
     "Rich in antioxidants, this bar helps brighten skin tone and provides a natural healthy radiance.",
     ["Soaps", "Glow"],
-    5
+    5,
+    turmerichoney,
+    ["Natural Ingredients"]
   ),
   p(
     197,
@@ -2130,7 +2226,9 @@ const products = [
     "AED 35.00",
     "Made with recycled coffee grounds to stimulate circulation and firm the skin while removing dead skin cells.",
     ["Soaps", "Exfoliating"],
-    4
+    4,
+    espresso,
+    ["Recycled Materials"]
   ),
   p(
     198,
@@ -2139,7 +2237,9 @@ const products = [
     "AED 42.00",
     "A luxurious pink clay bar that cleanses without stripping moisture. Features a delicate floral scent.",
     ["Soaps", "Luxury"],
-    5
+    5,
+    roseclay,
+    ["Natural Ingredients"]
   ),
   p(
     199,
@@ -2148,7 +2248,9 @@ const products = [
     "AED 35.00",
     "An invigorating citrus bar designed to refresh the senses and provide an antibacterial cleanse.",
     ["Soaps", "Refreshing"],
-    4
+    4,
+    lemongrassginger,
+    ["Natural Ingredients"]
   ),
   p(
     200,
@@ -2157,7 +2259,9 @@ const products = [
     "AED 50.00",
     "A premium traditional bar using heritage ingredients to deeply moisturize and scent the skin.",
     ["Soaps", "Premium"],
-    5
+    5,
+    sandalwoodsaffron,
+    ["Natural Ingredients"]
   ),
   p(
     201,
@@ -2166,7 +2270,9 @@ const products = [
     "AED 35.00",
     "Perfect for a post-workout shower, providing a cooling sensation and clearing the respiratory system.",
     ["Soaps", "Cooling"],
-    4
+    4,
+    eucalyptusmint,
+    ["Natural Ingredients"]
   ),
   p(
     202,
@@ -2175,7 +2281,9 @@ const products = [
     "AED 38.00",
     "The ultimate gentle bar for babies and those with eczema. No added fragrances or dyes.",
     ["Soaps", "Gentle"],
-    5
+    5,
+    milkandshea,
+    ["Natural Ingredients"]
   ),
   p(
     203,
@@ -2184,7 +2292,9 @@ const products = [
     "AED 40.00",
     "Packed with minerals from the sea to revitalize tired skin and provide a mineral-rich lather.",
     ["Soaps", "Mineral Rich"],
-    4
+    4,
+    seasaltkelp,
+    ["Natural Ingredients"]
   ),
 
   // =========================

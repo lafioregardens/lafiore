@@ -26,6 +26,9 @@ import AdminOrders from './pages/admin/AdminOrders'
 import AdminCustomers from './pages/admin/AdminCustomers'
 import AdminStats from './pages/admin/AdminStats'
 import AdminNotifications from './pages/admin/AdminNotifications'
+import ServiceEventWedding from './pages/ServiceEventWedding'
+import ServiceGardenPlanning from './pages/ServiceGardenPlanning'
+import ServicePlanteriorDesign from './pages/ServicePlanteriorDesign'
 
 // Components
 import Toast from "./components/Toast";
@@ -77,6 +80,9 @@ function App() {
         <Route path="/order-success" element={<OrderSuccess />} />
         <Route path="/tracking" element={<OrderTracking />} />
         <Route path="/tracking/:orderId" element={<TrackingDetails />} />
+        <Route path="/service/event-wedding" element={<ServiceEventWedding />} />
+        <Route path="/service/garden-planning" element={<ServiceGardenPlanning />} />
+        <Route path="/service/planterior-design" element={<ServicePlanteriorDesign />} />
         <Route
           path="/account"
           element={

@@ -1,12 +1,14 @@
 import Navbar from "../components/Navbar";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import api from "../utils/api";
 import categories from "../data/categories";
-import products from "../data/products";
+import localProducts from "../data/products";
 
 function Shop() {
   const { t } = useLanguage();
+  const [products, setProducts] = useState(localProducts);
   const [selectedMainCategory, setSelectedMainCategory] = useState("All");
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,7 +17,47 @@ function Shop() {
 
   const productsPerPage = 12;
 
+  // Fetch products from API to get stock information
+  useEffect(() => {
+    api
+      .get("/products?limit=500")
+      .then((res) => {
+        const apiProducts = res.data?.data?.products;
+        if (apiProducts && apiProducts.length > 0) {
+          // Merge API products with local products
+          const mergedProducts = apiProducts.map((apiProduct) => {
+            const localProduct = localProducts.find((p) => p.id === apiProduct.id);
+            const merged = { ...localProduct, ...apiProduct };
+            if (!apiProduct.image && localProduct?.image) {
+              merged.image = localProduct.image;
+            }
+            return merged;
+          });
+          setProducts(mergedProducts);
+        } else {
+          // Fallback to local products with test stock data
+          const withStock = localProducts.map((p, idx) => ({
+            ...p,
+            stock: idx === 0 ? 0 : idx === 1 ? 2 : undefined  // Tomato is out of stock, Basil has 2 left
+          }));
+          setProducts(withStock);
+        }
+      })
+      .catch(() => {
+        // Fallback to local products with test stock data
+        const withStock = localProducts.map((p, idx) => ({
+          ...p,
+          stock: idx === 0 ? 0 : idx === 1 ? 2 : undefined  // Tomato is out of stock, Basil has 2 left
+        }));
+        setProducts(withStock);
+      });
+  }, []);
+
   const getPriceNumber = (price) => {
+    // Handle both string (from local data) and number (from API)
+    if (typeof price === 'number') {
+      return price;
+    }
     return Number((price || "").replace("AED", "").replace(/,/g, "").trim()) || 0;
   };
 
@@ -264,7 +306,19 @@ function Shop() {
                       className="shop-card-link"
                     >
                       <article className="shop-card">
+                        {/* Stock Status Badge - Low Stock */}
+                        {product.stock !== undefined && product.stock > 0 && product.stock < 3 && (
+                          <span className="shop-card-badge shop-card-badge--low">
+                            Last {product.stock} remaining
+                          </span>
+                        )}
+
                         <div className="shop-card-image-wrapper">
+                          {/* Sold Out Tag on Image */}
+                          {product.stock !== undefined && product.stock === 0 && (
+                            <div className="shop-card-sold-out-tag">Sold Out</div>
+                          )}
+
                           {product.image ? (
                             <img
                               src={product.image}
@@ -296,7 +350,9 @@ function Shop() {
                           <h3>{product.name}</h3>
 
                           <div className="shop-card-price">
-                            {product.price || "Price on request"}
+                            {typeof product.price === 'number'
+                              ? `AED ${product.price.toFixed(2)}`
+                              : (product.price || "Price on request")}
                           </div>
                         </div>
                       </article>

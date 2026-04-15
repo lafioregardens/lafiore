@@ -25,11 +25,6 @@ function ProductCard({ product, linkToDetail = true }) {
 
   const cardContent = (
     <article className="product-card">
-      {/* Sold Out Badge */}
-      {product.stock === 0 && (
-        <span className="product-badge product-badge--soldout">Sold Out</span>
-      )}
-
       {/* Product Image */}
       <div className="product-image">
         {product.image ? (
@@ -69,15 +64,24 @@ function ProductCard({ product, linkToDetail = true }) {
         )}
 
         {/* Product Price */}
-        <div className="product-price">{product.price}</div>
+        <div className="product-price">
+          {typeof product.price === 'number'
+            ? `AED ${product.price.toFixed(2)}`
+            : product.price}
+        </div>
+
+        {/* Low Stock Badge */}
+        {product.stock !== undefined && product.stock > 0 && product.stock < 3 && (
+          <div className="product-low-stock">Last {product.stock} remaining</div>
+        )}
 
         {/* Add to Cart Button */}
         <button
           className="product-btn"
           onClick={handleAddToCart}
-          disabled={product.stock === 0}
+          disabled={product.stock !== undefined && product.stock === 0}
         >
-          {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
+          {product.stock !== undefined && product.stock === 0 ? "Out of Stock" : "Add to Cart"}
           <span className="btn-arrow">→</span>
         </button>
       </div>

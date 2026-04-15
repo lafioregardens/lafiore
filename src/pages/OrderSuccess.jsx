@@ -1,4 +1,4 @@
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Link, useLocation } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { CartContext } from "../context/CartContext";
@@ -7,26 +7,22 @@ import "./Checkout.css";
 
 function OrderSuccess() {
   const [searchParams] = useSearchParams();
-  const { cartItems, clearCart } = useContext(CartContext);
+  const location = useLocation();
+  const { clearCart } = useContext(CartContext);
   const { t } = useLanguage();
   const [orderItems, setOrderItems] = useState([]);
   const [orderTotal, setOrderTotal] = useState(0);
+  const [subtotal, setSubtotal] = useState(0);
+  const [deliveryCharge, setDeliveryCharge] = useState(0);
   const orderId = searchParams.get("id") || "LAF" + Date.now();
 
-  // Store order data and clear cart on mount
+  // Get order data from navigation state (run only once on mount)
   useEffect(() => {
-    if (cartItems.length > 0) {
-      // Store items before clearing
-      setOrderItems(cartItems);
-
-      // Calculate total
-      const total = cartItems.reduce((sum, item) => {
-        const numericPrice = Number(item.price.replace("AED", "").trim());
-        return sum + numericPrice * item.quantity;
-      }, 0);
-      setOrderTotal(total);
-
-      // Clear cart
+    if (location.state?.orderItems) {
+      setOrderItems(location.state.orderItems);
+      setOrderTotal(location.state.orderTotal);
+      setSubtotal(location.state.subtotal || 0);
+      setDeliveryCharge(location.state.deliveryCharge || 0);
       clearCart();
     }
   }, []);
@@ -78,6 +74,14 @@ function OrderSuccess() {
               <div className="order-detail-row">
                 <span className="detail-label">{t("orderId")}:</span>
                 <span className="detail-value">{orderId}</span>
+              </div>
+              <div className="order-detail-row">
+                <span className="detail-label">Subtotal:</span>
+                <span className="detail-value">AED {subtotal.toFixed(2)}</span>
+              </div>
+              <div className="order-detail-row">
+                <span className="detail-label">Delivery Charge:</span>
+                <span className="detail-value">{deliveryCharge === 0 ? "FREE" : `AED ${deliveryCharge.toFixed(2)}`}</span>
               </div>
               <div className="order-detail-row">
                 <span className="detail-label">{t("totalAmount")}:</span>

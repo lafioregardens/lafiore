@@ -11,49 +11,16 @@ function TrackingDetails() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Simulate fetching order data from backend
-    // In real app, this would call: GET /api/orders/{orderId}
-
-    // Simulate API call delay
     setTimeout(() => {
-      // Generate mock data for any order ID
-      // Extract timestamp from order ID (format: LAF + timestamp)
-      const timestamp = orderId.substring(3);
-      const orderDate = isNaN(timestamp) ? new Date() : new Date(parseInt(timestamp));
+      // Look up order in localStorage
+      const savedOrders = JSON.parse(localStorage.getItem("lafiore-orders") || "{}");
+      const foundOrder = savedOrders[orderId];
 
-      // Calculate delivery dates
-      const deliveryDate = new Date(orderDate);
-      deliveryDate.setDate(deliveryDate.getDate() + 3); // 3 days from now
-
-      // Generate mock order data
-      const mockOrderData = {
-        id: orderId,
-        status: "processing",
-        items: [
-          { name: "Mixed Seasonal Bouquet", quantity: 1, price: "AED 145.00" },
-          { name: "Premium Rose Arrangement", quantity: 1, price: "AED 95.00" },
-        ],
-        total: "AED 240.00",
-        deliveryAddress: {
-          name: "Customer",
-          street: "Delivery Address Street",
-          area: "Dubai",
-          emirate: "Dubai",
-          phone: "+971 50 123 4567",
-        },
-        estimatedDelivery: deliveryDate.toISOString().split('T')[0],
-        orderDate: orderDate.toISOString().split('T')[0],
-        timeline: [
-          { status: "Order Placed", date: orderDate.toISOString().split('T')[0], completed: true },
-          { status: "Processing", date: orderDate.toISOString().split('T')[0], completed: true },
-          { status: "Shipped", date: new Date(orderDate.getTime() + 86400000).toISOString().split('T')[0], completed: false },
-          { status: "Out for Delivery", date: deliveryDate.toISOString().split('T')[0], completed: false },
-          { status: "Delivered", date: deliveryDate.toISOString().split('T')[0], completed: false },
-        ],
-      };
-
-      // Orders are always found (mock data)
-      setOrder(mockOrderData);
+      if (foundOrder) {
+        setOrder(foundOrder);
+      } else {
+        setError("Order not found. Please check your order ID.");
+      }
       setLoading(false);
     }, 500);
   }, [orderId]);
@@ -88,9 +55,7 @@ function TrackingDetails() {
     );
   }
 
-  const statusIndex = order.timeline.findIndex(
-    (item) => !item.completed
-  );
+  const statusIndex = order.timeline.findIndex((item) => !item.completed);
   const progressPercent = (statusIndex === -1 ? 5 : statusIndex) * 25;
 
   return (
@@ -121,9 +86,7 @@ function TrackingDetails() {
               {order.timeline.map((item, index) => (
                 <div
                   key={index}
-                  className={`timeline-item ${
-                    item.completed ? "completed" : "pending"
-                  }`}
+                  className={`timeline-item ${item.completed ? "completed" : "pending"}`}
                 >
                   <div className="timeline-circle"></div>
                   <div className="timeline-content">
@@ -149,23 +112,25 @@ function TrackingDetails() {
               <div className="info-item">
                 <label>📍 Delivery Address</label>
                 <p>
-                  {order.deliveryAddress.street}
-                  <br />
-                  {order.deliveryAddress.area}
-                  <br />
+                  {order.deliveryAddress.street}<br />
+                  {order.deliveryAddress.area}<br />
                   {order.deliveryAddress.emirate}
                 </p>
               </div>
-
               <div className="info-item">
                 <label>👤 Recipient Name</label>
                 <p>{order.deliveryAddress.name}</p>
               </div>
-
               <div className="info-item">
                 <label>📱 Contact Number</label>
                 <p>{order.deliveryAddress.phone}</p>
               </div>
+              {order.deliveryTime && (
+                <div className="info-item">
+                  <label>🕐 Delivery Time Slot</label>
+                  <p style={{ textTransform: "capitalize" }}>{order.deliveryTime}</p>
+                </div>
+              )}
             </div>
           </div>
 
@@ -181,6 +146,16 @@ function TrackingDetails() {
                 </div>
               ))}
               <div className="items-divider"></div>
+              <div className="item-row">
+                <span className="item-total">Subtotal</span>
+                <span className="item-total-price">AED {order.subtotal?.toFixed(2) || '0.00'}</span>
+              </div>
+              <div className="item-row">
+                <span className="item-total">Delivery Charge</span>
+                <span className="item-total-price">
+                  {order.deliveryCharge === 0 ? "FREE" : `AED ${order.deliveryCharge?.toFixed(2) || '0.00'}`}
+                </span>
+              </div>
               <div className="item-row total-row">
                 <span className="item-total">Total</span>
                 <span className="item-total-price">{order.total}</span>

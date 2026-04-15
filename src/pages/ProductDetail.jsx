@@ -26,8 +26,32 @@ function ProductDetail() {
   const [avgRating, setAvgRating] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
-  // Find product from local data
-  const product = products.find((p) => p.id === parseInt(id));
+  // Find product from local data (for basic info)
+  const localProduct = products.find((p) => p.id === parseInt(id));
+  const [product, setProduct] = useState(localProduct);
+
+  // Fetch full product details from API (includes stock)
+  useEffect(() => {
+    if (!localProduct) return;
+    api
+      .get(`/products/${localProduct.id}`)
+      .then((res) => {
+        const apiProduct = res.data?.data;
+        if (apiProduct) {
+          const merged = { ...localProduct, ...apiProduct };
+          // Always prefer local image since API URLs may not be reliable
+          if (localProduct?.image) {
+            merged.image = localProduct.image;
+          }
+          setProduct(merged);
+        } else {
+          setProduct(localProduct);
+        }
+      })
+      .catch(() => {
+        setProduct(localProduct);
+      });
+  }, [localProduct?.id]);
 
   const care = getCareGuide(product);
 
@@ -165,9 +189,13 @@ function ProductDetail() {
           </div>
 
           <div className="product-price-section">
-            <span className="product-price">{product.price}</span>
-            {product.stock === 0 && (
-              <span className="product-status-sold">Out of Stock</span>
+            <span className="product-price">
+              {typeof product?.price === 'number'
+                ? `AED ${product.price.toFixed(2)}`
+                : product?.price}
+            </span>
+            {product?.stock !== undefined && product?.stock > 0 && product?.stock < 3 && (
+              <span className="product-status-low">Last {product?.stock} remaining</span>
             )}
           </div>
 
@@ -226,9 +254,9 @@ function ProductDetail() {
             <button
               className="product-add-btn"
               onClick={handleAddToCart}
-              disabled={product.stock === 0}
+              disabled={product?.stock !== undefined && product?.stock === 0}
             >
-              {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
+              {product?.stock !== undefined && product?.stock === 0 ? "Out of Stock" : "Add to Cart"}
             </button>
           </div>
 

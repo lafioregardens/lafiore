@@ -101,6 +101,7 @@ export function CartProvider({ children }) {
         decreaseQuantity,
         removeFromCart,
         clearCart,
+        triggerToast,
         toastMessage,
         showToast,
       }}
