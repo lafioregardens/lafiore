@@ -24,12 +24,26 @@ function Shop() {
       .then((res) => {
         const apiProducts = res.data?.data?.products;
         if (apiProducts && apiProducts.length > 0) {
-          // Merge API products with local products
+          // Merge API products with local products - ALWAYS preserve local images
           const mergedProducts = apiProducts.map((apiProduct) => {
             const localProduct = localProducts.find((p) => p.id === apiProduct.id);
-            const merged = { ...localProduct, ...apiProduct };
-            if (!apiProduct.image && localProduct?.image) {
-              merged.image = localProduct.image;
+            // Start with API data, then override with local for critical fields
+            const merged = { ...apiProduct };
+            if (localProduct) {
+              // Always use local image (it's more reliable)
+              if (localProduct.image) {
+                merged.image = localProduct.image;
+              }
+              // Keep any other local data that API might not have
+              if (!merged.description && localProduct.description) {
+                merged.description = localProduct.description;
+              }
+              if (!merged.tags && localProduct.tags) {
+                merged.tags = localProduct.tags;
+              }
+              if (!merged.colours && localProduct.colours) {
+                merged.colours = localProduct.colours;
+              }
             }
             return merged;
           });
