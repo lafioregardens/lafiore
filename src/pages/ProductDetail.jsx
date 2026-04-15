@@ -233,7 +233,7 @@ function ProductDetail() {
 
           <div className="product-actions-row">
             <div className="product-quantity">
-              <label>Quantity {product?.stock !== undefined && `(Max: ${product.stock})`}</label>
+              <label>Quantity</label>
               <div className="quantity-controls">
                 <button
                   type="button"

@@ -2,7 +2,6 @@ import Navbar from "../components/Navbar";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import { flowerOptions } from "../data/flowers";
 import { BouquetVisualizer } from "../components/BouquetVisualizer";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -136,10 +135,7 @@ function Cart() {
                             >
                               −
                             </button>
-                            <span className="qty-value">
-                              {item.quantity}
-                              {item.stock !== undefined && <span style={{ fontSize: '11px', color: '#999', marginLeft: '4px' }}>/ {item.stock}</span>}
-                            </span>
+                            <span className="qty-value">{item.quantity}</span>
                             <button
                               className="qty-btn"
                               onClick={() => increaseQuantity(item.id)}
