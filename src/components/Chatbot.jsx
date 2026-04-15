@@ -47,6 +47,21 @@ function Chatbot() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
+  // Auto-reset to welcome after goodbye message
+  useEffect(() => {
+    if (messages.length > 0) {
+      const lastMessage = messages[messages.length - 1];
+      if (lastMessage.role === "assistant" && lastMessage.text.includes("Thank you for chatting")) {
+        // Wait 2 seconds then reset to welcome screen
+        const timer = setTimeout(() => {
+          setMessages([]);
+          setLastMenus([]);
+        }, 2000);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [messages]);
+
   const getResponse = (message) => {
     const msg = message.toLowerCase();
 
