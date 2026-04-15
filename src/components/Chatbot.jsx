@@ -50,6 +50,12 @@ function Chatbot() {
   const getResponse = (message) => {
     const msg = message.toLowerCase();
 
+    // Check for navigation requests
+    if (msg.includes("take me") || msg.includes("link to") || msg.includes("show me") || msg.includes("go to") || msg.includes("navigate") || msg.includes("page") || msg.match(/^(where|which page)/)) {
+      setLastMenus(["shop", "plantFinder", "services", "bouquet", "birthMonth", "account", "consultation"]);
+      return "I'd be happy to take you there! Here are the main pages you can visit:";
+    }
+
     // Check for gibberish/unclear input
     if (isGibberish(message)) {
       setLastMenus(["shop", "plantFinder", "services", "bouquet", "contact"]);
