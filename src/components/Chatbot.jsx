@@ -248,6 +248,14 @@ function Chatbot() {
       return;
     }
 
+    // Check for gibberish FIRST - client-side validation
+    if (isGibberish(userMessage)) {
+      setMessages((prev) => [...prev, { role: "user", text: userMessage }]);
+      setLastMenus(["shop", "plantFinder", "services", "bouquet", "contact"]);
+      setMessages((prev) => [...prev, { role: "assistant", text: "Sorry, unable to understand that! 😊 Could you please ask a clear question? I'm here to help with:\n\n- Delivery & shipping info\n- Plant care tips\n- Our services\n- Custom bouquets\n- And much more!\n\nFeel free to browse our pages or ask me anything!" }]);
+      return;
+    }
+
     setMessages((prev) => [...prev, { role: "user", text: userMessage }]);
     setLoading(true);
 
