@@ -19,8 +19,15 @@ function Cart() {
   const [promoCode, setPromoCode] = useState("");
   const [modalBouquet, setModalBouquet] = useState(null);
 
+  const getPriceNumber = (price) => {
+    if (typeof price === 'number') {
+      return price;
+    }
+    return Number((price || "").replace("AED", "").replace(/,/g, "").trim()) || 0;
+  };
+
   const totalPrice = cartItems.reduce((total, item) => {
-    const numericPrice = Number(item.price.replace("AED", "").trim());
+    const numericPrice = getPriceNumber(item.price);
     return total + numericPrice * item.quantity;
   }, 0);
 
@@ -58,7 +65,7 @@ function Cart() {
 
                 <div className="cart-items-list">
                   {cartItems.map((item) => {
-                    const unitPrice = Number(item.price.replace("AED", "").trim());
+                    const unitPrice = getPriceNumber(item.price);
                     const itemSubtotal = unitPrice * item.quantity;
                     const isCustomBouquet = item.customType === "bouquet";
 
@@ -162,7 +169,7 @@ function Cart() {
                   {/* Itemized List */}
                   <div className="summary-items">
                     {cartItems.map((item) => {
-                      const unitPrice = Number(item.price.replace("AED", "").trim());
+                      const unitPrice = getPriceNumber(item.price);
                       return (
                         <div key={item.id} className="summary-item">
                           <span className="summary-item-name">
