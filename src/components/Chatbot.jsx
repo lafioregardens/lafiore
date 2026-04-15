@@ -45,13 +45,28 @@ function Chatbot() {
     // Too many spaces or symbols
     if (msg.split(" ").filter(w => w.length === 0).length > msg.split(" ").length / 2) return true;
 
-    // Random letter sequences without vowels (keyboard mashing like vbncxjm)
+    // Check each word for gibberish patterns
     const words = msg.split(/\s+/);
     for (let word of words) {
-      if (word.length > 3) {
-        // Check if word is mostly consonants without vowels (gibberish)
+      if (word.length > 2) {
+        // No vowels at all
         const vowels = (word.match(/[aeiou]/g) || []).length;
-        if (vowels === 0) return true; // No vowels = likely gibberish
+        if (vowels === 0) return true;
+
+        // Too many consonants in a row (more than 3 consecutive)
+        if (/[bcdfghjklmnpqrstvwxyz]{4,}/.test(word)) return true;
+
+        // Keyboard mashing patterns (qwerty, asdf, zxcv, etc.)
+        if (/^[qwerty]+$|^[asdfgh]+$|^[zxcvbn]+$/.test(word)) return true;
+
+        // Random consonant-heavy patterns (less than 20% vowels)
+        if (word.length > 3) {
+          const vowelRatio = vowels / word.length;
+          if (vowelRatio < 0.15) return true; // Less than 15% vowels = likely gibberish
+        }
+
+        // Check for unnatural letter combinations (3+ consonants with no vowel between)
+        if (/[bcdfghjklmnpqrstvwxyz]{3,}/.test(word.replace(/[aeiou]/g, ' '))) return true;
       }
     }
 
