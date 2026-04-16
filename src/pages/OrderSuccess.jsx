@@ -103,8 +103,11 @@ function OrderSuccess() {
                     <span>
                       AED{" "}
                       {(
-                        Number(item.price.replace("AED", "").trim()) *
-                        item.quantity
+                        Number(
+                          typeof item.price === "string"
+                            ? item.price.replace("AED", "").trim()
+                            : item.price
+                        ) * item.quantity
                       ).toFixed(2)}
                     </span>
                   </div>
