@@ -5,7 +5,7 @@
 .tracking-page {
   background: var(--cream);
   min-height: calc(100vh - 200px);
-  padding: 200px 20px 60px;
+  padding: 170px 20px 60px;
 }
 
 .tracking-hero {

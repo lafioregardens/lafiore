@@ -2716,7 +2716,7 @@ button:hover .btn-arrow, a:hover .btn-arrow { transform: translateX(4px); }
 .cart-page {
   background: var(--cream);
   min-height: calc(100vh - 200px);
-  padding: 200px 20px 60px;
+  padding: 170px 20px 60px;
 }
 
 .cart-hero {
