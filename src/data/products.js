@@ -100,7 +100,6 @@ import turmerichoney from "../assets/products/soaps/turmerichoney.jpeg";
 import charcoalblackmorrava from "../assets/products/pots/charcoalblackmorrava.jpeg";
 import classicterracotta from "../assets/products/pots/classicterracotta.jpeg";
 import glazedceramic from "../assets/products/pots/glazedceramic.jpg";
-import fiberstone from "../assets/products/pots/fiberstone.jpg";
 import hangingmacrame from "../assets/products/pots/hangingmacrame.jpg";
 import rawcement from "../assets/products/pots/rawcement.jpg";
 import selfwatering from "../assets/products/pots/selfwatering.jpg";
@@ -2819,7 +2818,7 @@ const products = [
     "Lightweight composite pots with a sleek modern finish. Durable, weather-resistant, and available in neutral tones.",
     ["Pots", "Modern", "Lightweight"],
     5,
-    fiberstone,
+    "",
     ["Planters"]
   ),
   p(
