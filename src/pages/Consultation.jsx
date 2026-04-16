@@ -15,6 +15,11 @@ import { useLanguage } from "../context/LanguageContext";
 // API
 import api from "../utils/api";
 
+// Import service images (placeholder)
+import eventImg from "../assets/images/event.jpg";
+import gardenImg from "../assets/images/garden.jpg";
+import planteriorImg from "../assets/images/planterior.jpg";
+
 function Consultation() {
   const { t } = useLanguage();
   const location = useLocation();
@@ -26,6 +31,13 @@ function Consultation() {
   const [service, setService] = useState("");
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
+
+  // Service images state
+  const [serviceImages, setServiceImages] = useState({
+    wedding: eventImg,
+    garden: gardenImg,
+    planterior: planteriorImg,
+  });
 
   // Toast state
   const [toastMessage, setToastMessage] = useState("");
@@ -131,7 +143,16 @@ function Consultation() {
           <div className="consultation-service-layout">
             <Link to="/service/event-wedding" style={{ textDecoration: 'none' }}>
               <article className="consultation-service-feature large-service">
-                <div className="consultation-service-image"></div>
+                <div className="consultation-service-image">
+                  {serviceImages.wedding ? (
+                    <img src={serviceImages.wedding} alt={t("eventWeddingTitle")} />
+                  ) : (
+                    <div className="consultation-image-placeholder">
+                      <span>💐</span>
+                      <p>Event & Wedding</p>
+                    </div>
+                  )}
+                </div>
                 <div className="consultation-service-text">
                   <h3>{t("eventWeddingTitle")}</h3>
                   <p>
@@ -143,7 +164,16 @@ function Consultation() {
 
             <Link to="/service/garden-planning" style={{ textDecoration: 'none' }}>
               <article className="consultation-service-feature">
-                <div className="consultation-service-image"></div>
+                <div className="consultation-service-image">
+                  {serviceImages.garden ? (
+                    <img src={serviceImages.garden} alt={t("gardenPlanningTitle")} />
+                  ) : (
+                    <div className="consultation-image-placeholder">
+                      <span>🌿</span>
+                      <p>Garden Planning</p>
+                    </div>
+                  )}
+                </div>
                 <div className="consultation-service-text">
                   <h3>{t("gardenPlanningTitle")}</h3>
                   <p>
@@ -155,7 +185,16 @@ function Consultation() {
 
             <Link to="/service/planterior-design" style={{ textDecoration: 'none' }}>
               <article className="consultation-service-feature">
-                <div className="consultation-service-image"></div>
+                <div className="consultation-service-image">
+                  {serviceImages.planterior ? (
+                    <img src={serviceImages.planterior} alt={t("planteriorDesignTitle")} />
+                  ) : (
+                    <div className="consultation-image-placeholder">
+                      <span>🪴</span>
+                      <p>Planterior Design</p>
+                    </div>
+                  )}
+                </div>
                 <div className="consultation-service-text">
                   <h3>{t("planteriorDesignTitle")}</h3>
                   <p>
