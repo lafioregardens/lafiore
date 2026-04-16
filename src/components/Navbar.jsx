@@ -103,10 +103,12 @@ function Navbar() {
               </svg>
             </Link>
           )}
-          <Link to="/wishlist" className="icon-link wishlist-icon-wrapper" title={t("myWishlist") || "My Wishlist"}>
-            <span className="wishlist-icon">♥</span>
-            {wishlistCount > 0 && <span className="wishlist-badge">{wishlistCount}</span>}
-          </Link>
+          {user && (
+            <Link to="/wishlist" className="icon-link wishlist-icon-wrapper" title={t("myWishlist") || "My Wishlist"}>
+              <span className="wishlist-icon">♥</span>
+              {wishlistCount > 0 && <span className="wishlist-badge">{wishlistCount}</span>}
+            </Link>
+          )}
           <Link to="/cart" className="icon-link cart-icon-wrapper">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="9" cy="21" r="1"></circle>

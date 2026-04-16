@@ -152,7 +152,7 @@ function Checkout() {
         timeline: [
           { status: "Order Placed", date: new Date().toISOString().split('T')[0], completed: true },
           { status: "Processing", date: new Date().toISOString().split('T')[0], completed: true },
-          { status: "Preparing", date: formData.deliveryDate, completed: false },
+          { status: "Order Confirmed", date: formData.deliveryDate, completed: false },
           { status: "Out for Delivery", date: formData.deliveryDate, completed: false },
           { status: "Delivered", date: formData.deliveryDate, completed: false },
         ],
