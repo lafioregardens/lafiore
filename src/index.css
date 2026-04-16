@@ -2408,7 +2408,7 @@ button:hover .btn-arrow, a:hover .btn-arrow { transform: translateX(4px); }
 
 /* Fix navbar overlap */
 .birth-month-page {
-  padding-top: 200px;
+  padding-top: 170px;
   padding-bottom: 80px;
   background: #f6f0e6;
   min-height: 100vh;
@@ -3213,7 +3213,7 @@ button:hover .btn-arrow, a:hover .btn-arrow { transform: translateX(4px); }
 ========================= */
 
 .custom-bouquet-page {
-  padding-top: 140px; /* Space for smaller navbar */
+  padding-top: 170px; /* Space for smaller navbar */
   padding-bottom: 80px;
 }
 
@@ -3969,7 +3969,7 @@ select option {
 ========================= */
 
 .login-page {
-  padding-top: 200px;
+  padding-top: 170px;
   padding-bottom: 80px;
   background: linear-gradient(135deg, #f6f0e6 0%, #f9f6f0 25%, #fbf8f3 50%, #f6f0e6 75%, #f9f6f0 100%);
   background-size: 400% 400%;
@@ -4485,7 +4485,7 @@ select option {
 ========================= */
 
 .signup-page {
-  padding-top: 200px;
+  padding-top: 170px;
   padding-bottom: 80px;
   background: linear-gradient(135deg, #f6f0e6 0%, #f9f6f0 25%, #fbf8f3 50%, #f6f0e6 75%, #f9f6f0 100%);
   background-size: 400% 400%;
@@ -4922,7 +4922,7 @@ select option {
 
 /* Fix navbar overlap */
 .plant-finder-page {
-  padding-top: 200px;
+  padding-top: 170px;
   padding-bottom: 80px;
   background: #f6f0e6;
   min-height: 100vh;
@@ -5363,7 +5363,7 @@ select option {
 ========================= */
 
 .consultation-page {
-  padding-top:200px;
+  padding-top: 170px;
 }
 
 .consultation-eyebrow {
@@ -5708,7 +5708,7 @@ select option {
 ========================= */
 
 .shop-page {
-  padding-top: 200px;
+  padding-top: 170px;
   padding-bottom: 80px;
 }
 
