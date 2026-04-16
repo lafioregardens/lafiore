@@ -149,8 +149,8 @@ button { font-family: var(--font-body); cursor: pointer; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: -8px;
-  padding: 2px 0 2px;
+  gap: -4px;
+  padding: 4px 0 0px;
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
@@ -160,8 +160,8 @@ button { font-family: var(--font-body); cursor: pointer; }
 }
 
 .logo-image {
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
   display: block;
 }
@@ -170,7 +170,7 @@ button { font-family: var(--font-body); cursor: pointer; }
   font-family: var(--font-display);
   font-style: bold;
   font-display: block;
-  font-size: 29px;
+  font-size: 22px;
   font-weight: 550;
   letter-spacing: 0.1em;
   color: var(--green-deep);
@@ -183,7 +183,7 @@ button { font-family: var(--font-body); cursor: pointer; }
   justify-content: center;
   align-items: center;
   position: relative;
-  padding-bottom: 16px;
+  padding-bottom: 8px;
 }
 
 .nav-menu {
@@ -3213,7 +3213,7 @@ button:hover .btn-arrow, a:hover .btn-arrow { transform: translateX(4px); }
 ========================= */
 
 .custom-bouquet-page {
-  padding-top: 200px; /* FIXED: Added space for navbar */
+  padding-top: 140px; /* Space for smaller navbar */
   padding-bottom: 80px;
 }
 
