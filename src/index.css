@@ -2480,6 +2480,13 @@ button:hover .btn-arrow, a:hover .btn-arrow { transform: translateX(4px); }
   background: #e9e0d2;
 }
 
+.birth-month-wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+}
+
 .birth-month-image {
   width: 100%;
   height: 100%;
@@ -3323,6 +3330,13 @@ button:hover .btn-arrow, a:hover .btn-arrow { transform: translateX(4px); }
   margin-bottom: 0; /* CHANGED: No gap between image and content */
 }
 
+.flower-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px 14px 0 0;
+}
+
 .flower-card-image {
   background: linear-gradient(180deg, #efe5d6 0%, #e5d8c4 100%);
 }
@@ -3331,6 +3345,13 @@ button:hover .btn-arrow, a:hover .btn-arrow { transform: translateX(4px); }
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease; /* ADDED: Smooth zoom on hover */
+}
+
+.flower-wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
 }
 
 .flower-card:hover .flower-card-real-image {
@@ -5150,6 +5171,13 @@ select option {
   background: #e9e0d2;
 }
 
+.plant-wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+}
+
 .plant-image {
   width: 100%;
   height: 100%;
@@ -5916,6 +5944,13 @@ select option {
   border-radius: 10px;
   position: relative;
   background: white;
+}
+
+.shop-card-wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
 }
 
 .shop-card-sold-out-tag {

@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
+import WishlistButton from "../components/WishlistButton";
 
 import carnationb from "../assets/birthmonth/carnationb.jpg";
 import daffodilsb from "../assets/birthmonth/daffodilsb.jpg";
@@ -191,6 +192,9 @@ function BirthMonthCard({ item, addToCart }) {
         ) : (
           <div className="birth-month-image"></div>
         )}
+        <div className="birth-month-wishlist-btn">
+          <WishlistButton product={item} />
+        </div>
       </div>
 
       <div className="birth-month-content">

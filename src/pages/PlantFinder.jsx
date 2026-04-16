@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { useMemo, useState, useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { useLanguage } from "../context/LanguageContext";
+import WishlistButton from "../components/WishlistButton";
 
 // Plant Finder page
 function PlantFinder() {
@@ -462,6 +463,9 @@ function PlantCard({ plant, isBestMatch, addToCart }) {
             <span className="plant-emoji">🌿</span>
           </div>
         )}
+        <div className="plant-wishlist-btn">
+          <WishlistButton product={{ ...plant, name: plantName }} />
+        </div>
       </div>
 
       <div className="plant-content">

@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import { useMemo, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import WishlistButton from "../components/WishlistButton";
 import api from "../utils/api";
 import categories from "../data/categories";
 import localProducts from "../data/products";
@@ -414,6 +415,10 @@ function Shop() {
                               </span>
                             </div>
                           )}
+
+                          <div className="shop-card-wishlist-btn">
+                            <WishlistButton product={product} />
+                          </div>
                         </div>
 
                         <div className="shop-card-content">

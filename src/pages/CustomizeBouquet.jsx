@@ -2,6 +2,7 @@ import { useState, useMemo, useContext } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { CartContext } from "../context/CartContext";
+import WishlistButton from "../components/WishlistButton";
 import { flowerOptions } from "../data/flowers";
 import { BouquetVisualizer } from "../components/BouquetVisualizer";
 
@@ -404,15 +405,20 @@ function FlowerCard({
 
   return (
   <div className="flower-card">
-    {flower.image ? (
-      <img
-        src={flower.image}
-        alt={flower.name}
-        className="flower-card-real-image"
-      />
-    ) : (
-      <div className="flower-card-image"></div>
-    )}
+    <div className="flower-image-wrapper">
+      {flower.image ? (
+        <img
+          src={flower.image}
+          alt={flower.name}
+          className="flower-card-real-image"
+        />
+      ) : (
+        <div className="flower-card-image"></div>
+      )}
+      <div className="flower-wishlist-btn">
+        <WishlistButton product={flower} />
+      </div>
+    </div>
 
     <h3>{flower.name}</h3>
     <p className="flower-price">AED {flower.price.toFixed(2)} each</p>
