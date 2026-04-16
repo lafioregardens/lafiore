@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: (import.meta.env.VITE_API_URL || "http://localhost:5000") + "/api",
-  timeout: 10000,
+  timeout: 30000, // Increased from 10s to 30s for slow backends
 });
 
 // Request interceptor: attach JWT token to every request

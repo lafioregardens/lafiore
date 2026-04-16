@@ -82,8 +82,8 @@ function ProductDetail() {
             ✕
           </button>
           <div className="product-not-found">
-            <h2>Product not found</h2>
-            <p>Sorry, this product doesn't exist.</p>
+            <h2>{t("productNotFound")}</h2>
+            <p>{t("productNotFoundDesc")}</p>
           </div>
         </div>
       </div>
@@ -175,7 +175,9 @@ function ProductDetail() {
         {/* Product Info */}
         <div className="product-detail-info">
           {product.mainCategory && (
-            <span className="product-category-label">{product.mainCategory}</span>
+            <span className="product-category-label">
+              {t(`cat${product.mainCategory.replace(/\s+/g, '')}`) || product.mainCategory}
+            </span>
           )}
 
           <h1>{product.name}</h1>
@@ -196,7 +198,7 @@ function ProductDetail() {
                 : product?.price}
             </span>
             {product?.stock !== undefined && product?.stock > 0 && product?.stock < 3 && (
-              <span className="product-status-low">Last {product?.stock} remaining</span>
+              <span className="product-status-low">{t("lastRemaining").replace("{count}", product?.stock)}</span>
             )}
           </div>
 
@@ -216,7 +218,7 @@ function ProductDetail() {
 
           {product.colours && product.colours.length > 0 && (
             <div className="product-colours">
-              <h3>Available Colors</h3>
+              <h3>{t("availableColors")}</h3>
               <div className="colour-swatches">
                 {product.colours.map((color) => (
                   <div key={color} className="colour-swatch">
@@ -233,7 +235,7 @@ function ProductDetail() {
 
           <div className="product-actions-row">
             <div className="product-quantity">
-              <label>Quantity</label>
+              <label>{t("quantity")}</label>
               <div className="quantity-controls">
                 <button
                   type="button"
@@ -261,16 +263,16 @@ function ProductDetail() {
               onClick={handleAddToCart}
               disabled={product?.stock !== undefined && product?.stock === 0}
             >
-              {product?.stock !== undefined && product?.stock === 0 ? "Out of Stock" : "Add to Cart"}
+              {product?.stock !== undefined && product?.stock === 0 ? t("outOfStock") : t("addToCart")}
             </button>
           </div>
 
           <div className="product-payment-section">
-            <h4>We Accept</h4>
+            <h4>{t("weAccept")}</h4>
             <div className="payment-methods">
               <div className="payment-method">
                 <span className="payment-icon">💵</span>
-                <span>Cash on Delivery</span>
+                <span>{t("cashOnDelivery")}</span>
               </div>
               <div className="payment-method">
                 <span className="payment-icon payment-icon--visa">VISA</span>
@@ -297,29 +299,29 @@ function ProductDetail() {
             <div className="trust-badge">
               <span className="trust-badge-icon">🛡️</span>
               <div>
-                <strong>Safe Checkout</strong>
-                <small>Secure payments</small>
+                <strong>{t("safeCheckout")}</strong>
+                <small>{t("securePayments")}</small>
               </div>
             </div>
             <div className="trust-badge">
               <span className="trust-badge-icon">🚚</span>
               <div>
-                <strong>Free Delivery</strong>
-                <small>Across UAE</small>
+                <strong>{t("freeDelivery")}</strong>
+                <small>{t("acrossUAE")}</small>
               </div>
             </div>
             <div className="trust-badge">
               <span className="trust-badge-icon">🌿</span>
               <div>
-                <strong>Fresh Guarantee</strong>
-                <small>Or your money back</small>
+                <strong>{t("freshGuarantee")}</strong>
+                <small>{t("moneyBack")}</small>
               </div>
             </div>
             <div className="trust-badge">
               <span className="trust-badge-icon">💚</span>
               <div>
-                <strong>Care Guide</strong>
-                <small>Included with every plant</small>
+                <strong>{t("careGuide")}</strong>
+                <small>{t("includedWithPlant")}</small>
               </div>
             </div>
 
@@ -392,33 +394,33 @@ function ProductDetail() {
 
       {care && (
         <div className="product-care-card">
-          <h2>Plant Care Guide</h2>
+          <h2>{t("plantCareGuide")}</h2>
           <div className="care-grid">
             <div className="care-item">
               <div className="care-icon">💧</div>
               <div>
-                <h4>Watering</h4>
+                <h4>{t("watering")}</h4>
                 <p>{care.watering}</p>
               </div>
             </div>
             <div className="care-item">
               <div className="care-icon">☀️</div>
               <div>
-                <h4>Light</h4>
+                <h4>{t("light")}</h4>
                 <p>{care.light}</p>
               </div>
             </div>
             <div className="care-item">
               <div className="care-icon">🌡️</div>
               <div>
-                <h4>Temperature</h4>
+                <h4>{t("temperature")}</h4>
                 <p>{care.temperature}</p>
               </div>
             </div>
             <div className="care-item">
               <div className="care-icon">🌱</div>
               <div>
-                <h4>Fertilizer</h4>
+                <h4>{t("fertilizer")}</h4>
                 <p>{care.fertilizer}</p>
               </div>
             </div>
@@ -432,13 +434,13 @@ function ProductDetail() {
           className={`product-detail-tab ${activeTab === "description" ? "product-detail-tab--active" : ""}`}
           onClick={() => setActiveTab("description")}
         >
-          Description
+          {t("description")}
         </button>
         <button
           className={`product-detail-tab ${activeTab === "reviews" ? "product-detail-tab--active" : ""}`}
           onClick={() => setActiveTab("reviews")}
         >
-          Reviews
+          {t("reviews")}
         </button>
       </div>
 

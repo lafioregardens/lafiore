@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import StarRating from "./StarRating";
 import { CartContext } from "../context/CartContext";
+import WishlistButton from "./WishlistButton";
 import "./ProductCard.css";
 
 function ProductCard({ product, linkToDetail = true }) {
@@ -38,6 +39,9 @@ function ProductCard({ product, linkToDetail = true }) {
             <span className="product-img-placeholder-label">{product.name}</span>
           </div>
         )}
+        <div className="product-wishlist-btn">
+          <WishlistButton product={product} />
+        </div>
       </div>
 
       {/* Product Info */}

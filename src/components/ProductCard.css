@@ -151,3 +151,62 @@
 .btn-arrow {
   font-size: 16px;
 }
+
+/* Wishlist Button */
+.product-wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+}
+
+.product-wishlist-btn .wishlist-button-container {
+  display: flex;
+}
+
+.product-wishlist-btn .wishlist-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #d4939f;
+  background-color: white;
+  color: #d4939f;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(212, 147, 159, 0.15);
+}
+
+.product-wishlist-btn .wishlist-btn:hover {
+  background-color: #f0d9e8;
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(212, 147, 159, 0.3);
+}
+
+.product-wishlist-btn .wishlist-btn.in-wishlist {
+  background-color: #d4939f;
+  color: white;
+  border-color: #d4939f;
+}
+
+.product-wishlist-btn .wishlist-btn.in-wishlist:hover {
+  background-color: #c17a82;
+  border-color: #c17a82;
+}
+
+.product-wishlist-btn .wishlist-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .product-wishlist-btn .wishlist-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}

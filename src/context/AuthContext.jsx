@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
         const token = localStorage.getItem("lafiore_token");
         if (token) {
           try {
-            const res = await api.get("/auth/me");
+            const res = await api.get("/auth/me", { timeout: 5000 }); // Shorter timeout for auth check
             console.log("Auth ME response:", res.data?.data);
             if (res.data?.data?.role === "admin") {
               console.log("Setting isAdmin to true");
@@ -38,6 +38,7 @@ export function AuthProvider({ children }) {
           } catch (err) {
             console.warn("Could not restore session from backend", err);
             // Still keep user logged in via Firebase even if backend is offline
+            // Don't block the UI - user can still browse products
           }
         }
       } else {

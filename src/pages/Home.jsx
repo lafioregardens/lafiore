@@ -7,17 +7,18 @@ import { useLanguage } from "../context/LanguageContext";
 /* ─────────────────────────────────────
    DATA
 ───────────────────────────────────── */
-const faqs = [
-  { question: "Do you deliver across the UAE?", answer: "Yes! We deliver to all emirates. Same-day delivery is available for orders placed before 12pm within Dubai." },
-  { question: "Can I customize my bouquet?", answer: "Absolutely. Use our Customize Bouquet tool to pick your flowers, colors, and arrangement style. We'll craft it fresh just for you." },
-  { question: "How long do the flowers last?", answer: "With proper care, our bouquets last 7–10 days. Each order comes with a care card to help you keep them fresh longer." },
-  { question: "How do I care for my flowers?", answer: "Cut stems at a 45-degree angle before placing in clean water. Remove any leaves below the waterline. Change water every 2-3 days and keep your bouquet away from direct sunlight and heat sources. Trim stems every few days for best results." },
-  { question: "How do I care for my plants?", answer: "Water your plants when the top inch of soil feels dry. Ensure proper drainage to prevent root rot. Most indoor plants thrive in indirect sunlight. Wipe leaves occasionally to remove dust and allow better light absorption." },
-  { question: "Do you offer corporate or bulk orders?", answer: "Yes, we cater to events, offices, and bulk gifting. Reach out through our consultation form and we'll get back to you within 24 hours." },
-  { question: "What if I'm not happy with my order?", answer: "Your satisfaction is our priority. Contact us within 24 hours of delivery and we'll make it right — no questions asked." },
-  { question: "What payment methods do you accept?", answer: "We accept all major credit cards, debit cards, Apple Pay, and cash on delivery for select areas within Dubai." },
-  { question: "Can I schedule a delivery for a specific date?", answer: "Yes! You can choose your preferred delivery date and time during checkout. We recommend ordering at least 24 hours in advance for guaranteed availability." },
-  { question: "Do you provide care instructions with orders?", answer: "Every bouquet comes with a detailed care card including tips on water changes, placement, and how to extend your flowers' lifespan." },
+// FAQ items use translation keys - will be translated in the component
+const faqKeys = [
+  { questionKey: "faqDeliver", answerKey: "faqDeliverAns" },
+  { questionKey: "faqCustomize", answerKey: "faqCustomizeAns" },
+  { questionKey: "faqFlowerLast", answerKey: "faqFlowerLastAns" },
+  { questionKey: "faqCareFlowers", answerKey: "faqCareFlowersAns" },
+  { questionKey: "faqCarePlants", answerKey: "faqCarePlantsAns" },
+  { questionKey: "faqCorporate", answerKey: "faqCorporateAns" },
+  { questionKey: "faqHappy", answerKey: "faqHappyAns" },
+  { questionKey: "faqPayment", answerKey: "faqPaymentAns" },
+  { questionKey: "faqSchedule", answerKey: "faqScheduleAns" },
+  { questionKey: "faqCareInstructions", answerKey: "faqCareInstructionsAns" },
 ];
 
 const reviews = [
@@ -515,8 +516,12 @@ function Home() {
             <h2 className="section-title">{t("frequentlyAsked")}</h2>
           </div>
           <div className="faq-list">
-            {faqs.map((faq, i) => (
-              <FAQItem key={i} question={faq.question} answer={faq.answer} />
+            {faqKeys.map((faq, i) => (
+              <FAQItem
+                key={i}
+                question={t(faq.questionKey)}
+                answer={t(faq.answerKey)}
+              />
             ))}
           </div>
         </section>

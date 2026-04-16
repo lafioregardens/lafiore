@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useLanguage } from "../context/LanguageContext";
 import "./ServiceDetail.css";
 
 function ServiceGardenPlanning() {
+  const { t } = useLanguage();
+
   return (
     <div>
       <Navbar />
@@ -15,8 +18,8 @@ function ServiceGardenPlanning() {
             {/* Image Placeholder */}
           </div>
           <div className="service-hero-content">
-            <h1>Garden Planning and Care</h1>
-            <p>Transform your outdoor space into a thriving, beautiful sanctuary</p>
+            <h1>{t("gardenPlanningCare")}</h1>
+            <p>{t("transformOutdoorSpace")}</p>
           </div>
         </section>
 
@@ -24,17 +27,9 @@ function ServiceGardenPlanning() {
         <section className="service-section">
           <div className="service-container">
             <div className="service-content">
-              <h2>Create Your Dream Garden</h2>
-              <p>
-                A thriving garden is more than just plants—it's a living space that brings
-                joy and tranquility to your home. Whether you're starting from scratch or
-                enhancing an existing space, we provide expert guidance every step of the way.
-              </p>
-              <p>
-                Our specialists work with you to understand your climate, soil conditions,
-                aesthetic preferences, and maintenance capacity. We design gardens that are
-                not only beautiful but also sustainable and easy to maintain.
-              </p>
+              <h2>{t("createDreamGarden")}</h2>
+              <p>{t("gardenDesc1")}</p>
+              <p>{t("gardenDesc2")}</p>
             </div>
             <div className="service-image-placeholder">
               {/* Image Placeholder */}
@@ -45,27 +40,27 @@ function ServiceGardenPlanning() {
         {/* What We Offer */}
         <section className="service-section service-section-alt">
           <div className="service-container">
-            <h2>What We Offer</h2>
+            <h2>{t("whatWeOffer")}</h2>
             <div className="service-offerings">
               <div className="offering-card">
                 <div className="offering-icon">🌱</div>
-                <h3>Plant Selection</h3>
-                <p>Expert recommendations for plants suited to your climate and space</p>
+                <h3>{t("plantSelection")}</h3>
+                <p>{t("plantSelectionDesc")}</p>
               </div>
               <div className="offering-card">
                 <div className="offering-icon">📐</div>
-                <h3>Garden Design</h3>
-                <p>Custom layout planning that maximizes beauty and functionality</p>
+                <h3>{t("gardenDesign")}</h3>
+                <p>{t("gardenDesignDesc")}</p>
               </div>
               <div className="offering-card">
                 <div className="offering-icon">🌿</div>
-                <h3>Seasonal Care</h3>
-                <p>Guidance on watering, pruning, fertilizing, and seasonal maintenance</p>
+                <h3>{t("seasonalCare")}</h3>
+                <p>{t("seasonalCareDesc")}</p>
               </div>
               <div className="offering-card">
                 <div className="offering-icon">🏡</div>
-                <h3>Garden Maintenance</h3>
-                <p>Regular care services to keep your garden thriving year-round</p>
+                <h3>{t("gardenMaintenance")}</h3>
+                <p>{t("gardenMaintenanceDesc")}</p>
               </div>
             </div>
           </div>
@@ -74,27 +69,27 @@ function ServiceGardenPlanning() {
         {/* Process Section */}
         <section className="service-section">
           <div className="service-container">
-            <h2>Our Process</h2>
+            <h2>{t("ourProcess")}</h2>
             <div className="process-steps">
               <div className="process-step">
                 <div className="step-number">1</div>
-                <h3>Site Assessment</h3>
-                <p>Evaluate your space, sunlight, soil, and climate conditions</p>
+                <h3>{t("siteAssessment")}</h3>
+                <p>{t("evaluateSpaceSunlight")}</p>
               </div>
               <div className="process-step">
                 <div className="step-number">2</div>
-                <h3>Planning</h3>
-                <p>Create a custom garden design with plant recommendations</p>
+                <h3>{t("planning")}</h3>
+                <p>{t("createCustomGarden")}</p>
               </div>
               <div className="process-step">
                 <div className="step-number">3</div>
-                <h3>Installation</h3>
-                <p>Plant selection, arrangement, and setup of your garden</p>
+                <h3>{t("installation")}</h3>
+                <p>{t("plantSelectionArrangement")}</p>
               </div>
               <div className="process-step">
                 <div className="step-number">4</div>
-                <h3>Ongoing Care</h3>
-                <p>Regular maintenance and seasonal adjustments for lasting beauty</p>
+                <h3>{t("ongoingCare")}</h3>
+                <p>{t("regularMaintenanceSeasonal")}</p>
               </div>
             </div>
           </div>
@@ -103,14 +98,14 @@ function ServiceGardenPlanning() {
         {/* CTA Section */}
         <section className="service-cta">
           <div className="service-container">
-            <h2>Ready to Transform Your Garden?</h2>
-            <p>Let's create a beautiful, thriving outdoor space you'll love</p>
+            <h2>{t("readyTransformGarden")}</h2>
+            <p>{t("createBeautifulThriving")}</p>
             <div className="cta-buttons">
               <Link to="/consultation#consultation-form" className="cta-primary-btn">
-                Book a Consultation
+                {t("bookFreeConsultation")}
               </Link>
               <Link to="/consultation#consultation-services" className="cta-secondary-btn">
-                Explore Other Services
+                {t("exploreOtherServices")}
               </Link>
             </div>
           </div>

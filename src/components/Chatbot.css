@@ -312,36 +312,39 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 12px 16px;
-  background: #f9f9f9;
-  border-top: 1px solid #e8e8e8;
-  max-height: 120px;
+  padding: 16px;
+  background: linear-gradient(135deg, #f5f9f7 0%, #f0f4f2 100%);
+  border-top: 1px solid #e0e8e4;
+  max-height: 140px;
   overflow-y: auto;
+  justify-content: center;
 }
 
 .chatbot-menu-link {
   display: inline-block;
-  padding: 8px 14px;
+  padding: 10px 16px;
   background: var(--green-main);
   color: white;
-  border-radius: 16px;
+  border-radius: 20px;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border: none;
   cursor: pointer;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(102, 122, 79, 0.15);
 }
 
 .chatbot-menu-link:hover {
   background: var(--green-deep);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(102, 122, 79, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(102, 122, 79, 0.25);
 }
 
 .chatbot-menu-link:active {
-  transform: translateY(0);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(102, 122, 79, 0.2);
 }
 
 /* Mobile responsive */

@@ -2,10 +2,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useMemo, useState, useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { useLanguage } from "../context/LanguageContext";
 
 // Plant Finder page
 function PlantFinder() {
   const { addToCart } = useContext(CartContext);
+  const { t } = useLanguage();
 
   // Store selected answers for each question
   const [answers, setAnswers] = useState({
@@ -18,12 +20,12 @@ function PlantFinder() {
   });
 
 
-  // All plant recommendations
-  const plantData = [
+  // All plant recommendations - use translation keys for names and descriptions
+  const getPlantData = () => [
     {
       id: 1,
-      name: "Snake Plant",
-      description: "Perfect for low light spaces and needs very little watering.",
+      nameKey: "snakePlant",
+      descKey: "snakePlantDesc",
       price: "AED 85.00",
       tags: ["Air Purifying", "Low Maintenance"],
       scoreTags: ["beginner", "indoors", "low light", "forgetful", "no pets needed", "air purifying"],
@@ -31,8 +33,8 @@ function PlantFinder() {
     },
     {
       id: 2,
-      name: "ZZ Plant",
-      description: "A great choice for low light and busy plant owners.",
+      nameKey: "zzPlant",
+      descKey: "zzPlantDesc",
       price: "AED 95.00",
       tags: ["Low Maintenance", "Indoor"],
       scoreTags: ["beginner", "indoors", "low light", "forgetful", "no pets needed", "decorative"],
@@ -40,8 +42,8 @@ function PlantFinder() {
     },
     {
       id: 3,
-      name: "Pothos",
-      description: "Easy to grow and adapts well to many indoor settings.",
+      nameKey: "pothos",
+      descKey: "pothosDesc",
       price: "AED 65.00",
       tags: ["Air Purifying", "Indoor"],
       scoreTags: ["beginner", "indoors", "medium light", "weekly", "no pets needed", "air purifying"],
@@ -49,8 +51,8 @@ function PlantFinder() {
     },
     {
       id: 4,
-      name: "Spider Plant",
-      description: "A beginner-friendly plant that grows well in many homes.",
+      nameKey: "spiderPlant",
+      descKey: "spiderPlantDesc",
       price: "AED 70.00",
       tags: ["Air Purifying", "Pet Safe"],
       scoreTags: ["beginner", "indoors", "medium light", "weekly", "pet safe", "air purifying"],
@@ -58,8 +60,8 @@ function PlantFinder() {
     },
     {
       id: 5,
-      name: "Peace Lily",
-      description: "Ideal for indoor spaces and adds elegant blooms.",
+      nameKey: "peaceLily",
+      descKey: "peaceLilyDesc",
       price: "AED 110.00",
       tags: ["Air Purifying", "Flowering"],
       scoreTags: ["some experience", "indoors", "low light", "weekly", "no pets needed", "decorative"],
@@ -67,8 +69,8 @@ function PlantFinder() {
     },
     {
       id: 6,
-      name: "Monstera Deliciosa",
-      description: "A stylish tropical plant for bright indoor corners.",
+      nameKey: "monsteraDeliciosa",
+      descKey: "monsteraDeliciosaDesc",
       price: "AED 120.00",
       tags: ["Indoor", "Decorative"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
@@ -76,8 +78,8 @@ function PlantFinder() {
     },
     {
       id: 7,
-      name: "Aloe Vera",
-      description: "A hardy plant that loves bright light and minimal watering.",
+      nameKey: "aloeVera",
+      descKey: "aloeVeraDesc",
       price: "AED 60.00",
       tags: ["Medicinal", "Low Maintenance"],
       scoreTags: ["beginner", "indoors", "bright light", "forgetful", "no pets needed", "functional"],
@@ -85,8 +87,8 @@ function PlantFinder() {
     },
     {
       id: 8,
-      name: "Lavender",
-      description: "A fragrant favorite that thrives outdoors in sunny spots.",
+      nameKey: "lavender",
+      descKey: "lavenderDesc",
       price: "AED 75.00",
       tags: ["Fragrant", "Outdoor"],
       scoreTags: ["some experience", "outdoors", "bright light", "weekly", "pet safe", "functional"],
@@ -94,8 +96,8 @@ function PlantFinder() {
     },
     {
       id: 9,
-      name: "Fern",
-      description: "A lush choice for shaded areas with regular moisture.",
+      nameKey: "fern",
+      descKey: "fernDesc",
       price: "AED 68.00",
       tags: ["Outdoor", "Greenery"],
       scoreTags: ["experienced", "outdoors", "low light", "often", "pet safe", "decorative"],
@@ -103,8 +105,8 @@ function PlantFinder() {
     },
     {
       id: 10,
-      name: "Areca Palm",
-      description: "A graceful indoor palm that brightens living spaces.",
+      nameKey: "arecaPalm",
+      descKey: "arecaPalmDesc",
       price: "AED 130.00",
       tags: ["Indoor", "Tropical"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
@@ -112,8 +114,8 @@ function PlantFinder() {
     },
     {
       id: 11,
-      name: "Jade Plant",
-      description: "Compact and resilient, ideal for desks and sunny rooms.",
+      nameKey: "jadePlant",
+      descKey: "jadePlantDesc",
       price: "AED 58.00",
       tags: ["Succulent", "Low Maintenance"],
       scoreTags: ["beginner", "indoors", "bright light", "forgetful", "no pets needed", "decorative"],
@@ -121,8 +123,8 @@ function PlantFinder() {
     },
     {
       id: 13,
-      name: "Succulent Mix",
-      description: "A collection of hardy succulents that thrive with minimal water and bright light.",
+      nameKey: "succulentMix",
+      descKey: "succulentMixDesc",
       price: "AED 72.00",
       tags: ["Low Maintenance", "Succulent"],
       scoreTags: ["beginner", "indoors", "bright light", "forgetful", "no pets needed", "decorative"],
@@ -130,8 +132,8 @@ function PlantFinder() {
     },
     {
       id: 14,
-      name: "Money Plant",
-      description: "A trailing vine believed to bring prosperity, easy to grow and adaptable.",
+      nameKey: "moneyPlant",
+      descKey: "moneyPlantDesc",
       price: "AED 55.00",
       tags: ["Indoor", "Lucky Plant"],
       scoreTags: ["beginner", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
@@ -139,8 +141,8 @@ function PlantFinder() {
     },
     {
       id: 15,
-      name: "Rubber Plant",
-      description: "A stunning decorative plant with large dark leaves that purifies air.",
+      nameKey: "rubberPlant",
+      descKey: "rubberPlantDesc",
       price: "AED 105.00",
       tags: ["Air Purifying", "Decorative"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "air purifying"],
@@ -202,65 +204,65 @@ function PlantFinder() {
     },
   ];
 
-  // Filter sections
+  // Filter sections - uses translation keys
   const filterSections = [
     {
       key: "experience",
-      title: "Experience Level",
+      title: t("experienceLevel"),
       options: [
-        { label: "Any Level", value: "" },
-        { label: "Beginner", value: "beginner" },
-        { label: "Some Experience", value: "some experience" },
-        { label: "Experienced", value: "experienced" },
+        { label: t("anyLevel"), value: "" },
+        { label: t("beginner"), value: "beginner" },
+        { label: t("someExperience"), value: "some experience" },
+        { label: t("experienced"), value: "experienced" },
       ],
     },
     {
       key: "location",
-      title: "Location",
+      title: t("location"),
       options: [
-        { label: "Any Location", value: "" },
-        { label: "Indoors", value: "indoors" },
-        { label: "Outdoors", value: "outdoors" },
-        { label: "Both", value: "both" },
+        { label: t("anyLocation"), value: "" },
+        { label: t("indoors"), value: "indoors" },
+        { label: t("outdoors"), value: "outdoors" },
+        { label: t("both"), value: "both" },
       ],
     },
     {
       key: "sunlight",
-      title: "Light Conditions",
+      title: t("lightConditions"),
       options: [
-        { label: "Any Light Level", value: "" },
-        { label: "Low Light", value: "low light" },
-        { label: "Medium Light", value: "medium light" },
-        { label: "Bright Light", value: "bright light" },
+        { label: t("anyLightLevel"), value: "" },
+        { label: t("lowLight"), value: "low light" },
+        { label: t("mediumLight"), value: "medium light" },
+        { label: t("brightLight"), value: "bright light" },
       ],
     },
     {
       key: "watering",
-      title: "Watering Frequency",
+      title: t("wateringFrequency"),
       options: [
-        { label: "Any Watering Need", value: "" },
-        { label: "Rarely (Every 2-3 weeks)", value: "forgetful" },
-        { label: "Weekly", value: "weekly" },
-        { label: "Frequently (2-3 times/week)", value: "often" },
+        { label: t("anyWateringNeed"), value: "" },
+        { label: t("rarelyWatering"), value: "forgetful" },
+        { label: t("weeklyWatering"), value: "weekly" },
+        { label: t("frequentlyWatering"), value: "often" },
       ],
     },
     {
       key: "petSafe",
-      title: "Do you have pets at home?",
+      title: t("petsHome"),
       options: [
-        { label: "No Preference", value: "" },
-        { label: "No", value: "no pets needed" },
-        { label: "Yes", value: "pet safe" },
+        { label: t("noPreference"), value: "" },
+        { label: t("noLabel"), value: "no pets needed" },
+        { label: t("yesLabel"), value: "pet safe" },
       ],
     },
     {
       key: "purpose",
-      title: "Main Goal",
+      title: t("mainGoal"),
       options: [
-        { label: "Any Purpose", value: "" },
-        { label: "Air Purifying", value: "air purifying" },
-        { label: "Decorative Beauty", value: "decorative" },
-        { label: "Functional Use", value: "functional" },
+        { label: t("anyPurpose"), value: "" },
+        { label: t("airPurifying"), value: "air purifying" },
+        { label: t("decorativeBeauty"), value: "decorative" },
+        { label: t("functionalUse"), value: "functional" },
       ],
     },
   ];
@@ -286,6 +288,8 @@ function PlantFinder() {
   };
 
   // Build recommended plants with match score
+  const plantData = getPlantData();
+
   const recommendedPlants = useMemo(() => {
     const selectedValues = Object.values(answers).filter(Boolean);
 
@@ -360,18 +364,15 @@ function PlantFinder() {
       <main className="plant-finder-page">
         {/* Hero */}
         <section className="plant-finder-hero">
-          <h1>Find Your Perfect Plant</h1>
-          <p>
-            Answer a few quick questions and discover plant recommendations that
-            best match your home, care style, and light conditions.
-          </p>
+          <h1>{t("findPerfectPlant")}</h1>
+          <p>{t("plantFinderDesc")}</p>
         </section>
 
         {/* Main Content - Sidebar + Results */}
         <section className="plant-finder-container">
           {/* Sidebar Filters */}
           <aside className="plant-finder-sidebar">
-            <h2>Tell Us About Your Space</h2>
+            <h2>{t("tellUsSpace")}</h2>
 
             {filterSections.map((section) => (
               <div className="filter-section" key={section.key}>
@@ -391,7 +392,7 @@ function PlantFinder() {
             ))}
 
             <button className="clear-options-btn" onClick={handleClearOptions}>
-              Clear Options
+              {t("clearOptions")}
             </button>
           </aside>
 
@@ -445,13 +446,17 @@ function PlantFinder() {
 }
 
 function PlantCard({ plant, isBestMatch, addToCart }) {
+  const { t } = useLanguage();
+  const plantName = t(plant.nameKey);
+  const plantDesc = t(plant.descKey);
+
   return (
     <article className={isBestMatch ? "plant-card best-match-card" : "plant-card"}>
       {isBestMatch && <span className="best-match-badge">Best Match</span>}
 
       <div className="plant-image-container">
         {plant.image ? (
-          <img src={plant.image} alt={plant.name} className="plant-image" />
+          <img src={plant.image} alt={plantName} className="plant-image" />
         ) : (
           <div className="plant-image-placeholder">
             <span className="plant-emoji">🌿</span>
@@ -460,8 +465,8 @@ function PlantCard({ plant, isBestMatch, addToCart }) {
       </div>
 
       <div className="plant-content">
-        <h3>{plant.name}</h3>
-        <p className="plant-description">{plant.description}</p>
+        <h3>{plantName}</h3>
+        <p className="plant-description">{plantDesc}</p>
 
         <div className="plant-tags">
           {plant.tags.map((tag) => (
@@ -474,7 +479,7 @@ function PlantCard({ plant, isBestMatch, addToCart }) {
         <p className="plant-price">{plant.price}</p>
 
         <button className="plant-add-btn" onClick={() => addToCart(plant)}>
-          Add to Cart
+          {t("addToCart")}
         </button>
       </div>
     </article>

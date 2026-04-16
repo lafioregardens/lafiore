@@ -20,6 +20,7 @@ import Checkout from './pages/Checkout'
 import OrderSuccess from './pages/OrderSuccess'
 import OrderTracking from './pages/OrderTracking'
 import TrackingDetails from './pages/TrackingDetails'
+import Wishlist from './pages/Wishlist'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminInventory from './pages/admin/AdminInventory'
 import AdminOrders from './pages/admin/AdminOrders'
@@ -39,6 +40,7 @@ import CoverPage from './components/CoverPage'
 
 // Context
 import { AuthProvider } from './context/AuthContext'
+import { WishlistProvider } from './context/WishlistContext'
 
 function App() {
   const [showCover, setShowCover] = useState(true)
@@ -58,10 +60,11 @@ function App() {
 
   return (
     <AuthProvider>
-      {showCover && <CoverPage onComplete={handleCoverComplete} />}
-      <Toast />
-      <Chatbot />
-      <Routes>
+      <WishlistProvider>
+        {showCover && <CoverPage onComplete={handleCoverComplete} />}
+        <Toast />
+        <Chatbot />
+        <Routes>
         {/* Existing routes */}
         <Route path="/" element={<Home />} />
         <Route path="/birth-month" element={<BirthMonthFlowers />} />
@@ -80,6 +83,7 @@ function App() {
         <Route path="/order-success" element={<OrderSuccess />} />
         <Route path="/tracking" element={<OrderTracking />} />
         <Route path="/tracking/:orderId" element={<TrackingDetails />} />
+        <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/service/event-wedding" element={<ServiceEventWedding />} />
         <Route path="/service/garden-planning" element={<ServiceGardenPlanning />} />
         <Route path="/service/planterior-design" element={<ServicePlanteriorDesign />} />
@@ -144,6 +148,7 @@ function App() {
           }
         />
       </Routes>
+      </WishlistProvider>
     </AuthProvider>
   )
 }

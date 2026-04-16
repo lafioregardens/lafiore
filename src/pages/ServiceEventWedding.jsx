@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useLanguage } from "../context/LanguageContext";
 import "./ServiceDetail.css";
 
 function ServiceEventWedding() {
+  const { t } = useLanguage();
+
   return (
     <div>
       <Navbar />
@@ -15,8 +18,8 @@ function ServiceEventWedding() {
             {/* Image Placeholder */}
           </div>
           <div className="service-hero-content">
-            <h1>Event and Wedding Flowers</h1>
-            <p>Bespoke floral styling that brings your vision to life</p>
+            <h1>{t("eventWeddingFlowers")}</h1>
+            <p>{t("bespokeFloralStyling")}</p>
           </div>
         </section>
 
@@ -24,17 +27,9 @@ function ServiceEventWedding() {
         <section className="service-section">
           <div className="service-container">
             <div className="service-content">
-              <h2>Create Unforgettable Moments</h2>
-              <p>
-                Your special event deserves flowers that reflect your personality and vision.
-                From intimate garden ceremonies to grand celebrations, we design bespoke floral
-                arrangements that elevate every moment and create lasting memories.
-              </p>
-              <p>
-                Our expert team works closely with you to understand your theme, color palette,
-                venue, and atmosphere. We source premium flowers and create stunning arrangements
-                that complement your unique style.
-              </p>
+              <h2>{t("createUnforgettableMoments")}</h2>
+              <p>{t("eventWeddingDesc1")}</p>
+              <p>{t("eventWeddingDesc2")}</p>
             </div>
             <div className="service-image-placeholder">
               {/* Image Placeholder */}
@@ -45,27 +40,27 @@ function ServiceEventWedding() {
         {/* What We Offer */}
         <section className="service-section service-section-alt">
           <div className="service-container">
-            <h2>What We Offer</h2>
+            <h2>{t("whatWeOffer")}</h2>
             <div className="service-offerings">
               <div className="offering-card">
                 <div className="offering-icon">💒</div>
-                <h3>Wedding Ceremonies</h3>
-                <p>Bridal bouquets, ceremony arrangements, and altar installations</p>
+                <h3>{t("weddingCeremonies")}</h3>
+                <p>{t("brdalBouquetsCeremony")}</p>
               </div>
               <div className="offering-card">
                 <div className="offering-icon">🎉</div>
-                <h3>Celebrations & Events</h3>
-                <p>Centerpieces, table arrangements, and event décor</p>
+                <h3>{t("celebrationsEvents")}</h3>
+                <p>{t("centerpieces")}</p>
               </div>
               <div className="offering-card">
                 <div className="offering-icon">💍</div>
-                <h3>Engagements & Launches</h3>
-                <p>Custom arrangements for special announcements and milestones</p>
+                <h3>{t("engagementsLaunches")}</h3>
+                <p>{t("customArrangementsSpecial")}</p>
               </div>
               <div className="offering-card">
                 <div className="offering-icon">🎁</div>
-                <h3>Premium Designs</h3>
-                <p>Seasonal flowers, exotic blooms, and sustainable options</p>
+                <h3>{t("premiumDesigns")}</h3>
+                <p>{t("seasonalFlowers")}</p>
               </div>
             </div>
           </div>
@@ -74,27 +69,27 @@ function ServiceEventWedding() {
         {/* Process Section */}
         <section className="service-section">
           <div className="service-container">
-            <h2>Our Process</h2>
+            <h2>{t("ourProcess")}</h2>
             <div className="process-steps">
               <div className="process-step">
                 <div className="step-number">1</div>
-                <h3>Consultation</h3>
-                <p>Discuss your vision, theme, and preferences in a personalized meeting</p>
+                <h3>{t("consultation")}</h3>
+                <p>{t("discussVisionTheme")}</p>
               </div>
               <div className="process-step">
                 <div className="step-number">2</div>
-                <h3>Design</h3>
-                <p>Create custom designs and select premium flowers that match your vision</p>
+                <h3>{t("design")}</h3>
+                <p>{t("createCustomDesigns")}</p>
               </div>
               <div className="process-step">
                 <div className="step-number">3</div>
-                <h3>Preparation</h3>
-                <p>Arrange flowers with care and prepare all installations</p>
+                <h3>{t("preparation")}</h3>
+                <p>{t("arrangeFlowersWithCare")}</p>
               </div>
               <div className="process-step">
                 <div className="step-number">4</div>
-                <h3>Delivery & Setup</h3>
-                <p>Professional delivery and setup on your special day</p>
+                <h3>{t("deliverySetup")}</h3>
+                <p>{t("professionalDelivery")}</p>
               </div>
             </div>
           </div>
@@ -103,14 +98,14 @@ function ServiceEventWedding() {
         {/* CTA Section */}
         <section className="service-cta">
           <div className="service-container">
-            <h2>Ready to Create Your Perfect Floral Experience?</h2>
-            <p>Let's bring your vision to life with beautiful, memorable flowers</p>
+            <h2>{t("readyCreatePerfectFloral")}</h2>
+            <p>{t("bringsVisionLife")}</p>
             <div className="cta-buttons">
               <Link to="/consultation#consultation-form" className="cta-primary-btn">
-                Book a Consultation
+                {t("bookFreeConsultation")}
               </Link>
               <Link to="/consultation#consultation-services" className="cta-secondary-btn">
-                Explore Other Services
+                {t("exploreOtherServices")}
               </Link>
             </div>
           </div>

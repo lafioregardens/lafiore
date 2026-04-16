@@ -6,9 +6,62 @@ import api from "../utils/api";
 import categories from "../data/categories";
 import localProducts from "../data/products";
 
+// Helper function to map category names to translation keys
+const getCategoryTranslationKey = (categoryName) => {
+  const mapping = {
+    "All": "catAll",
+    "Plants": "catPlants",
+    "Flowers": "catFlowers",
+    "Seeds": "catSeeds",
+    "Oils": "catOils",
+    "Tools": "catTools",
+    "Soil & Fertilizers": "catSoilFertilizers",
+    "Soaps": "catSoaps",
+    "Hair Care": "catHairCare",
+    "Candles": "catCandles",
+    "Apothecary": "catApothecary",
+    "Bouquets": "catBouquets",
+    "Pots": "catPots",
+    "Garden Sets": "catGardenSets",
+    "Candle Sets": "catCandleSets",
+  };
+  return mapping[categoryName] || categoryName;
+};
+
+const getSubCategoryTranslationKey = (subcategoryName) => {
+  const mapping = {
+    "All": "subcatAll",
+    "Edible": "subcatEdible",
+    "Outdoor": "subcatOutdoor",
+    "Indoor": "subcatIndoor",
+    "Seasonal": "subcatSeasonal",
+    "Aquatic": "subcatAquatic",
+    "Medicinal": "subcatMedicinal",
+    "Trees": "subcatTrees",
+    "Normal": "subcatNormal",
+    "Fruit Seeds": "subcatFruitSeeds",
+    "Vegetable Seeds": "subcatVegetableSeeds",
+    "Flower Seeds": "subcatFlowerSeeds",
+    "Herb Seeds": "subcatHerbSeeds",
+    "Tree Seeds": "subcatTreeSeeds",
+    "Essential Oils": "subcatEssentialOils",
+    "Carrier Oils": "subcatCarrierOils",
+    "Herbal Oils": "subcatHerbalOils",
+  };
+  return mapping[subcategoryName] || subcategoryName;
+};
+
 function Shop() {
   const { t } = useLanguage();
-  const [products, setProducts] = useState(localProducts);
+
+  // Initialize products with stock data for immediate display
+  const [products, setProducts] = useState(() => {
+    return localProducts.map((p, idx) => ({
+      ...p,
+      stock: idx === 0 ? 0 : idx === 1 ? 2 : undefined  // Tomato is out of stock, Basil has 2 left
+    }));
+  });
+
   const [selectedMainCategory, setSelectedMainCategory] = useState("All");
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,11 +73,12 @@ function Shop() {
   // Fetch products from API to get stock information
   useEffect(() => {
     api
-      .get("/products?limit=500")
+      .get("/products?limit=500", { timeout: 15000 }) // 15 second timeout for product list
       .then((res) => {
         const apiProducts = res.data?.data?.products;
+        console.log("Products fetched from API:", apiProducts?.length, "products");
         if (apiProducts && apiProducts.length > 0) {
-          // Merge API products with local products - ALWAYS preserve local images
+          // Use API products as primary source
           const mergedProducts = apiProducts.map((apiProduct) => {
             const localProduct = localProducts.find((p) => p.id === apiProduct.id);
             // Start with API data, then override with local for critical fields
@@ -47,21 +101,24 @@ function Shop() {
             }
             return merged;
           });
+          console.log("Merged products, displaying:", mergedProducts.length);
           setProducts(mergedProducts);
         } else {
+          console.warn("No products from API, using local fallback");
           // Fallback to local products with test stock data
           const withStock = localProducts.map((p, idx) => ({
             ...p,
-            stock: idx === 0 ? 0 : idx === 1 ? 2 : undefined  // Tomato is out of stock, Basil has 2 left
+            stock: idx === 0 ? 0 : idx === 1 ? 2 : undefined
           }));
           setProducts(withStock);
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error("Failed to fetch products from API:", err.message);
         // Fallback to local products with test stock data
         const withStock = localProducts.map((p, idx) => ({
           ...p,
-          stock: idx === 0 ? 0 : idx === 1 ? 2 : undefined  // Tomato is out of stock, Basil has 2 left
+          stock: idx === 0 ? 0 : idx === 1 ? 2 : undefined
         }));
         setProducts(withStock);
       });
@@ -231,7 +288,7 @@ function Shop() {
                       }
                       onClick={() => handleMainCategoryChange(category.name)}
                     >
-                      {category.name}
+                      {t(getCategoryTranslationKey(category.name))}
                     </button>
 
                     {selectedMainCategory === category.name &&
@@ -248,7 +305,7 @@ function Shop() {
                               }
                               onClick={() => handleSubCategoryChange(subcategory)}
                             >
-                              {subcategory}
+                              {t(getSubCategoryTranslationKey(subcategory))}
                             </button>
                           ))}
                         </div>
@@ -324,21 +381,21 @@ function Shop() {
                         {product.mainCategory === "Plants" &&
                          !(product.subCategories && product.subCategories.includes("Aquatic")) && (
                           <span className="shop-card-badge shop-card-badge--potted">
-                            Potted Plants
+                            {t("potPlants")}
                           </span>
                         )}
 
                         {/* Stock Status Badge - Low Stock */}
                         {product.stock !== undefined && product.stock > 0 && product.stock < 3 && (
                           <span className="shop-card-badge shop-card-badge--low">
-                            Last {product.stock} remaining
+                            {t("lastRemaining").replace("{count}", product.stock)}
                           </span>
                         )}
 
                         <div className="shop-card-image-wrapper">
                           {/* Sold Out Tag on Image */}
                           {product.stock !== undefined && product.stock === 0 && (
-                            <div className="shop-card-sold-out-tag">Sold Out</div>
+                            <div className="shop-card-sold-out-tag">{t("soldOut")}</div>
                           )}
 
                           {product.image ? (
@@ -374,7 +431,7 @@ function Shop() {
                           <div className="shop-card-price">
                             {typeof product.price === 'number'
                               ? `AED ${product.price.toFixed(2)}`
-                              : (product.price || "Price on request")}
+                              : (product.price || t("priceOnRequest"))}
                           </div>
                         </div>
                       </article>

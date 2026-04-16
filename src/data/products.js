@@ -97,6 +97,17 @@ import milkandshea from "../assets/products/soaps/milkandshea.jpeg";
 import sandalwoodsaffron from "../assets/products/soaps/sandalwoodsaffron.jpeg";
 import seasaltkelp from "../assets/products/soaps/seasaltkelp.jpeg";
 import turmerichoney from "../assets/products/soaps/turmerichoney.jpeg";
+import charcoalblackmorrava from "../assets/products/pots/charcoalblackmorrava.jpeg";
+import classicterracotta from "../assets/products/pots/classicterracotta.jpeg";
+import glazedceramic from "../assets/products/pots/glazedceramic.jpg";
+import fiberstone from "../assets/products/pots/fiberstone.jpg";
+import hangingmacrame from "../assets/products/pots/hangingmacrame.jpg";
+import rawcement from "../assets/products/pots/rawcement.jpg";
+import selfwatering from "../assets/products/pots/selfwatering.jpg";
+import smartaiplanter from "../assets/products/pots/smartaiplanter.jpg";
+import wooden from "../assets/products/pots/wooden.jpg";
+import wovenrattarplanter from "../assets/products/pots/wovenrattarplanter.jpeg";
+
 
 const p = (
   id,
@@ -2797,7 +2808,7 @@ const products = [
     "Traditional handcrafted terracotta pots in various sizes. Breathable and perfect for outdoor plants and succulents.",
     ["Pots", "Traditional", "Terracotta"],
     4,
-    "",
+    classicterracotta,
     ["Planters"]
   ),
   p(
@@ -2808,7 +2819,7 @@ const products = [
     "Lightweight composite pots with a sleek modern finish. Durable, weather-resistant, and available in neutral tones.",
     ["Pots", "Modern", "Lightweight"],
     5,
-    "",
+    fiberstone,
     ["Planters"]
   ),
   p(
@@ -2819,7 +2830,7 @@ const products = [
     "Beautiful glazed ceramic pots with artistic designs. Perfect for creating a decorative focal point in your home or garden.",
     ["Pots", "Decorative", "Ceramic"],
     5,
-    "",
+    glazedceramic,
     ["Planters"]
   ),
   p(
@@ -2830,7 +2841,7 @@ const products = [
     "Stylish macrame plant hangers for hanging baskets. Creates a bohemian aesthetic while supporting your favorite trailing plants.",
     ["Pots", "Bohemian", "Hanging"],
     4,
-    "",
+    hangingmacrame,
     ["Planters"]
   ),
   p(
@@ -2841,7 +2852,7 @@ const products = [
     "Industrial-style raw concrete pots with a minimalist design. Perfect for contemporary interiors and adding an urban touch.",
     ["Pots", "Industrial", "Concrete"],
     4,
-    "",
+    rawcement,
     ["Planters"]
   ),
   p(
@@ -2852,7 +2863,7 @@ const products = [
     "Eco-friendly bio-based planter made from sustainable materials. Biodegradable and perfect for environmentally conscious gardeners.",
     ["Pots", "Eco-Friendly", "Sustainable"],
     5,
-    "",
+    wovenrattarplanter,
     ["Planters"]
   ),
   p(
@@ -2863,7 +2874,7 @@ const products = [
     "Elegant charcoal-colored pots with a modern matte finish. Suitable for both indoor and outdoor settings with sophisticated style.",
     ["Pots", "Modern", "Charcoal"],
     5,
-    "",
+    charcoalblackmorrava,
     ["Planters"]
   ),
   p(
@@ -2874,7 +2885,7 @@ const products = [
     "Rustic wooden planter troughs treated for durability. Perfect for creating raised garden displays with a natural aesthetic.",
     ["Pots", "Rustic", "Wood"],
     4,
-    "",
+    wooden,
     ["Planters"]
   ),
   p(
@@ -2885,7 +2896,7 @@ const products = [
     "Innovative self-watering system keeps soil consistently moist. Ideal for busy plant lovers who want low-maintenance watering.",
     ["Pots", "Smart", "Auto Watering"],
     5,
-    "",
+    selfwatering,
     ["Planters"]
   ),
   p(
@@ -2896,7 +2907,7 @@ const products = [
     "Advanced smart planter with soil sensors, app connectivity, and automated watering. Provides real-time plant health monitoring.",
     ["Pots", "Smart Technology", "IoT Enabled"],
     5,
-    "",
+    smartaiplanter,
     ["Planters"]
   ),
 

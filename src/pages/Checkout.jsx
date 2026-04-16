@@ -26,6 +26,7 @@ function Checkout() {
     emirate: "Dubai",
     deliveryDate: "",
     deliveryTime: "",
+    deliveryType: "standard",
     notes: "",
     paymentMethod: "",
     cardNumber: "",
@@ -34,10 +35,26 @@ function Checkout() {
     cvv: "",
   });
 
-  const totalPrice = cartItems.reduce((total, item) => {
-    const numericPrice = Number(item.price.replace("AED", "").trim());
+  const subtotal = cartItems.reduce((total, item) => {
+    // Handle both string and number price formats
+    let numericPrice;
+    if (typeof item.price === 'number') {
+      numericPrice = item.price;
+    } else {
+      numericPrice = Number(String(item.price).replace("AED", "").trim());
+    }
     return total + numericPrice * item.quantity;
   }, 0);
+
+  // Calculate delivery charges based on delivery type
+  let deliveryCharges = 0;
+  if (formData.deliveryType === "quick") {
+    deliveryCharges = 25; // Quick delivery: 25 AED
+  } else {
+    // Standard delivery: 5 AED if order is less than 150 AED, otherwise free
+    deliveryCharges = subtotal < 150 ? 5 : 0;
+  }
+  const totalPrice = subtotal + deliveryCharges;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -306,6 +323,42 @@ function Checkout() {
               {/* Delivery Preference */}
               <div className="form-section">
                 <h2>{t("deliveryPreference")}</h2>
+
+                {/* Delivery Type Selection */}
+                <div className="form-group">
+                  <label>{t("deliveryType")} *</label>
+                  <div className="radio-group">
+                    <label className="radio-label delivery-option">
+                      <input
+                        type="radio"
+                        name="deliveryType"
+                        value="standard"
+                        checked={formData.deliveryType === "standard"}
+                        onChange={handleInputChange}
+                      />
+                      <div className="delivery-option-content">
+                        <span className="delivery-option-title">{t("standardDelivery")}</span>
+                        <span className="delivery-option-price">
+                          {subtotal < 150 ? "AED 5" : t("free")}
+                        </span>
+                      </div>
+                    </label>
+                    <label className="radio-label delivery-option">
+                      <input
+                        type="radio"
+                        name="deliveryType"
+                        value="quick"
+                        checked={formData.deliveryType === "quick"}
+                        onChange={handleInputChange}
+                      />
+                      <div className="delivery-option-content">
+                        <span className="delivery-option-title">{t("quickDelivery")}</span>
+                        <span className="delivery-option-price">AED 25</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
                 <div className={`form-group ${invalidFields.includes("deliveryDate") ? "invalid" : ""}`}>
                   <label>{t("deliveryDate")} *</label>
                   <input
@@ -518,7 +571,9 @@ function Checkout() {
               {/* Items */}
               <div className="summary-items">
                 {cartItems.map((item) => {
-                  const unitPrice = Number(item.price.replace("AED", "").trim());
+                  const unitPrice = typeof item.price === 'number'
+                    ? item.price
+                    : Number(String(item.price).replace("AED", "").trim());
                   return (
                     <div key={item.id} className="summary-item">
                       <span className="summary-item-name">
@@ -538,11 +593,13 @@ function Checkout() {
               <div className="summary-totals">
                 <div className="summary-row">
                   <span>{t("subtotal")}</span>
-                  <span>AED {totalPrice.toFixed(2)}</span>
+                  <span>AED {subtotal.toFixed(2)}</span>
                 </div>
                 <div className="summary-row">
-                  <span>{t("freeDelivery")}</span>
-                  <span className="free-text">Free</span>
+                  <span>{t("deliveryCharges")}</span>
+                  <span className={deliveryCharges > 0 ? "delivery-charge" : "free-text"}>
+                    {deliveryCharges > 0 ? `AED ${deliveryCharges.toFixed(2)}` : t("free")}
+                  </span>
                 </div>
               </div>
 

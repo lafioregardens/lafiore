@@ -13,10 +13,9 @@ const quickReplies = [
 
 const menuLinks = {
   shop: { label: "Visit Shop", url: "/shop" },
-  services: { label: "Our Services", url: "/services" },
-  bouquet: { label: "Custom Bouquets", url: "/customize-bouquet" },
-  birthMonth: { label: "Birth Month Flowers", url: "/birth-month-flowers" },
-  plantFinder: { label: "Plant Finder", url: "/plant-finder" },
+  bouquet: { label: "Custom Bouquets", url: "/customize" },
+  birthMonth: { label: "Birth Month Flowers", url: "/birth-month" },
+  plantFinder: { label: "Plant Finder", url: "/plantfinder" },
   account: { label: "My Account", url: "/account" },
   consultation: { label: "Book Consultation", url: "/consultation" },
 };
@@ -93,7 +92,14 @@ function Chatbot() {
   }, [messages]);
 
   const getResponse = (message) => {
-    const msg = message.toLowerCase();
+    const msg = message.toLowerCase().trim();
+
+    // Home/Main menu command
+    if (msg === "home" || msg === "main menu" || msg === "mainpage") {
+      setMessages([]);
+      setLastMenus([]);
+      return;
+    }
 
     // Smart navigation - detect which page user is asking for
     if (msg.includes("take me") || msg.includes("link to") || msg.includes("show me") || msg.includes("go to") || msg.includes("navigate")) {
@@ -105,7 +111,7 @@ function Chatbot() {
         setLastMenus(["plantFinder"]);
         return "Let's find the perfect plant for you! 🌱";
       } else if (msg.includes("service") || msg.includes("wedding") || msg.includes("garden") || msg.includes("design")) {
-        setLastMenus(["services"]);
+        setLastMenus(["consultation"]);
         return "Check out our amazing services! 🏡";
       } else if (msg.includes("custom") || msg.includes("bouquet") || msg.includes("arrange")) {
         setLastMenus(["bouquet"]);
@@ -121,27 +127,35 @@ function Chatbot() {
         return "Book a consultation with us! 📞";
       } else {
         // Generic page request without specific page mentioned
-        setLastMenus(["shop", "plantFinder", "services", "bouquet", "birthMonth"]);
+        setLastMenus(["shop", "plantFinder", "bouquet", "birthMonth", "consultation"]);
         return "I'd be happy to take you there! Which page would you like to visit?";
       }
     }
 
     // Check for gibberish/unclear input
     if (isGibberish(message)) {
-      setLastMenus(["shop", "plantFinder", "services", "bouquet", "contact"]);
-      return "Sorry, unable to understand that! 😊 Could you please ask a clear question? I'm here to help with:\n\n- Delivery & shipping info\n- Plant care tips\n- Our services\n- Custom bouquets\n- And much more!\n\nFeel free to browse our pages or ask me anything!";
+      return "Sorry, can't understand that! 😊\n\nType **HOME** to go back to main menu!";
     }
 
     // Greetings
     if (msg.match(/^(hi|hello|hey|hola|salam|good morning|good evening|assalam)/)) {
-      setLastMenus(["shop", "plantFinder", "services", "bouquet"]);
-      return "Hello! Welcome to La Fiore! I'm Lily, your virtual garden assistant. 🌿 How can I help you today?";
+      setLastMenus(["shop", "plantFinder", "bouquet", "consultation"]);
+      const greetings = [
+        "Hello! Welcome to La Fiore! I'm Lily, your virtual garden assistant. 🌿 How can I help you today?",
+        "Hey there! 👋 Welcome to La Fiore! Looking for plants, gifts, or design services? I'm here to help!",
+        "Welcome! 🌸 I'm Lily from La Fiore. Whether you're shopping, getting plant care tips, or planning something special, I've got you covered!"
+      ];
+      return greetings[Math.floor(Math.random() * greetings.length)];
     }
 
     // Delivery & Shipping
-    if (msg.includes("delivery") || msg.includes("ship") || msg.includes("deliver")) {
+    if (msg.includes("delivery") || msg.includes("ship") || msg.includes("deliver") || msg.includes("how long")) {
       setLastMenus(["shop"]);
-      return "We offer **free delivery** across the UAE on orders over AED 100! 🚚\n\n**Standard:** 2-3 business days\n**Express:** Next-day delivery for AED 25\n\nAll plants are carefully packaged to arrive fresh and healthy. Ready to shop?";
+      const responses = [
+        "Great question! 🚚 We offer **free delivery** across the UAE on orders over AED 100!\n\n⏱️ **Standard:** 2-3 business days\n⚡ **Express:** Next-day delivery for AED 25\n\nEverything is carefully packaged to arrive fresh and happy. When are you looking to order?",
+        "We've got you covered with delivery! 📦\n\n✨ **Orders over AED 100:** FREE delivery\n🚀 **Next-day express:** Just AED 25\n📍 **Service area:** All across UAE\n\nReady to find something perfect?"
+      ];
+      return responses[Math.floor(Math.random() * responses.length)];
     }
 
     // Hours & Location
@@ -167,30 +181,34 @@ function Chatbot() {
 
     // Specific service explanations
     if (msg.includes("planterior") || msg.includes("interior") || msg.includes("interior styling")) {
-      setLastMenus(["services", "consultation"]);
+      setLastMenus(["consultation"]);
       return "🏡 **Planterior Design** is our plant-focused interior styling service!\n\nWe transform your living and working spaces with:\n- Expert plant selection for your décor\n- Strategic placement for maximum impact\n- Style recommendations that match your aesthetic\n- Maintenance tips to keep plants thriving\n\nPerfect for homes, offices, restaurants, and retail spaces. Create a green, living atmosphere!";
     }
 
     if (msg.includes("garden") && (msg.includes("plan") || msg.includes("care"))) {
-      setLastMenus(["services", "consultation"]);
+      setLastMenus(["consultation"]);
       return "🌳 **Garden Planning & Care** is our personalized garden design and maintenance service!\n\nWe help with:\n- Custom garden design tailored to your space\n- Plant selection for climate & conditions\n- Seasonal planting guidance\n- Ongoing maintenance & care\n- Landscape transformation\n\nWhether it's a small balcony or a sprawling yard, we create beautiful gardens!";
     }
 
     if (msg.includes("wedding") || msg.includes("event") || (msg.includes("flower") && msg.includes("event"))) {
-      setLastMenus(["services", "consultation"]);
+      setLastMenus(["consultation"]);
       return "✨ **Event & Wedding Flowers** is our custom floral styling service!\n\nWe create stunning arrangements for:\n- Weddings & ceremonies\n- Corporate events\n- Celebrations & parties\n- Proposals & special moments\n- Decor installations\n\nOur team designs custom floral experiences that match your vision perfectly. From intimate gatherings to grand celebrations!";
     }
 
     // Services & Consultation
     if (msg.includes("service") || msg.includes("consult")) {
-      setLastMenus(["services", "consultation"]);
+      setLastMenus(["consultation"]);
       return "We offer three amazing services:\n\n✨ **Event & Wedding Flowers** — Custom floral styling for your special day\n🌳 **Garden Planning & Care** — Personalized garden design & maintenance\n🏡 **Planterior Design** — Plant-focused interior styling\n\nBook a free consultation to discuss your vision!";
     }
 
     // Plant Care
-    if (msg.includes("care") || msg.includes("water") || msg.includes("sunlight") || msg.includes("plant tip")) {
+    if (msg.includes("care") || msg.includes("water") || msg.includes("sunlight") || msg.includes("plant tip") || msg.includes("dying") || msg.includes("wilting") || msg.includes("brown leaves")) {
       setLastMenus(["plantFinder", "shop"]);
-      return "Great question! Here are some general plant care tips:\n\n💧 **Watering:** Most plants prefer soil to dry slightly between waterings\n☀️ **Light:** Bright indirect light works for most houseplants\n💨 **Humidity:** Mist tropical plants regularly\n🌱 **Fertilizer:** Feed monthly in spring/summer\n\nEach product comes with a detailed care guide! Want personalized recommendations?";
+      const careResponses = [
+        "Great question! 🌱 Here are some universal plant care tips:\n\n💧 **Watering:** Let soil dry slightly between waterings (most common mistake is overwatering!)\n☀️ **Light:** Bright indirect light is perfect for most plants\n💨 **Humidity:** Tropical plants love a regular misting\n🌱 **Fertilizer:** Feed every 2-4 weeks during growing season\n\n✨ Every product includes care instructions. Want personalized advice?",
+        "Plant struggling? 😟 Don't worry, it happens!\n\n🔍 **Check:** Soil moisture, light level, and humidity\n💡 **Most fixes:** Adjust watering or move to brighter spot\n🌿 **Prevention:** Right plant in right place!\n\nUse our **Plant Finder** to get the perfect match for your home!"
+      ];
+      return careResponses[Math.floor(Math.random() * careResponses.length)];
     }
 
     // Track Order
@@ -200,9 +218,13 @@ function Chatbot() {
     }
 
     // Pricing
-    if (msg.includes("price") || msg.includes("cost") || msg.includes("how much") || msg.includes("expensive")) {
+    if (msg.includes("price") || msg.includes("cost") || msg.includes("how much") || msg.includes("expensive") || msg.includes("expensive")) {
       setLastMenus(["shop"]);
-      return "Great news! We have options for every budget! 💚\n\n💰 **Small plants:** AED 25+\n💐 **Bouquets:** AED 75-300\n🌳 **Large arrangements:** AED 300-500+\n\n✨ **BONUS:** Free delivery on orders over AED 100!\n\nLet's find something perfect for you!";
+      const priceResponses = [
+        "Amazing prices for every budget! 💚\n\n🌿 **Plants:** AED 25-150\n💐 **Bouquets:** AED 75-300\n🎁 **Arrangements:** AED 100-500\n\n✨ **FREE shipping on orders over AED 100**\n🎯 **Quality guaranteed**\n\nWhat's your budget? I can suggest something perfect!",
+        "We believe beautiful plants shouldn't break the bank! 🌱\n\n💰 **Budget-friendly:** Starting at AED 25\n💎 **Premium options:** Up to AED 500+\n\nWith **free delivery on orders over AED 100**, you save even more!\n\nWhat interests you?"
+      ];
+      return priceResponses[Math.floor(Math.random() * priceResponses.length)];
     }
 
     // Payment
@@ -211,9 +233,13 @@ function Chatbot() {
     }
 
     // Gift
-    if (msg.includes("gift") || msg.includes("birthday") || msg.includes("anniversary") || msg.includes("surprise")) {
+    if (msg.includes("gift") || msg.includes("birthday") || msg.includes("anniversary") || msg.includes("surprise") || msg.includes("present")) {
       setLastMenus(["bouquet", "birthMonth", "shop"]);
-      return "Perfect! We have amazing gift options! 🎁\n\n🌹 **Bouquets** starting from AED 75\n🪴 **Potted plants** that last forever\n💐 **Custom arrangements** for any occasion\n🌸 **Birth Month Flowers** — unique & personalized!\n\n✨ We add gift card messages too! What's the occasion?";
+      const responses = [
+        "Ooh, a gift! 🎁 That's wonderful!\n\n🌹 **Fresh Bouquets** (AED 75+) — Perfect for any moment\n🪴 **Potted Plants** — Long-lasting & thoughtful\n💐 **Custom Creations** — Design it yourself!\n🌸 **Birth Month Flowers** — Unique & personal\n\n✨ We even add personalized gift messages! Who's the lucky person?",
+        "Love it! 💚 Gift-giving is our specialty!\n\n✨ **Starting from AED 75** for beautiful arrangements\n🎯 **Same-day delivery available**\n💝 **Personalized messages** included\n\nWhat's the occasion? Birthday, anniversary, or just because?"
+      ];
+      return responses[Math.floor(Math.random() * responses.length)];
     }
 
     // Birth Month Flowers
@@ -229,25 +255,75 @@ function Chatbot() {
     }
 
     // Thank you
-    if (msg.includes("thank") || msg.includes("thanks") || msg.includes("helpful")) {
-      return "You're welcome! We're always happy to help at La Fiore. If you need anything else, just ask! Happy planting!";
+    if (msg.includes("thank") || msg.includes("thanks") || msg.includes("helpful") || msg.includes("appreciate")) {
+      const thankResponses = [
+        "You're so welcome! 😊 That's what I'm here for. Anything else I can help with?",
+        "Happy to help! 💚 Feel free to ask anytime you need something!",
+        "Anytime! We love helping our plant lovers. Need anything else?"
+      ];
+      return thankResponses[Math.floor(Math.random() * thankResponses.length)];
+    }
+
+    // Detect office/workspace plants
+    if (msg.includes("office") || msg.includes("workspace") || msg.includes("desk") || msg.includes("workplace")) {
+      setLastMenus(["plantFinder", "shop", "consultation"]);
+      return "Office plants are a great idea! 🌿 They boost productivity and mood!\n\n✨ **Best office plants:**\n🌱 Low-light tolerant (no windows needed!)\n💨 Air-purifying\n😌 Low maintenance\n\nOur **Plant Finder** can match you with perfect office companions, or check our **shop**!";
+    }
+
+    // Detect apartment/balcony/space-limited questions
+    if (msg.includes("apartment") || msg.includes("balcony") || msg.includes("small space") || msg.includes("limited space")) {
+      setLastMenus(["plantFinder", "shop"]);
+      return "Small space, big impact! 💚\n\n✨ Perfect for apartments & balconies:\n🌿 Compact plants & hanging planters\n🪴 Space-saving vertical gardens\n💐 Potted arrangements\n\nUse **Plant Finder** to discover plants perfect for your space!";
+    }
+
+    // Detect questions about greenery/decor
+    if (msg.includes("decor") || msg.includes("interior") || msg.includes("beautiful") || msg.includes("aesthetic")) {
+      setLastMenus(["consultation", "shop", "plantFinder"]);
+      return "Plants are the perfect decor! 🎨\n\n✨ We can help:\n🏡 **Planterior Design** — Style your space beautifully\n🌿 Find plants that match your aesthetic\n💐 Custom arrangements for any room\n\nReady to transform your space?";
     }
 
     // Bye / End conversation
     if (msg.match(/^(bye|goodbye|see you|take care|thanks|thank you|that's all)/)) {
       setLastMenus([]);
-      // Return a response that will show end of convo message
-      return "Thank you for chatting with Lily! 💚 We hope we could help. Have a wonderful day and happy planting! Type 'mainpage' or 'main' anytime to restart the conversation.";
+      const goodbyeResponses = [
+        "Thank you for chatting with Lily! 💚 We hope we could help. Have a wonderful day and happy planting!",
+        "Goodbye! 🌸 Thanks for stopping by La Fiore. Happy growing!",
+        "See you soon! 💚 Thanks for visiting. Enjoy your plants!"
+      ];
+      return goodbyeResponses[Math.floor(Math.random() * goodbyeResponses.length)];
     }
 
     // Who are you
-    if (msg.includes("who are you") || msg.includes("your name") || msg.includes("what are you")) {
-      return "I'm **Lily**, La Fiore's virtual garden assistant! I can help you with product info, delivery questions, plant care tips, and more. Think of me as your friendly neighborhood plant expert!";
+    if (msg.includes("who are you") || msg.includes("your name") || msg.includes("what are you") || msg.includes("tell me about you")) {
+      return "I'm **Lily** 🌸, La Fiore's virtual garden assistant!\n\n✨ I'm here to help with:\n🛍️ Finding the perfect plants & flowers\n💐 Custom bouquet design\n🌿 Plant care & gardening tips\n💚 Gift recommendations\n🎯 Delivery & order info\n👰 Events & special occasions\n\nThink of me as your friendly neighborhood plant expert! What can I help with?";
     }
 
-    // Default
-    setLastMenus(["shop", "plantFinder", "services", "bouquet", "birthMonth"]);
-    return "I'd be happy to help! 😊 Here's what I can assist with:\n\n🚚 Delivery & shipping info\n🌱 Plant care tips\n💐 Custom bouquets & gifts\n🏡 Our services (weddings, gardens, design)\n💳 Payment options\n🎁 Gift recommendations\n\nOr feel free to ask me anything! Ready to explore?";
+    // Detect flower/plant names
+    const flowers = ["rose", "tulip", "sunflower", "daisy", "orchid", "lily", "lavender", "hydrangea", "peony", "carnation", "jasmine", "hibiscus", "bonsai", "cactus", "succulent", "fern", "monstera", "pothos"];
+    if (flowers.some(flower => msg.includes(flower))) {
+      setLastMenus(["shop", "bouquet"]);
+      return `Oh, you're interested in that! 🌺 We have beautiful options available!\n\n✨ Check out our **shop** to browse, or **design a custom bouquet** with it!\n\nNeed any care tips or want to know more?`;
+    }
+
+    // Detect budget questions
+    if (msg.includes("budget") || msg.includes("cheap") || msg.includes("affordable") || msg.includes("price range")) {
+      setLastMenus(["shop"]);
+      return "Budget-friendly? We've got options! 💚\n\n🌿 **Small plants:** AED 25-50\n💐 **Fresh bouquets:** AED 75-150\n🎁 **Gifts & arrangements:** AED 100-300\n✨ **Premium options:** Starting AED 300+\n\nAnd remember, **FREE delivery on orders over AED 100**! What appeals to you?";
+    }
+
+    // Detect location/store questions
+    if (msg.includes("where") || msg.includes("location") || msg.includes("visit") || msg.includes("store")) {
+      return "You can shop with us anytime at **lafioregardens.vercel.app**! 🌐\n\n📍 We serve all across the UAE with delivery\n🕒 Open Saturday-Thursday: 9 AM - 9 PM\n📍 Friday: 12 PM - 9 PM\n\nReady to start shopping online?";
+    }
+
+    // Default - more conversational
+    setLastMenus(["shop", "plantFinder", "bouquet", "birthMonth", "consultation"]);
+    const defaultResponses = [
+      "I'd be happy to help! 😊 What are you looking for today?\n\n🛍️ Browse our **shop**\n🌱 Find your perfect plant with **Plant Finder**\n💐 Create something custom\n🎁 Looking for a gift idea?\n\nJust let me know!",
+      "How can I assist you? 💚\n\n✨ **Shopping** for plants or flowers?\n🎯 **Gift ideas** for someone special?\n🌿 **Plant care advice**?\n👰 **Planning an event**?\n\nI'm all ears!",
+      "Tell me more! What brings you to La Fiore? 🌿\n\nWhether it's plants, gifts, design services, or just browsing, I'm here to help guide you!"
+    ];
+    return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
   };
 
   const handleSend = async (text) => {
@@ -266,8 +342,7 @@ function Chatbot() {
     // Check for gibberish FIRST - client-side validation
     if (isGibberish(userMessage)) {
       setMessages((prev) => [...prev, { role: "user", text: userMessage }]);
-      setLastMenus(["shop", "plantFinder", "services", "bouquet", "contact"]);
-      setMessages((prev) => [...prev, { role: "assistant", text: "Sorry, unable to understand that! 😊 Could you please ask a clear question? I'm here to help with:\n\n- Delivery & shipping info\n- Plant care tips\n- Our services\n- Custom bouquets\n- And much more!\n\nFeel free to browse our pages or ask me anything!" }]);
+      setMessages((prev) => [...prev, { role: "assistant", text: "Sorry, can't understand that! 😊\n\nType **HOME** to go back to main menu!" }]);
       return;
     }
 

@@ -92,14 +92,12 @@ function Consultation() {
           <div className="consultation-hero-image"></div>
 
           <div className="consultation-hero-content">
-            <p className="consultation-eyebrow">La Fiore Consultation</p>
+            <p className="consultation-eyebrow">{t("laFioreConsultation")}</p>
 
-            <h1>Floral Styling and Green Space Design</h1>
+            <h1>{t("consultationHero")}</h1>
 
             <p className="consultation-hero-text">
-              From memorable events to beautifully styled homes and thriving
-              gardens, we create thoughtful floral and plant experiences
-              tailored to your space, purpose, and aesthetic.
+              {t("memorableEventsBeautifully")}
             </p>
 
             <div className="consultation-hero-buttons">
@@ -107,14 +105,14 @@ function Consultation() {
                 to="/consultation#consultation-form"
                 className="consultation-primary-btn"
               >
-                Book a Consultation
+                {t("bookFreeConsultation")}
               </Link>
 
               <Link
                 to="/consultation#consultation-services"
                 className="consultation-secondary-btn"
               >
-                Explore Services
+                {t("exploreServices")}
               </Link>
             </div>
           </div>
@@ -123,12 +121,10 @@ function Consultation() {
         {/* SERVICES SECTION */}
         <section className="consultation-services" id="consultation-services">
           <div className="consultation-section-heading">
-            <p className="consultation-eyebrow">What We Offer</p>
-            <h2>Tailored Services for Beautiful Living</h2>
+            <p className="consultation-eyebrow">{t("whatWeOfferConsult")}</p>
+            <h2>{t("tailoredServices")}</h2>
             <p>
-              Whether you are planning an event, transforming a garden, or
-              styling interiors with greenery, we help you create something
-              elegant, balanced, and personal.
+              {t("consultationDesc")}
             </p>
           </div>
 
@@ -137,11 +133,9 @@ function Consultation() {
               <article className="consultation-service-feature large-service">
                 <div className="consultation-service-image"></div>
                 <div className="consultation-service-text">
-                  <h3>Event and Wedding Flowers</h3>
+                  <h3>{t("eventWeddingTitle")}</h3>
                   <p>
-                    Bespoke floral styling for weddings, intimate celebrations,
-                    engagements, launches, and special events. We design
-                    arrangements that match your theme, venue, and atmosphere.
+                    {t("eventWeddingConsultDesc")}
                   </p>
                 </div>
               </article>
@@ -151,11 +145,9 @@ function Consultation() {
               <article className="consultation-service-feature">
                 <div className="consultation-service-image"></div>
                 <div className="consultation-service-text">
-                  <h3>Garden Planning and Care</h3>
+                  <h3>{t("gardenPlanningTitle")}</h3>
                   <p>
-                    Personalized support for plant selection, layout planning,
-                    seasonal care, and greenery maintenance to help your garden
-                    flourish beautifully.
+                    {t("gardenPlanningConsultDesc")}
                   </p>
                 </div>
               </article>
@@ -165,11 +157,9 @@ function Consultation() {
               <article className="consultation-service-feature">
                 <div className="consultation-service-image"></div>
                 <div className="consultation-service-text">
-                  <h3>Planterior Design</h3>
+                  <h3>{t("planteriorDesignTitle")}</h3>
                   <p>
-                    Plant-focused interior styling that blends décor and greenery
-                    to create fresh, elegant, and calming spaces in homes,
-                    studios, and workspaces.
+                    {t("planteriorDesignConsultDesc")}
                   </p>
                 </div>
               </article>
@@ -180,35 +170,32 @@ function Consultation() {
         {/* HOW IT WORKS */}
         <section className="consultation-process">
           <div className="consultation-section-heading">
-            <p className="consultation-eyebrow">How It Works</p>
-            <h2>A Simple and Personal Process</h2>
+            <p className="consultation-eyebrow">{t("howItWorks")}</p>
+            <h2>{t("simpleProcess")}</h2>
           </div>
 
           <div className="consultation-process-grid">
             <div className="consultation-process-card">
               <span>01</span>
-              <h3>Tell Us Your Vision</h3>
+              <h3>{t("tellVision")}</h3>
               <p>
-                Share your event, space, ideas, preferences, and goals through
-                our consultation request form.
+                {t("tellVisionDesc")}
               </p>
             </div>
 
             <div className="consultation-process-card">
               <span>02</span>
-              <h3>We Curate a Plan</h3>
+              <h3>{t("curateplan")}</h3>
               <p>
-                We shape recommendations around your style, space, and floral or
-                greenery needs.
+                {t("curatePlanDesc")}
               </p>
             </div>
 
             <div className="consultation-process-card">
               <span>03</span>
-              <h3>Bring It to Life</h3>
+              <h3>{t("bringVision")}</h3>
               <p>
-                We guide the design direction so your event, garden, or interior
-                feels polished and beautifully considered.
+                {t("bringVisionDesc")}
               </p>
             </div>
           </div>

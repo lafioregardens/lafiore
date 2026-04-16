@@ -312,6 +312,34 @@ button { font-family: var(--font-body); cursor: pointer; }
   justify-content: center;
 }
 
+/* Wishlist Icon */
+.wishlist-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wishlist-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.wishlist-badge {
+  position: absolute;
+  top: -7px; right: -9px;
+  min-width: 17px; height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--pink);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* User Menu */
 .user-menu {
   position: relative;
@@ -2963,6 +2991,16 @@ button:hover .btn-arrow, a:hover .btn-arrow { transform: translateX(4px); }
 }
 
 .delivery-free {
+  color: var(--green-main);
+  font-weight: 600;
+}
+
+.delivery-charge {
+  color: #ea580c;
+  font-weight: 600;
+}
+
+.free-text {
   color: var(--green-main);
   font-weight: 600;
 }
@@ -5885,17 +5923,17 @@ select option {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.95);
-  color: #2d3d24;
-  padding: 8px 20px;
-  border-radius: 25px;
-  font-size: 12px;
-  font-weight: 700;
+  background: rgba(45, 61, 36, 0.95);
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 900;
   z-index: 20;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   pointer-events: none;
 }
 
@@ -5913,6 +5951,8 @@ select option {
 
 .shop-card-badge--low {
   background: #ea580c;
+  top: 60px;
+  left: 24px;
 }
 
 .shop-card-badge--potted {
