@@ -21,6 +21,7 @@ function AdminInventory() {
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState(emptyForm);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -102,6 +103,14 @@ function AdminInventory() {
     }
   };
 
+  const filteredProducts = products.filter((product) => {
+    const query = searchQuery.toLowerCase();
+    return (
+      product.name.toLowerCase().includes(query) ||
+      product.mainCategory.toLowerCase().includes(query)
+    );
+  });
+
   return (
     <div>
       <Navbar />
@@ -117,6 +126,17 @@ function AdminInventory() {
               + Add Product
             </button>
             <span className="admin-count">{products.length} products</span>
+          </div>
+
+          <div className="admin-search">
+            <input
+              type="text"
+              placeholder="Search by product name or category..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="admin-search-input"
+            />
+            {searchQuery && <span className="search-results">{filteredProducts.length} result{filteredProducts.length !== 1 ? 's' : ''}</span>}
           </div>
 
           {error && <p className="admin-error">{error}</p>}
@@ -214,32 +234,38 @@ function AdminInventory() {
                   </tr>
                 </thead>
                 <tbody>
-                  {products.map((product) => (
-                    <tr key={product.id}>
-                      <td>{product.name}</td>
-                      <td>{product.mainCategory}</td>
-                      <td>AED {product.price}</td>
-                      <td>
-                        <span className={product.stock === 0 ? "stock-low" : "stock-ok"}>
-                          {product.stock ?? 0}
-                        </span>
-                      </td>
-                      <td>
-                        <button
-                          className="admin-btn-small"
-                          onClick={() => openEditForm(product)}
-                        >
-                          Edit
-                        </button>
-                        <button
-                          className="admin-btn-small admin-btn-small--danger"
-                          onClick={() => handleDelete(product.id)}
-                        >
-                          Delete
-                        </button>
-                      </td>
+                  {filteredProducts.length > 0 ? (
+                    filteredProducts.map((product) => (
+                      <tr key={product.id}>
+                        <td>{product.name}</td>
+                        <td>{product.mainCategory}</td>
+                        <td>AED {product.price}</td>
+                        <td>
+                          <span className={product.stock === 0 ? "stock-low" : "stock-ok"}>
+                            {product.stock ?? 0}
+                          </span>
+                        </td>
+                        <td>
+                          <button
+                            className="admin-btn-small"
+                            onClick={() => openEditForm(product)}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="admin-btn-small admin-btn-small--danger"
+                            onClick={() => handleDelete(product.id)}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="5" className="no-results">No products found</td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             )}

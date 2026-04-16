@@ -202,6 +202,44 @@
 /* Buttons */
 .admin-actions {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.admin-search {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-search-input {
+  flex: 1;
+  max-width: 400px;
+  padding: 10px 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.admin-search-input:focus {
+  outline: none;
+  border-color: var(--green-main);
+  box-shadow: 0 0 0 3px rgba(102, 122, 79, 0.1);
+}
+
+.search-results {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.no-results {
+  text-align: center;
+  color: #999;
+  padding: 20px !important;
 }
 
 .admin-btn {
