@@ -5,6 +5,26 @@ import { CartContext } from "../context/CartContext";
 import { useLanguage } from "../context/LanguageContext";
 import WishlistButton from "../components/WishlistButton";
 
+// Plant images
+import snakePlantImg from "../assets/products/plants/snakeplant.jpg";
+import zzPlantImg from "../assets/products/plants/zz.jpg";
+import pothosImg from "../assets/products/plants/pothos.jpg";
+import spiderPlantImg from "../assets/products/plants/spiderplant.jpg";
+import peaceLilyImg from "../assets/products/plants/peacelilyplant.jpg";
+import monsteraImg from "../assets/products/plants/monstera.jpg";
+import aloeVeraImg from "../assets/products/plants/aloevera.jpg";
+import lavenderImg from "../assets/products/plants/lavenderplant.jpg";
+import fernImg from "../assets/products/plants/fern.jpg";
+import arecaPalmImg from "../assets/products/plants/arecapalm.jpg";
+import jadePlantImg from "../assets/products/plants/jadeplant.jpg";
+import succulentImg from "../assets/products/plants/succulentmix.jpg";
+import moneyPlantImg from "../assets/products/plants/moneyplant.jpg";
+import rubberPlantImg from "../assets/products/plants/rubberplant.jpg";
+import fiddleLeafFigImg from "../assets/products/plants/fiddleleaffig.jpg";
+import orchidImg from "../assets/products/plants/orchidplant.jpg";
+import bougainvilleaImg from "../assets/products/plants/bougainvillea.jpg";
+import hibiscusImg from "../assets/products/plants/hibiscus.jpg";
+
 // Plant Finder page
 function PlantFinder() {
   const { addToCart } = useContext(CartContext);
@@ -30,7 +50,7 @@ function PlantFinder() {
       price: "AED 85.00",
       tags: ["Air Purifying", "Low Maintenance"],
       scoreTags: ["beginner", "indoors", "low light", "forgetful", "no pets needed", "air purifying"],
-      image: "",
+      image: snakePlantImg,
     },
     {
       id: 2,
@@ -39,7 +59,7 @@ function PlantFinder() {
       price: "AED 95.00",
       tags: ["Low Maintenance", "Indoor"],
       scoreTags: ["beginner", "indoors", "low light", "forgetful", "no pets needed", "decorative"],
-      image: "",
+      image: zzPlantImg,
     },
     {
       id: 3,
@@ -48,7 +68,7 @@ function PlantFinder() {
       price: "AED 65.00",
       tags: ["Air Purifying", "Indoor"],
       scoreTags: ["beginner", "indoors", "medium light", "weekly", "no pets needed", "air purifying"],
-      image: "",
+      image: pothosImg,
     },
     {
       id: 4,
@@ -57,7 +77,7 @@ function PlantFinder() {
       price: "AED 70.00",
       tags: ["Air Purifying", "Pet Safe"],
       scoreTags: ["beginner", "indoors", "medium light", "weekly", "pet safe", "air purifying"],
-      image: "",
+      image: spiderPlantImg,
     },
     {
       id: 5,
@@ -66,7 +86,7 @@ function PlantFinder() {
       price: "AED 110.00",
       tags: ["Air Purifying", "Flowering"],
       scoreTags: ["some experience", "indoors", "low light", "weekly", "no pets needed", "decorative"],
-      image: "",
+      image: peaceLilyImg,
     },
     {
       id: 6,
@@ -75,7 +95,7 @@ function PlantFinder() {
       price: "AED 120.00",
       tags: ["Indoor", "Decorative"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
-      image: "",
+      image: monsteraImg,
     },
     {
       id: 7,
@@ -84,7 +104,7 @@ function PlantFinder() {
       price: "AED 60.00",
       tags: ["Medicinal", "Low Maintenance"],
       scoreTags: ["beginner", "indoors", "bright light", "forgetful", "no pets needed", "functional"],
-      image: "",
+      image: aloeVeraImg,
     },
     {
       id: 8,
@@ -93,7 +113,7 @@ function PlantFinder() {
       price: "AED 75.00",
       tags: ["Fragrant", "Outdoor"],
       scoreTags: ["some experience", "outdoors", "bright light", "weekly", "pet safe", "functional"],
-      image: "",
+      image: lavenderImg,
     },
     {
       id: 9,
@@ -102,7 +122,7 @@ function PlantFinder() {
       price: "AED 68.00",
       tags: ["Outdoor", "Greenery"],
       scoreTags: ["experienced", "outdoors", "low light", "often", "pet safe", "decorative"],
-      image: "",
+      image: fernImg,
     },
     {
       id: 10,
@@ -111,7 +131,7 @@ function PlantFinder() {
       price: "AED 130.00",
       tags: ["Indoor", "Tropical"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
-      image: "",
+      image: arecaPalmImg,
     },
     {
       id: 11,
@@ -120,7 +140,7 @@ function PlantFinder() {
       price: "AED 58.00",
       tags: ["Succulent", "Low Maintenance"],
       scoreTags: ["beginner", "indoors", "bright light", "forgetful", "no pets needed", "decorative"],
-      image: "",
+      image: jadePlantImg,
     },
     {
       id: 13,
@@ -129,7 +149,7 @@ function PlantFinder() {
       price: "AED 72.00",
       tags: ["Low Maintenance", "Succulent"],
       scoreTags: ["beginner", "indoors", "bright light", "forgetful", "no pets needed", "decorative"],
-      image: "",
+      image: succulentImg,
     },
     {
       id: 14,
@@ -138,7 +158,7 @@ function PlantFinder() {
       price: "AED 55.00",
       tags: ["Indoor", "Lucky Plant"],
       scoreTags: ["beginner", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
-      image: "",
+      image: moneyPlantImg,
     },
     {
       id: 15,
@@ -147,7 +167,7 @@ function PlantFinder() {
       price: "AED 105.00",
       tags: ["Air Purifying", "Decorative"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "air purifying"],
-      image: "",
+      image: rubberPlantImg,
     },
     {
       id: 16,
@@ -156,7 +176,7 @@ function PlantFinder() {
       price: "AED 125.00",
       tags: ["Decorative", "Trendy"],
       scoreTags: ["some experience", "indoors", "bright light", "weekly", "no pets needed", "decorative"],
-      image: "",
+      image: fiddleLeafFigImg,
     },
     {
       id: 17,
@@ -165,7 +185,7 @@ function PlantFinder() {
       price: "AED 115.00",
       tags: ["Flowering", "Tropical"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
-      image: "",
+      image: orchidImg,
     },
     {
       id: 18,
@@ -174,7 +194,7 @@ function PlantFinder() {
       price: "AED 135.00",
       tags: ["Art Form", "Indoor"],
       scoreTags: ["experienced", "indoors", "bright light", "often", "no pets needed", "decorative"],
-      image: "",
+      image: succulentImg,
     },
     {
       id: 19,
@@ -183,7 +203,7 @@ function PlantFinder() {
       price: "AED 80.00",
       tags: ["Flowering", "Outdoor"],
       scoreTags: ["some experience", "outdoors", "bright light", "weekly", "no pets needed", "decorative"],
-      image: "",
+      image: bougainvilleaImg,
     },
     {
       id: 20,
@@ -192,7 +212,7 @@ function PlantFinder() {
       price: "AED 90.00",
       tags: ["Flowering", "Tropical"],
       scoreTags: ["some experience", "outdoors", "bright light", "weekly", "no pets needed", "decorative"],
-      image: "",
+      image: hibiscusImg,
     },
     {
       id: 21,
@@ -201,7 +221,7 @@ function PlantFinder() {
       price: "AED 145.00",
       tags: ["Indoor", "Tropical"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
-      image: "",
+      image: arecaPalmImg,
     },
   ];
 
