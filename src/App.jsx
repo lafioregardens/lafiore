@@ -70,8 +70,8 @@ function App() {
         {showCover && <CoverPage onComplete={handleCoverComplete} />}
         <Toast />
         <Chatbot />
+        <ScrollToTop />
         <Routes>
-          <ScrollToTop />
         {/* Existing routes */}
         <Route path="/" element={<Home />} />
         <Route path="/birth-month" element={<BirthMonthFlowers />} />
