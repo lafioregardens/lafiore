@@ -55,6 +55,7 @@ function CustomizeBouquet() {
   //   quantity: 2
   // }
   const [selectedFlowers, setSelectedFlowers] = useState([]);
+  const [validationError, setValidationError] = useState("");
 
   // Adds a flower to bouquet using the currently chosen color
   const addFlower = (flower, color) => {
@@ -126,6 +127,21 @@ function CustomizeBouquet() {
 
   // Final bouquet total
   const bouquetTotal = flowersTotal + wrapTotal + sizeTotal;
+
+  // Calculate total number of flowers selected
+  const totalFlowersSelected = useMemo(() => {
+    return selectedFlowers.reduce((sum, item) => sum + item.quantity, 0);
+  }, [selectedFlowers]);
+
+  // Handle next step with validation
+  const handleNextStep = () => {
+    if (step === 1 && totalFlowersSelected < 4) {
+      setValidationError(`Please select at least 4 flowers (currently ${totalFlowersSelected})`);
+      return;
+    }
+    setValidationError("");
+    setStep(step + 1);
+  };
 
   // Add custom bouquet to cart
   const handleAddBouquetToCart = () => {
@@ -222,7 +238,18 @@ function CustomizeBouquet() {
             {/* STEP 1 */}
             {step === 1 && (
               <div className="bouquet-step-section">
-                <h2>Select Flowers</h2>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                  <h2 style={{ margin: 0 }}>Select Flowers</h2>
+                  <span style={{ fontSize: "14px", color: totalFlowersSelected >= 4 ? "#667a4f" : "#c97c7c", fontWeight: "600" }}>
+                    {totalFlowersSelected}/4 required
+                  </span>
+                </div>
+
+                {validationError && (
+                  <div style={{ backgroundColor: "#fee2e2", border: "1px solid #fca5a5", color: "#b91c1c", padding: "12px", borderRadius: "6px", marginBottom: "16px", fontSize: "14px" }}>
+                    {validationError}
+                  </div>
+                )}
 
                 <div className="bouquet-flower-grid">
                   {flowerOptions.map((flower) => (
@@ -407,7 +434,9 @@ function CustomizeBouquet() {
               {step < 5 && (
                 <button
                   className="bouquet-nav-btn primary-btn"
-                  onClick={() => setStep(step + 1)}
+                  onClick={handleNextStep}
+                  disabled={step === 1 && totalFlowersSelected < 4}
+                  style={step === 1 && totalFlowersSelected < 4 ? { opacity: "0.6", cursor: "not-allowed" } : {}}
                 >
                   Next
                 </button>
