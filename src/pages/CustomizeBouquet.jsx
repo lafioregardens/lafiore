@@ -2,12 +2,16 @@ import { useState, useMemo, useContext } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { CartContext } from "../context/CartContext";
+import { WishlistContext } from "../context/WishlistContext";
+import { useAuth } from "../context/AuthContext";
 import WishlistButton from "../components/WishlistButton";
 import { flowerOptions } from "../data/flowers";
 import { BouquetVisualizer } from "../components/BouquetVisualizer";
 
 function CustomizeBouquet() {
   const { addToCart } = useContext(CartContext);
+  const { addCustomBouquetToWishlist, loading: wishlistLoading } = useContext(WishlistContext);
+  const { user } = useAuth();
 
   // Tracks which step the user is currently on
   const [step, setStep] = useState(1);
@@ -20,6 +24,10 @@ function CustomizeBouquet() {
 
   // Stores the selected bouquet size
   const [selectedSize, setSelectedSize] = useState(null);
+
+  // Tracks the created bouquet for wishlist
+  const [createdBouquet, setCreatedBouquet] = useState(null);
+  const [wishlistMessage, setWishlistMessage] = useState("");
 
 
   // Wrapping options and their prices
@@ -132,8 +140,9 @@ function CustomizeBouquet() {
       message: message ? message : "No message added",
     };
 
-    addToCart({
-      id: Date.now(),
+    const bouquetId = Date.now();
+    const cartItem = {
+      id: bouquetId,
       month: "Custom Bouquet",
       flower: "Customized Bouquet",
       description: "A bouquet created by the customer.",
@@ -145,7 +154,35 @@ function CustomizeBouquet() {
       selectedWrap: selectedWrap,
       selectedSize: selectedSize,
       image: null, // custom bouquets don't have a single image
+    };
+
+    addToCart(cartItem);
+
+    // Create bouquet for wishlist
+    setCreatedBouquet({
+      id: bouquetId,
+      name: "Customized Bouquet",
+      price: bouquetTotal,
+      image: null,
+      details: bouquetDetails,
     });
+  };
+
+  // Add custom bouquet to wishlist
+  const handleAddBouquetToWishlist = async () => {
+    if (!user) {
+      setWishlistMessage("Please log in to save to wishlist");
+      setTimeout(() => setWishlistMessage(""), 2000);
+      return;
+    }
+
+    if (!createdBouquet) {
+      return;
+    }
+
+    const result = await addCustomBouquetToWishlist(createdBouquet);
+    setWishlistMessage(result.message);
+    setTimeout(() => setWishlistMessage(""), 2000);
   };
 
   return (
@@ -313,6 +350,23 @@ function CustomizeBouquet() {
                     Save & Add to Cart
                   </button>
                 </div>
+
+                {createdBouquet && (
+                  <div className="bouquet-wishlist-section">
+                    <p>Love this bouquet? Save it to your wishlist!</p>
+                    <button
+                      className="bouquet-wishlist-btn"
+                      onClick={handleAddBouquetToWishlist}
+                      disabled={wishlistLoading}
+                      title="Add custom bouquet to wishlist"
+                    >
+                      ♡ Add to Wishlist
+                    </button>
+                    {wishlistMessage && (
+                      <span className="bouquet-wishlist-message">{wishlistMessage}</span>
+                    )}
+                  </div>
+                )}
               </div>
             )}
 

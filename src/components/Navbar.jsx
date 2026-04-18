@@ -14,6 +14,7 @@ function Navbar() {
   const { wishlistCount } = useWishlist();
   const [langOpen, setLangOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const langRef = useRef(null);
   const userMenuRef = useRef(null);
   const cartCount = cartItems.length;
@@ -48,13 +49,24 @@ function Navbar() {
         <div className="logo">LA FIORE</div>
       </div>
       <div className="nav-row">
-        <div className="nav-menu">
-          <Link to="/">{t("home")}</Link>
-          <Link to="/shop">{t("shop")}</Link>
-          <Link to="/plantfinder">{t("plantFinder")}</Link>
-          <Link to="/customize">{t("customizeBouquets")}</Link>
-          <Link to="/birth-month">{t("birthMonthFlowers")}</Link>
-          <Link to="/consultation">{t("ourServices")}</Link>
+        <button
+          className="nav-hamburger"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div className={`nav-menu ${menuOpen ? "nav-menu-open" : ""}`}>
+          <Link to="/" onClick={() => setMenuOpen(false)}>{t("home")}</Link>
+          <Link to="/shop" onClick={() => setMenuOpen(false)}>{t("shop")}</Link>
+          <Link to="/plantfinder" onClick={() => setMenuOpen(false)}>{t("plantFinder")}</Link>
+          <Link to="/customize" onClick={() => setMenuOpen(false)}>{t("customizeBouquets")}</Link>
+          <Link to="/birth-month" onClick={() => setMenuOpen(false)}>{t("birthMonthFlowers")}</Link>
+          <Link to="/consultation" onClick={() => setMenuOpen(false)}>{t("ourServices")}</Link>
         </div>
         <div className="nav-icons">
           <div className="nav-search-wrapper">

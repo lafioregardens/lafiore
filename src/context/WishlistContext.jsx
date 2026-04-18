@@ -50,6 +50,35 @@ export function WishlistProvider({ children }) {
     }
   };
 
+  // Add custom bouquet to wishlist (local storage)
+  const addCustomBouquetToWishlist = (customBouquet) => {
+    try {
+      setLoading(true);
+      // For custom bouquets, store locally with a special ID
+      const bouquetWithId = {
+        productId: customBouquet.id,
+        name: customBouquet.name,
+        image: customBouquet.image,
+        price: customBouquet.price,
+        isCustomBouquet: true,
+        details: customBouquet.details,
+      };
+
+      // Check if already in wishlist
+      if (wishlist.some((item) => item.productId === bouquetWithId.productId)) {
+        return { success: false, message: "Already in wishlist" };
+      }
+
+      setWishlist((prev) => [...prev, bouquetWithId]);
+      return { success: true, message: "Custom bouquet added to wishlist" };
+    } catch (error) {
+      console.error("Error adding custom bouquet to wishlist:", error);
+      return { success: false, message: "Failed to add to wishlist" };
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Remove product from wishlist
   const removeFromWishlist = async (productId) => {
     try {
@@ -83,6 +112,7 @@ export function WishlistProvider({ children }) {
         addToWishlist,
         removeFromWishlist,
         isInWishlist,
+        addCustomBouquetToWishlist,
       }}
     >
       {children}

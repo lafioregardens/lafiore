@@ -76,6 +76,7 @@ import zucchini from "../assets/products/plants/zucchini.jpeg";
 // import willow from "../assets/products/plants/willow.jpeg";
 // import areca from "../assets/products/plants/areca.jpeg";
 // import parlour from "../assets/products/plants/parlour.jpeg";
+
 // import nasturtium from "../assets/products/flowers/nasturtium.jpeg";
 // import violet from "../assets/products/flowers/violet.jpeg";
 // import borage from "../assets/products/flowers/borage.jpeg";  
@@ -87,6 +88,7 @@ import zucchini from "../assets/products/plants/zucchini.jpeg";
 // import chiveblossom from "../assets/products/flowers/chiveblossom.jpeg";
 // import beebalm from "../assets/products/flowers/beebalm.jpeg";
 // import daisy from "../assets/products/flowers/daisy.jpeg";
+
 import espresso from "../assets/products/soaps/espresso.jpeg";
 import charcoaldetox from "../assets/products/soaps/charcoaldetox.jpeg";
 import lavenderoat from "../assets/products/soaps/lavenderoat.jpeg";
@@ -97,6 +99,7 @@ import milkandshea from "../assets/products/soaps/milkandshea.jpeg";
 import sandalwoodsaffron from "../assets/products/soaps/sandalwoodsaffron.jpeg";
 import seasaltkelp from "../assets/products/soaps/seasaltkelp.jpeg";
 import turmerichoney from "../assets/products/soaps/turmerichoney.jpeg";
+
 import charcoalblackmorrava from "../assets/products/pots/charcoalblackmorrava.jpeg";
 import classicterracotta from "../assets/products/pots/classicterracotta.jpeg";
 import glazedceramic from "../assets/products/pots/glazedceramic.jpg";
@@ -107,6 +110,66 @@ import smartaiplanter from "../assets/products/pots/smartaiplanter.jpg";
 import wooden from "../assets/products/pots/wooden.jpg";
 import wovenrattarplanter from "../assets/products/pots/wovenrattarplanter.jpeg";
 
+import arabianjasmine from "../assets/products/candles/arabianjasmine.jpeg";
+import bergamot from "../assets/products/candles/bergamot.jpeg";
+import cedarwoodmusk from "../assets/products/candles/cedarwoodmusk.jpeg";
+import cinnamonclove from "../assets/products/candles/cinnamonclove.jpeg";
+import eucalyptus from "../assets/products/candles/eucalyptus.jpeg";
+import damaskrose from "../assets/products/candles/damaskrose.jpeg";
+import freshlinen from "../assets/products/candles/freshlinen.jpeg";
+import royaloud from "../assets/products/candles/royaloud.jpeg";
+import vanillabean from "../assets/products/candles/vanillabean.jpeg";
+import whitesage from "../assets/products/candles/whitesage.jpeg";
+
+import apothecarytrio1 from "../assets/products/candleset/apothecarytrio1.jpeg";
+import desertbloom1 from "../assets/products/candleset/desertbloom1.jpeg";
+import signaturescent from "../assets/products/candleset/signaturescent.jpeg";
+
+import botanicalset1 from "../assets/products/gardenset/botanicalset1.jpeg";
+import masterset from "../assets/products/gardenset/masterset.jpeg";
+import starterset from "../assets/products/gardenset/starterset.jpeg";
+
+import blackseed from "../assets/products/oils/blackseed.jpeg";
+import frankincense from "../assets/products/oils/frankincense.jpeg";
+import jojoba from "../assets/products/oils/jojoba.jpeg"; 
+import lavenderoil from "../assets/products/oils/lavenderoil.jpeg";
+import lemoneucalyptus from "../assets/products/oils/lemoneucalyptus.jpeg";
+import morrocanargon from "../assets/products/oils/morrocanargon.jpeg";
+import peppermint from "../assets/products/oils/peppermint.jpeg";
+import rosehipoil from "../assets/products/oils/rosehipoil.jpeg";
+import sweetalmond from "../assets/products/oils/sweetalmond.jpeg"; 
+import teatree from "../assets/products/oils/teatree.jpeg";
+
+import amethystdream from "../assets/products/premadebouquet/amethystdream.jpeg";
+import azurewhisper from "../assets/products/premadebouquet/azurewhisper.jpeg";
+import blushserenity from "../assets/products/premadebouquet/blushserenity.jpeg";
+import crimsonpassion from "../assets/products/premadebouquet/crimsonpassion.jpeg";
+import gardenfiesta from "../assets/products/premadebouquet/gardenfiesta.jpeg";
+import ivoryelegance from "../assets/products/premadebouquet/ivoryelegance.jpeg"; 
+import meadowsunbeams from "../assets/products/premadebouquet/meadowsunbeams.jpeg";
+import peachromance from "../assets/products/premadebouquet/peachromance.jpeg";
+
+import deadseamask from "../assets/products/apothecary/deadseamask.jpeg";
+import eyecream from "../assets/products/apothecary/eyecream.jpeg";
+import footbalm from "../assets/products/apothecary/footbalm.jpeg";
+import herbalteasoak from "../assets/products/apothecary/herbalteasoak.jpeg";
+import kaolinmask from "../assets/products/apothecary/kaolinmask.jpeg";
+import liptherapy from "../assets/products/apothecary/liptherapy.jpeg";
+import pinksaltscrub from "../assets/products/apothecary/pinksaltscrub.jpeg";
+import rawshea from "../assets/products/apothecary/rawshea.jpeg";
+import rosemist from "../assets/products/apothecary/rosemist.jpeg";
+import vitaminc from "../assets/products/apothecary/vitaminc.jpeg";
+
+import amlashikakai from "../assets/products/haircare/amlashikakai.jpeg";
+import argankeratin from "../assets/products/haircare/argankeratin.jpeg";
+import castoroilhoney from "../assets/products/haircare/castoroilhoney.jpeg";
+import gingerlemon from "../assets/products/haircare/gingerlemon.jpeg";
+import hibiscuscoconut from "../assets/products/haircare/hibiscuscoconut.jpeg";
+import lavenderchamomile from "../assets/products/haircare/lavenderchamomile.jpeg";
+import neemteatree from "../assets/products/haircare/neemteatree.jpeg";
+import nettlesage from "../assets/products/haircare/nettlesage.jpeg";
+import peppermintaloe from "../assets/products/haircare/peppermintaloe.jpeg";
+import rosemarybiotin from "../assets/products/haircare/rosemarybiotin.jpeg";
 
 const p = (
   id,
@@ -520,28 +583,6 @@ const products = [
     ["Indoor"]
   ),
   p(
-    36,
-    "Orchid Plant",
-    "Plants",
-    "AED 55.00",
-    "An elegant indoor flowering plant admired for its long-lasting blooms and refined appearance. It suits styled interiors and thoughtful gifting.",
-    ["Indoor", "Flowering"],
-    5,
-    "",
-    ["Indoor"]
-  ),
-  p(
-    37,
-    "Tulip Plant",
-    "Plants",
-    "AED 25.00",
-    "A seasonal flowering plant recognized for its bright and elegant blooms. It grows best in cool seasons with well-drained soil.",
-    ["Seasonal", "Flowering"],
-    4,
-    "",
-    ["Seasonal"]
-  ),
-  p(
     38,
     "Sunflower Plant",
     "Plants",
@@ -553,78 +594,12 @@ const products = [
     ["Seasonal"]
   ),
   p(
-    39,
-    "Chrysanthemum Plant",
-    "Plants",
-    "AED 26.00",
-    "A flowering plant commonly grown for decorative purposes in beds and pots. It produces long-lasting blooms in various colors.",
-    ["Seasonal", "Decorative"],
-    4,
-    "",
-    ["Seasonal"]
-  ),
-  p(
     40,
     "Poinsettia",
     "Plants",
     "AED 35.00",
     "A seasonal plant widely used for decorative displays, especially during winter. It prefers bright light and moderate watering.",
     ["Seasonal", "Winter"],
-    4,
-    "",
-    ["Seasonal"]
-  ),
-  p(
-    41,
-    "Daffodil Plant",
-    "Plants",
-    "AED 24.00",
-    "A spring-flowering plant with bright yellow blooms. It grows well in garden beds and natural landscapes.",
-    ["Seasonal", "Spring"],
-    4,
-    "",
-    ["Seasonal"]
-  ),
-  p(
-    42,
-    "Marigold Plant",
-    "Plants",
-    "AED 20.00",
-    "A hardy flowering plant known for its vibrant colors. It is easy to grow and commonly used in garden borders.",
-    ["Seasonal", "Hardy"],
-    4,
-    "",
-    ["Seasonal"]
-  ),
-  p(
-    43,
-    "Pansy Plant",
-    "Plants",
-    "AED 22.00",
-    "A seasonal flowering plant with rounded colorful petals. Often used in pots, borders, and window boxes.",
-    ["Seasonal", "Cool Weather"],
-    4,
-    "",
-    ["Seasonal"]
-  ),
-  p(
-    44,
-    "Dahlia Plant",
-    "Plants",
-    "AED 28.00",
-    "A flowering plant admired for its large decorative blooms. It grows best in sunny locations with regular care.",
-    ["Seasonal", "Decorative"],
-    4,
-    "",
-    ["Seasonal"]
-  ),
-  p(
-    45,
-    "Poppy Plant",
-    "Plants",
-    "AED 22.00",
-    "A seasonal flowering plant with delicate petals and vibrant colors. It adds visual appeal to outdoor spaces.",
-    ["Seasonal", "Flowering"],
     4,
     "",
     ["Seasonal"]
@@ -779,17 +754,6 @@ const products = [
     "AED 20.00",
     "A medicinal plant cultivated for its underground rhizomes. It prefers warm conditions and moist soil.",
     ["Medicinal", "Root"],
-    4,
-    "",
-    ["Medicinal"]
-  ),
-  p(
-    60,
-    "Calendula Plant",
-    "Plants",
-    "AED 20.00",
-    "A flowering medicinal plant known for its soothing properties. It is easy to grow and low maintenance.",
-    ["Medicinal", "Low Maintenance"],
     4,
     "",
     ["Medicinal"]
@@ -2317,7 +2281,9 @@ const products = [
     "AED 75.00",
     "Strengthens hair follicles and stimulates the scalp to encourage thicker healthier hair growth.",
     ["Hair Care", "Growth"],
-    5
+    5,
+      rosemarybiotin,
+    ["Natural Ingredients"]
   ),
   p(
     205,
@@ -2326,7 +2292,9 @@ const products = [
     "AED 65.00",
     "A powerful herbal formula to combat flakes and soothe itchy irritated scalps naturally.",
     ["Hair Care", "Scalp Care"],
-    5
+    5,
+    neemteatree,
+    ["Natural Ingredients"]
   ),
   p(
     206,
@@ -2335,7 +2303,9 @@ const products = [
     "AED 85.00",
     "Infused with liquid gold argan oil to repair heat damage and tame frizz for a silky finish.",
     ["Hair Care", "Repair"],
-    5
+    5,
+    argankeratin,
+    ["Natural Ingredients"]
   ),
   p(
     207,
@@ -2344,7 +2314,9 @@ const products = [
     "AED 60.00",
     "A traditional Ayurvedic blend that naturally cleanses while adding deep shine and volume.",
     ["Hair Care", "Shine"],
-    4
+    4,
+    amlashikakai,
+    ["Natural Ingredients"]
   ),
   p(
     208,
@@ -2353,7 +2325,9 @@ const products = [
     "AED 70.00",
     "Gives flat hair a boost using hibiscus extracts to strengthen the hair shaft and provide body.",
     ["Hair Care", "Volume"],
-    4
+    4,
+    hibiscuscoconut,
+    ["Natural Ingredients"]
   ),
   p(
     209,
@@ -2362,7 +2336,9 @@ const products = [
     "AED 65.00",
     "Removes product buildup and excess oil while leaving the scalp feeling tingly and fresh.",
     ["Hair Care", "Clarifying"],
-    4
+    4,
+    peppermintaloe,
+    ["Natural Ingredients"]
   ),
   p(
     210,
@@ -2371,7 +2347,9 @@ const products = [
     "AED 80.00",
     "A gentle sulfate-free formula designed to preserve hair color and hydrate dry ends.",
     ["Hair Care", "Color Safe"],
-    5
+    5,
+    lavenderchamomile,
+    ["Natural Ingredients"]
   ),
   p(
     211,
@@ -2380,7 +2358,9 @@ const products = [
     "AED 70.00",
     "Exfoliates the scalp and balances pH levels for those with overactive oil production.",
     ["Hair Care", "Detox"],
-    4
+    4,
+    gingerlemon,
+    ["Natural Ingredients"]
   ),
   p(
     212,
@@ -2389,7 +2369,9 @@ const products = [
     "AED 75.00",
     "The ultimate hydration for curly and textured hair types. Locks in moisture and prevents breakage.",
     ["Hair Care", "Moisture"],
-    5
+    5,
+    castoroilhoney,
+    ["Natural Ingredients"]
   ),
   p(
     213,
@@ -2398,7 +2380,9 @@ const products = [
     "AED 65.00",
     "Uses natural plant pigments to enhance the luster of silver and gray hair while reducing brassiness.",
     ["Hair Care", "Gray Hair"],
-    4
+    4,
+    nettlesage,
+    ["Natural Ingredients"]
   ),
 
   // =========================
@@ -2411,7 +2395,9 @@ const products = [
     "AED 120.00",
     "A deep majestic scent that captures the essence of the Middle East. Hand-poured soy wax.",
     ["Candles", "Luxury"],
-    5
+    5,
+      royaloud,
+    ["Natural Ingredients"]
   ),
   p(
     215,
@@ -2420,7 +2406,9 @@ const products = [
     "AED 85.00",
     "The intoxicating scent of night-blooming jasmine vines. Sweet floral and romantic.",
     ["Candles", "Floral"],
-    5
+    5,
+    arabianjasmine,
+    ["Natural Ingredients"]
   ),
   p(
     216,
@@ -2429,7 +2417,9 @@ const products = [
     "AED 75.00",
     "A clean earthy aroma designed to clear negative energy and refresh your living space.",
     ["Candles", "Fresh"],
-    4
+    4,
+    whitesage,
+    ["Natural Ingredients"]
   ),
   p(
     217,
@@ -2438,7 +2428,8 @@ const products = [
     "AED 80.00",
     "Cozy and comforting. Warm vanilla notes mixed with the scent of a crackling fireplace.",
     ["Candles", "Warm"],
-    5
+    5,
+    vanillabean,
   ),
   p(
     218,
@@ -2447,7 +2438,9 @@ const products = [
     "AED 75.00",
     "A grounding blend of bright citrus and deep earthy tones. Perfect for meditation.",
     ["Candles", "Grounding"],
-    4
+    4,
+    bergamot,
+    ["Natural Ingredients"]
   ),
   p(
     219,
@@ -2456,7 +2449,9 @@ const products = [
     "AED 65.00",
     "Captures the scent of sun-dried laundry. Light airy and perfect for the bedroom.",
     ["Candles", "Fresh"],
-    4
+    4,
+    freshlinen,
+    ["Natural Ingredients"]
   ),
   p(
     220,
@@ -2466,6 +2461,8 @@ const products = [
     "A warm spicy kitchen scent that makes any house feel like a welcoming home.",
     ["Candles", "Spiced"],
     4,
+    cinnamonclove,
+    ["Natural Ingredients"]
   
   ),
   p(
@@ -2475,7 +2472,9 @@ const products = [
     "AED 75.00",
     "A therapeutic herbal scent designed to open the airways and clear the mind.",
     ["Candles", "Herbal"],
-    4
+    4,
+    eucalyptus,
+    ["Natural Ingredients"]
   ),
   p(
     222,
@@ -2484,7 +2483,9 @@ const products = [
     "AED 95.00",
     "The scent of a thousand rose petals. Sophisticated deep and timelessly floral.",
     ["Candles", "Floral"],
-    5
+    5,  
+    damaskrose,
+    ["Natural Ingredients"]
   ),
   p(
     223,
@@ -2493,7 +2494,9 @@ const products = [
     "AED 85.00",
     "A masculine woody scent with hints of dark musk. Bold and atmospheric.",
     ["Candles", "Woody"],
-    4
+    4,
+    cedarwoodmusk,
+    ["Natural Ingredients"]
   ),
 
   // =========================
@@ -2507,7 +2510,7 @@ const products = [
     "100% pure steam-distilled oil. Great for cooling the skin or focusing the mind.",
     ["Oils", "Essential"],
     5,
-    "",
+    peppermint,
     ["Essential Oils"]
   ),
   p(
@@ -2518,7 +2521,7 @@ const products = [
     "The highest quality lavender for relaxation and better sleep. Therapeutic grade.",
     ["Oils", "Essential"],
     5,
-    "",
+    lavenderoil,
     ["Essential Oils"]
   ),
   p(
@@ -2529,7 +2532,7 @@ const products = [
     "Sacred Omani frankincense. Highly valued for skin rejuvenation and spiritual grounding.",
     ["Oils", "Essential"],
     5,
-    "",
+    frankincense,
     ["Essential Oils"]
   ),
   p(
@@ -2540,7 +2543,7 @@ const products = [
     "A versatile oil that mimics the skin's natural sebum. Ideal for face and hair hydration.",
     ["Oils", "Carrier"],
     5,
-    "",
+    jojoba,
     ["Carrier Oils"]
   ),
   p(
@@ -2551,7 +2554,7 @@ const products = [
     "A lightweight oil rich in Vitamin E. Perfect as a base for custom essential oil blends.",
     ["Oils", "Carrier"],
     4,
-    "",
+    sweetalmond,
     ["Carrier Oils"]
   ),
   p(
@@ -2562,7 +2565,7 @@ const products = [
     "Targeted anti-aging oil that helps fade scars and brighten skin tone overnight.",
     ["Oils", "Herbal"],
     5,
-    "",
+    rosehipoil,
     ["Herbal Oils"]
   ),
   p(
@@ -2573,7 +2576,7 @@ const products = [
     "A natural antiseptic oil used to treat blemishes and minor skin irritations.",
     ["Oils", "Essential"],
     4,
-    "",
+    teatree,
     ["Essential Oils"]
   ),
   p(
@@ -2584,7 +2587,7 @@ const products = [
     "Known as the 'seed of blessing,' this oil is used to support skin health and immunity.",
     ["Oils", "Herbal"],
     5,
-    "",
+    blackseed,
     ["Herbal Oils"]
   ),
   p(
@@ -2595,7 +2598,7 @@ const products = [
     "A bright lemony scent that also acts as a natural deterrent for garden insects.",
     ["Oils", "Essential"],
     4,
-    "",
+    lemoneucalyptus,
     ["Essential Oils"]
   ),
   p(
@@ -2606,7 +2609,7 @@ const products = [
     "Certified organic and cold-pressed. A miracle oil for hair shine and skin elasticity.",
     ["Oils", "Herbal"],
     5,
-    "",
+    morrocanargon,
     ["Herbal Oils"]
   ),
 
@@ -2620,7 +2623,9 @@ const products = [
     "AED 65.00",
     "Exfoliates dead skin cells while providing 84 essential minerals for skin health.",
     ["Apothecary", "Body Care"],
-    5
+    5,
+    pinksaltscrub,
+    ["Natural Ingredients"]
   ),
   p(
     235,
@@ -2629,7 +2634,9 @@ const products = [
     "AED 55.00",
     "100% unrefined shea butter whipped with coconut oil for ultra-moisturizing body care.",
     ["Apothecary", "Body Care"],
-    5
+    5,
+    rawshea,
+    ["Natural Ingredients"]
   ),
   p(
     236,
@@ -2638,7 +2645,9 @@ const products = [
     "AED 45.00",
     "Pure distilled rose petals. A refreshing toner that balances skin pH and hydrates.",
     ["Apothecary", "Skincare"],
-    5
+    5,
+    rosemist,
+    ["Natural Ingredients"]
   ),
   p(
     237,
@@ -2647,7 +2656,9 @@ const products = [
     "AED 75.00",
     "Mineral-rich mud that shrinks pores and tightens skin after just one application.",
     ["Apothecary", "Skincare"],
-    5
+    5,
+    deadseamask,
+    ["Natural Ingredients"]
   ),
   p(
     238,
@@ -2656,7 +2667,9 @@ const products = [
     "AED 20.00",
     "A blend of beeswax and mint oil to protect and heal chapped lips in dry weather.",
     ["Apothecary", "Skincare"],
-    4
+    4,
+    liptherapy,
+    ["Natural Ingredients"]
   ),
   p(
     239,
@@ -2665,7 +2678,9 @@ const products = [
     "AED 40.00",
     "Thick cooling cream with peppermint and tea tree to revive tired garden-worn feet.",
     ["Apothecary", "Body Care"],
-    4
+    4,
+    footbalm,
+    ["Natural Ingredients"]
   ),
   p(
     240,
@@ -2674,7 +2689,9 @@ const products = [
     "AED 110.00",
     "Concentrated serum to protect against environmental damage and even out skin color.",
     ["Apothecary", "Skincare"],
-    5
+    5,
+    vitaminc,
+    ["Natural Ingredients"]
   ),
   p(
     241,
@@ -2683,7 +2700,9 @@ const products = [
     "AED 50.00",
     "A mixture of dried calendula, chamomile, and Epsom salts for the ultimate detox bath.",
     ["Apothecary", "Bath"],
-    4
+    4,
+    herbalteasoak,
+    ["Natural Ingredients"]
   ),
   p(
     242,
@@ -2692,7 +2711,9 @@ const products = [
     "AED 60.00",
     "A gentle white clay mask that draws out toxins without irritating dry or sensitive skin.",
     ["Apothecary", "Skincare"],
-    4
+    4,
+    kaolinmask,
+    ["Natural Ingredients"]
   ),
   p(
     243,
@@ -2701,7 +2722,9 @@ const products = [
     "AED 95.00",
     "Rich in antioxidants and caffeine to reduce puffiness and dark circles under the eyes.",
     ["Apothecary", "Skincare"],
-    5
+    5,
+    eyecream,
+    ["Natural Ingredients"]
   ),
 
   // =========================
@@ -2715,7 +2738,7 @@ const products = [
     "A serene blend of blue delphiniums, white roses, and eucalyptus. Perfect for creating a calm, elegant atmosphere. Hand-arranged with care.",
     ["Bouquets", "Premium", "Blue Tones"],
     5,
-    "",
+    azurewhisper,
     ["Fresh Bouquets"]
   ),
   p(
@@ -2726,7 +2749,7 @@ const products = [
     "A cheerful arrangement of yellow sunflowers, golden roses, and green hydrangeas. Brings warmth and joy to any space.",
     ["Bouquets", "Cheerful", "Yellow & Gold"],
     5,
-    "",
+    meadowsunbeams,
     ["Fresh Bouquets"]
   ),
   p(
@@ -2737,7 +2760,7 @@ const products = [
     "Romantic peach roses paired with soft pink peonies, white baby's breath, and blush-toned greenery. A sophisticated choice for special occasions.",
     ["Bouquets", "Romantic", "Peach & Pink"],
     5,
-    "",
+    peachromance,
     ["Fresh Bouquets"]
   ),
   p(
@@ -2748,7 +2771,7 @@ const products = [
     "Luxurious white roses, white lisianthus, and cream hydrangeas accented with silver dollar eucalyptus. A timeless classic for weddings and celebrations.",
     ["Bouquets", "Luxury", "White & Cream"],
     5,
-    "",
+    ivoryelegance,
     ["Fresh Bouquets"]
   ),
   p(
@@ -2759,7 +2782,7 @@ const products = [
     "Soft blush roses, pink carnations, and pale pink ranunculus with protective foliage. Gentle and calming for any occasion.",
     ["Bouquets", "Soft", "Pink Tones"],
     5,
-    "",
+    blushserenity,
     ["Fresh Bouquets"]
   ),
   p(
@@ -2770,7 +2793,7 @@ const products = [
     "A vibrant mix of red roses, orange gerberas, yellow sunflowers, and purple statice. A bold and colorful celebration of nature's palette.",
     ["Bouquets", "Vibrant", "Multicolor"],
     4,
-    "",
+    gardenfiesta,
     ["Fresh Bouquets"]
   ),
   p(
@@ -2781,7 +2804,7 @@ const products = [
     "Deep purple lisianthus, lavender roses, and purple statice combined with white accents. A mystical and enchanting arrangement.",
     ["Bouquets", "Elegant", "Purple Tones"],
     5,
-    "",
+    amethystdream,
     ["Fresh Bouquets"]
   ),
   p(
@@ -2792,7 +2815,7 @@ const products = [
     "A dramatic arrangement of deep red roses, burgundy dahlias, and rich purple accents. Perfect for expressing deep emotions and romance.",
     ["Bouquets", "Romantic", "Red & Burgundy"],
     5,
-    "",
+    crimsonpassion,
     ["Fresh Bouquets"]
   ),
 

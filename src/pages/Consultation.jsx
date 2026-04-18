@@ -1,6 +1,9 @@
 // Import navbar and footer
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import eventImg from "../assets/images/event.jpg";
+import gardenImg from "../assets/images/garden.jpg";
+import planteriorImg from "../assets/images/planterior.jpg";
 
 // React hooks
 import { useState, useEffect } from "react";
@@ -14,11 +17,6 @@ import { useLanguage } from "../context/LanguageContext";
 
 // API
 import api from "../utils/api";
-
-// Import service images (placeholder)
-import eventImg from "../assets/images/event.jpg";
-import gardenImg from "../assets/images/garden.jpg";
-import planteriorImg from "../assets/images/planterior.jpg";
 
 function Consultation() {
   const { t } = useLanguage();
