@@ -42,6 +42,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import AdminRoute from './components/AdminRoute'
 import Chatbot from './components/Chatbot'
 import CoverPage from './components/CoverPage'
+import ScrollToTop from './components/ScrollToTop'
 
 // Context
 import { AuthProvider } from './context/AuthContext'
@@ -70,6 +71,7 @@ function App() {
         <Toast />
         <Chatbot />
         <Routes>
+          <ScrollToTop />
         {/* Existing routes */}
         <Route path="/" element={<Home />} />
         <Route path="/birth-month" element={<BirthMonthFlowers />} />

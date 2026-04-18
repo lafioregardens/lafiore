@@ -66,9 +66,6 @@ function Footer() {
             <li><Link to="/contact">Contact</Link></li>
             <li><Link to="/delivery-info">Delivery Info</Link></li>
             <li><Link to="/care-guide">Care Guide</Link></li>
-            <li><Link to="/terms-of-service">Terms of Service</Link></li>
-            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
-            <li><Link to="/refund-policy">Refund Policy</Link></li>
           </ul>
         </div>
 
@@ -107,11 +104,11 @@ function Footer() {
             © 2026 La Fiore. All rights reserved.
           </p>
           <div className="footer-legal">
-            <Link to="/privacy">{t("privacyPolicy")}</Link>
+            <Link to="/privacy-policy">{t("privacyPolicy")}</Link>
             <span className="footer-divider">·</span>
-            <Link to="/terms">{t("termsOfService")}</Link>
+            <Link to="/terms-of-service">{t("termsOfService")}</Link>
             <span className="footer-divider">·</span>
-            <Link to="/refund">{t("refundPolicy")}</Link>
+            <Link to="/refund-policy">{t("refundPolicy")}</Link>
           </div>
         </div>
       </div>
