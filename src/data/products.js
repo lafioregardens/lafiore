@@ -541,7 +541,7 @@ const products = [
     "A tropical indoor plant known for its large leaves and striking appearance. It thrives in bright light and spacious interiors.",
     ["Indoor", "Tropical"],
     5,
-    "birdofparadise",
+    birds,
     ["Indoor"]
   ),
   p(
@@ -1752,7 +1752,8 @@ const products = [
     "Used for digging small holes, planting seedlings, and transferring soil into pots.",
     ["Tools", "Hand Tool"],
     4,
-    
+    handtrowel,
+    ["Tools"]
   ),
   p(
     154,
@@ -1761,7 +1762,9 @@ const products = [
     "AED 35.00",
     "Designed for trimming branches and removing dead or damaged leaves to encourage healthy growth.",
     ["Tools", "Pruning"],
-    5
+    5,
+    pruningshears,
+    ["Tools"]
   ),
   p(
     155,
@@ -1770,7 +1773,9 @@ const products = [
     "AED 28.00",
     "Helps loosen compact soil and mix compost to improve aeration and nutrient distribution.",
     ["Tools", "Soil Care"],
-    4
+    4,
+    gardenfork,
+    ["Tools"]
   ),
   p(
     156,
@@ -1779,7 +1784,9 @@ const products = [
     "AED 38.00",
     "Commonly used for digging, edging soil, and moving compost during garden preparation.",
     ["Tools", "Digging"],
-    4
+    4,
+    spade,
+    ["Tools"]
   ),
   p(
     157,
@@ -1788,7 +1795,9 @@ const products = [
     "AED 32.00",
     "Useful for gathering leaves, removing debris, and leveling soil surfaces.",
     ["Tools", "Garden Care"],
-    4
+    4,
+    rake,
+    ["Tools"]
   ),
   p(
     158,
@@ -1797,7 +1806,9 @@ const products = [
     "AED 30.00",
     "Primarily used for removing weeds, breaking hardened soil, and shaping planting rows.",
     ["Tools", "Weeding"],
-    4
+    4,
+    gardenhoe,
+    ["Tools"]
   ),
   p(
     159,
@@ -1806,7 +1817,9 @@ const products = [
     "AED 26.00",
     "Provides gentle and controlled watering for indoor plants, seedlings, and delicate flowers.",
     ["Tools", "Watering"],
-    4
+    4,
+    wateringcan,
+    ["Tools"]
   ),
   p(
     160,
@@ -1815,7 +1828,9 @@ const products = [
     "AED 140.00",
     "Makes transporting soil, plants, tools, and compost around the garden easier and more efficient.",
     ["Tools", "Heavy Duty"],
-    4
+    4,
+    wheelbarrow,
+    ["Tools"]
   ),
   p(
     161,
@@ -1824,7 +1839,9 @@ const products = [
     "AED 16.00",
     "Protect hands from cuts, dirt, and irritation while carrying out gardening activities.",
     ["Tools", "Protection"],
-    4
+    4,
+    gardengloves,
+    ["Tools"]
   ),
   p(
     162,
@@ -1833,7 +1850,9 @@ const products = [
     "AED 42.00",
     "A versatile tool suitable for digging, cutting roots, transplanting, and removing weeds.",
     ["Tools", "Multi Use"],
-    5
+    5,
+    horihori,
+    ["Tools"]
   ),
   p(
     163,
@@ -1842,7 +1861,9 @@ const products = [
     "AED 65.00",
     "Used for watering plants across larger areas and cleaning outdoor surfaces with ease.",
     ["Tools", "Watering"],
-    4
+    4,
+    gardenhose,
+    ["Tools"]
   ),
   p(
     164,
@@ -1851,7 +1872,9 @@ const products = [
     "AED 18.00",
     "Allows weeds to be removed from the root without disturbing nearby plants.",
     ["Tools", "Weeding"],
-    4
+    4,
+    handweeder,
+    ["Tools"]
   ),
   p(
     165,
@@ -1860,7 +1883,9 @@ const products = [
     "AED 280.00",
     "Keeps grass trimmed evenly to maintain a neat and healthy lawn appearance.",
     ["Tools", "Lawn Care"],
-    4
+    4,
+    lawnmower,
+    ["Tools"]
   ),
   p(
     166,
@@ -1869,7 +1894,9 @@ const products = [
     "AED 14.00",
     "Creates small planting holes for seeds, bulbs, and seedlings with accurate depth and spacing.",
     ["Tools", "Planting"],
-    4
+    4,
+    dibber,
+    ["Tools"]
   ),
   p(
     167,
@@ -1878,7 +1905,9 @@ const products = [
     "AED 48.00",
     "Designed for cutting thicker branches and hard stems that cannot be handled by pruning shears.",
     ["Tools", "Pruning"],
-    4
+    4,
+    lopper,
+    ["Tools"]
   ),
 
   // =========================
