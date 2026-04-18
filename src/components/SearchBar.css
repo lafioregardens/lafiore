@@ -135,3 +135,14 @@
   color: #999;
   font-size: 14px;
 }
+
+@media (max-width: 768px) {
+  .searchbar-wrapper.expanded {
+    width: 160px;
+  }
+
+  .searchbar-input {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+}

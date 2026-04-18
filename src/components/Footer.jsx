@@ -53,7 +53,6 @@ function Footer() {
             <li><Link to="/plantfinder">Plant Finder</Link></li>
             <li><Link to="/customize">Customize Bouquet</Link></li>
             <li><Link to="/birth-month">Birth Month Flowers</Link></li>
-            <li><Link to="/consultation">Consultation</Link></li>
             <li><Link to="/consultation">Events & Corporate</Link></li>
           </ul>
         </div>
