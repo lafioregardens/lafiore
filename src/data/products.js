@@ -133,6 +133,41 @@ import nettlesage from "../assets/products/haircare/nettlesage.jpeg";
 import peppermintaloe from "../assets/products/haircare/peppermintaloe.jpeg";
 import rosemarybiotin from "../assets/products/haircare/rosemarybiotin.jpeg";
 
+import blackberry from "../assets/products/seeds/blackberry.png";
+import pinkguava from "../assets/products/seeds/pinkguava.png";
+import passionfruit from "../assets/products/seeds/passionfruit.png";
+import custardapple from "../assets/products/seeds/custardapple.png";
+import mandarin from "../assets/products/seeds/mandarin.png";
+import dragonfruit from "../assets/products/seeds/dragonfruit.png";
+import watermelon from "../assets/products/seeds/watermelon.png";
+import sweetpepper from "../assets/products/seeds/sweetpepper.png";
+import basils from "../assets/products/seeds/basils.png";
+import redcarrot from "../assets/products/seeds/redcarrot.png";
+import redradish from "../assets/products/seeds/redradish.png";
+import tomatoseed from "../assets/products/seeds/tomatoseed.png";
+import okra from "../assets/products/seeds/okra.png";
+import eggplant from "../assets/products/seeds/eggplant.png";
+import marigoldyellow from "../assets/products/seeds/marigoldyellow.png";
+import matthiola from "../assets/products/seeds/matthiola.png";
+import dahliamix from "../assets/products/seeds/dahliamix.png";
+import carnationmix from "../assets/products/seeds/carnationmix.png";
+import sunflower from "../assets/products/seeds/sunflower.png";
+import chamomile from "../assets/products/seeds/chamomile.png";
+import fenugreek from "../assets/products/seeds/fenugreek.png";
+import corriander from "../assets/products/seeds/corriander.png";
+import thyme from "../assets/products/seeds/thyme.png";
+import dill from "../assets/products/seeds/dill.png";
+import mint from "../assets/products/seeds/mint.png";
+import parsaley from "../assets/products/seeds/parsaley.png";
+import oregano from "../assets/products/seeds/oregano.png";
+import banyan from "../assets/products/seeds/banyan.png";
+import ghaf from "../assets/products/seeds/ghaf.png";
+import redsandalwood from "../assets/products/seeds/redsandalwood.png";
+import moringa from "../assets/products/seeds/moringa.png";
+import neem from "../assets/products/seeds/neem.png";
+import olive from "../assets/products/seeds/olive.png";
+import palm from "../assets/products/seeds/palm.png";
+
 const p = (
   id,
   name,
@@ -1363,7 +1398,7 @@ const products = [
     "Produces sweet and slightly tangy berries suitable for home gardens and container growing.",
     ["Seeds", "Fruit"],
     4,
-    "",
+    blackberry,
     ["Fruit Seeds"]
   ),
   p(
@@ -1374,7 +1409,7 @@ const products = [
     "Grows into a tropical fruit plant valued for its aromatic and nutritious fruits.",
     ["Seeds", "Fruit"],
     4,
-    "",
+    pinkguava,
     ["Fruit Seeds"]
   ),
   p(
@@ -1385,7 +1420,7 @@ const products = [
     "Develops into a fast-growing climber that produces flavorful tropical fruits.",
     ["Seeds", "Fruit"],
     4,
-    "",
+    passionfruit,
     ["Fruit Seeds"]
   ),
   p(
@@ -1396,7 +1431,7 @@ const products = [
     "Suitable for warm environments where the plant can develop soft sweet fruits.",
     ["Seeds", "Fruit"],
     4,
-    "",
+    custardapple,
     ["Fruit Seeds"]
   ),
   p(
@@ -1407,7 +1442,7 @@ const products = [
     "Can be grown into compact citrus trees producing fragrant and juicy fruits.",
     ["Seeds", "Fruit"],
     4,
-    "",
+    mandarin,
     ["Fruit Seeds"]
   ),
   p(
@@ -1418,7 +1453,7 @@ const products = [
     "Develops into a climbing cactus known for its unique and vibrant fruits.",
     ["Seeds", "Fruit"],
     4,
-    "",
+    dragonfruit,
     ["Fruit Seeds"]
   ),
   p(
@@ -1429,7 +1464,7 @@ const products = [
     "Produces sprawling vines that yield refreshing fruits during warm seasons.",
     ["Seeds", "Fruit"],
     4,
-    "",
+    watermelon,
     ["Fruit Seeds"]
   ),
   p(
@@ -1440,7 +1475,7 @@ const products = [
     "Grows into productive plants bearing colorful and mild-flavored peppers.",
     ["Seeds", "Vegetable"],
     4,
-    "",
+    sweetpepper,
     ["Vegetable Seeds"]
   ),
   p(
@@ -1451,7 +1486,7 @@ const products = [
     "Develops into aromatic herb plants commonly used in cooking and garnishing.",
     ["Seeds", "Herb"],
     4,
-    "",
+    basils,
     ["Vegetable Seeds"]
   ),
   p(
@@ -1462,7 +1497,7 @@ const products = [
     "Produces uniform roots known for their sweetness and nutritional value.",
     ["Seeds", "Vegetable"],
     4,
-    "",
+    redcarrot,
     ["Vegetable Seeds"]
   ),
   p(
@@ -1473,7 +1508,7 @@ const products = [
     "Fast-growing seeds that produce crisp roots suitable for quick harvesting.",
     ["Seeds", "Vegetable"],
     4,
-    "",
+    redradish,
     ["Vegetable Seeds"]
   ),
   p(
@@ -1484,7 +1519,7 @@ const products = [
     "Grows into fruiting plants widely used in everyday cooking.",
     ["Seeds", "Vegetable"],
     4,
-    "",
+    tomatoseed,
     ["Vegetable Seeds"]
   ),
   p(
@@ -1495,7 +1530,7 @@ const products = [
     "Produces tall plants bearing nutritious pods suited for warm climates.",
     ["Seeds", "Vegetable"],
     4,
-    "",
+    okra,
     ["Vegetable Seeds"]
   ),
   p(
@@ -1506,7 +1541,7 @@ const products = [
     "Develops into productive plants yielding glossy purple vegetables.",
     ["Seeds", "Vegetable"],
     4,
-    "",
+    eggplant,
     ["Vegetable Seeds"]
   ),
   p(
@@ -1517,7 +1552,7 @@ const products = [
     "Produces bright blooms that enhance garden borders and repel certain pests.",
     ["Seeds", "Flower"],
     4,
-    "",
+    marigoldyellow,
     ["Flower Seeds"]
   ),
   p(
@@ -1528,7 +1563,7 @@ const products = [
     "Known for fragrant seasonal blooms that add softness to garden displays.",
     ["Seeds", "Flower"],
     4,
-    "",
+    matthiola,
     ["Flower Seeds"]
   ),
   p(
@@ -1539,7 +1574,7 @@ const products = [
     "Develops into vibrant flowering plants with decorative blooms.",
     ["Seeds", "Flower"],
     4,
-    "",
+    dahliamix,
     ["Flower Seeds"]
   ),
   p(
@@ -1550,7 +1585,7 @@ const products = [
     "Produces long-lasting flowers commonly used in decorative arrangements.",
     ["Seeds", "Flower"],
     4,
-    "",
+    carnationmix,
     ["Flower Seeds"]
   ),
   p(
@@ -1561,7 +1596,7 @@ const products = [
     "Grows into colorful flowering plants that attract pollinators and enhance garden aesthetics.",
     ["Seeds", "Flower"],
     4,
-    "",
+    aster,
     ["Flower Seeds"]
   ),
   p(
@@ -1572,7 +1607,7 @@ const products = [
     "Produces tall flowering plants with bright blooms that add visual impact to gardens.",
     ["Seeds", "Flower"],
     4,
-    "",
+    sunflower,
     ["Flower Seeds"]
   ),
   p(
@@ -1583,7 +1618,7 @@ const products = [
     "Develops into delicate flowering herbs known for their calming fragrance.",
     ["Seeds", "Flower"],
     4,
-    "",
+    chamomile,
     ["Flower Seeds"]
   ),
   p(
@@ -1594,7 +1629,7 @@ const products = [
     "Fast-growing herb seeds that are commonly cultivated for culinary and nutritional use.",
     ["Seeds", "Herb"],
     4,
-    "",
+    fenugreek,
     ["Herb Seeds"]
   ),
   p(
@@ -1605,7 +1640,7 @@ const products = [
     "Produces leafy herbs widely used in cooking and garnishing.",
     ["Seeds", "Herb"],
     4,
-    "",
+    corriander,
     ["Herb Seeds"]
   ),
   p(
@@ -1616,7 +1651,7 @@ const products = [
     "Develops into compact aromatic herbs suitable for indoor and outdoor herb gardens.",
     ["Seeds", "Herb"],
     4,
-    "",
+    thyme,
     ["Herb Seeds"]
   ),
   p(
@@ -1627,7 +1662,7 @@ const products = [
     "Grows into feathery herb plants used for seasoning and pickling.",
     ["Seeds", "Herb"],
     4,
-    "",
+    dill,
     ["Herb Seeds"]
   ),
   p(
@@ -1638,7 +1673,7 @@ const products = [
     "Produces refreshing herb plants that spread easily and thrive in containers.",
     ["Seeds", "Herb"],
     4,
-    "",
+    mint,
     ["Herb Seeds"]
   ),
   p(
@@ -1649,7 +1684,7 @@ const products = [
     "Develops into leafy herbs valued for garnish and culinary use.",
     ["Seeds", "Herb"],
     4,
-    "",
+    parsaley,
     ["Herb Seeds"]
   ),
   p(
@@ -1660,7 +1695,7 @@ const products = [
     "Grows into aromatic herb plants commonly used in cooking.",
     ["Seeds", "Herb"],
     4,
-    "",
+    oregano,
     ["Herb Seeds"]
   ),
   p(
@@ -1671,7 +1706,7 @@ const products = [
     "Develops into large shade-providing trees suitable for spacious landscapes.",
     ["Seeds", "Tree"],
     4,
-    "",
+    banyan,
     ["Tree Seeds"]
   ),
   p(
@@ -1682,7 +1717,7 @@ const products = [
     "Native desert tree seeds valued for drought tolerance and environmental benefits.",
     ["Seeds", "Tree"],
     4,
-    "",
+    ghaf,
     ["Tree Seeds"]
   ),
   p(
@@ -1693,7 +1728,7 @@ const products = [
     "Grows into valuable hardwood trees suited for warm outdoor environments.",
     ["Seeds", "Tree"],
     4,
-    "",
+    redsandalwood,
     ["Tree Seeds"]
   ),
   p(
@@ -1704,7 +1739,7 @@ const products = [
     "Fast-growing tree seeds known for their nutritional and medicinal benefits.",
     ["Seeds", "Tree"],
     4,
-    "",
+    moringa,
     ["Tree Seeds"]
   ),
   p(
@@ -1715,7 +1750,7 @@ const products = [
     "Develops into hardy trees valued for shade and traditional uses.",
     ["Seeds", "Tree"],
     4,
-    "",
+    neem,
     ["Tree Seeds"]
   ),
   p(
@@ -1726,7 +1761,7 @@ const products = [
     "Grows into long-living trees producing edible fruits.",
     ["Seeds", "Tree"],
     4,
-    "",
+    olive,
     ["Tree Seeds"]
   ),
   p(
@@ -1737,7 +1772,7 @@ const products = [
     "Develops into tropical trees that enhance landscapes with height and visual appeal.",
     ["Seeds", "Tree"],
     4,
-    "",
+    palm,
     ["Tree Seeds"]
   ),
 
