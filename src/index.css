@@ -167,13 +167,15 @@ button { font-family: var(--font-body); cursor: pointer; }
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-style: bold;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-style: normal;
   font-display: block;
-  font-size: 22px;
-  font-weight: 550;
-  letter-spacing: 0.1em;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   color: var(--green-deep);
+  text-transform: uppercase;
+  font-variant: small-caps;
 }
 
 .nav-row {
