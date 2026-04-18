@@ -2944,7 +2944,7 @@ const products = [
     "Perfect for beginners! Includes basic garden tools, seeds, soil mix, and care guide. Everything you need to start your gardening journey.",
     ["Garden Sets", "Beginner", "Complete Kit"],
     5,
-    "",
+    starterset,
     ["Tool Kits"]
   ),
   p(
@@ -2955,7 +2955,7 @@ const products = [
     "Comprehensive set with professional-grade tools, multiple seed varieties, fertilizers, and planters. Ideal for serious gardeners.",
     ["Garden Sets", "Professional", "Complete Kit"],
     5,
-    "",
+    masterset,
     ["Tool Kits"]
   ),
   p(
@@ -2966,7 +2966,7 @@ const products = [
     "Luxury set including rare plant varieties, premium tools, botanical guides, and specialty potting mixes. A complete garden experience.",
     ["Garden Sets", "Luxury", "Rare Plants"],
     5,
-    "",
+    botanicalset1,
     ["Tool Kits"]
   ),
 
@@ -2981,7 +2981,7 @@ const products = [
     "A curated trio of scented candles inspired by desert flora. Includes exotic blooms, warm spices, and earthy botanicals.",
     ["Candle Sets", "Collection", "Desert Inspired"],
     5,
-    "",
+    desertbloom1,
     ["Candle Collections"]
   ),
   p(
@@ -2992,7 +2992,7 @@ const products = [
     "Three therapeutic candles blending essential oils and healing herbs. Perfect for meditation, relaxation, and creating a spa-like atmosphere.",
     ["Candle Sets", "Wellness", "Therapeutic"],
     5,
-    "",
+    apothecarytrio1,
     ["Candle Collections"]
   ),
   p(
@@ -3003,7 +3003,7 @@ const products = [
     "A premium collection of signature scents hand-poured in eco-friendly containers. A luxurious gift set for the discerning candle lover.",
     ["Candle Sets", "Premium", "Signature Scents"],
     5,
-    "",
+    signaturescent,
     ["Candle Collections"]
   ),
 ];

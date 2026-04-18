@@ -30,6 +30,11 @@ import AdminNotifications from './pages/admin/AdminNotifications'
 import ServiceEventWedding from './pages/ServiceEventWedding'
 import ServiceGardenPlanning from './pages/ServiceGardenPlanning'
 import ServicePlanteriorDesign from './pages/ServicePlanteriorDesign'
+import TermsOfService from './pages/TermsOfService'
+import RefundPolicy from './pages/RefundPolicy'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import DeliveryInfo from './pages/DeliveryInfo'
+import CareGuide from './pages/CareGuide'
 
 // Components
 import Toast from "./components/Toast";
@@ -87,6 +92,14 @@ function App() {
         <Route path="/service/event-wedding" element={<ServiceEventWedding />} />
         <Route path="/service/garden-planning" element={<ServiceGardenPlanning />} />
         <Route path="/service/planterior-design" element={<ServicePlanteriorDesign />} />
+
+        {/* Policy and Info Pages */}
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/delivery-info" element={<DeliveryInfo />} />
+        <Route path="/care-guide" element={<CareGuide />} />
+
         <Route
           path="/account"
           element={
