@@ -15,7 +15,7 @@ import monsteraImg from "../assets/products/plants/monstera.jpg";
 import aloeVeraImg from "../assets/products/plants/aloevera.jpg";
 import lavenderImg from "../assets/products/plants/lavenderplant.jpg";
 import fernImg from "../assets/products/plants/fern.jpg";
-import arecaPalmImg from "../assets/products/plants/arecapalm.jpg";
+import hostaImg from "../assets/products/plants/hosta.jpg";
 import jadePlantImg from "../assets/products/plants/jadeplant.jpg";
 import succulentImg from "../assets/products/plants/succulentmix.jpg";
 import moneyPlantImg from "../assets/products/plants/moneyplant.jpg";
@@ -24,6 +24,7 @@ import fiddleLeafFigImg from "../assets/products/plants/fiddleleaffig.jpg";
 import orchidImg from "../assets/products/plants/orchidplant.jpg";
 import bougainvilleaImg from "../assets/products/plants/bougainvillea.jpg";
 import hibiscusImg from "../assets/products/plants/hibiscus.jpg";
+import azaleaImg from "../assets/products/plants/azalea.jpg";
 
 // Plant Finder page
 function PlantFinder() {
@@ -131,7 +132,7 @@ function PlantFinder() {
       price: "AED 130.00",
       tags: ["Indoor", "Tropical"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
-      image: arecaPalmImg,
+      image: hostaImg,
     },
     {
       id: 11,
@@ -221,7 +222,7 @@ function PlantFinder() {
       price: "AED 145.00",
       tags: ["Indoor", "Tropical"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
-      image: arecaPalmImg,
+      image: azaleaImg,
     },
   ];
 
