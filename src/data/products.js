@@ -1916,7 +1916,7 @@ const products = [
   // SOIL & FERTILIZERS
   // =========================
   p(
-    176,
+    168,
     "Bio Organic Compost",
     "Soil & Fertilizers",
     "AED 22.00",
@@ -1925,7 +1925,7 @@ const products = [
     4
   ),
   p(
-    177,
+    169,
     "Bio Coco Peat",
     "Soil & Fertilizers",
     "AED 18.00",
@@ -1934,7 +1934,7 @@ const products = [
     4
   ),
   p(
-    178,
+    170,
     "Seed Starting Mix",
     "Soil & Fertilizers",
     "AED 20.00",
@@ -1943,7 +1943,7 @@ const products = [
     4
   ),
   p(
-    179,
+    171,
     "Cow & Poultry Manure",
     "Soil & Fertilizers",
     "AED 24.00",
@@ -1952,7 +1952,7 @@ const products = [
     4
   ),
   p(
-    180,
+    172,
     "Organic Vermi Compost",
     "Soil & Fertilizers",
     "AED 24.00",
@@ -1961,7 +1961,7 @@ const products = [
     5
   ),
   p(
-    181,
+    173,
     "Micro Green Mix",
     "Soil & Fertilizers",
     "AED 18.00",
@@ -1970,7 +1970,7 @@ const products = [
     4
   ),
   p(
-    182,
+    174,
     "Iron Tonic Fertilizer",
     "Soil & Fertilizers",
     "AED 28.00",
@@ -1979,7 +1979,7 @@ const products = [
     4
   ),
   p(
-    183,
+    175,
     "Epsom Salt",
     "Soil & Fertilizers",
     "AED 15.00",
@@ -1988,7 +1988,7 @@ const products = [
     4
   ),
   p(
-    184,
+    176,
     "Granular Plant Fertilizer",
     "Soil & Fertilizers",
     "AED 26.00",
@@ -1997,7 +1997,7 @@ const products = [
     4
   ),
   p(
-    185,
+    177,
     "Liquid Plant Fertilizer",
     "Soil & Fertilizers",
     "AED 24.00",
@@ -2006,7 +2006,7 @@ const products = [
     4
   ),
   p(
-    186,
+    178,
     "NPK 20-20-20 All-Purpose",
     "Soil & Fertilizers",
     "AED 40.00",
@@ -2015,7 +2015,7 @@ const products = [
     5
   ),
   p(
-    187,
+    179,
     "Fast Green Nitrogen Formula",
     "Soil & Fertilizers",
     "AED 55.00",
@@ -2024,7 +2024,7 @@ const products = [
     4
   ),
   p(
-    188,
+    180,
     "Fruit & Flower Booster",
     "Soil & Fertilizers",
     "AED 35.00",
@@ -2033,7 +2033,7 @@ const products = [
     5
   ),
   p(
-    189,
+    181,
     "Urea Granular (46% Nitrogen)",
     "Soil & Fertilizers",
     "AED 22.00",
@@ -2042,7 +2042,7 @@ const products = [
     4
   ),
   p(
-    190,
+    182,
     "Liquid Seaweed Extract",
     "Soil & Fertilizers",
     "AED 42.00",
@@ -2051,7 +2051,7 @@ const products = [
     5
   ),
   p(
-    191,
+    183,
     "Blue Grains (NPK 12-12-17+TE)",
     "Soil & Fertilizers",
     "AED 34.00",
@@ -2060,7 +2060,7 @@ const products = [
     4
   ),
   p(
-    192,
+    184,
     "Bougainvillea & Rose Feed",
     "Soil & Fertilizers",
     "AED 42.00",
@@ -2069,7 +2069,7 @@ const products = [
     5
   ),
   p(
-    193,
+    185,
     "Concentrated Liquid Plant Food",
     "Soil & Fertilizers",
     "AED 20.00",
@@ -2078,7 +2078,7 @@ const products = [
     4
   ),
   p(
-    194,
+    186,
     "Commercial Vermicompost",
     "Soil & Fertilizers",
     "AED 22.00",
@@ -2087,7 +2087,7 @@ const products = [
     5
   ),
   p(
-    195,
+    187,
     "Iron Tonic (Chelated Iron)",
     "Soil & Fertilizers",
     "AED 28.00",
@@ -2096,7 +2096,7 @@ const products = [
     4
   ),
   p(
-    196,
+    188,
     "Peat Moss",
     "Soil & Fertilizers",
     "AED 74.00",
@@ -2105,7 +2105,7 @@ const products = [
     4
   ),
   p(
-    197,
+    189,
     "Sandy Loam",
     "Soil & Fertilizers",
     "AED 55.00",
@@ -2114,7 +2114,7 @@ const products = [
     4
   ),
   p(
-    198,
+    190,
     "Raised Bed Soil",
     "Soil & Fertilizers",
     "AED 45.00",
@@ -2123,7 +2123,7 @@ const products = [
     4
   ),
   p(
-    199,
+    191,
     "Orchid Mix",
     "Soil & Fertilizers",
     "AED 48.00",
@@ -2132,7 +2132,7 @@ const products = [
     5
   ),
   p(
-    200,
+    192,
     "Succulent & Cactus Mix",
     "Soil & Fertilizers",
     "AED 42.00",
@@ -2141,7 +2141,7 @@ const products = [
     5
   ),
   p(
-    201,
+    193,
     "Potting Mix",
     "Soil & Fertilizers",
     "AED 58.00",
@@ -2154,7 +2154,7 @@ const products = [
   // SOAPS
   // =========================
   p(
-    202,
+    194,
     "Lavender & Oat Soothing Bar",
     "Soaps",
     "AED 35.00",
@@ -2165,7 +2165,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    203,
+    195,
     "Activated Charcoal Detox Soap",
     "Soaps",
     "AED 40.00",
@@ -2176,7 +2176,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    204,
+    196,
     "Turmeric & Raw Honey Glow",
     "Soaps",
     "AED 38.00",
@@ -2187,7 +2187,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    205,
+    197,
     "Espresso Scrub Bar",
     "Soaps",
     "AED 35.00",
@@ -2198,7 +2198,7 @@ const products = [
     ["Recycled Materials"]
   ),
   p(
-    206,
+    198,
     "Rose Clay & Geranium Bar",
     "Soaps",
     "AED 42.00",
@@ -2209,7 +2209,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    207,
+    199,
     "Lemongrass & Ginger Energy",
     "Soaps",
     "AED 35.00",
@@ -2220,7 +2220,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    208,
+    200,
     "Sandalwood & Saffron Luxury",
     "Soaps",
     "AED 50.00",
@@ -2231,7 +2231,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    209,
+    201,
     "Eucalyptus & Mint Cool",
     "Soaps",
     "AED 35.00",
@@ -2242,7 +2242,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    210,
+    202,
     "Goat Milk & Shea Unscented",
     "Soaps",
     "AED 38.00",
@@ -2253,7 +2253,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    211,
+    203,
     "Sea Salt & Kelp Refresh",
     "Soaps",
     "AED 40.00",
@@ -2268,7 +2268,7 @@ const products = [
   // HAIR CARE
   // =========================
   p(
-    212,
+    204,
     "Rosemary & Biotin Growth Shampoo",
     "Hair Care",
     "AED 75.00",
@@ -2279,7 +2279,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    213,
+    205,
     "Neem & Tea Tree Anti-Dandruff",
     "Hair Care",
     "AED 65.00",
@@ -2290,7 +2290,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    214,
+    206,
     "Argan & Keratin Repair",
     "Hair Care",
     "AED 85.00",
@@ -2301,7 +2301,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    215,
+    207,
     "Amla & Shikakai Shine",
     "Hair Care",
     "AED 60.00",
@@ -2312,7 +2312,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    216,
+    208,
     "Hibiscus & Coconut Volumizing",
     "Hair Care",
     "AED 70.00",
@@ -2323,7 +2323,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    217,
+    209,
     "Peppermint & Aloe Clarifying",
     "Hair Care",
     "AED 65.00",
@@ -2334,7 +2334,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    218,
+    210,
     "Lavender & Chamomile Color-Safe",
     "Hair Care",
     "AED 80.00",
@@ -2345,7 +2345,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    219,
+    211,
     "Ginger & Lemon Scalp Detox",
     "Hair Care",
     "AED 70.00",
@@ -2356,7 +2356,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    220,
+    212,
     "Castor Oil & Honey Moisture",
     "Hair Care",
     "AED 75.00",
@@ -2367,7 +2367,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    221,
+    213,
     "Nettle & Sage Gray Therapy",
     "Hair Care",
     "AED 65.00",
@@ -2382,7 +2382,7 @@ const products = [
   // CANDLES
   // =========================
   p(
-    222,
+    214,
     "Royal Oud & Amber",
     "Candles",
     "AED 120.00",
@@ -2393,7 +2393,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    223,
+    215,
     "Arabian Jasmine (Full)",
     "Candles",
     "AED 85.00",
@@ -2404,7 +2404,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    224,
+    216,
     "White Sage & Sea Salt",
     "Candles",
     "AED 75.00",
@@ -2415,7 +2415,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    225,
+    217,
     "Vanilla Bean & Smoked Wood",
     "Candles",
     "AED 80.00",
@@ -2425,7 +2425,7 @@ const products = [
     vanillabean,
   ),
   p(
-    226,
+    218,
     "Bergamot & Patchouli Balance",
     "Candles",
     "AED 75.00",
@@ -2436,7 +2436,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    227,
+    219,
     "Fresh Linen & Cotton Blossom",
     "Candles",
     "AED 65.00",
@@ -2447,7 +2447,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    228,
+    220,
     "Cinnamon & Clove Spice",
     "Candles",
     "AED 70.00",
@@ -2459,7 +2459,7 @@ const products = [
   
   ),
   p(
-    229,
+    221,
     "Eucalyptus & Thyme Apothecary",
     "Candles",
     "AED 75.00",
@@ -2470,7 +2470,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    230,
+    222,
     "Damask Rose & Velvet",
     "Candles",
     "AED 95.00",
@@ -2481,7 +2481,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    231,
+    223,
     "Cedarwood & Musk Night",
     "Candles",
     "AED 85.00",
@@ -2496,7 +2496,7 @@ const products = [
   // OILS
   // =========================
   p(
-    232,
+    224,
     "Premium Peppermint Oil",
     "Oils",
     "AED 45.00",
@@ -2507,7 +2507,7 @@ const products = [
     ["Essential Oils"]
   ),
   p(
-    233,
+    225,
     "French Lavender Essential Oil",
     "Oils",
     "AED 55.00",
@@ -2518,7 +2518,7 @@ const products = [
     ["Essential Oils"]
   ),
   p(
-    234,
+    226,
     "Frankincense (Sacra) Oil",
     "Oils",
     "AED 110.00",
@@ -2529,7 +2529,7 @@ const products = [
     ["Essential Oils"]
   ),
   p(
-    235,
+    227,
     "Cold-Pressed Jojoba Oil",
     "Oils",
     "AED 65.00",
@@ -2540,7 +2540,7 @@ const products = [
     ["Carrier Oils"]
   ),
   p(
-    236,
+    228,
     "Sweet Almond Massage Oil",
     "Oils",
     "AED 50.00",
@@ -2551,7 +2551,7 @@ const products = [
     ["Carrier Oils"]
   ),
   p(
-    237,
+    229,
     "Rosehip Seed Serum Oil",
     "Oils",
     "AED 95.00",
@@ -2562,7 +2562,7 @@ const products = [
     ["Herbal Oils"]
   ),
   p(
-    238,
+    230,
     "Tea Tree Spot Treatment",
     "Oils",
     "AED 35.00",
@@ -2573,7 +2573,7 @@ const products = [
     ["Essential Oils"]
   ),
   p(
-    239,
+    231,
     "Organic Black Seed Oil",
     "Oils",
     "AED 75.00",
@@ -2584,7 +2584,7 @@ const products = [
     ["Herbal Oils"]
   ),
   p(
-    240,
+    232,
     "Lemon Eucalyptus Defense",
     "Oils",
     "AED 40.00",
@@ -2595,7 +2595,7 @@ const products = [
     ["Essential Oils"]
   ),
   p(
-    241,
+    233,
     "Pure Moroccan Argan Oil",
     "Oils",
     "AED 130.00",
@@ -2610,7 +2610,7 @@ const products = [
   // APOTHECARY
   // =========================
   p(
-    242,
+    234,
     "Himalayan Pink Salt Scrub",
     "Apothecary",
     "AED 65.00",
@@ -2621,7 +2621,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    243,
+    235,
     "Raw Shea Butter Whip",
     "Apothecary",
     "AED 55.00",
@@ -2632,7 +2632,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    244,
+    236,
     "Rose Water Facial Mist",
     "Apothecary",
     "AED 45.00",
@@ -2643,7 +2643,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    245,
+    237,
     "Dead Sea Mud Mask",
     "Apothecary",
     "AED 75.00",
@@ -2654,7 +2654,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    246,
+    238,
     "Botanical Lip Therapy",
     "Apothecary",
     "AED 20.00",
@@ -2665,7 +2665,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    247,
+    239,
     "Soothing Foot Balm",
     "Apothecary",
     "AED 40.00",
@@ -2676,7 +2676,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    248,
+    240,
     "Vitamin C Radiance Serum",
     "Apothecary",
     "AED 110.00",
@@ -2687,7 +2687,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    249,
+    241,
     "Herbal Bath Tea Soak",
     "Apothecary",
     "AED 50.00",
@@ -2698,7 +2698,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    250,
+    242,
     "Kaolin Clay Deep Cleanse",
     "Apothecary",
     "AED 60.00",
@@ -2709,7 +2709,7 @@ const products = [
     ["Natural Ingredients"]
   ),
   p(
-    251,
+    243,
     "Night Repair Eye Cream",
     "Apothecary",
     "AED 95.00",
@@ -2724,7 +2724,7 @@ const products = [
   // PRE-MADE BOUQUETS
   // =========================
   p(
-    252,
+    244,
     "The Azure Whisper",
     "Bouquets",
     "AED 250.00",
@@ -2735,7 +2735,7 @@ const products = [
     ["Fresh Bouquets"]
   ),
   p(
-    253,
+    245,
     "Meadow Sunbeams",
     "Bouquets",
     "AED 220.00",
@@ -2746,7 +2746,7 @@ const products = [
     ["Fresh Bouquets"]
   ),
   p(
-    254,
+    246,
     "Peach Romance",
     "Bouquets",
     "AED 280.00",
@@ -2757,7 +2757,7 @@ const products = [
     ["Fresh Bouquets"]
   ),
   p(
-    255,
+    247,
     "Ivory Elegance",
     "Bouquets",
     "AED 300.00",
@@ -2768,7 +2768,7 @@ const products = [
     ["Fresh Bouquets"]
   ),
   p(
-    256,
+    248,
     "Blush Serenity",
     "Bouquets",
     "AED 260.00",
@@ -2779,7 +2779,7 @@ const products = [
     ["Fresh Bouquets"]
   ),
   p(
-    257,
+    249,
     "Garden Fiesta",
     "Bouquets",
     "AED 240.00",
@@ -2790,7 +2790,7 @@ const products = [
     ["Fresh Bouquets"]
   ),
   p(
-    258,
+    250,
     "Amethyst Dream",
     "Bouquets",
     "AED 270.00",
@@ -2801,7 +2801,7 @@ const products = [
     ["Fresh Bouquets"]
   ),
   p(
-    259,
+    251,
     "Crimson Passion",
     "Bouquets",
     "AED 290.00",
@@ -2816,7 +2816,7 @@ const products = [
   // POTS & PLANTERS
   // =========================
   p(
-    260,
+    252,
     "Classic Terracotta",
     "Pots",
     "AED 45.00",
@@ -2827,7 +2827,7 @@ const products = [
     ["Planters"]
   ),
   p(
-    261,
+    253,
     "Fiberstone",
     "Pots",
     "AED 85.00",
@@ -2838,7 +2838,7 @@ const products = [
     ["Planters"]
   ),
   p(
-    262,
+    254,
     "Glazed Ceramic",
     "Pots",
     "AED 95.00",
@@ -2849,7 +2849,7 @@ const products = [
     ["Planters"]
   ),
   p(
-    263,
+    255,
     "Hanging Macrame",
     "Pots",
     "AED 65.00",
@@ -2860,7 +2860,7 @@ const products = [
     ["Planters"]
   ),
   p(
-    264,
+    256,
     "Raw Cement",
     "Pots",
     "AED 110.00",
@@ -2871,7 +2871,7 @@ const products = [
     ["Planters"]
   ),
   p(
-    265,
+    257,
     "Natures Cradle Planter",
     "Pots",
     "AED 75.00",
@@ -2882,7 +2882,7 @@ const products = [
     ["Planters"]
   ),
   p(
-    266,
+    258,
     "Charcoal Black Morrava",
     "Pots",
     "AED 120.00",
@@ -2893,7 +2893,7 @@ const products = [
     ["Planters"]
   ),
   p(
-    267,
+    259,
     "Wooden Troughs",
     "Pots",
     "AED 130.00",
@@ -2904,7 +2904,7 @@ const products = [
     ["Planters"]
   ),
   p(
-    268,
+    260,
     "Self Watering Pots",
     "Pots",
     "AED 65.00",
@@ -2915,7 +2915,7 @@ const products = [
     ["Planters"]
   ),
   p(
-    269,
+    261,
     "Smart AI Planter",
     "Pots",
     "AED 450.00",
@@ -2930,7 +2930,7 @@ const products = [
   // GARDEN SETS
   // =========================
   p(
-    270,
+    262,
     "Starter Set",
     "Garden Sets",
     "AED 350.00",
@@ -2941,7 +2941,7 @@ const products = [
     ["Tool Kits"]
   ),
   p(
-    271,
+    263,
     "Master Set",
     "Garden Sets",
     "AED 650.00",
@@ -2952,7 +2952,7 @@ const products = [
     ["Tool Kits"]
   ),
   p(
-    272,
+    264,
     "Premium Botanical Set",
     "Garden Sets",
     "AED 800.00",
@@ -2967,7 +2967,7 @@ const products = [
   // CANDLE SETS
   // =========================
   p(
-    273,
+    265,
     "The Desert Bloom Collection",
     "Candle Sets",
     "AED 180.00",
@@ -2978,7 +2978,7 @@ const products = [
     ["Candle Collections"]
   ),
   p(
-    274,
+    266,
     "The Apothecary Wellness Trio",
     "Candle Sets",
     "AED 220.00",
@@ -2989,7 +2989,7 @@ const products = [
     ["Candle Collections"]
   ),
   p(
-    275,
+    267,
     "Signature Scented Candle Collection",
     "Candle Sets",
     "AED 250.00",
