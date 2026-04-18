@@ -172,8 +172,8 @@ function PlantFinder() {
     },
     {
       id: 16,
+      nameKey: "fiddleLeafFig",
       name: "Fiddle Leaf Fig",
-      description: "A trendy tall plant with large violin-shaped leaves, adds dramatic style.",
       price: "AED 125.00",
       tags: ["Decorative", "Trendy"],
       scoreTags: ["some experience", "indoors", "bright light", "weekly", "no pets needed", "decorative"],
@@ -181,8 +181,8 @@ function PlantFinder() {
     },
     {
       id: 17,
+      nameKey: "orchid",
       name: "Orchid",
-      description: "An elegant flowering plant with long-lasting blooms, perfect for collectors.",
       price: "AED 115.00",
       tags: ["Flowering", "Tropical"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
@@ -190,8 +190,8 @@ function PlantFinder() {
     },
     {
       id: 18,
+      nameKey: "bonsai",
       name: "Bonsai",
-      description: "A miniature artistic tree that requires patience and attention to detail.",
       price: "AED 135.00",
       tags: ["Art Form", "Indoor"],
       scoreTags: ["experienced", "indoors", "bright light", "often", "no pets needed", "decorative"],
@@ -199,8 +199,8 @@ function PlantFinder() {
     },
     {
       id: 19,
+      nameKey: "bougainvillea",
       name: "Bougainvillea",
-      description: "A vibrant flowering shrub with colorful blooms, perfect for sunny outdoor spaces.",
       price: "AED 80.00",
       tags: ["Flowering", "Outdoor"],
       scoreTags: ["some experience", "outdoors", "bright light", "weekly", "no pets needed", "decorative"],
@@ -208,8 +208,8 @@ function PlantFinder() {
     },
     {
       id: 20,
+      nameKey: "hibiscus",
       name: "Hibiscus",
-      description: "A tropical flowering plant with stunning blooms, thrives in bright sunlight.",
       price: "AED 90.00",
       tags: ["Flowering", "Tropical"],
       scoreTags: ["some experience", "outdoors", "bright light", "weekly", "no pets needed", "decorative"],
@@ -217,8 +217,8 @@ function PlantFinder() {
     },
     {
       id: 21,
+      nameKey: "parlourPalm",
       name: "Parlour Palm",
-      description: "An elegant indoor palm with tropical vibes, adds height and greenery to spaces.",
       price: "AED 145.00",
       tags: ["Indoor", "Tropical"],
       scoreTags: ["some experience", "indoors", "medium light", "weekly", "no pets needed", "decorative"],
