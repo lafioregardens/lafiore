@@ -8,32 +8,86 @@ import kale from "../assets/products/plants/kale.jpeg";
 import spinach from "../assets/products/plants/spinach.jpeg";
 import strawberry from "../assets/products/plants/strawberry.jpeg";
 import zucchini from "../assets/products/plants/zucchini.jpeg";
-import agave from "../assets/products/plants/agave.jpg";
-import aloevera from "../assets/products/plants/aloevera.jpg";
-import azalea from "../assets/products/plants/azalea.jpg";
-import birds from "../assets/products/plants/birds.jpg";
-import bougainvillea from "../assets/products/plants/bougainvillea.jpg";
-import boxhedge from "../assets/products/plants/boxhedge.jpg";
-import boxwood from "../assets/products/plants/boxwood.jpg";
-import fern from "../assets/products/plants/fern.jpg";
-import fiddleleaffig from "../assets/products/plants/fiddleleaffig.jpg";
-import hibiscus from "../assets/products/plants/hibiscus.jpg";
-import hosta from "../assets/products/plants/hosta.jpg";
-import jadeplant from "../assets/products/plants/jadeplant.jpg";
-import hydrangea from "../assets/products/plants/hydrangea.jpg";
-import lavenderplant from "../assets/products/plants/lavenderplant.jpg";
-import moneyplant from "../assets/products/plants/moneyplant.jpg";
-import monstera from "../assets/products/plants/monstera.jpg";
-import orchidplant from "../assets/products/plants/orchidplant.jpg";
-import ornamental from "../assets/products/plants/ornamental.jpg";
-import peacelilyplant from "../assets/products/plants/peacelilyplant.jpg";
-import petuniaplant from "../assets/products/plants/petuniaplant.jpg";
-import pothos from "../assets/products/plants/pothos.jpg";
-import rubberplant from "../assets/products/plants/rubberplant.jpg";  
-import snakeplant from "../assets/products/plants/snakeplant.jpg";
-import spiderplant from "../assets/products/plants/spiderplant.jpg";
-import succulentmix from "../assets/products/plants/succulentmix.jpg";
-import zz from "../assets/products/plants/zz.jpg";
+// import moneyplant from "../assets/products/plants/moneyplant.jpeg";
+// import hibiscus from "../assets/products/plants/hibiscus.jpeg";
+// import jadeplant from "../assets/products/plants/jadeplant.jpeg";
+// import boxwood from "../assets/products/plants/boxwood.jpeg";
+// import hydrangea from "../assets/products/plants/hydrangea.jpeg";
+// import hosta from "../assets/products/plants/hosta.jpeg";
+// import lavender from "../assets/products/plants/lavender.jpeg";
+// import agave from "../assets/products/plants/agave.jpeg";
+// import fern from "../assets/products/plants/fern.jpeg";
+// import ornamentalgrass from "../assets/products/plants/ornamentalgrass.jpeg";
+// import petunia from "../assets/products/plants/petunia.jpeg";
+// import azalea from "../assets/products/plants/azalea.jpeg";
+// import boxhedge from "../assets/products/plants/boxhedge.jpeg";
+// import succulentmix from "../assets/products/plants/succulentmix.jpeg";
+// import bougainvillea from "../assets/products/plants/bougainvillea.jpeg";
+// import snakeplant from "../assets/products/plants/snakeplant.jpeg";
+// import monstera from "../assets/products/plants/monstera.jpeg";
+// import peace from "../assets/products/plants/peace.jpeg";
+// import spider from "../assets/products/plants/spider.jpeg";
+// import pothos from "../assets/products/plants/pothos.jpeg";
+// import zz from "../assets/products/plants/zz.jpeg";
+// import fiddle from "../assets/products/plants/fiddle.jpeg";
+// import aloe from "../assets/products/plants/aloe.jpeg";
+// import rubber from "../assets/products/plants/rubber.jpeg";
+// import bird from "../assets/products/plants/bird.jpeg";
+// import orchid from "../assets/products/plants/orchid.jpeg";
+// import tulip from "../assets/products/plants/tulip.jpeg";
+// import sunflower from "../assets/products/plants/sunflower.jpeg";
+// import chrysanthemum from "../assets/products/plants/chrysanthemum.jpeg";
+// import poinsettia from "../assets/products/plants/poinsettia.jpeg";
+// import daffodil from "../assets/products/plants/daffodil.jpeg";
+// import marigold from "../assets/products/plants/marigold.jpeg";
+// import pansy from "../assets/products/plants/pansy.jpeg";
+// import dahlia from "../assets/products/plants/dahlia.jpeg";
+// import poppy from "../assets/products/plants/poppy.jpeg";
+// import sweetpea from "../assets/products/plants/sweetpea.jpeg";
+// import waterlily from "../assets/products/plants/waterlily.jpeg";
+// import lotus from "../assets/products/plants/lotus.jpeg";
+// import waterhyacinth from "../assets/products/plants/waterhyacinth.jpeg";
+// import papyrus from "../assets/products/plants/papyrus.jpeg";
+// import cattail from "../assets/products/plants/cattail.jpeg";
+// import duckweed from "../assets/products/plants/duckweed.jpeg";
+// import frogbit from "../assets/products/plants/frogbit.jpeg";
+// import anubias from "../assets/products/plants/anubias.jpeg";
+// import javamoss from "../assets/products/plants/javamoss.jpeg";
+// import hornwort from "../assets/products/plants/hornwort.jpeg";
+// import peppermint from "../assets/products/plants/peppermint.jpeg";
+// import echinacea from "../assets/products/plants/echinacea.jpeg";
+// import turmeric from "../assets/products/plants/turmeric.jpeg";
+// import calendula from "../assets/products/plants/calendula.jpeg";
+// import chamomile from "../assets/products/plants/chamomile.jpeg";
+// import ginkgo from "../assets/products/plants/ginkgo.jpeg";
+// import ginger from "../assets/products/plants/ginger.jpeg";
+// import lemonbalm from "../assets/products/plants/lemonbalm.jpeg";
+// import tulsi from "../assets/products/plants/tulsi.jpeg";
+// import ashwagandha from "../assets/products/plants/ashwagandha.jpeg";
+// import oaktree from "../assets/products/plants/oaktree.jpeg";
+// import mapletree from "../assets/products/plants/mapletree.jpeg";
+// import bonsai from "../assets/products/plants/bonsai.jpeg";
+// import appletree from "../assets/products/plants/appletree.jpeg";
+// import pinetree from "../assets/products/plants/pinetree.jpeg";
+// import cherryblossom from "../assets/products/plants/cherryblossom.jpeg";
+// import birch from "../assets/products/plants/birch.jpeg";
+// import palm from "../assets/products/plants/palm.jpeg";
+// import olive from "../assets/products/plants/olive.jpeg";
+// import willow from "../assets/products/plants/willow.jpeg";
+// import areca from "../assets/products/plants/areca.jpeg";
+// import parlour from "../assets/products/plants/parlour.jpeg";
+
+// import nasturtium from "../assets/products/flowers/nasturtium.jpeg";
+// import violet from "../assets/products/flowers/violet.jpeg";
+// import borage from "../assets/products/flowers/borage.jpeg";  
+// import squash from "../assets/products/flowers/squash.jpeg";
+// import dandelion from "../assets/products/flowers/dandelion.jpeg";
+// import cornflower from "../assets/products/flowers/cornflower.jpeg";
+// import pansyflower from "../assets/products/flowers/pansyflower.jpeg";
+// import honeysuckle from "../assets/products/flowers/honeysuckle.jpeg";
+// import chiveblossom from "../assets/products/flowers/chiveblossom.jpeg";
+// import beebalm from "../assets/products/flowers/beebalm.jpeg";
+// import daisy from "../assets/products/flowers/daisy.jpeg";
 
 import espresso from "../assets/products/soaps/espresso.jpeg";
 import charcoaldetox from "../assets/products/soaps/charcoaldetox.jpeg";
@@ -116,23 +170,6 @@ import neemteatree from "../assets/products/haircare/neemteatree.jpeg";
 import nettlesage from "../assets/products/haircare/nettlesage.jpeg";
 import peppermintaloe from "../assets/products/haircare/peppermintaloe.jpeg";
 import rosemarybiotin from "../assets/products/haircare/rosemarybiotin.jpeg";
-
-import dibber from "../assets/products/tools/dibber.jpg";
-import gardenfork from "../assets/products/tools/gardenfork.jpg";
-import gardengloves from "../assets/products/tools/gardengloves.jpg";
-import gardenhoe from "../assets/products/tools/gardenhoe.jpg";
-import gardenhose from "../assets/products/tools/gardenhose.jpg";
-import handtrowel from "../assets/products/tools/handtrowel.jpg";
-import handweeder from "../assets/products/tools/handweeder.jpg";
-import horihori from "../assets/products/tools/horihori.jpg";
-import lawnmower from "../assets/products/tools/lawnmower.jpg";
-import lopper from "../assets/products/tools/lopper.jpg";
-import pruningshears from "../assets/products/tools/pruningshears.jpg";
-import rake from "../assets/products/tools/rake.jpg";
-import spade from "../assets/products/tools/spade.jpg";
-import wateringcan from "../assets/products/tools/wateringcan.jpg";
-import wheelbarrow from "../assets/products/tools/wheelbarrow.jpg";
-
 
 const p = (
   id,
@@ -278,8 +315,19 @@ const products = [
     "A versatile leafy plant loved for its easy care and decorative look. It grows well indoors and is often chosen for homes and workspaces.",
     ["Indoor", "Low Maintenance"],
     5,
-    moneyplant,
+    "",
     ["Indoor", "Medicinal"]
+  ),
+  p(
+    12,
+    "Hibiscus",
+    "Plants",
+    "AED 32.00",
+    "A flowering plant admired for its bold blooms and warm-climate growth. It performs well outdoors and is also valued for edible and herbal use.",
+    ["Outdoor", "Flowering"],
+    4,
+    "",
+    ["Outdoor", "Edible", "Medicinal"]
   ),
   p(
     13,
@@ -289,7 +337,7 @@ const products = [
     "A hardy succulent with thick fleshy leaves that stores water well. It is ideal for indoor spaces and needs only moderate maintenance.",
     ["Indoor", "Low Maintenance"],
     4,
-    jadeplant,
+    "",
     ["Indoor", "Medicinal"]
   ),
   p(
@@ -300,7 +348,18 @@ const products = [
     "A dense evergreen shrub commonly used for hedges and landscape borders. It can be shaped easily and maintains a neat appearance throughout the year.",
     ["Outdoor", "Evergreen"],
     4,
-    boxwood,
+    "",
+    ["Outdoor"]
+  ),
+  p(
+    15,
+    "Hydrangea",
+    "Plants",
+    "AED 65.00",
+    "A flowering plant known for its large, colorful blooms. It grows well in partial sunlight and prefers moist, well-drained soil.",
+    ["Outdoor", "Flowering"],
+    5,
+    "",
     ["Outdoor"]
   ),
   p(
@@ -311,8 +370,19 @@ const products = [
     "A shade-tolerant outdoor plant valued for its broad decorative leaves. It is ideal for garden borders and low-maintenance landscapes.",
     ["Outdoor", "Shade Tolerant"],
     4,
-    hosta,
+    "",
     ["Outdoor"]
+  ),
+  p(
+    17,
+    "Lavender Plant",
+    "Plants",
+    "AED 40.00",
+    "A flowering plant recognized for its calming fragrance and purple blooms. It thrives in sunny areas with well-drained soil.",
+    ["Outdoor", "Fragrant"],
+    5,
+    "",
+    ["Outdoor", "Medicinal"]
   ),
   p(
     18,
@@ -322,7 +392,7 @@ const products = [
     "A drought-tolerant plant with thick, pointed leaves. It is suitable for outdoor landscapes that require minimal watering.",
     ["Outdoor", "Low Maintenance"],
     4,
-    agave,
+    "",
     ["Outdoor"]
   ),
   p(
@@ -333,7 +403,7 @@ const products = [
     "A lush green plant that adds a natural look to shaded garden areas. It prefers moist soil and indirect sunlight.",
     ["Outdoor", "Shade Tolerant"],
     4,
-    fern,
+    "",
     ["Outdoor"]
   ),
   p(
@@ -344,7 +414,29 @@ const products = [
     "A decorative plant used to enhance garden landscapes with texture and movement. It is low-maintenance and adapts well to outdoor environments.",
     ["Outdoor", "Decorative"],
     4,
-    ornamental,
+    "",
+    ["Outdoor"]
+  ),
+  p(
+    21,
+    "Petunia",
+    "Plants",
+    "AED 28.00",
+    "A colorful flowering plant commonly grown in garden beds and hanging baskets. It blooms well with regular sunlight and watering.",
+    ["Outdoor", "Flowering"],
+    4,
+    "",
+    ["Outdoor", "Seasonal"]
+  ),
+  p(
+    22,
+    "Azalea",
+    "Plants",
+    "AED 52.00",
+    "A flowering shrub admired for its bright seasonal blooms. It grows best in slightly acidic soil and partial shade.",
+    ["Outdoor", "Flowering"],
+    4,
+    "",
     ["Outdoor"]
   ),
   p(
@@ -355,7 +447,7 @@ const products = [
     "A compact plant often used to create structured garden borders. It responds well to pruning and shaping.",
     ["Outdoor", "Landscape"],
     4,
-    boxhedge,
+    "",
     ["Outdoor"]
   ),
   p(
@@ -366,7 +458,18 @@ const products = [
     "A curated mix of easy-care succulents perfect for outdoor corners, sunny balconies, and decorative arrangements.",
     ["Outdoor", "Low Maintenance"],
     5,
-    succulentmix,
+    "",
+    ["Outdoor"]
+  ),
+  p(
+    25,
+    "Bougainvillea",
+    "Plants",
+    "AED 48.00",
+    "A vibrant outdoor flowering plant known for its colorful bracts and climbing habit. It thrives in sunny spaces and adds strong visual impact.",
+    ["Outdoor", "Flowering"],
+    5,
+    "",
     ["Outdoor"]
   ),
   p(
@@ -377,7 +480,7 @@ const products = [
     "A hardy indoor plant known for its air-purifying qualities and upright leaves. It requires minimal watering and grows well in low to bright indirect light.",
     ["Indoor", "Air Purifying"],
     5,
-    snakeplant,
+    "",
     ["Indoor"]
   ),
   p(
@@ -388,7 +491,18 @@ const products = [
     "A popular tropical plant recognized for its large split leaves and bold appearance. It thrives in bright indirect light and adds a fresh decorative touch.",
     ["Indoor", "Decorative"],
     5,
-    monstera,
+    "",
+    ["Indoor"]
+  ),
+  p(
+    28,
+    "Peace Lily",
+    "Plants",
+    "AED 68.00",
+    "An elegant indoor plant featuring glossy leaves and delicate white blooms. It prefers moderate watering and low to medium light.",
+    ["Indoor", "Flowering"],
+    5,
+    "",
     ["Indoor"]
   ),
   p(
@@ -399,7 +513,7 @@ const products = [
     "A fast-growing indoor plant with arching green leaves and small offshoots. It adapts easily to different light conditions.",
     ["Indoor", "Low Maintenance"],
     4,
-    spiderplant,
+    "",
     ["Indoor"]
   ),
   p(
@@ -410,7 +524,7 @@ const products = [
     "A low-maintenance trailing plant admired for its heart-shaped leaves and versatility. Perfect for hanging baskets and desks.",
     ["Indoor", "Trailing"],
     5,
-    pothos,
+    "",
     ["Indoor"]
   ),
   p(
@@ -421,7 +535,7 @@ const products = [
     "A resilient indoor plant with glossy green leaves and a compact structure. It tolerates low light and infrequent watering.",
     ["Indoor", "Low Maintenance"],
     5,
-    zz,
+    "",
     ["Indoor"]
   ),
   p(
@@ -432,7 +546,7 @@ const products = [
     "A decorative indoor plant with large violin-shaped leaves. It grows best in bright indirect light and adds a modern look.",
     ["Indoor", "Decorative"],
     4,
-    fiddleleaffig,
+    "",
     ["Indoor"]
   ),
   p(
@@ -443,7 +557,7 @@ const products = [
     "A medicinal indoor plant known for its soothing gel stored in thick leaves. It prefers bright light and requires minimal watering.",
     ["Indoor", "Medicinal"],
     5,
-    aloevera,
+    "",
     ["Indoor", "Medicinal"]
   ),
   p(
@@ -454,7 +568,7 @@ const products = [
     "A sturdy indoor plant with thick shiny leaves. It grows well in indirect sunlight and enhances interiors with bold foliage.",
     ["Indoor", "Decorative"],
     4,
-    rubberplant,
+    "",
     ["Indoor"]
   ),
   p(
@@ -465,7 +579,7 @@ const products = [
     "A tropical indoor plant known for its large leaves and striking appearance. It thrives in bright light and spacious interiors.",
     ["Indoor", "Tropical"],
     5,
-    birds,
+    "",
     ["Indoor"]
   ),
   p(
@@ -619,6 +733,17 @@ const products = [
     "A medicinal herb valued for its refreshing aroma and digestive properties. It grows well in pots and garden beds.",
     ["Medicinal", "Herb"],
     5,
+    "",
+    ["Medicinal"]
+  ),
+  p(
+    58,
+    "Echinacea",
+    "Plants",
+    "AED 26.00",
+    "A medicinal flowering plant commonly used to support immune health. It grows best in sunny outdoor areas.",
+    ["Medicinal", "Flowering"],
+    4,
     "",
     ["Medicinal"]
   ),
@@ -1264,100 +1389,12 @@ const products = [
     "",
     ["Normal"]
   ),
-  p(
-    118,
-    "Hibiscus",
-    "Flowers",
-    "AED 32.00",
-    "A flowering plant admired for its bold blooms and warm-climate growth. It performs well outdoors and is also valued for edible and herbal use.",
-    ["Flower", "Outdoor"],
-    4,
-    hibiscus,
-    ["Outdoor", "Edible", "Medicinal"]
-  ),
-  p(
-    119,
-    "Hydrangea",
-    "Flowers",
-    "AED 65.00",
-    "A flowering plant known for its large, colorful blooms. It grows well in partial sunlight and prefers moist, well-drained soil.",
-    ["Flower", "Outdoor"],
-    5,
-    hydrangea,
-    ["Outdoor"]
-  ),
-  p(
-    120,
-    "Lavender Plant",
-    "Flowers",
-    "AED 40.00",
-    "A flowering plant recognized for its calming fragrance and purple blooms. It thrives in sunny areas with well-drained soil.",
-    ["Flower", "Fragrant"],
-    5,
-    lavenderplant,
-    ["Outdoor", "Medicinal"]
-  ),
-  p(
-    121,
-    "Petunia",
-    "Flowers",
-    "AED 28.00",
-    "A colorful flowering plant commonly grown in garden beds and hanging baskets. It blooms well with regular sunlight and watering.",
-    ["Flower", "Outdoor"],
-    4,
-    petuniaplant,
-    ["Outdoor", "Seasonal"]
-  ),
-  p(
-    122,
-    "Azalea",
-    "Flowers",
-    "AED 52.00",
-    "A flowering shrub admired for its bright seasonal blooms. It grows best in slightly acidic soil and partial shade.",
-    ["Flower", "Outdoor"],
-    4,
-    azalea,
-    ["Outdoor"]
-  ),
-  p(
-    123,
-    "Bougainvillea",
-    "Flowers",
-    "AED 48.00",
-    "A vibrant outdoor flowering plant known for its colorful bracts and climbing habit. It thrives in sunny spaces and adds strong visual impact.",
-    ["Flower", "Outdoor"],
-    5,
-    bougainvillea,
-    ["Outdoor"]
-  ),
-  p(
-    124,
-    "Peace Lily",
-    "Flowers",
-    "AED 68.00",
-    "An elegant indoor plant featuring glossy leaves and delicate white blooms. It prefers moderate watering and low to medium light.",
-    ["Flower", "Indoor"],
-    5,
-    peacelilyplant,
-    ["Indoor"]
-  ),
-  p(
-    125,
-    "Echinacea",
-    "Flowers",
-    "AED 26.00",
-    "A medicinal flowering plant commonly used to support immune health. It grows best in sunny outdoor areas.",
-    ["Flower", "Medicinal"],
-    4,
-    "",
-    ["Medicinal"]
-  ),
 
   // =========================
   // SEEDS
   // =========================
   p(
-    126,
+    118,
     "Blackberry Seeds",
     "Seeds",
     "AED 12.00",
@@ -1368,7 +1405,7 @@ const products = [
     ["Fruit Seeds"]
   ),
   p(
-    127,
+    119,
     "Pink Guava Seeds",
     "Seeds",
     "AED 14.00",
@@ -1379,7 +1416,7 @@ const products = [
     ["Fruit Seeds"]
   ),
   p(
-    128,
+    120,
     "Passion Fruit Seeds",
     "Seeds",
     "AED 14.00",
@@ -1390,7 +1427,7 @@ const products = [
     ["Fruit Seeds"]
   ),
   p(
-    129,
+    121,
     "Custard Apple Seeds",
     "Seeds",
     "AED 15.00",
@@ -1401,7 +1438,7 @@ const products = [
     ["Fruit Seeds"]
   ),
   p(
-    130,
+    122,
     "Mandarin Seeds",
     "Seeds",
     "AED 14.00",
@@ -1412,7 +1449,7 @@ const products = [
     ["Fruit Seeds"]
   ),
   p(
-    131,
+    123,
     "Dragon Fruit Seeds",
     "Seeds",
     "AED 15.00",
@@ -1423,7 +1460,7 @@ const products = [
     ["Fruit Seeds"]
   ),
   p(
-    132,
+    124,
     "Watermelon Seeds",
     "Seeds",
     "AED 12.00",
@@ -1434,7 +1471,7 @@ const products = [
     ["Fruit Seeds"]
   ),
   p(
-    133,
+    125,
     "Sweet Pepper Seeds",
     "Seeds",
     "AED 10.00",
@@ -1445,7 +1482,7 @@ const products = [
     ["Vegetable Seeds"]
   ),
   p(
-    134,
+    126,
     "Basil Seeds",
     "Seeds",
     "AED 10.00",
@@ -1456,7 +1493,7 @@ const products = [
     ["Vegetable Seeds"]
   ),
   p(
-    135,
+    127,
     "Red Carrot Hybrid Seeds",
     "Seeds",
     "AED 10.00",
@@ -1467,7 +1504,7 @@ const products = [
     ["Vegetable Seeds"]
   ),
   p(
-    136,
+    128,
     "Radish Red Seeds",
     "Seeds",
     "AED 10.00",
@@ -1478,7 +1515,7 @@ const products = [
     ["Vegetable Seeds"]
   ),
   p(
-    137,
+    129,
     "Tomato Seeds",
     "Seeds",
     "AED 10.00",
@@ -1489,7 +1526,7 @@ const products = [
     ["Vegetable Seeds"]
   ),
   p(
-    138,
+    130,
     "Okra Seeds",
     "Seeds",
     "AED 10.00",
@@ -1500,7 +1537,7 @@ const products = [
     ["Vegetable Seeds"]
   ),
   p(
-    139,
+    131,
     "Eggplant Purple Seeds",
     "Seeds",
     "AED 10.00",
@@ -1511,7 +1548,7 @@ const products = [
     ["Vegetable Seeds"]
   ),
   p(
-    140,
+    132,
     "Marigold Yellow Seeds",
     "Seeds",
     "AED 10.00",
@@ -1522,7 +1559,7 @@ const products = [
     ["Flower Seeds"]
   ),
   p(
-    141,
+    133,
     "Matthiola Mixed Seeds",
     "Seeds",
     "AED 12.00",
@@ -1533,7 +1570,7 @@ const products = [
     ["Flower Seeds"]
   ),
   p(
-    142,
+    134,
     "Dahlia Mixed Seeds",
     "Seeds",
     "AED 12.00",
@@ -1544,7 +1581,7 @@ const products = [
     ["Flower Seeds"]
   ),
   p(
-    143,
+    135,
     "Carnation Mixed Seeds",
     "Seeds",
     "AED 12.00",
@@ -1555,7 +1592,7 @@ const products = [
     ["Flower Seeds"]
   ),
   p(
-    144,
+    136,
     "Aster Mixed Seeds",
     "Seeds",
     "AED 12.00",
@@ -1566,7 +1603,7 @@ const products = [
     ["Flower Seeds"]
   ),
   p(
-    145,
+    137,
     "Sunflower Seeds",
     "Seeds",
     "AED 10.00",
@@ -1577,7 +1614,7 @@ const products = [
     ["Flower Seeds"]
   ),
   p(
-    146,
+    138,
     "Chamomile Seeds",
     "Seeds",
     "AED 10.00",
@@ -1588,7 +1625,7 @@ const products = [
     ["Flower Seeds"]
   ),
   p(
-    147,
+    139,
     "Fenugreek Seeds",
     "Seeds",
     "AED 8.00",
@@ -1599,7 +1636,7 @@ const products = [
     ["Herb Seeds"]
   ),
   p(
-    148,
+    140,
     "Coriander Seeds",
     "Seeds",
     "AED 8.00",
@@ -1610,7 +1647,7 @@ const products = [
     ["Herb Seeds"]
   ),
   p(
-    149,
+    141,
     "Thyme Seeds",
     "Seeds",
     "AED 10.00",
@@ -1621,7 +1658,7 @@ const products = [
     ["Herb Seeds"]
   ),
   p(
-    150,
+    142,
     "Dill Seeds",
     "Seeds",
     "AED 8.00",
@@ -1632,7 +1669,7 @@ const products = [
     ["Herb Seeds"]
   ),
   p(
-    151,
+    143,
     "Mint Seeds",
     "Seeds",
     "AED 8.00",
@@ -1643,7 +1680,7 @@ const products = [
     ["Herb Seeds"]
   ),
   p(
-    152,
+    144,
     "Parsley Seeds",
     "Seeds",
     "AED 8.00",
@@ -1654,7 +1691,7 @@ const products = [
     ["Herb Seeds"]
   ),
   p(
-    153,
+    145,
     "Oregano Seeds",
     "Seeds",
     "AED 8.00",
@@ -1665,7 +1702,7 @@ const products = [
     ["Herb Seeds"]
   ),
   p(
-    154,
+    146,
     "Banyan Seeds",
     "Seeds",
     "AED 14.00",
@@ -1676,7 +1713,7 @@ const products = [
     ["Tree Seeds"]
   ),
   p(
-    155,
+    147,
     "Ghaf Seeds",
     "Seeds",
     "AED 14.00",
@@ -1687,7 +1724,7 @@ const products = [
     ["Tree Seeds"]
   ),
   p(
-    156,
+    148,
     "Red Sandalwood Seeds",
     "Seeds",
     "AED 16.00",
@@ -1698,7 +1735,7 @@ const products = [
     ["Tree Seeds"]
   ),
   p(
-    157,
+    149,
     "Moringa Seeds",
     "Seeds",
     "AED 12.00",
@@ -1709,7 +1746,7 @@ const products = [
     ["Tree Seeds"]
   ),
   p(
-    158,
+    150,
     "Neem Seeds",
     "Seeds",
     "AED 12.00",
@@ -1720,7 +1757,7 @@ const products = [
     ["Tree Seeds"]
   ),
   p(
-    159,
+    151,
     "Olive Seeds",
     "Seeds",
     "AED 14.00",
@@ -1731,7 +1768,7 @@ const products = [
     ["Tree Seeds"]
   ),
   p(
-    160,
+    152,
     "Palm Seeds",
     "Seeds",
     "AED 14.00",
@@ -1746,171 +1783,141 @@ const products = [
   // TOOLS
   // =========================
   p(
-    161,
+    153,
     "Hand Trowel",
     "Tools",
     "AED 18.00",
     "Used for digging small holes, planting seedlings, and transferring soil into pots.",
     ["Tools", "Hand Tool"],
     4,
-    handtrowel,
-    ["Tools"]
+    ""
   ),
   p(
-    162,
+    154,
     "Pruning Shears",
     "Tools",
     "AED 35.00",
     "Designed for trimming branches and removing dead or damaged leaves to encourage healthy growth.",
     ["Tools", "Pruning"],
-    5,
-    pruningshears,
-    ["Tools"]
+    5
   ),
   p(
-    163,
+    155,
     "Garden Fork",
     "Tools",
     "AED 28.00",
     "Helps loosen compact soil and mix compost to improve aeration and nutrient distribution.",
     ["Tools", "Soil Care"],
-    4,
-    gardenfork,
-    ["Tools"]
+    4
   ),
   p(
-    164,
+    156,
     "Spade",
     "Tools",
     "AED 38.00",
     "Commonly used for digging, edging soil, and moving compost during garden preparation.",
     ["Tools", "Digging"],
-    4,
-    spade,
-    ["Tools"]
+    4
   ),
   p(
-    165,
+    157,
     "Rake",
     "Tools",
     "AED 32.00",
     "Useful for gathering leaves, removing debris, and leveling soil surfaces.",
     ["Tools", "Garden Care"],
-    4,
-    rake,
-    ["Tools"]
+    4
   ),
   p(
-    166,
+    158,
     "Garden Hoe",
     "Tools",
     "AED 30.00",
     "Primarily used for removing weeds, breaking hardened soil, and shaping planting rows.",
     ["Tools", "Weeding"],
-    4,
-    gardenhoe,
-    ["Tools"]
+    4
   ),
   p(
-    167,
+    159,
     "Watering Can",
     "Tools",
     "AED 26.00",
     "Provides gentle and controlled watering for indoor plants, seedlings, and delicate flowers.",
     ["Tools", "Watering"],
-    4,
-    wateringcan,  
-    ["Tools"]
+    4
   ),
   p(
-    168,
+    160,
     "Wheelbarrow",
     "Tools",
     "AED 140.00",
     "Makes transporting soil, plants, tools, and compost around the garden easier and more efficient.",
     ["Tools", "Heavy Duty"],
-    4,
-    wheelbarrow,
-    ["Tools"]
+    4
   ),
   p(
-    169,
+    161,
     "Garden Gloves",
     "Tools",
     "AED 16.00",
     "Protect hands from cuts, dirt, and irritation while carrying out gardening activities.",
     ["Tools", "Protection"],
-    4,
-    gardengloves,
-    ["Tools"]
+    4
   ),
   p(
-    170,
+    162,
     "Hori Hori Knife",
     "Tools",
     "AED 42.00",
     "A versatile tool suitable for digging, cutting roots, transplanting, and removing weeds.",
     ["Tools", "Multi Use"],
-    5,
-    horihori,
-    ["Tools"]
+    5
   ),
   p(
-    171,
+    163,
     "Garden Hose",
     "Tools",
     "AED 65.00",
     "Used for watering plants across larger areas and cleaning outdoor surfaces with ease.",
     ["Tools", "Watering"],
-    4,
-    gardenhose,
-    ["Tools"]
+    4
   ),
   p(
-    172,
+    164,
     "Hand Weeder",
     "Tools",
     "AED 18.00",
     "Allows weeds to be removed from the root without disturbing nearby plants.",
     ["Tools", "Weeding"],
-    4,
-    handweeder,
-    ["Tools"]
+    4
   ),
   p(
-    173,
+    165,
     "Lawn Mower",
     "Tools",
     "AED 280.00",
     "Keeps grass trimmed evenly to maintain a neat and healthy lawn appearance.",
     ["Tools", "Lawn Care"],
-    4,
-    lawnmower,
-    ["Tools"]
-  ),  
+    4
+  ),
   p(
-    174,
+    166,
     "Dibber",
     "Tools",
     "AED 14.00",
     "Creates small planting holes for seeds, bulbs, and seedlings with accurate depth and spacing.",
     ["Tools", "Planting"],
-    4,
-    dibber,
-    ["Tools"]
+    4
   ),
   p(
-    175,
+    167,
     "Loppers",
     "Tools",
     "AED 48.00",
     "Designed for cutting thicker branches and hard stems that cannot be handled by pruning shears.",
     ["Tools", "Pruning"],
-    4,
-    lopper,
-    ["Tools"]
+    4
   ),
-
 
   // =========================
   // SOIL & FERTILIZERS
