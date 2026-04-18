@@ -26,7 +26,7 @@ import moneyplant from "../assets/products/plants/moneyplant.jpg";
 import monstera from "../assets/products/plants/monstera.jpg";
 import orchidplant from "../assets/products/plants/orchidplant.jpg";
 import ornamental from "../assets/products/plants/ornamental.jpg";
-import peacelilyplant from "../assets/products/plants/peacelilypplant.jpg";
+import peacelilyplant from "../assets/products/plants/peacelilyplant.jpg";
 import petuniaplant from "../assets/products/plants/petuniaplant.jpg";
 import pothos from "../assets/products/plants/pothos.jpg";
 import rubberplant from "../assets/products/plants/rubberplant.jpg";  
@@ -117,7 +117,22 @@ import nettlesage from "../assets/products/haircare/nettlesage.jpeg";
 import peppermintaloe from "../assets/products/haircare/peppermintaloe.jpeg";
 import rosemarybiotin from "../assets/products/haircare/rosemarybiotin.jpeg";
 
-import dibber from "../assets/products/tools/dibber.jpeg";
+import dibber from "../assets/products/tools/dibber.jpg";
+import gardenfork from "../assets/products/tools/gardenfork.jpg";
+import gardengloves from "../assets/products/tools/gardengloves.jpg";
+import gardenhoe from "../assets/products/tools/gardenhoe.jpg";
+import gardenhose from "../assets/products/tools/gardenhose.jpg";
+import handtrowel from "../assets/products/tools/handtrowel.jpg";
+import handweeder from "../assets/products/tools/handweeder.jpg";
+import horihori from "../assets/products/tools/horihori.jpg";
+import lawnmower from "../assets/products/tools/lawnmower.jpg";
+import lopper from "../assets/products/tools/lopper.jpg";
+import pruningshears from "../assets/products/tools/pruningshears.jpg";
+import rake from "../assets/products/tools/rake.jpg";
+import spade from "../assets/products/tools/spade.jpg";
+import wateringcan from "../assets/products/tools/wateringcan.jpg";
+import wheelbarrow from "../assets/products/tools/wheelbarrow.jpg";
+
 
 const p = (
   id,
@@ -395,7 +410,7 @@ const products = [
     "A low-maintenance trailing plant admired for its heart-shaped leaves and versatility. Perfect for hanging baskets and desks.",
     ["Indoor", "Trailing"],
     5,
-    "pothos",
+    pothos,
     ["Indoor"]
   ),
   p(
@@ -1738,7 +1753,8 @@ const products = [
     "Used for digging small holes, planting seedlings, and transferring soil into pots.",
     ["Tools", "Hand Tool"],
     4,
-    ""
+    handtrowel,
+    ["Tools"]
   ),
   p(
     162,
@@ -1747,7 +1763,9 @@ const products = [
     "AED 35.00",
     "Designed for trimming branches and removing dead or damaged leaves to encourage healthy growth.",
     ["Tools", "Pruning"],
-    5
+    5,
+    pruningshears,
+    ["Tools"]
   ),
   p(
     163,
@@ -1756,7 +1774,9 @@ const products = [
     "AED 28.00",
     "Helps loosen compact soil and mix compost to improve aeration and nutrient distribution.",
     ["Tools", "Soil Care"],
-    4
+    4,
+    gardenfork,
+    ["Tools"]
   ),
   p(
     164,
@@ -1765,7 +1785,9 @@ const products = [
     "AED 38.00",
     "Commonly used for digging, edging soil, and moving compost during garden preparation.",
     ["Tools", "Digging"],
-    4
+    4,
+    spade,
+    ["Tools"]
   ),
   p(
     165,
@@ -1774,7 +1796,9 @@ const products = [
     "AED 32.00",
     "Useful for gathering leaves, removing debris, and leveling soil surfaces.",
     ["Tools", "Garden Care"],
-    4
+    4,
+    rake,
+    ["Tools"]
   ),
   p(
     166,
@@ -1783,7 +1807,9 @@ const products = [
     "AED 30.00",
     "Primarily used for removing weeds, breaking hardened soil, and shaping planting rows.",
     ["Tools", "Weeding"],
-    4
+    4,
+    gardenhoe,
+    ["Tools"]
   ),
   p(
     167,
@@ -1792,7 +1818,9 @@ const products = [
     "AED 26.00",
     "Provides gentle and controlled watering for indoor plants, seedlings, and delicate flowers.",
     ["Tools", "Watering"],
-    4
+    4,
+    wateringcan,  
+    ["Tools"]
   ),
   p(
     168,
@@ -1801,7 +1829,9 @@ const products = [
     "AED 140.00",
     "Makes transporting soil, plants, tools, and compost around the garden easier and more efficient.",
     ["Tools", "Heavy Duty"],
-    4
+    4,
+    wheelbarrow,
+    ["Tools"]
   ),
   p(
     169,
@@ -1810,7 +1840,9 @@ const products = [
     "AED 16.00",
     "Protect hands from cuts, dirt, and irritation while carrying out gardening activities.",
     ["Tools", "Protection"],
-    4
+    4,
+    gardengloves,
+    ["Tools"]
   ),
   p(
     170,
@@ -1819,7 +1851,9 @@ const products = [
     "AED 42.00",
     "A versatile tool suitable for digging, cutting roots, transplanting, and removing weeds.",
     ["Tools", "Multi Use"],
-    5
+    5,
+    horihori,
+    ["Tools"]
   ),
   p(
     171,
@@ -1828,7 +1862,9 @@ const products = [
     "AED 65.00",
     "Used for watering plants across larger areas and cleaning outdoor surfaces with ease.",
     ["Tools", "Watering"],
-    4
+    4,
+    gardenhose,
+    ["Tools"]
   ),
   p(
     172,
@@ -1837,7 +1873,9 @@ const products = [
     "AED 18.00",
     "Allows weeds to be removed from the root without disturbing nearby plants.",
     ["Tools", "Weeding"],
-    4
+    4,
+    handweeder,
+    ["Tools"]
   ),
   p(
     173,
@@ -1846,8 +1884,10 @@ const products = [
     "AED 280.00",
     "Keeps grass trimmed evenly to maintain a neat and healthy lawn appearance.",
     ["Tools", "Lawn Care"],
-    4
-  ),
+    4,
+    lawnmower,
+    ["Tools"]
+  ),  
   p(
     174,
     "Dibber",
@@ -1855,7 +1895,9 @@ const products = [
     "AED 14.00",
     "Creates small planting holes for seeds, bulbs, and seedlings with accurate depth and spacing.",
     ["Tools", "Planting"],
-    4
+    4,
+    dibber,
+    ["Tools"]
   ),
   p(
     175,
@@ -1864,8 +1906,11 @@ const products = [
     "AED 48.00",
     "Designed for cutting thicker branches and hard stems that cannot be handled by pruning shears.",
     ["Tools", "Pruning"],
-    4
+    4,
+    lopper,
+    ["Tools"]
   ),
+
 
   // =========================
   // SOIL & FERTILIZERS
