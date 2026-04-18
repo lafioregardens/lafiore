@@ -299,7 +299,7 @@ const products = [
     "A hardy succulent with thick fleshy leaves that stores water well. It is ideal for indoor spaces and needs only moderate maintenance.",
     ["Indoor", "Low Maintenance"],
     4,
-    "jadeplant",
+    jadeplant,
     ["Indoor", "Medicinal"]
   ),
   p(
@@ -310,7 +310,7 @@ const products = [
     "A dense evergreen shrub commonly used for hedges and landscape borders. It can be shaped easily and maintains a neat appearance throughout the year.",
     ["Outdoor", "Evergreen"],
     4,
-    "boxwood",
+    boxwood,
     ["Outdoor"]
   ),
   p(
@@ -321,7 +321,7 @@ const products = [
     "A flowering plant known for its large, colorful blooms. It grows well in partial sunlight and prefers moist, well-drained soil.",
     ["Outdoor", "Flowering"],
     5,
-    "hydrangea",
+    hydrangea,
     ["Outdoor"]
   ),
   p(
@@ -332,7 +332,7 @@ const products = [
     "A shade-tolerant outdoor plant valued for its broad decorative leaves. It is ideal for garden borders and low-maintenance landscapes.",
     ["Outdoor", "Shade Tolerant"],
     4,
-    "hosta",
+    hosta,
     ["Outdoor"]
   ),
   p(
@@ -343,7 +343,7 @@ const products = [
     "A flowering plant recognized for its calming fragrance and purple blooms. It thrives in sunny areas with well-drained soil.",
     ["Outdoor", "Fragrant"],
     5,
-    "lavenderplant",
+    lavenderplant,
     ["Outdoor", "Medicinal"]
   ),
   p(
@@ -354,7 +354,7 @@ const products = [
     "A drought-tolerant plant with thick, pointed leaves. It is suitable for outdoor landscapes that require minimal watering.",
     ["Outdoor", "Low Maintenance"],
     4,
-    "agave",
+    agave,
     ["Outdoor"]
   ),
   p(
@@ -365,7 +365,7 @@ const products = [
     "A lush green plant that adds a natural look to shaded garden areas. It prefers moist soil and indirect sunlight.",
     ["Outdoor", "Shade Tolerant"],
     4,
-    "fern",
+    fern,
     ["Outdoor"]
   ),
   p(
@@ -376,7 +376,7 @@ const products = [
     "A decorative plant used to enhance garden landscapes with texture and movement. It is low-maintenance and adapts well to outdoor environments.",
     ["Outdoor", "Decorative"],
     4,
-    "ornamental",
+    ornamental,
     ["Outdoor"]
   ),
   p(
@@ -387,7 +387,7 @@ const products = [
     "A colorful flowering plant commonly grown in garden beds and hanging baskets. It blooms well with regular sunlight and watering.",
     ["Outdoor", "Flowering"],
     4,
-    "petuniaplant",
+    petuniaplant,
     ["Outdoor", "Seasonal"]
   ),
   p(
@@ -398,7 +398,7 @@ const products = [
     "A flowering shrub admired for its bright seasonal blooms. It grows best in slightly acidic soil and partial shade.",
     ["Outdoor", "Flowering"],
     4,
-    "azalea",
+    azalea,
     ["Outdoor"]
   ),
   p(
@@ -409,7 +409,7 @@ const products = [
     "A compact plant often used to create structured garden borders. It responds well to pruning and shaping.",
     ["Outdoor", "Landscape"],
     4,
-    "boxhedge",
+    boxhedge,
     ["Outdoor"]
   ),
   p(
@@ -420,7 +420,7 @@ const products = [
     "A curated mix of easy-care succulents perfect for outdoor corners, sunny balconies, and decorative arrangements.",
     ["Outdoor", "Low Maintenance"],
     5,
-    "succulentmix",
+    succulentmix,
     ["Outdoor"]
   ),
   p(
@@ -431,7 +431,7 @@ const products = [
     "A vibrant outdoor flowering plant known for its colorful bracts and climbing habit. It thrives in sunny spaces and adds strong visual impact.",
     ["Outdoor", "Flowering"],
     5,
-    "bougainvillea",
+    bougainvillea,
     ["Outdoor"]
   ),
   p(
@@ -442,7 +442,7 @@ const products = [
     "A hardy indoor plant known for its air-purifying qualities and upright leaves. It requires minimal watering and grows well in low to bright indirect light.",
     ["Indoor", "Air Purifying"],
     5,
-    "snakeplant",
+    snakeplant,
     ["Indoor"]
   ),
   p(
@@ -453,7 +453,7 @@ const products = [
     "A popular tropical plant recognized for its large split leaves and bold appearance. It thrives in bright indirect light and adds a fresh decorative touch.",
     ["Indoor", "Decorative"],
     5,
-    "monstera",
+    monstera,
     ["Indoor"]
   ),
   p(
@@ -464,7 +464,7 @@ const products = [
     "An elegant indoor plant featuring glossy leaves and delicate white blooms. It prefers moderate watering and low to medium light.",
     ["Indoor", "Flowering"],
     5,
-    "peacelilyplant",
+    peacelilyplant,
     ["Indoor"]
   ),
   p(
@@ -475,7 +475,7 @@ const products = [
     "A fast-growing indoor plant with arching green leaves and small offshoots. It adapts easily to different light conditions.",
     ["Indoor", "Low Maintenance"],
     4,
-    "spiderplant",
+    spiderplant,
     ["Indoor"]
   ),
   p(
@@ -486,7 +486,7 @@ const products = [
     "A low-maintenance trailing plant admired for its heart-shaped leaves and versatility. Perfect for hanging baskets and desks.",
     ["Indoor", "Trailing"],
     5,
-    "pothos",
+    pothos,
     ["Indoor"]
   ),
   p(
@@ -497,7 +497,7 @@ const products = [
     "A resilient indoor plant with glossy green leaves and a compact structure. It tolerates low light and infrequent watering.",
     ["Indoor", "Low Maintenance"],
     5,
-    "zz",
+    zz,
     ["Indoor"]
   ),
   p(
@@ -508,7 +508,7 @@ const products = [
     "A decorative indoor plant with large violin-shaped leaves. It grows best in bright indirect light and adds a modern look.",
     ["Indoor", "Decorative"],
     4,
-    "fiddleleaffig",
+    fiddleleaffig,
     ["Indoor"]
   ),
   p(
@@ -519,7 +519,7 @@ const products = [
     "A medicinal indoor plant known for its soothing gel stored in thick leaves. It prefers bright light and requires minimal watering.",
     ["Indoor", "Medicinal"],
     5,
-    "aloevera",
+    aloevera,
     ["Indoor", "Medicinal"]
   ),
   p(
@@ -530,7 +530,7 @@ const products = [
     "A sturdy indoor plant with thick shiny leaves. It grows well in indirect sunlight and enhances interiors with bold foliage.",
     ["Indoor", "Decorative"],
     4,
-    "rubberplant",
+    rubberplant,
     ["Indoor"]
   ),
   p(
