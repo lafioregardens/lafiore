@@ -1,8 +1,26 @@
+import snakeplant from "../assets/products/plants/snakeplant.jpg";
+import zz from "../assets/products/plants/zz.jpg";
+import pothos from "../assets/products/plants/pothos.jpg";
+import peacelilyplant from "../assets/products/plants/peacelilypplant.jpg";
+import spiderplant from "../assets/products/plants/spiderplant.jpg";
+import aloevera from "../assets/products/plants/aloevera.jpg";
+import monstera from "../assets/products/plants/monstera.jpg";
+import succulentmix from "../assets/products/plants/succulentmix.jpg";
+import rubberplant from "../assets/products/plants/rubberplant.jpg";  
+import moneyplant from "../assets/products/plants/moneyplant.jpg";
+import fiddleleaffig from "../assets/products/plants/fiddleleaffig.jpg";
+import orchidplant from "../assets/products/plants/orchidplant.jpg";
+import bougainvillea from "../assets/products/plants/bougainvillea.jpg";
+import jadeplant from "../assets/products/plants/jadeplant.jpg";
+import hibiscus from "../assets/products/plants/hibiscus.jpg";
+import lavenderplant from "../assets/products/plants/lavenderplant.jpg";
+import fern from "../assets/products/plants/fern.jpg";
+
 const plantRecommendations = [
   {
     id: 1,
     name: "Snake Plant",
-    image: "",
+    image: snakeplant,
     climate: ["Dry", "Moderate"],
     location: ["Indoors", "Both"],
     sunlight: ["Low Light", "Partial Sun"],
@@ -17,7 +35,7 @@ const plantRecommendations = [
   {
     id: 2,
     name: "ZZ Plant",
-    image: "",
+    image: zz,
     climate: ["Dry", "Moderate"],
     location: ["Indoors", "Both"],
     sunlight: ["Low Light"],
@@ -32,7 +50,7 @@ const plantRecommendations = [
   {
     id: 3,
     name: "Pothos",
-    image: "",
+    image: pothos,
     climate: ["Humid", "Moderate"],
     location: ["Indoors", "Both"],
     sunlight: ["Low Light", "Partial Sun"],
@@ -46,7 +64,7 @@ const plantRecommendations = [
   {
     id: 4,
     name: "Peace Lily",
-    image: "",
+    image: peacelilyplant,
     climate: ["Humid", "Moderate"],
     location: ["Indoors"],
     sunlight: ["Low Light", "Partial Sun"],
@@ -61,7 +79,7 @@ const plantRecommendations = [
   {
     id: 5,
     name: "Spider Plant",
-    image: "",
+    image: spiderplant,
     climate: ["Moderate", "Humid"],
     location: ["Indoors", "Both"],
     sunlight: ["Partial Sun", "Low Light"],
@@ -75,7 +93,7 @@ const plantRecommendations = [
   {
     id: 6,
     name: "Monstera",
-    image: "",
+    image: monstera,
     climate: ["Humid", "Moderate"],
     location: ["Indoors"],
     sunlight: ["Partial Sun"],
@@ -89,7 +107,7 @@ const plantRecommendations = [
   {
     id: 7,
     name: "Aloe Vera",
-    image: "",
+    image: aloevera,
     climate: ["Dry"],
     location: ["Indoors", "Outdoors", "Both"],
     sunlight: ["Full Sun", "Partial Sun"],
@@ -103,7 +121,7 @@ const plantRecommendations = [
   {
     id: 8,
     name: "Succulent Mix",
-    image: "",
+    image: succulentmix,
     climate: ["Dry"],
     location: ["Indoors", "Outdoors", "Both"],
     sunlight: ["Full Sun"],
@@ -117,7 +135,7 @@ const plantRecommendations = [
   {
     id: 9,
     name: "Money Plant",
-    image: "",
+    image: moneyplant,
     climate: ["Moderate", "Humid"],
     location: ["Indoors", "Both"],
     sunlight: ["Low Light", "Partial Sun"],
@@ -145,7 +163,7 @@ const plantRecommendations = [
   {
     id: 11,
     name: "Rubber Plant",
-    image: "",
+    image: rubberplant,
     climate: ["Moderate"],
     location: ["Indoors"],
     sunlight: ["Partial Sun"],
@@ -159,7 +177,7 @@ const plantRecommendations = [
   {
     id: 12,
     name: "Fiddle Leaf Fig",
-    image: "",
+    image: fiddleleaffig,
     climate: ["Moderate", "Humid"],
     location: ["Indoors"],
     sunlight: ["Full Sun", "Partial Sun"],
@@ -173,7 +191,7 @@ const plantRecommendations = [
   {
     id: 13,
     name: "Orchid",
-    image: "",
+    image: orchidplant,
     climate: ["Humid"],
     location: ["Indoors"],
     sunlight: ["Partial Sun"],
@@ -201,7 +219,7 @@ const plantRecommendations = [
   {
     id: 15,
     name: "Bougainvillea",
-    image: "",
+    image: bougainvillea,
     climate: ["Dry"],
     location: ["Outdoors"],
     sunlight: ["Full Sun"],
@@ -215,7 +233,7 @@ const plantRecommendations = [
   {
     id: 16,
     name: "Hibiscus",
-    image: "",
+    image: hibiscus,
     climate: ["Humid", "Moderate"],
     location: ["Outdoors"],
     sunlight: ["Full Sun"],
@@ -229,7 +247,7 @@ const plantRecommendations = [
   {
     id: 17,
     name: "Jade Plant",
-    image: "",
+    image: jadeplant,
     climate: ["Dry", "Moderate"],
     location: ["Indoors", "Both"],
     sunlight: ["Full Sun", "Partial Sun"],
@@ -257,7 +275,7 @@ const plantRecommendations = [
   {
     id: 19,
     name: "Lavender",
-    image: "",
+    image: lavenderplant,
     climate: ["Dry"],
     location: ["Outdoors", "Both"],
     sunlight: ["Full Sun"],
@@ -271,7 +289,7 @@ const plantRecommendations = [
   {
     id: 20,
     name: "Fern",
-    image: "",
+    image: fern,
     climate: ["Humid"],
     location: ["Indoors", "Both"],
     sunlight: ["Low Light", "Partial Sun"],
