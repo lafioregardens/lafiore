@@ -631,7 +631,7 @@
   }
 
   .product-detail-info {
-    max-height: 50vh;
+    max-height: none;
   }
 
   .product-detail-info h1 {

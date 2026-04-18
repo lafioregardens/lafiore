@@ -154,3 +154,25 @@
   background: var(--green-deep);
   transform: translateY(-2px);
 }
+
+@media (max-width: 768px) {
+  .account-page {
+    padding-top: 200px;
+  }
+
+  .account-card {
+    padding: 24px;
+  }
+
+  .account-hero h1 {
+    font-size: 28px;
+  }
+
+  .account-hero p {
+    font-size: 14px;
+  }
+
+  .account-section h2 {
+    font-size: 18px;
+  }
+}

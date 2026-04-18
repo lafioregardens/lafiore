@@ -753,9 +753,18 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
    ============================================ */
 
 @media (max-width: 768px) {
+  .checkout-page {
+    padding: 200px 20px 60px;
+  }
+
   .checkout-container {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .checkout-title {
+    font-size: 28px;
+    margin-bottom: 30px;
   }
 
   .checkout-summary-section {

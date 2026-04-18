@@ -282,10 +282,14 @@
    ============================================ */
 
 @media (max-width: 768px) {
+  .service-detail-page {
+    padding-top: 200px;
+  }
+
   .service-hero {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 80px 20px 60px;
+    padding: 60px 20px 60px;
   }
 
   .service-hero-image {

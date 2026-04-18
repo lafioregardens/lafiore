@@ -1932,6 +1932,103 @@ button:hover .btn-arrow, a:hover .btn-arrow { transform: translateX(4px); }
     padding: 4px;
     font-size: 16px;
   }
+
+  /* page padding-top adjustments for navbar height */
+  .shop-page { padding-top: 200px; }
+  .cart-page { padding-top: 200px; }
+  .checkout-page { padding-top: 200px; }
+  .consultation-page { padding-top: 200px; }
+  .order-success-page { padding-top: 200px; }
+  .wishlist-page { padding-top: 200px; }
+  .search-results-page { padding-top: 200px; }
+  .account-page { padding-top: 200px; }
+  .order-tracking-page { padding-top: 200px; }
+  .tracking-details-page { padding-top: 200px; }
+  .service-page { padding-top: 200px; }
+  .delivery-info-page { padding-top: 200px; }
+  .care-guide-page { padding-top: 200px; }
+
+  /* cart page specific fixes */
+  .cart-hero {
+    padding: 40px 24px;
+  }
+
+  .cart-title {
+    font-size: 32px;
+  }
+
+  .cart-hero p {
+    font-size: 14px;
+  }
+
+  /* shop page specific fixes */
+  .shop-banner h1 {
+    font-size: 42px;
+  }
+
+  .shop-topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .shop-topbar-filters {
+    width: 100%;
+  }
+
+  /* consultation page specific fixes */
+  .consultation-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .consultation-hero h1 {
+    font-size: 42px;
+  }
+
+  /* checkout title fix */
+  .checkout-title {
+    font-size: 28px;
+  }
+
+  /* customize bouquet page fixes */
+  .custom-bouquet-hero {
+    padding: 40px 24px;
+  }
+
+  .custom-bouquet-hero h1 {
+    font-size: 38px;
+    margin-bottom: 12px;
+  }
+
+  .custom-bouquet-hero p {
+    font-size: 16px;
+  }
+
+  .bouquet-page-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* consultation page hero fixes */
+  .consultation-hero-content h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .consultation-hero-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .consultation-hero-image {
+    height: 400px;
+  }
+
+  .consultation-service-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
@@ -6670,7 +6767,7 @@ select option {
 /* Responsive Design */
 @media (max-width: 768px) {
   .policy-page {
-    padding: 170px 16px 60px;
+    padding: 200px 16px 60px;
   }
 
   .policy-container {
