@@ -4,6 +4,10 @@ import Footer from "../components/Footer";
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import home2 from "../assets/images/home2.png";
+import rose from "../assets/custombouquet/rose.jpg";
+import lavenderplant from "../assets/products/plants/lavenderplant.jpg";
+import candleSet from "../assets/products/candleset/desertbloom1.jpeg";
+import toolSet from "../assets/products/tools/wheelbarrow.jpg";
 /* ─────────────────────────────────────
    DATA
 ───────────────────────────────────── */
@@ -29,10 +33,10 @@ const reviews = [
 ];
 
 const products = [
-  { name: "Rose Deluxe Bouquet", price: "AED 200", tag: "Bestseller", image: "" },
-  { name: "Lavender Plant",      price: "AED 95",  tag: "New", image: "" },
-  { name: "Scented Candle Set",  price: "AED 60",  tag: null, image: "" },
-  { name: "Garden Tool Set",     price: "AED 60",  tag: null, image: "" },
+  { name: "Rose Deluxe Bouquet", price: "AED 200", tag: "Bestseller", image: rose },
+  { name: "Lavender Plant",      price: "AED 95",  tag: "New", image: lavenderplant },
+  { name: "Scented Candle Set",  price: "AED 60",  tag: null, image: candleSet },
+  { name: "Garden Tool Set",     price: "AED 60",  tag: null, image: toolSet },
 ];
 
 /* ─────────────────────────────────────
