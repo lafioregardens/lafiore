@@ -5,9 +5,9 @@ import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import home2 from "../assets/images/home2.png";
 import rose from "../assets/products/premadebouquet/crimsonpassion.jpeg";
-import lavenderplant from "../assets/products/plants/lavenderplant.jpg";
+import lavenderplant from "../assets/images/lavenderpl.jpg";
 import candleSet from "../assets/products/candleset/desertbloom1.jpeg";
-import toolSet from "../assets/products/gardenset/starterset.jpeg";
+import toolSet from "../assets/products/gardenset/starterset1.jpeg";
 import story from "../assets/images/story.jpg";
 import home1 from "../assets/images/home1.png";
 import home3 from "../assets/products/premadebouquet/blushserenity.jpeg";
@@ -447,7 +447,6 @@ function Home() {
                   <h3 className="feature-card-title">{card.title}</h3>
                   <p className="feature-card-desc">{card.desc}</p>
                   <Link to={card.link} className="feature-card-btn">
-                    <span>{card.price}</span>
                     <span className="btn-arrow">→</span>
                   </Link>
                 </div>
