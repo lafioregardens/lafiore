@@ -10,6 +10,7 @@ import candleSet from "../assets/products/candleset/desertbloom1.jpeg";
 import toolSet from "../assets/products/gardenset/starterset.jpeg";
 import story from "../assets/images/story.jpg";
 import home1 from "../assets/images/home1.png";
+import home3 from "../assets/products/premadebouquet/blushserenity.jpeg";
 /* ─────────────────────────────────────
    DATA
 ───────────────────────────────────── */
@@ -419,9 +420,8 @@ function Home() {
                 title: t("exquisiteBouquets"),
                 desc: t("expertlyCraftedBouquets"),
                 price: "AED 180",
-                icon: "🌸",
                 link: "/shop",
-                image: ""
+                image: home3
               },
               {
                 title: t("findPerfectPlant"),
