@@ -38,11 +38,11 @@ function CustomizeBouquet() {
     { id: 4, name: "Transparent Elegant Wrap", price: 20 },
   ];
 
-  // Bouquet size options and added prices
+  // Bouquet size options with flower counts and prices
   const sizeOptions = [
-    { id: 1, name: "Small", price: 0 },
-    { id: 2, name: "Medium", price: 20 },
-    { id: 3, name: "Large", price: 40 },
+    { id: 1, name: "Small", flowerCount: 6, price: 0 },
+    { id: 2, name: "Medium", flowerCount: 11, price: 20 },
+    { id: 3, name: "Large", flowerCount: 19, price: 40 },
   ];
 
   // Stores selected flowers with color + quantity
@@ -61,7 +61,21 @@ function CustomizeBouquet() {
   const addFlower = (flower, color) => {
     if (!color) return;
 
+    // Check if size is selected
+    if (!selectedSize) {
+      setValidationError("Please select a bouquet size first");
+      return;
+    }
+
     setSelectedFlowers((prev) => {
+      const totalFlowers = prev.reduce((sum, item) => sum + item.quantity, 0);
+
+      // Check if adding would exceed the limit
+      if (totalFlowers >= selectedSize.flowerCount) {
+        setValidationError(`Maximum ${selectedSize.flowerCount} flowers allowed for ${selectedSize.name} bouquet`);
+        return prev;
+      }
+
       const existingItem = prev.find(
         (item) => item.flowerId === flower.id && item.color === color
       );
@@ -89,13 +103,23 @@ function CustomizeBouquet() {
 
   // Increase quantity of one flower/color combination
   const increaseFlower = (flowerId, color) => {
-    setSelectedFlowers((prev) =>
-      prev.map((item) =>
+    if (!selectedSize) return;
+
+    setSelectedFlowers((prev) => {
+      const totalFlowers = prev.reduce((sum, item) => sum + item.quantity, 0);
+
+      // Check if adding would exceed the limit
+      if (totalFlowers >= selectedSize.flowerCount) {
+        setValidationError(`Maximum ${selectedSize.flowerCount} flowers allowed for ${selectedSize.name} bouquet`);
+        return prev;
+      }
+
+      return prev.map((item) =>
         item.flowerId === flowerId && item.color === color
           ? { ...item, quantity: item.quantity + 1 }
           : item
-      )
-    );
+      );
+    });
   };
 
   // Decrease quantity of one flower/color combination
@@ -135,8 +159,16 @@ function CustomizeBouquet() {
 
   // Handle next step with validation
   const handleNextStep = () => {
-    if (step === 1 && totalFlowersSelected < 4) {
+    if (step === 1 && !selectedSize) {
+      setValidationError("Please select a bouquet size");
+      return;
+    }
+    if (step === 2 && totalFlowersSelected < 4) {
       setValidationError(`Please select at least 4 flowers (currently ${totalFlowersSelected})`);
+      return;
+    }
+    if (step === 2 && totalFlowersSelected > selectedSize.flowerCount) {
+      setValidationError(`Too many flowers for ${selectedSize.name} bouquet (max ${selectedSize.flowerCount})`);
       return;
     }
     setValidationError("");
@@ -216,13 +248,13 @@ function CustomizeBouquet() {
         {/* Progress indicator */}
         <section className="bouquet-progress">
           <div className={step === 1 ? "progress-step active-step" : "progress-step"}>
-            1. Flowers
+            1. Size
           </div>
           <div className={step === 2 ? "progress-step active-step" : "progress-step"}>
-            2. Wrapping
+            2. Flowers
           </div>
           <div className={step === 3 ? "progress-step active-step" : "progress-step"}>
-            3. Size
+            3. Wrapping
           </div>
           <div className={step === 4 ? "progress-step active-step" : "progress-step"}>
             4. Review
@@ -235,13 +267,47 @@ function CustomizeBouquet() {
         <div className="bouquet-page-layout">
           {/* Left Column: Steps */}
           <section className="custom-bouquet-builder">
-            {/* STEP 1 */}
+            {/* STEP 1: SIZE */}
             {step === 1 && (
+              <div className="bouquet-step-section">
+                <h2>Select Bouquet Size</h2>
+
+                {validationError && (
+                  <div style={{ backgroundColor: "#fee2e2", border: "1px solid #fca5a5", color: "#b91c1c", padding: "12px", borderRadius: "6px", marginBottom: "16px", fontSize: "14px" }}>
+                    {validationError}
+                  </div>
+                )}
+
+                <div className="bouquet-option-grid">
+                  {sizeOptions.map((size) => (
+                    <button
+                      key={size.id}
+                      className={
+                        selectedSize?.id === size.id
+                          ? "bouquet-option-card selected-option-card"
+                          : "bouquet-option-card"
+                      }
+                      onClick={() => {
+                        setSelectedSize(size);
+                        setValidationError("");
+                      }}
+                    >
+                      <h3>{size.name}</h3>
+                      <p>{size.flowerCount} flowers</p>
+                      <p>{size.price === 0 ? "No extra charge" : `+ AED ${size.price}`}</p>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* STEP 2: FLOWERS */}
+            {step === 2 && (
               <div className="bouquet-step-section">
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
                   <h2 style={{ margin: 0 }}>Select Flowers</h2>
                   <span style={{ fontSize: "14px", color: totalFlowersSelected >= 4 ? "#667a4f" : "#c97c7c", fontWeight: "600" }}>
-                    {totalFlowersSelected}/4 required
+                    {totalFlowersSelected}/{selectedSize.flowerCount} max
                   </span>
                 </div>
 
@@ -260,14 +326,15 @@ function CustomizeBouquet() {
                       addFlower={addFlower}
                       increaseFlower={increaseFlower}
                       decreaseFlower={decreaseFlower}
+                      maxFlowers={selectedSize.flowerCount}
                     />
                   ))}
                 </div>
               </div>
             )}
 
-            {/* STEP 2 */}
-            {step === 2 && (
+            {/* STEP 3: WRAPPING */}
+            {step === 3 && (
               <div className="bouquet-step-section">
                 <h2>Select Wrapping</h2>
 
@@ -284,30 +351,6 @@ function CustomizeBouquet() {
                     >
                       <h3>{wrap.name}</h3>
                       <p>AED {wrap.price.toFixed(2)}</p>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* STEP 3 */}
-            {step === 3 && (
-              <div className="bouquet-step-section">
-                <h2>Select Size</h2>
-
-                <div className="bouquet-option-grid">
-                  {sizeOptions.map((size) => (
-                    <button
-                      key={size.id}
-                      className={
-                        selectedSize?.id === size.id
-                          ? "bouquet-option-card selected-option-card"
-                          : "bouquet-option-card"
-                      }
-                      onClick={() => setSelectedSize(size)}
-                    >
-                      <h3>{size.name}</h3>
-                      <p>{size.price === 0 ? "No extra charge" : `+ AED ${size.price}`}</p>
                     </button>
                   ))}
                 </div>
@@ -435,8 +478,8 @@ function CustomizeBouquet() {
                 <button
                   className="bouquet-nav-btn primary-btn"
                   onClick={handleNextStep}
-                  disabled={step === 1 && totalFlowersSelected < 4}
-                  style={step === 1 && totalFlowersSelected < 4 ? { opacity: "0.6", cursor: "not-allowed" } : {}}
+                  disabled={(step === 1 && !selectedSize) || (step === 2 && totalFlowersSelected < 4)}
+                  style={(step === 1 && !selectedSize) || (step === 2 && totalFlowersSelected < 4) ? { opacity: "0.6", cursor: "not-allowed" } : {}}
                 >
                   Next
                 </button>
@@ -466,6 +509,7 @@ function FlowerCard({
   addFlower,
   increaseFlower,
   decreaseFlower,
+  maxFlowers,
 }) {
   // Default selected color for this card
   const [selectedColor, setSelectedColor] = useState(flower.colors[0]);
