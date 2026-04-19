@@ -4,10 +4,10 @@ import Footer from "../components/Footer";
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import home2 from "../assets/images/home2.png";
-import rose from "../assets/custombouquet/rose.jpg";
+import rose from "../assets/products/premadebouquet/crimsonpassion.jpeg";
 import lavenderplant from "../assets/products/plants/lavenderplant.jpg";
-import candleSet from "../assets/products/candleset/desertbloom1.jpeg";
-import toolSet from "../assets/products/tools/wheelbarrow.jpg";
+import candleSet from "../assets/products/candleset/signaturescent.jpeg";
+import toolSet from "../assets/products/gardenset/starterset.jpeg";
 /* ─────────────────────────────────────
    DATA
 ───────────────────────────────────── */

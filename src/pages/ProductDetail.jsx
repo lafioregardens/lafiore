@@ -76,7 +76,7 @@ function ProductDetail() {
         <div className="product-detail-grid">
           <button
             className="product-close-btn"
-            onClick={() => navigate("/shop")}
+            onClick={() => navigate(-1)}
             aria-label="Close product details"
           >
             ✕
@@ -152,7 +152,7 @@ function ProductDetail() {
         {/* Close Button */}
         <button
           className="product-close-btn"
-          onClick={() => navigate("/shop")}
+          onClick={() => navigate(-1)}
           aria-label="Close product details"
         >
           ✕
