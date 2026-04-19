@@ -128,11 +128,15 @@ function Shop() {
       });
   }, []);
 
-  // Fetch reviews for paginated products to get accurate ratings
+  // Fetch reviews for filtered products to get accurate ratings
   useEffect(() => {
-    if (paginatedProducts.length === 0) return;
+    const startIndex = (currentPage - 1) * 12;
+    const endIndex = startIndex + 12;
+    const paginated = filteredProducts.slice(startIndex, endIndex);
 
-    paginatedProducts.forEach((product) => {
+    if (paginated.length === 0) return;
+
+    paginated.forEach((product) => {
       api
         .get(`/products/${product.id}/reviews`)
         .then((res) => {
@@ -147,7 +151,7 @@ function Shop() {
         })
         .catch(() => {});
     });
-  }, [paginatedProducts]);
+  }, [filteredProducts, currentPage]);
 
   const getPriceNumber = (price) => {
     // Handle both string (from local data) and number (from API)
