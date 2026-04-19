@@ -211,6 +211,46 @@ import olive from "../assets/products/seeds/olive.png";
 import palm from "../assets/products/seeds/palm.png";
 import astermix from "../assets/products/seeds/astermix.png";
 
+import nasturtiumf from "../assets/products/flowers/nasturtiumf.jpg";
+import violetf from "../assets/products/flowers/violetf.jpg";
+import boragef from "../assets/products/flowers/boragef.jpg";
+import squashblossomf from "../assets/products/flowers/squashblossomf.jpg";
+import dandelionf from "../assets/products/flowers/dandelionf.jpg";
+import cornflowerf from "../assets/products/flowers/cornflowerf.jpg";
+import pansyf from "../assets/products/flowers/pansyf.jpg";
+import honeysucklef from "../assets/products/flowers/honeysucklef.jpg";
+import chiveblossomf from "../assets/products/flowers/chiveblossomf.jpg";
+import beebalmf from "../assets/products/flowers/beebalmf.jpg";
+import daisyf from "../assets/products/flowers/daisyf.jpg";
+import chrysanthemumf from "../assets/products/flowers/chrysanthemumf.jpg";
+import johnf from "../assets/products/flowers/johnf.jpg";
+import passionf from "../assets/products/flowers/passionf.jpg";
+import yarrowf from "../assets/products/flowers/yarrowf.jpg";
+import primrosef from "../assets/products/flowers/primrosef.jpg";
+import valerinef from "../assets/products/flowers/valerinef.jpg";
+import feverfewf from "../assets/products/flowers/feverfewf.jpg";
+import Mulleinf from "../assets/products/flowers/Mulleinf.jpg";
+import arnicaf from "../assets/products/flowers/arnicaf.jpg";
+import calendulaf from "../assets/products/flowers/calendulaf.jpg";
+import poppyf from "../assets/products/flowers/poppyf.jpg";
+import lilyf from "../assets/products/flowers/lilyf.jpg";
+import marigoldf from "../assets/products/flowers/marigoldf.jpg";
+import rosef from "../assets/products/flowers/rosef.jpg";
+import peonyf from "../assets/products/flowers/peonyf.jpg";
+import orchidf from "../assets/products/flowers/orchidf.jpg";
+import lilacf from "../assets/products/flowers/lilacf.jpg";
+import gerberadaisyf from "../assets/products/flowers/gerberadaisyf.jpg";
+import carnationf from "../assets/products/flowers/carnationf.jpg";
+import irisf from "../assets/products/flowers/irisf.jpg";
+import anemonef from "../assets/products/flowers/anemonef.jpg";
+import gladiolusf from "../assets/products/flowers/gladiolusf.jpg";
+import bopf from "../assets/products/flowers/bopf.jpg";
+import babyf from "../assets/products/flowers/babyf.jpg";
+import daffodilf from "../assets/products/flowers/daffodilf.jpg";
+import asterf from "../assets/products/flowers/asterf.jpg";
+import narcissusf from "../assets/products/flowers/narcissusf.jpg";
+import tulipf from "../assets/products/flowers/tulipf.jpg";
+
 const p = (
   id,
   name,
@@ -1008,7 +1048,7 @@ const products = [
     "A fast-growing flowering plant with bright blooms and peppery-tasting leaves and flowers. Commonly used in salads and as a garnish.",
     ["Flower", "Edible"],
     4,
-    "",
+    nasturtiumf,
     ["Edible"]
   ),
   p(
@@ -1019,7 +1059,7 @@ const products = [
     "A small flowering plant with delicate blooms often used in desserts and decorative dishes. It prefers cool conditions and light shade.",
     ["Flower", "Edible"],
     4,
-    "",
+    violetf,
     ["Edible"]
   ),
   p(
@@ -1030,7 +1070,7 @@ const products = [
     "A flowering herb with star-shaped blue flowers that are edible and mild in flavor. It grows easily in gardens and attracts pollinators.",
     ["Flower", "Edible"],
     4,
-    "",
+    boragef,
     ["Edible"]
   ),
   p(
@@ -1041,7 +1081,7 @@ const products = [
     "The edible flower of squash plants, commonly used in cooking and stuffing. Best harvested fresh and grown in sunny garden areas.",
     ["Flower", "Edible"],
     4,
-    "",
+    squashblossomf,
     ["Edible"]
   ),
   p(
@@ -1052,7 +1092,7 @@ const products = [
     "A hardy plant with edible leaves and flowers often used in salads and herbal preparations.",
     ["Flower", "Edible"],
     4,
-    "",
+    dandelionf,
     ["Edible"]
   ),
   p(
@@ -1063,7 +1103,7 @@ const products = [
     "A flowering plant with bright blue petals used as an edible garnish. Adds color to salads and desserts.",
     ["Flower", "Edible"],
     4,
-    "",
+    cornflowerf,
     ["Edible"]
   ),
   p(
@@ -1074,7 +1114,7 @@ const products = [
     "A cool-season flowering plant with colorful edible petals. Often used for decorating cakes, salads, and drinks.",
     ["Flower", "Edible"],
     4,
-    "",
+    pansyf,
     ["Edible"]
   ),
   p(
@@ -1085,7 +1125,7 @@ const products = [
     "A climbing plant with sweet-scented flowers that produce edible nectar. Commonly grown on trellises and fences.",
     ["Flower", "Edible"],
     4,
-    "",
+    honeysucklef,
     ["Edible"]
   ),
   p(
@@ -1096,7 +1136,7 @@ const products = [
     "The edible flower of the chive plant, known for its mild onion flavor. Used to enhance salads, soups, and savory dishes.",
     ["Flower", "Edible"],
     4,
-    "",
+    chiveblossomf,
     ["Edible"]
   ),
   p(
@@ -1107,7 +1147,7 @@ const products = [
     "A flowering herb with edible petals and leaves that have a mild citrus flavor. Commonly used in teas and as a garnish.",
     ["Flower", "Edible"],
     4,
-    "",
+    beebalmf,
     ["Edible"]
   ),
   p(
@@ -1118,7 +1158,7 @@ const products = [
     "A cheerful flower appreciated for its simple beauty and wide decorative use. It is also commonly grouped among edible and medicinal flower varieties.",
     ["Flower", "Decorative"],
     4,
-    "",
+    daisyf,
     ["Edible", "Medicinal"]
   ),
   p(
@@ -1129,7 +1169,7 @@ const products = [
     "A classic flower known for its layered blooms and ornamental value. Some varieties are also valued for edible and herbal use.",
     ["Flower", "Decorative"],
     4,
-    "",
+    chrysanthemumf,
     ["Edible", "Medicinal"]
   ),
   p(
@@ -1140,7 +1180,7 @@ const products = [
     "A flowering plant traditionally used in herbal remedies. Known for its bright yellow blooms and commonly grown in garden beds.",
     ["Flower", "Medicinal"],
     4,
-    "",
+    johnf,
     ["Medicinal"]
   ),
   p(
@@ -1151,7 +1191,7 @@ const products = [
     "A climbing plant with striking flowers, often used in traditional herbal preparations.",
     ["Flower", "Medicinal"],
     4,
-    "",
+    passionf,
     ["Medicinal"]
   ),
   p(
@@ -1162,7 +1202,7 @@ const products = [
     "A hardy flowering plant valued for its traditional medicinal uses. Commonly grown in gardens and meadows.",
     ["Flower", "Medicinal"],
     4,
-    "",
+    yarrowf,
     ["Medicinal"]
   ),
   p(
@@ -1173,7 +1213,7 @@ const products = [
     "A low-growing flowering plant with soft colorful blooms. Traditionally used in herbal remedies and ornamental garden settings.",
     ["Flower", "Medicinal"],
     4,
-    "",
+    primrosef,
     ["Medicinal"]
   ),
   p(
@@ -1184,7 +1224,7 @@ const products = [
     "A tall flowering plant grown for its roots, which are used in traditional herbal preparations.",
     ["Flower", "Medicinal"],
     4,
-    "",
+    valerinef,
     ["Medicinal"]
   ),
   p(
@@ -1195,7 +1235,7 @@ const products = [
     "A small flowering plant traditionally used in herbal medicine. It grows easily in gardens and produces daisy-like blooms.",
     ["Flower", "Medicinal"],
     4,
-    "",
+    feverfewf,
     ["Medicinal"]
   ),
   p(
@@ -1206,7 +1246,7 @@ const products = [
     "A tall plant with soft velvety leaves and yellow flowers. Commonly grown for traditional medicinal purposes.",
     ["Flower", "Medicinal"],
     4,
-    "",
+    Mulleinf,
     ["Medicinal"]
   ),
   p(
@@ -1217,7 +1257,7 @@ const products = [
     "A flowering plant known for its traditional use in topical herbal applications.",
     ["Flower", "Medicinal"],
     4,
-    "",
+    arnicaf,
     ["Medicinal"]
   ),
   p(
@@ -1228,7 +1268,7 @@ const products = [
     "A bright flowering plant often used in herbal skincare products. Easy to grow and suitable for garden beds and pots.",
     ["Flower", "Medicinal"],
     4,
-    "",
+    calendulaf,
     ["Medicinal"]
   ),
   p(
@@ -1239,7 +1279,7 @@ const products = [
     "A flowering plant with soft colorful petals. Certain varieties are traditionally used for medicinal purposes and ornamental display.",
     ["Flower", "Medicinal"],
     4,
-    "",
+    poppyf,
     ["Medicinal"]
   ),
   p(
@@ -1250,7 +1290,7 @@ const products = [
     "An elegant flower admired for its graceful petals, fragrance, and decorative appeal. It is also often grouped under ornamental and medicinal floral collections.",
     ["Flower", "Elegant"],
     5,
-    "",
+    lilyf,
     ["Normal", "Medicinal", "Edible"]
   ),
   p(
@@ -1261,7 +1301,7 @@ const products = [
     "A bright flower known for its vivid color and easy growth. It is commonly appreciated for both ornamental beauty and traditional soothing uses.",
     ["Flower", "Bright"],
     4,
-    "",
+    marigoldf,
     ["Medicinal", "Edible"]
   ),
   p(
@@ -1272,7 +1312,7 @@ const products = [
     "A classic flowering plant admired for its layered blooms and fragrance. Commonly used in gardens, borders, and decorative arrangements.",
     ["Flower", "Ornamental"],
     5,
-    "",
+    rosef,
     ["Normal"]
   ),
   p(
@@ -1283,7 +1323,7 @@ const products = [
     "A flowering plant known for its large full blooms and soft colors. Popular in garden beds and floral displays.",
     ["Flower", "Ornamental"],
     5,
-    "",
+    peonyf,
     ["Normal"]
   ),
   p(
@@ -1294,7 +1334,7 @@ const products = [
     "An elegant flowering plant valued for its long-lasting blooms and refined appearance. Commonly grown indoors or in controlled environments.",
     ["Flower", "Elegant"],
     5,
-    "",
+    orchidf,
     ["Normal"]
   ),
   p(
@@ -1305,7 +1345,7 @@ const products = [
     "A flowering shrub with clusters of fragrant blooms. Adds color and scent to gardens during the spring season.",
     ["Flower", "Fragrant"],
     4,
-    "",
+    lilacf,
     ["Normal"]
   ),
   p(
@@ -1316,7 +1356,7 @@ const products = [
     "A bright flowering plant with bold colorful blooms. Often used in decorative garden beds and floral arrangements.",
     ["Flower", "Decorative"],
     4,
-    "",
+    gerberadaisyf,
     ["Normal"]
   ),
   p(
@@ -1327,7 +1367,7 @@ const products = [
     "A flowering plant with ruffled petals and a light fragrance. Suitable for garden planting and cut-flower use.",
     ["Flower", "Classic"],
     4,
-    "",
+    carnationf,
     ["Normal"]
   ),
   p(
@@ -1338,7 +1378,7 @@ const products = [
     "A flowering plant known for its distinctive petal shape and rich colors. Grows well in garden borders and beds.",
     ["Flower", "Garden"],
     4,
-    "",
+    irisf,
     ["Normal"]
   ),
   p(
@@ -1349,7 +1389,7 @@ const products = [
     "A flowering plant with simple elegant blooms. Commonly grown in garden beds and used in floral arrangements.",
     ["Flower", "Elegant"],
     4,
-    "",
+    anemonef,
     ["Normal"]
   ),
   p(
@@ -1360,7 +1400,7 @@ const products = [
     "A tall flowering plant with blooms arranged along upright stems. Adds height and structure to garden displays.",
     ["Flower", "Tall"],
     4,
-    "",
+    gladiolusf,
     ["Normal"]
   ),
   p(
@@ -1371,7 +1411,7 @@ const products = [
     "A striking flowering plant with bold tropical-shaped blooms. Often used as a focal point in gardens and decorative displays.",
     ["Flower", "Tropical"],
     5,
-    "",
+    bopf,
     ["Normal"]
   ),
   p(
@@ -1382,7 +1422,7 @@ const products = [
     "A delicate flowering plant with tiny white blooms growing in soft clusters. Commonly used in bouquets and decorative floral arrangements.",
     ["Flower", "Bouquet"],
     4,
-    "",
+    babyf,
     ["Normal"]
   ),
   p(
@@ -1393,7 +1433,7 @@ const products = [
     "A fresh cheerful flower with bright spring character. It is widely appreciated for ornamental garden use and seasonal floral displays.",
     ["Flower", "Spring"],
     4,
-    "",
+    daffodilf,
     ["Normal"]
   ),
   p(
@@ -1404,7 +1444,7 @@ const products = [
     "A graceful ornamental flower known for its daisy-like form and rich color range. It adds soft seasonal beauty to beds and borders.",
     ["Flower", "Decorative"],
     4,
-    "",
+    asterf,
     ["Normal", "Medicinal"]
   ),
   p(
@@ -1415,7 +1455,7 @@ const products = [
     "A classic ornamental flower valued for its elegant structure and spring appeal. It is often planted in borders and decorative floral settings.",
     ["Flower", "Spring"],
     4,
-    "",
+    narcissusf,
     ["Normal"]
   ),
   p(
@@ -1426,7 +1466,7 @@ const products = [
     "A beloved ornamental flower known for its clean cup-shaped bloom and soft seasonal elegance. It is popular in gardens and gift arrangements.",
     ["Flower", "Seasonal"],
     4,
-    "",
+    tulipf,
     ["Normal"]
   ),
 
