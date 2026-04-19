@@ -70,6 +70,7 @@ function Shop() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
+  const [productReviews, setProductReviews] = useState({});
 
   const productsPerPage = 12;
 
@@ -126,6 +127,27 @@ function Shop() {
         setProducts(withStock);
       });
   }, []);
+
+  // Fetch reviews for paginated products to get accurate ratings
+  useEffect(() => {
+    if (paginatedProducts.length === 0) return;
+
+    paginatedProducts.forEach((product) => {
+      api
+        .get(`/products/${product.id}/reviews`)
+        .then((res) => {
+          const reviews = res.data?.data || [];
+          if (reviews.length > 0) {
+            const avgRating = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+            setProductReviews((prev) => ({
+              ...prev,
+              [product.id]: Math.round(avgRating * 10) / 10,
+            }));
+          }
+        })
+        .catch(() => {});
+    });
+  }, [paginatedProducts]);
 
   const getPriceNumber = (price) => {
     // Handle both string (from local data) and number (from API)
@@ -442,10 +464,10 @@ function Shop() {
                         <div className="shop-card-content">
                           <div className="shop-card-rating-row">
                             <span className="shop-card-stars">
-                              {renderStars(product.rating)}
+                              {renderStars(productReviews[product.id] !== undefined ? productReviews[product.id] : product.rating)}
                             </span>
                             <span className="shop-card-rating-number">
-                              {product.rating}.0
+                              {(productReviews[product.id] !== undefined ? productReviews[product.id] : product.rating).toFixed(1)}
                             </span>
                           </div>
 
