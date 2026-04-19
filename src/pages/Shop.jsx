@@ -319,7 +319,7 @@ function Shop() {
         </section>
 
         <section className="shop-layout">
-          <aside className={`shop-sidebar mobile ${mobileSidebarOpen ? "open" : ""}`}>
+          <aside className="shop-sidebar">
             <div className="shop-sidebar-box">
               <h3>{t("categories")}</h3>
 
@@ -406,13 +406,6 @@ function Shop() {
             ) : (
               <>
                 <div className="shop-topbar">
-                  <button
-                    className="shop-sidebar-toggle visible"
-                    onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
-                    aria-label="Toggle sidebar"
-                  >
-                    ☰
-                  </button>
                   <input
                     type="text"
                     className="shop-search-input"

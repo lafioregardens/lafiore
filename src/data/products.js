@@ -21,7 +21,7 @@ import hibiscus from "../assets/products/plants/hibiscus.jpg";
 import hosta from "../assets/products/plants/hosta.jpg";
 import hydrangea from "../assets/products/plants/hydrangea.jpg";
 import jadeplant from "../assets/products/plants/jadeplant.jpg";
-import lavenderplant from "../assets/products/plants/lavenderplant.jpg";
+import lavenderpl from "../assets/images/lavenderpl.jpg";
 import moneyplant from "../assets/products/plants/moneyplant.jpg";
 import monstera from "../assets/products/plants/monstera.jpg";
 import orchidplant from "../assets/products/plants/orchidplant.jpg";
@@ -421,7 +421,7 @@ const products = [
     "A flowering plant recognized for its calming fragrance and purple blooms. It thrives in sunny areas with well-drained soil.",
     ["Outdoor", "Fragrant"],
     5,
-    lavenderplant,
+    lavenderpl,
     ["Outdoor", "Medicinal"]
   ),
   p(

@@ -393,15 +393,6 @@ function PlantFinder() {
 
         {/* Main Content - Sidebar + Results */}
         <section className="plant-finder-container">
-          {/* Mobile Hamburger Button */}
-          <button
-            className="plant-finder-toggle"
-            onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
-            aria-label="Toggle filters"
-          >
-            ☰
-          </button>
-
           {/* Sidebar Overlay */}
           {mobileSidebarOpen && (
             <div
@@ -411,7 +402,7 @@ function PlantFinder() {
           )}
 
           {/* Sidebar Filters */}
-          <aside className={`plant-finder-sidebar ${mobileSidebarOpen ? "open" : ""}`}>
+          <aside className="plant-finder-sidebar">
             <h2>{t("tellUsSpace")}</h2>
 
             {filterSections.map((section) => (
