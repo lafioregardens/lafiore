@@ -207,11 +207,21 @@ function Shop() {
     (_, index) => startPage + index
   );
 
-  // Fetch reviews for paginated products to get accurate ratings
+  // Fetch reviews for displayed products to get accurate ratings
   useEffect(() => {
-    if (paginatedProducts.length === 0) return;
+    if (!filteredProducts || filteredProducts.length === 0) return;
 
-    paginatedProducts.forEach((product) => {
+    // Fetch reviews for filtered products, showing in batches to avoid too many requests
+    const startIdx = (currentPage - 1) * 12;
+    const endIdx = Math.min(startIdx + 12, filteredProducts.length);
+    const productsToFetch = filteredProducts.slice(startIdx, endIdx);
+
+    if (productsToFetch.length === 0) return;
+
+    productsToFetch.forEach((product) => {
+      // Skip if we already have this review
+      if (productReviews[product.id] !== undefined) return;
+
       api
         .get(`/products/${product.id}/reviews`)
         .then((res) => {
@@ -226,7 +236,7 @@ function Shop() {
         })
         .catch(() => {});
     });
-  }, [paginatedProducts]);
+  }, [filteredProducts, currentPage]);
 
   const handleMainCategoryChange = (categoryName) => {
     let newCategory, newSubcategory;
