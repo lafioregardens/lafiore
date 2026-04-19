@@ -76,8 +76,13 @@ function Shop() {
     api
       .get("/products?limit=500", { timeout: 15000 }) // 15 second timeout for product list
       .then((res) => {
-        const apiProducts = res.data?.data?.products;
-        console.log("Products fetched from API:", apiProducts?.length, "products");
+        // Handle different possible API response structures
+        let apiProducts = res.data?.data?.products || res.data?.data || res.data?.products || res.data;
+        // Ensure it's an array
+        if (!Array.isArray(apiProducts)) {
+          apiProducts = [];
+        }
+        console.log("Products fetched from API:", apiProducts?.length, "products", "Response:", res.data);
         if (apiProducts && apiProducts.length > 0) {
           // Use API products as primary source
           const mergedProducts = apiProducts.map((apiProduct) => {
