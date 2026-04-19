@@ -6,8 +6,10 @@ import { useLanguage } from "../context/LanguageContext";
 import home2 from "../assets/images/home2.png";
 import rose from "../assets/products/premadebouquet/crimsonpassion.jpeg";
 import lavenderplant from "../assets/products/plants/lavenderplant.jpg";
-import candleSet from "../assets/products/candleset/signaturescent.jpeg";
+import candleSet from "../assets/products/candleset/desertbloom1.jpeg";
 import toolSet from "../assets/products/gardenset/starterset.jpeg";
+import story from "../assets/images/story.jpg";
+import home1 from "../assets/images/home1.png";
 /* ─────────────────────────────────────
    DATA
 ───────────────────────────────────── */
@@ -41,7 +43,7 @@ const products = [
 
 /* ─────────────────────────────────────
    HERO CANVAS
-   Side trees + petals — matches screenshot
+   Side trees + petals 
 ───────────────────────────────────── */
 function HeroCanvas() {
   const canvasRef = useRef(null);
@@ -432,9 +434,8 @@ function Home() {
                 title: t("customArrangements"),
                 desc: t("createBespokeBouquet"),
                 price: "AED 170",
-                icon: "✨",
                 link: "/customize",
-                image: ""
+                image: home1
               },
             ].map((card, i) => (
               <div key={i} className="feature-card" style={{ "--delay": `${i * 0.12}s` }}>
@@ -490,7 +491,7 @@ function Home() {
         <section ref={aboutRef} className={`about-section ${aboutIn ? "visible" : ""}`}>
           <div className="about-image-col">
             <div className="about-img-main">
-              <div style={{ color: "#D8896F", fontSize: "120px", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", height: "400px" }}>🌿</div>
+              <img src={story} alt="LaFiore Story" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
           </div>
           <div className="about-text-col">
