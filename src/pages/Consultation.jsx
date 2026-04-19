@@ -99,7 +99,9 @@ function Consultation() {
       <main className="consultation-page">
         {/* HERO SECTION */}
         <section className="consultation-hero">
-          <div className="consultation-hero-image"></div>
+          <div className="consultation-hero-image">
+            <img src={gardenImg} alt="Beautiful Garden Design" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "16px" }} />
+          </div>
 
           <div className="consultation-hero-content">
             <p className="consultation-eyebrow">{t("laFioreConsultation")}</p>
