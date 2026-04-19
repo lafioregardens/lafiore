@@ -55,6 +55,15 @@ function ProductDetail() {
 
   const care = getCareGuide(product);
 
+  // Reset quantity when stock changes or is 0
+  useEffect(() => {
+    if (product?.stock !== undefined && product?.stock <= 0) {
+      setQuantity(1);
+    } else if (product?.stock !== undefined && quantity > product.stock) {
+      setQuantity(Math.min(quantity, product.stock));
+    }
+  }, [product?.stock]);
+
   useEffect(() => {
     if (!product) return;
     api
@@ -247,14 +256,14 @@ function ProductDetail() {
             </div>
           )}
 
-          <div className="product-actions-row">
+          <div className="product-actions-row" style={{ opacity: product?.stock !== undefined && product?.stock <= 0 ? 0.5 : 1 }}>
             <div className="product-quantity">
               <label>{t("quantity")}</label>
               <div className="quantity-controls">
                 <button
                   type="button"
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  disabled={quantity <= 1}
+                  disabled={quantity <= 1 || product?.stock <= 0}
                 >
                   −
                 </button>
@@ -265,7 +274,7 @@ function ProductDetail() {
                     const maxStock = (product?.stock !== undefined && product?.stock > 0) ? product.stock : 1;
                     return Math.min(q + 1, maxStock);
                   })}
-                  disabled={product?.stock === undefined || product?.stock === 0 || quantity >= product.stock}
+                  disabled={product?.stock === undefined || product?.stock <= 0 || quantity >= product?.stock}
                 >
                   +
                 </button>
@@ -275,9 +284,13 @@ function ProductDetail() {
             <button
               className="product-add-btn"
               onClick={handleAddToCart}
-              disabled={product?.stock !== undefined && product?.stock === 0}
+              disabled={product?.stock !== undefined && product?.stock <= 0}
+              style={{
+                opacity: product?.stock !== undefined && product?.stock <= 0 ? 0.5 : 1,
+                cursor: product?.stock !== undefined && product?.stock <= 0 ? "not-allowed" : "pointer",
+              }}
             >
-              {product?.stock !== undefined && product?.stock === 0 ? t("outOfStock") : t("addToCart")}
+              {product?.stock !== undefined && product?.stock <= 0 ? t("outOfStock") : t("addToCart")}
             </button>
           </div>
 
