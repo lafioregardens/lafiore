@@ -56,8 +56,9 @@ function Shop() {
   const { t } = useLanguage();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Initialize with local products, will be replaced by API data
-  const [products, setProducts] = useState(localProducts);
+  // Initialize as null until API data loads
+  const [products, setProducts] = useState(null);
+  const [isLoadingProducts, setIsLoadingProducts] = useState(true);
 
   // Read category from URL, default to "All"
   const [selectedMainCategory, setSelectedMainCategory] = useState(searchParams.get("category") || "All");
@@ -71,6 +72,7 @@ function Shop() {
 
   // Fetch products from API to get stock information
   useEffect(() => {
+    setIsLoadingProducts(true);
     api
       .get("/products?limit=500", { timeout: 15000 }) // 15 second timeout for product list
       .then((res) => {
@@ -102,14 +104,17 @@ function Shop() {
           });
           console.log("Merged products, displaying:", mergedProducts.length);
           setProducts(mergedProducts);
+          setIsLoadingProducts(false);
         } else {
           console.warn("No products from API, using local fallback");
           setProducts(localProducts);
+          setIsLoadingProducts(false);
         }
       })
       .catch((err) => {
         console.error("Failed to fetch products from API:", err.message);
         setProducts(localProducts);
+        setIsLoadingProducts(false);
       });
   }, []);
 
@@ -122,7 +127,7 @@ function Shop() {
     return Number((price || "").replace("AED", "").replace(/,/g, "").trim()) || 0;
   };
 
-  const allPrices = products
+  const allPrices = (products || [])
     .map((product) => getPriceNumber(product.price))
     .filter((price) => price > 0);
 
@@ -137,6 +142,7 @@ function Shop() {
   const availableSubcategories = activeCategoryObject.subcategories || [];
 
   const filteredProducts = useMemo(() => {
+    if (!products) return [];
     let result = products.filter((product) => {
       const matchesMainCategory =
         selectedMainCategory === "All" ||
@@ -390,21 +396,27 @@ function Shop() {
           </aside>
 
           <div className="shop-content">
-            <div className="shop-topbar">
-              <input
-                type="text"
-                className="shop-search-input"
-                placeholder={t("searchProducts")}
-                value={searchTerm}
-                onChange={handleSearchChange}
-              />
+            {isLoadingProducts ? (
+              <div style={{ textAlign: "center", padding: "60px 20px" }}>
+                <p style={{ fontSize: "18px", color: "#999" }}>{t("loading") || "Loading products..."}</p>
+              </div>
+            ) : (
+              <>
+                <div className="shop-topbar">
+                  <input
+                    type="text"
+                    className="shop-search-input"
+                    placeholder={t("searchProducts")}
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                  />
 
-              <p className="shop-results-count">
-                {filteredProducts.length} {t("productsFound")}
-              </p>
-            </div>
+                  <p className="shop-results-count">
+                    {filteredProducts.length} {t("productsFound")}
+                  </p>
+                </div>
 
-            {paginatedProducts.length > 0 ? (
+                {paginatedProducts.length > 0 ? (
               <>
                 <div className="shop-grid">
                   {paginatedProducts.map((product) => (
@@ -533,11 +545,13 @@ function Shop() {
                   </div>
                 )}
               </>
-            ) : (
-              <div className="shop-empty-box">
-                <h2>{t("noProductsFound")}</h2>
-                <p>{t("tryChangingFilter")}</p>
-              </div>
+                ) : (
+                  <div className="shop-empty-box">
+                    <h2>{t("noProductsFound")}</h2>
+                    <p>{t("tryChangingFilter")}</p>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </section>
