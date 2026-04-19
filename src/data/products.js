@@ -258,7 +258,6 @@ import cowpoultrymanure from "../assets/products/soil&fertilizer/cowpoultrymanur
 import organicvermicompost from "../assets/products/soil&fertilizer/organicvermicompost.png";
 import microgreenmix from "../assets/products/soil&fertilizer/microgreenmix.png";
 import irontonic from "../assets/products/soil&fertilizer/irontonic.png";
-import epsomsalt from "../assets/products/soil&fertilizer/epsom salt.png";
 import granularplantfertilizer from "../assets/products/soil&fertilizer/granularplant.png";
 import liquidplantfertilizer from "../assets/products/soil&fertilizer/liquidplantfertilizer.png";
 import npk202020 from "../assets/products/soil&fertilizer/npk.png";
@@ -277,6 +276,8 @@ import raisedbedsoil from "../assets/products/soil&fertilizer/raisedbedsoil.png"
 import orchidmix from "../assets/products/soil&fertilizer/orchidmix.png";
 import succulentcactusmix from "../assets/products/soil&fertilizer/succulentcactusmix.png";
 import pottingmix from "../assets/products/soil&fertilizer/plottingmix.png";
+
+const epsomsalt = require("../assets/products/soil&fertilizer/epsom salt.png").default;
 
 const p = (
   id,
