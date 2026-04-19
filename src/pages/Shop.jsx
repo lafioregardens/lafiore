@@ -241,6 +241,19 @@ function Shop() {
     });
   }, [filteredProducts, currentPage]);
 
+  // Scroll to product if productId is in URL
+  useEffect(() => {
+    const productId = searchParams.get("productId");
+    if (productId) {
+      setTimeout(() => {
+        const element = document.getElementById(`product-${productId}`);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 100);
+    }
+  }, [searchParams]);
+
   const handleMainCategoryChange = (categoryName) => {
     let newCategory, newSubcategory;
 
@@ -429,7 +442,7 @@ function Shop() {
                       key={product.id}
                       className="shop-card-link"
                     >
-                      <article className="shop-card">
+                      <article className="shop-card" id={`product-${product.id}`}>
                         {/* Potted Plants Tag */}
                         {product.mainCategory === "Plants" &&
                          !(product.subCategories && product.subCategories.includes("Aquatic")) && (
