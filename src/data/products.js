@@ -251,6 +251,33 @@ import asterf from "../assets/products/flowers/asterf.jpg";
 import narcissusf from "../assets/products/flowers/narcissusf.jpg";
 import tulipf from "../assets/products/flowers/tulipf.jpg";
 
+import bioorganiccompost from "../assets/products/soilfertilizer/bioorganiccompost.jpg";
+import biococopeat from "../assets/products/soilfertilizer/biococopeat.jpg";
+import seedstartingmix from "../assets/products/soilfertilizer/seedstartingmix.jpg";
+import cowpoultrymanure from "../assets/products/soilfertilizer/cowpoultrymanure.jpg";
+import organicvermicompost from "../assets/products/soilfertilizer/organicvermicompost.jpg";
+import microgreenmix from "../assets/products/soilfertilizer/microgreenmix.jpg";
+import irontonic from "../assets/products/soilfertilizer/irontonic.jpg";
+import epsomsalt from "../assets/products/soilfertilizer/epsomsalt.jpg";
+import granularplantfertilizer from "../assets/products/soilfertilizer/granularplantfertilizer.jpg";
+import liquidplantfertilizer from "../assets/products/soilfertilizer/liquidplantfertilizer.jpg";
+import npk202020 from "../assets/products/soilfertilizer/npk202020.jpg";
+import fastgreennitrogenformula from "../assets/products/soilfertilizer/fastgreennitrogenformula.jpg";
+import fruitflowerbooster from "../assets/products/soilfertilizer/fruitflowerbooster.jpg";
+import ureagranular from "../assets/products/soilfertilizer/ureagranular.jpg";
+import liquidseaweedextract from "../assets/products/soilfertilizer/liquidseaweedextract.jpg";
+import bluegrains from "../assets/products/soilfertilizer/bluegrains.jpg";
+import bougainvillarosefeed from "../assets/products/soilfertilizer/bougainvillarosefeed.jpg";
+import concentratedliquidplantfood from "../assets/products/soilfertilizer/concentratedliquidplantfood.jpg";
+import commercialvermicompost from "../assets/products/soilfertilizer/commercialvermicompost.jpg";
+import irontonichelated from "../assets/products/soilfertilizer/irontonichelated.jpg";
+import peatmoss from "../assets/products/soilfertilizer/peatmoss.jpg";
+import sandyloam from "../assets/products/soilfertilizer/sandyloam.jpg";
+import raisedbedsoil from "../assets/products/soilfertilizer/raisedbedsoil.jpg";
+import orchidmix from "../assets/products/soilfertilizer/orchidmix.jpg";
+import succulentcactusmix from "../assets/products/soilfertilizer/succulentcactusmix.jpg";
+import pottingmix from "../assets/products/soilfertilizer/pottingmix.jpg";
+
 const p = (
   id,
   name,
@@ -2038,7 +2065,8 @@ const products = [
     "AED 22.00",
     "Nutrient-rich compost that improves soil structure and fertility.",
     ["Soil", "Organic"],
-    4
+    4,
+    bioorganiccompost
   ),
   p(
     169,
@@ -2047,7 +2075,8 @@ const products = [
     "AED 18.00",
     "Lightweight growing medium made from coconut fibre. Provides good water retention and aeration.",
     ["Soil", "Growing Medium"],
-    4
+    4,
+    biococopeat
   ),
   p(
     170,
@@ -2056,7 +2085,8 @@ const products = [
     "AED 20.00",
     "Fine-textured mix designed to support fast and even seed germination.",
     ["Soil", "Seeds"],
-    4
+    4,
+    seedstartingmix
   ),
   p(
     171,
@@ -2065,7 +2095,8 @@ const products = [
     "AED 24.00",
     "Natural manure blend used to enrich garden soil with organic nutrients.",
     ["Soil", "Organic"],
-    4
+    4,
+    cowpoultrymanure
   ),
   p(
     172,
@@ -2074,7 +2105,8 @@ const products = [
     "AED 24.00",
     "Compost produced with the help of earthworms, rich in beneficial microbes.",
     ["Soil", "Organic"],
-    5
+    5,
+    organicvermicompost
   ),
   p(
     173,
@@ -2083,7 +2115,8 @@ const products = [
     "AED 18.00",
     "Specially prepared growing mix for microgreens and tender leafy crops.",
     ["Soil", "Microgreens"],
-    4
+    4,
+    microgreenmix
   ),
   p(
     174,
@@ -2092,7 +2125,8 @@ const products = [
     "AED 28.00",
     "Fertilizer formulated to correct iron deficiency in plants.",
     ["Fertilizer", "Leaf Care"],
-    4
+    4,
+    irontonic
   ),
   p(
     175,
@@ -2101,7 +2135,8 @@ const products = [
     "AED 15.00",
     "Magnesium- and sulfur-rich garden salt used to support plant growth.",
     ["Fertilizer", "Minerals"],
-    4
+    4,
+    epsomsalt
   ),
   p(
     176,
@@ -2110,7 +2145,8 @@ const products = [
     "AED 26.00",
     "Slow-release fertilizer in granule form that feeds plants over time.",
     ["Fertilizer", "Slow Release"],
-    4
+    4,
+    granularplantfertilizer
   ),
   p(
     177,
@@ -2119,7 +2155,8 @@ const products = [
     "AED 24.00",
     "Concentrated liquid feed that delivers nutrients quickly through the soil.",
     ["Fertilizer", "Liquid Feed"],
-    4
+    4,
+    liquidplantfertilizer
   ),
   p(
     178,
@@ -2128,7 +2165,8 @@ const products = [
     "AED 40.00",
     "A highly effective water-soluble balanced fertilizer that provides equal parts Nitrogen, Phosphorus, and Potassium.",
     ["Fertilizer", "Balanced Feed"],
-    5
+    5,
+    npk202020
   ),
   p(
     179,
@@ -2137,7 +2175,8 @@ const products = [
     "AED 55.00",
     "A nitrogen- and iron-rich fertilizer designed to quickly revive yellowing foliage and encourage lush green growth.",
     ["Fertilizer", "Leaf Care"],
-    4
+    4,
+    fastgreennitrogenformula
   ),
   p(
     180,
@@ -2146,7 +2185,8 @@ const products = [
     "AED 35.00",
     "A specialized fertilizer high in Potassium and Phosphorus to support stronger flowering and better fruit production.",
     ["Fertilizer", "Bloom Booster"],
-    5
+    5,
+    fruitflowerbooster
   ),
   p(
     181,
@@ -2155,7 +2195,8 @@ const products = [
     "AED 22.00",
     "A strong nitrogen source used to stimulate rapid leafy growth.",
     ["Fertilizer", "Nitrogen Rich"],
-    4
+    4,
+    ureagranular
   ),
   p(
     182,
@@ -2164,7 +2205,8 @@ const products = [
     "AED 42.00",
     "A commercial bio-stimulant made from marine kelp that helps plants handle stress and improve root growth.",
     ["Fertilizer", "Bio Stimulant"],
-    5
+    5,
+    liquidseaweedextract
   ),
   p(
     183,
@@ -2173,7 +2215,8 @@ const products = [
     "AED 34.00",
     "A slow-release granular fertilizer with trace elements, widely used to support healthy outdoor beds.",
     ["Fertilizer", "Slow Release"],
-    4
+    4,
+    bluegrains
   ),
   p(
     184,
@@ -2182,7 +2225,8 @@ const products = [
     "AED 42.00",
     "A targeted fertilizer blend designed for heavy-flowering plants to encourage richer and more frequent blooming.",
     ["Fertilizer", "Flowering Plants"],
-    5
+    5,
+    bougainvillarosefeed
   ),
   p(
     185,
@@ -2191,7 +2235,8 @@ const products = [
     "AED 20.00",
     "A convenient liquid fertilizer that mixes easily with water and works especially well for potted plants.",
     ["Fertilizer", "Liquid Feed"],
-    4
+    4,
+    concentratedliquidplantfood
   ),
   p(
     186,
@@ -2200,7 +2245,8 @@ const products = [
     "AED 22.00",
     "Packaged organic worm castings rich in natural microbes, ideal for improving soil life.",
     ["Soil", "Organic"],
-    5
+    5,
+    commercialvermicompost
   ),
   p(
     187,
@@ -2209,7 +2255,8 @@ const products = [
     "AED 28.00",
     "A liquid iron supplement formulated to quickly correct iron deficiency.",
     ["Fertilizer", "Iron Supplement"],
-    4
+    4,
+    irontonichelated
   ),
   p(
     188,
@@ -2218,7 +2265,8 @@ const products = [
     "AED 74.00",
     "A moisture-retentive fibrous material commonly blended into sandy or alkaline soils.",
     ["Soil", "Moisture Retention"],
-    4
+    4,
+    peatmoss
   ),
   p(
     189,
@@ -2227,7 +2275,8 @@ const products = [
     "AED 55.00",
     "A balanced soil blend of sand, silt, and clay that drains well while still holding nutrients.",
     ["Soil", "General Use"],
-    4
+    4,
+    sandyloam
   ),
   p(
     190,
@@ -2236,7 +2285,8 @@ const products = [
     "AED 45.00",
     "A structured planting blend designed for raised garden beds.",
     ["Soil", "Raised Beds"],
-    4
+    4,
+    raisedbedsoil
   ),
   p(
     191,
@@ -2245,7 +2295,8 @@ const products = [
     "AED 48.00",
     "A chunky airy blend made for orchids, usually containing bark, charcoal, and perlite.",
     ["Soil", "Specialty Mix"],
-    5
+    5,
+    orchidmix
   ),
   p(
     192,
@@ -2254,7 +2305,8 @@ const products = [
     "AED 42.00",
     "A fast-draining gritty mix formulated for succulents and cacti.",
     ["Soil", "Specialty Mix"],
-    5
+    5,
+    succulentcactusmix
   ),
   p(
     193,
@@ -2263,7 +2315,8 @@ const products = [
     "AED 58.00",
     "A lightweight sterile medium designed for container gardening.",
     ["Soil", "Potting"],
-    5
+    5,
+    pottingmix
   ),
 
   // =========================
