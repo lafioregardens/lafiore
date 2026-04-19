@@ -56,6 +56,7 @@ function CustomizeBouquet() {
   // }
   const [selectedFlowers, setSelectedFlowers] = useState([]);
   const [validationError, setValidationError] = useState("");
+  const [toastMessage, setToastMessage] = useState("");
 
   // Adds a flower to bouquet using the currently chosen color
   const addFlower = (flower, color) => {
@@ -72,7 +73,7 @@ function CustomizeBouquet() {
 
       // Check if adding would exceed the limit
       if (totalFlowers >= selectedSize.flowerCount) {
-        setValidationError(`Maximum ${selectedSize.flowerCount} flowers allowed for ${selectedSize.name} bouquet`);
+        showToast(`Bouquet is full! Maximum ${selectedSize.flowerCount} flowers allowed.`);
         return prev;
       }
 
@@ -110,7 +111,7 @@ function CustomizeBouquet() {
 
       // Check if adding would exceed the limit
       if (totalFlowers >= selectedSize.flowerCount) {
-        setValidationError(`Maximum ${selectedSize.flowerCount} flowers allowed for ${selectedSize.name} bouquet`);
+        showToast(`Bouquet is full! Maximum ${selectedSize.flowerCount} flowers allowed.`);
         return prev;
       }
 
@@ -157,21 +158,26 @@ function CustomizeBouquet() {
     return selectedFlowers.reduce((sum, item) => sum + item.quantity, 0);
   }, [selectedFlowers]);
 
+  // Show toast message that auto-dismisses
+  const showToast = (message) => {
+    setToastMessage(message);
+    setTimeout(() => setToastMessage(""), 3000);
+  };
+
   // Handle next step with validation
   const handleNextStep = () => {
     if (step === 1 && !selectedSize) {
       setValidationError("Please select a bouquet size");
       return;
     }
-    if (step === 2 && totalFlowersSelected < 4) {
-      setValidationError(`Please select at least 4 flowers (currently ${totalFlowersSelected})`);
-      return;
-    }
-    if (step === 2 && totalFlowersSelected > selectedSize.flowerCount) {
-      setValidationError(`Too many flowers for ${selectedSize.name} bouquet (max ${selectedSize.flowerCount})`);
+    if (step === 2 && totalFlowersSelected < selectedSize.flowerCount) {
+      const needed = selectedSize.flowerCount - totalFlowersSelected;
+      showToast(`${needed} more flower${needed !== 1 ? 's' : ''} needed to complete the ${selectedSize.name} bouquet`);
+      setValidationError(`Add ${needed} more flower${needed !== 1 ? 's' : ''}`);
       return;
     }
     setValidationError("");
+    setToastMessage("");
     setStep(step + 1);
   };
 
@@ -306,8 +312,8 @@ function CustomizeBouquet() {
               <div className="bouquet-step-section">
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
                   <h2 style={{ margin: 0 }}>Select Flowers</h2>
-                  <span style={{ fontSize: "14px", color: totalFlowersSelected >= 4 ? "#667a4f" : "#c97c7c", fontWeight: "600" }}>
-                    {totalFlowersSelected}/{selectedSize.flowerCount} max
+                  <span style={{ fontSize: "14px", color: totalFlowersSelected === selectedSize.flowerCount ? "#667a4f" : "#c97c7c", fontWeight: "600" }}>
+                    {totalFlowersSelected}/{selectedSize.flowerCount} required
                   </span>
                 </div>
 
@@ -478,13 +484,39 @@ function CustomizeBouquet() {
                 <button
                   className="bouquet-nav-btn primary-btn"
                   onClick={handleNextStep}
-                  disabled={(step === 1 && !selectedSize) || (step === 2 && totalFlowersSelected < 4)}
-                  style={(step === 1 && !selectedSize) || (step === 2 && totalFlowersSelected < 4) ? { opacity: "0.6", cursor: "not-allowed" } : {}}
+                  disabled={(step === 1 && !selectedSize) || (step === 2 && totalFlowersSelected !== selectedSize.flowerCount)}
+                  style={(step === 1 && !selectedSize) || (step === 2 && totalFlowersSelected !== selectedSize.flowerCount) ? { opacity: "0.6", cursor: "not-allowed" } : {}}
                 >
                   Next
                 </button>
               )}
             </div>
+
+            {/* Toast Notification */}
+            {toastMessage && (
+              <div style={{
+                position: "fixed",
+                bottom: "20px",
+                right: "20px",
+                backgroundColor: "#667a4f",
+                color: "white",
+                padding: "14px 20px",
+                borderRadius: "6px",
+                fontSize: "14px",
+                fontWeight: "500",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                animation: "slideIn 0.3s ease-in-out",
+                zIndex: 1000,
+              }}>
+                {toastMessage}
+              </div>
+            )}
+            <style>{`
+              @keyframes slideIn {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+              }
+            `}</style>
           </section>
 
           {/* Right Column: Bouquet Visualizer */}

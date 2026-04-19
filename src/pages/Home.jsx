@@ -421,7 +421,6 @@ function Home() {
                 title: t("findPerfectPlant"),
                 desc: t("answerQuestions"),
                 price: "AED 155",
-                icon: "🌿",
                 link: "/plantfinder",
                 image: home2
               },
