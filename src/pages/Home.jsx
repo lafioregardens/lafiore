@@ -466,22 +466,24 @@ function Home() {
           </div>
           <div className="shop-grid">
             {products.map((p, i) => (
-              <div key={i} className="product-card" style={{ "--delay": `${i * 0.1}s` }}>
-                {p.tag && <span className="product-tag">{p.tag}</span>}
-                <div className="product-image">
-                  {p.image ? (
-                    <img src={p.image} alt={p.name} className="product-img" />
-                  ) : (
-                    <div className="product-img-placeholder">🌸</div>
-                  )}
+              <Link to={p.link} key={i} style={{ textDecoration: "none" }}>
+                <div className="product-card" style={{ "--delay": `${i * 0.1}s` }}>
+                  {p.tag && <span className="product-tag">{p.tag}</span>}
+                  <div className="product-image">
+                    {p.image ? (
+                      <img src={p.image} alt={p.name} className="product-img" />
+                    ) : (
+                      <div className="product-img-placeholder">🌸</div>
+                    )}
+                  </div>
+                  <div className="product-info">
+                    <h3 className="product-name">{p.name}</h3>
+                    <div className="product-btn">
+                      {p.price} <span className="btn-arrow">→</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="product-info">
-                  <h3 className="product-name">{p.name}</h3>
-                  <Link to={p.link} className="product-btn">
-                    {p.price} <span className="btn-arrow">→</span>
-                  </Link>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
