@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
-import home2 from "../assets/home2.jpg";
+import home2 from "../assets/images/home2.png";
 /* ─────────────────────────────────────
    DATA
 ───────────────────────────────────── */
