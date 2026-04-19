@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import eventImg from "../assets/images/event.jpg";
 import gardenImg from "../assets/images/garden.jpg";
 import planteriorImg from "../assets/images/planterior.jpg";
-
+import service1 from "../assets/images/service1.jpg";
 // React hooks
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -100,7 +100,7 @@ function Consultation() {
         {/* HERO SECTION */}
         <section className="consultation-hero">
           <div className="consultation-hero-image">
-            <img src={gardenImg} alt="Beautiful Garden Design" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "16px" }} />
+            <img src={service1} alt="Beautiful Garden Design" style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "16px" }} />
           </div>
 
           <div className="consultation-hero-content">
