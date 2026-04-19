@@ -15,7 +15,7 @@ import jadeplant from "../assets/products/plants/jadeplant.jpg";
 import hibiscus from "../assets/products/plants/hibiscus.jpg";
 import lavenderplant from "../assets/products/plants/lavenderplant.jpg";
 import fern from "../assets/products/plants/fern.jpg";
-import boxwood from "../assets/products/plants/boxwood.jpg";
+import bonsai from "../assets/products/plants/bonsai.jpg";
 import arecapalm from "../assets/products/plants/arecapalm.jpg";
 import parlourpalm from "../assets/products/plants/parlourpalm.jpg";
 
@@ -208,7 +208,7 @@ const plantRecommendations = [
   {
     id: 14,
     name: "Bonsai",
-    image: boxwood,
+    image: bonsai,
     climate: ["Moderate"],
     location: ["Indoors", "Outdoors", "Both"],
     sunlight: ["Partial Sun", "Full Sun"],
