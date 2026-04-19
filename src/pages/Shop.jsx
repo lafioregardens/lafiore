@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import { useMemo, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import WishlistButton from "../components/WishlistButton";
 import api from "../utils/api";
@@ -54,6 +54,7 @@ const getSubCategoryTranslationKey = (subcategoryName) => {
 
 function Shop() {
   const { t } = useLanguage();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   // Initialize products with stock data for immediate display
   const [products, setProducts] = useState(() => {
@@ -63,8 +64,9 @@ function Shop() {
     }));
   });
 
-  const [selectedMainCategory, setSelectedMainCategory] = useState("All");
-  const [selectedSubCategory, setSelectedSubCategory] = useState("");
+  // Read category from URL, default to "All"
+  const [selectedMainCategory, setSelectedMainCategory] = useState(searchParams.get("category") || "All");
+  const [selectedSubCategory, setSelectedSubCategory] = useState(searchParams.get("subcategory") || "");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
@@ -219,27 +221,43 @@ function Shop() {
   );
 
   const handleMainCategoryChange = (categoryName) => {
+    let newCategory, newSubcategory;
+
     if (selectedMainCategory === categoryName && categoryName !== "All") {
-      setSelectedMainCategory("All");
-      setSelectedSubCategory("");
+      newCategory = "All";
+      newSubcategory = "";
     } else {
-      setSelectedMainCategory(categoryName);
+      newCategory = categoryName;
 
       const chosenCategory = categories.find((item) => item.name === categoryName);
 
       if (chosenCategory?.subcategories) {
-        setSelectedSubCategory("All");
+        newSubcategory = "All";
       } else {
-        setSelectedSubCategory("");
+        newSubcategory = "";
       }
     }
 
+    setSelectedMainCategory(newCategory);
+    setSelectedSubCategory(newSubcategory);
     setCurrentPage(1);
+
+    // Update URL with category
+    const params = new URLSearchParams(searchParams);
+    params.set("category", newCategory);
+    if (newSubcategory) params.set("subcategory", newSubcategory);
+    else params.delete("subcategory");
+    setSearchParams(params);
   };
 
   const handleSubCategoryChange = (subcategory) => {
     setSelectedSubCategory(subcategory);
     setCurrentPage(1);
+
+    // Update URL with subcategory
+    const params = new URLSearchParams(searchParams);
+    params.set("subcategory", subcategory);
+    setSearchParams(params);
   };
 
   const handleSearchChange = (e) => {
