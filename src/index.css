@@ -6888,6 +6888,7 @@ select option {
   .shop-layout {
     grid-template-columns: 1fr;
     gap: 16px;
+    padding: 0 12px;
   }
 
   .shop-sidebar {
@@ -6904,28 +6905,43 @@ select option {
 
   .shop-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 14px;
+    align-items: stretch;
   }
 
   .shop-card {
     border-radius: 10px;
+    height: 100%;
+  }
+
+  .shop-card-link {
+    height: 100%;
   }
 
   .shop-card-image-wrapper {
-    padding: 10px 10px 0;
+    padding: 12px 12px 0;
+    aspect-ratio: 1;
   }
 
   .shop-card-content {
-    padding: 12px 10px;
+    padding: 12px;
+    flex-grow: 1;
   }
 
   .shop-topbar {
-    flex-direction: column;
+    flex-direction: row;
     gap: 12px;
+    align-items: center;
   }
 
   .shop-search-input {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .shop-results-count {
+    font-size: 13px;
+    white-space: nowrap;
   }
 }
 
