@@ -59,6 +59,7 @@ function Shop() {
   // Initialize products with local data as fallback
   const [products, setProducts] = useState(localProducts);
   const [productsLoaded, setProductsLoaded] = useState(false);
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   // Read category from URL, default to "All"
   const [selectedMainCategory, setSelectedMainCategory] = useState(searchParams.get("category") || "All");
@@ -318,7 +319,7 @@ function Shop() {
         </section>
 
         <section className="shop-layout">
-          <aside className="shop-sidebar">
+          <aside className={`shop-sidebar mobile ${mobileSidebarOpen ? "open" : ""}`}>
             <div className="shop-sidebar-box">
               <h3>{t("categories")}</h3>
 
@@ -405,6 +406,13 @@ function Shop() {
             ) : (
               <>
                 <div className="shop-topbar">
+                  <button
+                    className="shop-sidebar-toggle visible"
+                    onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+                    aria-label="Toggle sidebar"
+                  >
+                    ☰
+                  </button>
                   <input
                     type="text"
                     className="shop-search-input"
@@ -417,6 +425,13 @@ function Shop() {
                     {filteredProducts.length} {t("productsFound")}
                   </p>
                 </div>
+
+                {mobileSidebarOpen && (
+                  <div
+                    className="shop-sidebar-overlay open"
+                    onClick={() => setMobileSidebarOpen(false)}
+                  />
+                )}
 
                 {paginatedProducts.length > 0 ? (
               <>
