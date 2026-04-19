@@ -7110,3 +7110,195 @@ select option {
     transform: translateX(0);
   }
 }
+
+/* Cart Page Mobile */
+@media (max-width: 768px) {
+  .cart-page {
+    overflow: hidden;
+  }
+
+  .cart-hero {
+    padding: 40px 16px;
+  }
+
+  .cart-container,
+  .cart-layout {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-item {
+    padding: 12px;
+  }
+}
+
+/* Checkout Page Mobile */
+@media (max-width: 768px) {
+  .checkout-page {
+    overflow: hidden;
+  }
+
+  .checkout-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-form-section {
+    padding: 20px 16px;
+  }
+}
+
+/* Customize Bouquet Page Mobile */
+@media (max-width: 768px) {
+  .custom-bouquet-page {
+    overflow: hidden;
+  }
+
+  .bouquet-page-layout {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .bouquet-visualizer-panel {
+    min-height: 300px;
+  }
+
+  .bouquet-flower-grid,
+  .bouquet-option-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+/* Account Page Mobile */
+@media (max-width: 768px) {
+  .account-page {
+    overflow: hidden;
+  }
+
+  .account-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .account-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .account-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .account-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .account-content {
+    width: 100%;
+  }
+}
+
+/* Wishlist Page Mobile */
+@media (max-width: 768px) {
+  .wishlist-page {
+    overflow: hidden;
+  }
+
+  .wishlist-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .wishlist-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .wishlist-item {
+    padding: 12px;
+  }
+}
+
+/* Search Results Mobile */
+@media (max-width: 768px) {
+  .search-results-page {
+    overflow: hidden;
+  }
+
+  .search-results-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .search-results-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+/* Birth Month Flowers Mobile */
+@media (max-width: 768px) {
+  .birth-month-flowers-page {
+    overflow: hidden;
+  }
+
+  .birth-flowers-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .birth-flowers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+/* Order Tracking Mobile */
+@media (max-width: 768px) {
+  .order-tracking-page {
+    overflow: hidden;
+  }
+
+  .tracking-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tracking-timeline {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens */
+  .cart-grid,
+  .wishlist-grid,
+  .search-results-grid,
+  .birth-flowers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bouquet-flower-grid,
+  .bouquet-option-grid {
+    grid-template-columns: 1fr;
+  }
+}
