@@ -77,6 +77,12 @@ import waterhyacinth from "../assets/products/plants/waterhyacinth.jpg";
 import waterlily from "../assets/products/plants/waterlily.jpg";
 import willow from "../assets/products/plants/willow.jpg";
 
+import anemonef from "../assets/products/flowers/anemonef.jpg";
+import arnicaf from "../assets/products/flowers/arnicaf.jpg";
+import asterf from "../assets/products/flowers/asterf.jpg";
+import babyf from "../assets/products/flowers/babyf.jpg";
+import beebalmf from "../assets/products/flowers/beebalmf.jpg";
+
 import dibber from "../assets/products/tools/dibber.jpg";
 import gardenfork from "../assets/products/tools/gardenfork.jpg";
 import gardengloves from "../assets/products/tools/gardengloves.jpg";
@@ -141,8 +147,48 @@ import lemoneucalyptus from "../assets/products/oils/lemoneucalyptus.jpeg";
 import morrocanargon from "../assets/products/oils/morrocanargon.jpeg";
 import peppermint from "../assets/products/oils/peppermint.jpeg";
 import rosehipoil from "../assets/products/oils/rosehipoil.jpeg";
-import sweetalmond from "../assets/products/oils/sweetalmond.jpeg"; 
+import sweetalmond from "../assets/products/oils/sweetalmond.jpeg";
 import teatree from "../assets/products/oils/teatree.jpeg";
+
+import Mulleinf from "../assets/products/flowers/Mulleinf.jpg";
+import anemonef from "../assets/products/flowers/anemonef.jpg";
+import arnicaf from "../assets/products/flowers/arnicaf.jpg";
+import asterf from "../assets/products/flowers/asterf.jpg";
+import babyf from "../assets/products/flowers/babyf.jpg";
+import beebalmf from "../assets/products/flowers/beebalmf.jpg";
+import bopf from "../assets/products/flowers/bopf.jpg";
+import boragef from "../assets/products/flowers/boragef.jpg";
+import calendulaf from "../assets/products/flowers/calendulaf.jpg";
+import carnationf from "../assets/products/flowers/carnationf.jpg";
+import chiveblossomf from "../assets/products/flowers/chiveblossomf.jpg";
+import chrysanthemumf from "../assets/products/flowers/chrysanthemumf.jpg";
+import cornflowerf from "../assets/products/flowers/cornflowerf.jpg";
+import daffodilf from "../assets/products/flowers/daffodilf.jpg";
+import daisyf from "../assets/products/flowers/daisyf.jpg";
+import dandelionf from "../assets/products/flowers/dandelionf.jpg";
+import feverfewf from "../assets/products/flowers/feverfewf.jpg";
+import gerberadaisyf from "../assets/products/flowers/gerberadaisyf.jpg";
+import gladiolusf from "../assets/products/flowers/gladiolusf.jpg";
+import honeysucklef from "../assets/products/flowers/honeysucklef.jpg";
+import irisf from "../assets/products/flowers/irisf.jpg";
+import johnf from "../assets/products/flowers/johnf.jpg";
+import lilacf from "../assets/products/flowers/lilacf.jpg";
+import lilyf from "../assets/products/flowers/lilyf.jpg";
+import marigoldf from "../assets/products/flowers/marigoldf.jpg";
+import narcissusf from "../assets/products/flowers/narcissusf.jpg";
+import nasturtiumf from "../assets/products/flowers/nasturtiumf.jpg";
+import orchidf from "../assets/products/flowers/orchidf.jpg";
+import pansyf from "../assets/products/flowers/pansyf.jpg";
+import passionf from "../assets/products/flowers/passionf.jpg";
+import peonyf from "../assets/products/flowers/peonyf.jpg";
+import poppyf from "../assets/products/flowers/poppyf.jpg";
+import primrosef from "../assets/products/flowers/primrosef.jpg";
+import rosef from "../assets/products/flowers/rosef.jpg";
+import squashblossomf from "../assets/products/flowers/squashblossomf.jpg";
+import tulipf from "../assets/products/flowers/tulipf.jpg";
+import valerinef from "../assets/products/flowers/valerinef.jpg";
+import violetf from "../assets/products/flowers/violetf.jpg";
+import yarrowf from "../assets/products/flowers/yarrowf.jpg";
 
 import amethystdream from "../assets/products/premadebouquet/amethystdream.jpeg";
 import azurewhisper from "../assets/products/premadebouquet/azurewhisper.jpeg";
@@ -3075,6 +3121,49 @@ const products = [
     signaturescent,
     ["Candle Collections"]
   ),
+
+  // =========================
+  // FLOWERS
+  // =========================
+  p(268, "Mullein Flower", "Flowers", "AED 45.00", "Tall spikes of yellow flowers. Great for arrangements and dried floral designs.", ["Flowers", "Botanical", "Tall"], 5, Mulleinf, ["Cut Flowers"]),
+  p(269, "Anemone", "Flowers", "AED 55.00", "Delicate cup-shaped flowers with dark centers. Perfect for spring arrangements.", ["Flowers", "Botanical", "Spring"], 5, anemonef, ["Cut Flowers"]),
+  p(270, "Arnica", "Flowers", "AED 50.00", "Bright yellow-orange blooms. Traditionally used and makes stunning dried flowers.", ["Flowers", "Botanical", "Yellow"], 5, arnicaf, ["Cut Flowers"]),
+  p(271, "Aster", "Flowers", "AED 50.00", "Cheerful multi-petaled flowers in various colors. Excellent for garden arrangements.", ["Flowers", "Botanical", "Colorful"], 5, asterf, ["Cut Flowers"]),
+  p(272, "Baby's Breath", "Flowers", "AED 35.00", "Tiny delicate white flowers. Essential for adding texture and airiness to bouquets.", ["Flowers", "Botanical", "Filler"], 5, babyf, ["Cut Flowers"]),
+  p(273, "Bee Balm", "Flowers", "AED 48.00", "Vibrant red, pink, or purple flowers that attract pollinators. Fragrant and medicinal.", ["Flowers", "Botanical", "Medicinal"], 5, beebalmf, ["Cut Flowers"]),
+  p(274, "Bird of Paradise", "Flowers", "AED 65.00", "Exotic tropical flowers with striking orange and blue colors. Dramatic and unique.", ["Flowers", "Botanical", "Exotic"], 5, bopf, ["Cut Flowers"]),
+  p(275, "Borage", "Flowers", "AED 40.00", "Delicate star-shaped blue flowers. Edible and great for culinary arrangements.", ["Flowers", "Botanical", "Edible"], 5, boragef, ["Cut Flowers"]),
+  p(276, "Calendula", "Flowers", "AED 45.00", "Golden-orange petals perfect for natural dyes and skincare. Also called pot marigold.", ["Flowers", "Botanical", "Medicinal"], 5, calendulaf, ["Cut Flowers"]),
+  p(277, "Carnation", "Flowers", "AED 55.00", "Ruffled petals in many colors. Long-lasting and versatile for any arrangement.", ["Flowers", "Botanical", "Long-lasting"], 5, carnationf, ["Cut Flowers"]),
+  p(278, "Chive Blossom", "Flowers", "AED 38.00", "Tiny purple-pink pompom flowers. Edible and perfect for garnishing and arrangements.", ["Flowers", "Botanical", "Edible"], 5, chiveblossomf, ["Cut Flowers"]),
+  p(279, "Chrysanthemum", "Flowers", "AED 52.00", "Full, dense blooms in multiple colors. Symbols of joy and long life. Very long-lasting.", ["Flowers", "Botanical", "Traditional"], 5, chrysanthemumf, ["Cut Flowers"]),
+  p(280, "Cornflower", "Flowers", "AED 42.00", "Bright blue, pink, or white flowers on thin stems. Perfect for wildflower arrangements.", ["Flowers", "Botanical", "Wildflower"], 5, cornflowerf, ["Cut Flowers"]),
+  p(281, "Daffodil", "Flowers", "AED 50.00", "Cheerful spring flowers with trumpet centers. Symbol of rebirth and new beginnings.", ["Flowers", "Botanical", "Spring"], 5, daffodilf, ["Cut Flowers"]),
+  p(282, "Daisy", "Flowers", "AED 40.00", "Classic white petals with yellow centers. Simple, cheerful, and timeless.", ["Flowers", "Botanical", "Classic"], 5, daisyf, ["Cut Flowers"]),
+  p(283, "Dandelion", "Flowers", "AED 35.00", "Bright yellow flowers that mature into white seed heads. Edible and medicinal.", ["Flowers", "Botanical", "Medicinal"], 5, dandelionf, ["Cut Flowers"]),
+  p(284, "Feverfew", "Flowers", "AED 40.00", "Small white daisy-like flowers with yellow centers. Used traditionally for wellness.", ["Flowers", "Botanical", "Medicinal"], 5, feverfewf, ["Cut Flowers"]),
+  p(285, "Gerbera Daisy", "Flowers", "AED 58.00", "Large, bold blooms in vibrant colors. Makes a statement in any arrangement.", ["Flowers", "Botanical", "Bold"], 5, gerberadaisyf, ["Cut Flowers"]),
+  p(286, "Gladiolus", "Flowers", "AED 60.00", "Tall spikes of ruffled flowers in various colors. Dramatic and elegant.", ["Flowers", "Botanical", "Tall"], 5, gladiolusf, ["Cut Flowers"]),
+  p(287, "Honeysuckle", "Flowers", "AED 50.00", "Tubular fragrant flowers that attract hummingbirds. Sweet-smelling and lovely.", ["Flowers", "Botanical", "Fragrant"], 5, honeysucklef, ["Cut Flowers"]),
+  p(288, "Iris", "Flowers", "AED 55.00", "Elegant flowers with distinctive ruffled petals. Symbol of grace and wisdom.", ["Flowers", "Botanical", "Elegant"], 5, irisf, ["Cut Flowers"]),
+  p(289, "St. John's Wort", "Flowers", "AED 45.00", "Bright yellow star-shaped flowers. Traditionally used and makes cheerful arrangements.", ["Flowers", "Botanical", "Medicinal"], 5, johnf, ["Cut Flowers"]),
+  p(290, "Lilac", "Flowers", "AED 50.00", "Fragrant clusters of tiny flowers in purple, pink, or white. Quintessential spring flower.", ["Flowers", "Botanical", "Fragrant"], 5, lilacf, ["Cut Flowers"]),
+  p(291, "Lily", "Flowers", "AED 60.00", "Large elegant blooms with prominent stamens. Comes in many colors and varieties.", ["Flowers", "Botanical", "Elegant"], 5, lilyf, ["Cut Flowers"]),
+  p(292, "Marigold", "Flowers", "AED 42.00", "Warm-toned flowers in shades of gold and orange. Cheerful and pest-repelling.", ["Flowers", "Botanical", "Warm Tones"], 5, marigoldf, ["Cut Flowers"]),
+  p(293, "Narcissus", "Flowers", "AED 48.00", "Trumpet-centered flowers similar to daffodils but with scented varieties. Spring treasure.", ["Flowers", "Botanical", "Spring"], 5, narcissusf, ["Cut Flowers"]),
+  p(294, "Nasturtium", "Flowers", "AED 40.00", "Vibrant orange, red, or yellow flowers with round leaves. Edible petals.", ["Flowers", "Botanical", "Edible"], 5, nasturtiumf, ["Cut Flowers"]),
+  p(295, "Orchid", "Flowers", "AED 75.00", "Exotic and elegant flowers in various colors. Symbols of luxury and beauty.", ["Flowers", "Botanical", "Exotic"], 5, orchidf, ["Cut Flowers"]),
+  p(296, "Pansy", "Flowers", "AED 38.00", "Cheerful flowers with distinctive 'faces'. Great for spring gardens and arrangements.", ["Flowers", "Botanical", "Spring"], 5, pansyf, ["Cut Flowers"]),
+  p(297, "Passion Flower", "Flowers", "AED 55.00", "Unique complex flowers with corona-like structures. Stunning and exotic-looking.", ["Flowers", "Botanical", "Exotic"], 5, passionf, ["Cut Flowers"]),
+  p(298, "Peony", "Flowers", "AED 65.00", "Lush full blooms with layered petals. Symbol of prosperity and romance.", ["Flowers", "Botanical", "Luxe"], 5, peonyf, ["Cut Flowers"]),
+  p(299, "Poppy", "Flowers", "AED 50.00", "Delicate papery petals in vibrant colors. Wild and romantic in appearance.", ["Flowers", "Botanical", "Romantic"], 5, poppyf, ["Cut Flowers"]),
+  p(300, "Primrose", "Flowers", "AED 42.00", "Cheerful clustered flowers in spring colors. Symbols of youth and youth.", ["Flowers", "Botanical", "Spring"], 5, primrosef, ["Cut Flowers"]),
+  p(301, "Rose", "Flowers", "AED 70.00", "The quintessential flower of love and beauty. Available in numerous colors and varieties.", ["Flowers", "Botanical", "Classic"], 5, rosef, ["Cut Flowers"]),
+  p(302, "Squash Blossom", "Flowers", "AED 38.00", "Large yellow or orange funnel-shaped flowers. Edible and used in cuisine.", ["Flowers", "Botanical", "Edible"], 5, squashblossomf, ["Cut Flowers"]),
+  p(303, "Tulip", "Flowers", "AED 52.00", "Classic spring flowers with smooth cup-shaped petals. Symbol of perfect love.", ["Flowers", "Botanical", "Spring"], 5, tulipf, ["Cut Flowers"]),
+  p(304, "Valerian", "Flowers", "AED 45.00", "Delicate fragrant flowers that bloom in clusters. Used traditionally for wellness.", ["Flowers", "Botanical", "Medicinal"], 5, valerinef, ["Cut Flowers"]),
+  p(305, "Violet", "Flowers", "AED 40.00", "Small sweet-scented flowers in purple, pink, or white. Delicate and charming.", ["Flowers", "Botanical", "Delicate"], 5, violetf, ["Cut Flowers"]),
+  p(306, "Yarrow", "Flowers", "AED 48.00", "Flat clusters of tiny colorful flowers. Great for dried arrangements and medicinal use.", ["Flowers", "Botanical", "Medicinal"], 5, yarrowf, ["Cut Flowers"]),
 ];
 
 export default products;
