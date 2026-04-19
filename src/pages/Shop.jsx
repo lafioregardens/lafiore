@@ -396,7 +396,7 @@ function Shop() {
           </aside>
 
           <div className="shop-content">
-            {isLoadingProducts ? (
+            {isLoadingProducts || products === null ? (
               <div style={{ textAlign: "center", padding: "60px 20px" }}>
                 <p style={{ fontSize: "18px", color: "#999" }}>{t("loading") || "Loading products..."}</p>
               </div>
