@@ -73,28 +73,27 @@ function Shop() {
 
   // Fetch products from API to get stock information
   useEffect(() => {
+    // Use local products immediately
+    setProducts(localProducts);
+    setProductsLoaded(true);
+
+    // Try to fetch from API in background
     api
-      .get("/products?limit=500", { timeout: 15000 })
+      .get("/products?limit=500", { timeout: 5000 })
       .then((res) => {
-        // Handle different possible API response structures
         let apiProducts = res.data?.data?.products || res.data?.data || res.data?.products || res.data;
-        // Ensure it's an array
         if (!Array.isArray(apiProducts)) {
           apiProducts = [];
         }
         console.log("Products fetched from API:", apiProducts?.length, "products");
         if (apiProducts && apiProducts.length > 0) {
-          // Use API products as primary source
           const mergedProducts = apiProducts.map((apiProduct) => {
             const localProduct = localProducts.find((p) => p.id === apiProduct.id);
-            // Start with API data, then override with local for critical fields
             const merged = { ...apiProduct };
             if (localProduct) {
-              // Always use local image (it's more reliable)
               if (localProduct.image) {
                 merged.image = localProduct.image;
               }
-              // Keep any other local data that API might not have
               if (!merged.description && localProduct.description) {
                 merged.description = localProduct.description;
               }
@@ -107,17 +106,12 @@ function Shop() {
             }
             return merged;
           });
-          console.log("Merged products, displaying:", mergedProducts.length);
+          console.log("Merged products from API, displaying:", mergedProducts.length);
           setProducts(mergedProducts);
-          setProductsLoaded(true);
-        } else {
-          console.warn("No products from API, using local fallback");
-          setProductsLoaded(true);
         }
       })
       .catch((err) => {
-        console.error("Failed to fetch products from API:", err.message);
-        setProductsLoaded(true);
+        console.error("Failed to fetch from API, using local:", err.message);
       });
   }, []);
 
