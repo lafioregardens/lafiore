@@ -6205,6 +6205,10 @@ select option {
   line-height: 1.7;
 }
 
+.shop-page {
+  overflow: hidden;
+}
+
 .shop-layout {
   width: 90%;
   margin: 0 auto;
@@ -6212,6 +6216,7 @@ select option {
   grid-template-columns: 260px 1fr;
   gap: 24px;
   align-items: start;
+  overflow: hidden;
 }
 
 .shop-sidebar {
@@ -6885,10 +6890,19 @@ select option {
 
 /* Tablet/Mobile Media Query */
 @media (max-width: 768px) {
+  .shop-page {
+    overflow: hidden;
+    width: 100vw;
+    position: relative;
+  }
+
   .shop-layout {
     grid-template-columns: 1fr;
     gap: 16px;
-    padding: 0 12px;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    overflow: hidden;
   }
 
   .shop-sidebar {
@@ -6942,6 +6956,11 @@ select option {
   .shop-results-count {
     font-size: 13px;
     white-space: nowrap;
+  }
+
+  .shop-content {
+    overflow: hidden;
+    width: 100%;
   }
 }
 
