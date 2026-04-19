@@ -5718,6 +5718,55 @@ select option {
 @media (max-width: 768px) {
   .plant-finder-page {
     padding-top: 180px;
+    overflow: hidden;
+  }
+
+  .plant-finder-container {
+    position: relative;
+  }
+
+  .plant-finder-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px 12px;
+    color: #3b2b24;
+    margin-bottom: 12px;
+  }
+
+  .plant-finder-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .plant-finder-overlay.open {
+    display: block;
+  }
+
+  .plant-finder-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 24px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .plant-finder-sidebar.open {
+    transform: translateX(0);
   }
 
   .plant-finder-hero {
@@ -5732,16 +5781,13 @@ select option {
     font-size: 16px;
   }
 
-  .plant-finder-sidebar {
-    padding: 24px;
-  }
-
   .plant-finder-sidebar h2 {
     font-size: 26px;
   }
 
   .plant-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .empty-state {
@@ -6984,5 +7030,83 @@ select option {
 
   .shop-card-real-image {
     aspect-ratio: 1;
+  }
+}
+
+/* Global Mobile Fixes */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  main {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  section {
+    overflow-x: hidden;
+  }
+
+  /* Fix all layout containers */
+  .cart-page,
+  .checkout-page,
+  .account-page,
+  .wishlist-page,
+  .search-results-page,
+  .order-tracking-page,
+  .custom-bouquet-page,
+  .birth-month-flowers-page,
+  .plant-finder-page {
+    overflow: hidden;
+    width: 100vw;
+    position: relative;
+    max-width: 100vw;
+  }
+
+  /* Fix main content areas */
+  .cart-container,
+  .checkout-container,
+  .account-container,
+  .wishlist-container,
+  .search-container,
+  .tracking-container,
+  .bouquet-container,
+  .birth-container,
+  .finder-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Fix grid layouts */
+  .grid-layout,
+  [class*="grid"] {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Fix sidebar layouts */
+  [class*="sidebar"],
+  [class*="filter"],
+  [class*="aside"] {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  [class*="sidebar"].open,
+  [class*="filter"].open,
+  [class*="aside"].open {
+    transform: translateX(0);
   }
 }

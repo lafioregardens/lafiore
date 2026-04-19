@@ -40,6 +40,7 @@ function PlantFinder() {
     petSafe: "",
     purpose: "",
   });
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
 
   // All plant recommendations - use translation keys for names and descriptions
@@ -392,8 +393,25 @@ function PlantFinder() {
 
         {/* Main Content - Sidebar + Results */}
         <section className="plant-finder-container">
+          {/* Mobile Hamburger Button */}
+          <button
+            className="plant-finder-toggle"
+            onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+            aria-label="Toggle filters"
+          >
+            ☰
+          </button>
+
+          {/* Sidebar Overlay */}
+          {mobileSidebarOpen && (
+            <div
+              className="plant-finder-overlay"
+              onClick={() => setMobileSidebarOpen(false)}
+            />
+          )}
+
           {/* Sidebar Filters */}
-          <aside className="plant-finder-sidebar">
+          <aside className={`plant-finder-sidebar ${mobileSidebarOpen ? "open" : ""}`}>
             <h2>{t("tellUsSpace")}</h2>
 
             {filterSections.map((section) => (
