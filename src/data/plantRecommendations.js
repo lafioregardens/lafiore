@@ -1,7 +1,7 @@
 import snakeplant from "../assets/products/plants/snakeplant.jpg";
 import zz from "../assets/products/plants/zz.jpg";
 import pothos from "../assets/products/plants/pothos.jpg";
-import peacelilyplant from "../assets/products/plants/peacelilypplant.jpg";
+import peacelilyplant from "../assets/products/plants/peacelilyplant.jpg";
 import spiderplant from "../assets/products/plants/spiderplant.jpg";
 import aloevera from "../assets/products/plants/aloevera.jpg";
 import monstera from "../assets/products/plants/monstera.jpg";
@@ -15,7 +15,7 @@ import jadeplant from "../assets/products/plants/jadeplant.jpg";
 import hibiscus from "../assets/products/plants/hibiscus.jpg";
 import lavenderplant from "../assets/products/plants/lavenderplant.jpg";
 import fern from "../assets/products/plants/fern.jpg";
-import bonsai from "../assets/products/plants/bonsai.jpg";
+import boxwood from "../assets/products/plants/boxwood.jpg";
 import arecapalm from "../assets/products/plants/arecapalm.jpg";
 import parlourpalm from "../assets/products/plants/parlourpalm.jpg";
 
@@ -208,7 +208,7 @@ const plantRecommendations = [
   {
     id: 14,
     name: "Bonsai",
-    image: bonsai,
+    image: boxwood,
     climate: ["Moderate"],
     location: ["Indoors", "Outdoors", "Both"],
     sunlight: ["Partial Sun", "Full Sun"],
