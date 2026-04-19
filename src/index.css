@@ -3466,12 +3466,12 @@ button:hover .btn-arrow, a:hover .btn-arrow { transform: translateX(4px); }
 }
 
 .bouquet-page-layout {
-  width: 90%;
+  width: 98%;
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 32px;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
   align-items: start;
 }
 
