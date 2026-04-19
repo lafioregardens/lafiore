@@ -128,30 +128,6 @@ function Shop() {
       });
   }, []);
 
-  // Fetch reviews for filtered products to get accurate ratings
-  useEffect(() => {
-    const startIndex = (currentPage - 1) * 12;
-    const endIndex = startIndex + 12;
-    const paginated = filteredProducts.slice(startIndex, endIndex);
-
-    if (paginated.length === 0) return;
-
-    paginated.forEach((product) => {
-      api
-        .get(`/products/${product.id}/reviews`)
-        .then((res) => {
-          const reviews = res.data?.data || [];
-          if (reviews.length > 0) {
-            const avgRating = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
-            setProductReviews((prev) => ({
-              ...prev,
-              [product.id]: Math.round(avgRating * 10) / 10,
-            }));
-          }
-        })
-        .catch(() => {});
-    });
-  }, [filteredProducts, currentPage]);
 
   const getPriceNumber = (price) => {
     // Handle both string (from local data) and number (from API)
@@ -245,6 +221,27 @@ function Shop() {
     { length: endPage - startPage + 1 },
     (_, index) => startPage + index
   );
+
+  // Fetch reviews for paginated products to get accurate ratings
+  useEffect(() => {
+    if (paginatedProducts.length === 0) return;
+
+    paginatedProducts.forEach((product) => {
+      api
+        .get(`/products/${product.id}/reviews`)
+        .then((res) => {
+          const reviews = res.data?.data || [];
+          if (reviews.length > 0) {
+            const avgRating = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+            setProductReviews((prev) => ({
+              ...prev,
+              [product.id]: Math.round(avgRating * 10) / 10,
+            }));
+          }
+        })
+        .catch(() => {});
+    });
+  }, [paginatedProducts]);
 
   const handleMainCategoryChange = (categoryName) => {
     let newCategory, newSubcategory;
