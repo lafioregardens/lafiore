@@ -100,7 +100,7 @@ function Consultation() {
         {/* HERO SECTION */}
         <section className="consultation-hero">
           <div className="consultation-hero-image">
-            <img src={service1} alt="Beautiful Garden Design" style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "16px" }} />
+            <img src={service1} alt="Beautiful Garden Design" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 35%", borderRadius: "16px" }} />
           </div>
 
           <div className="consultation-hero-content">
