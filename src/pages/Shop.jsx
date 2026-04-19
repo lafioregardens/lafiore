@@ -56,9 +56,9 @@ function Shop() {
   const { t } = useLanguage();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Initialize as null until API data loads
-  const [products, setProducts] = useState(null);
-  const [isLoadingProducts, setIsLoadingProducts] = useState(true);
+  // Initialize products with local data as fallback
+  const [products, setProducts] = useState(localProducts);
+  const [productsLoaded, setProductsLoaded] = useState(false);
 
   // Read category from URL, default to "All"
   const [selectedMainCategory, setSelectedMainCategory] = useState(searchParams.get("category") || "All");
@@ -72,9 +72,8 @@ function Shop() {
 
   // Fetch products from API to get stock information
   useEffect(() => {
-    setIsLoadingProducts(true);
     api
-      .get("/products?limit=500", { timeout: 15000 }) // 15 second timeout for product list
+      .get("/products?limit=500", { timeout: 15000 })
       .then((res) => {
         // Handle different possible API response structures
         let apiProducts = res.data?.data?.products || res.data?.data || res.data?.products || res.data;
@@ -82,7 +81,7 @@ function Shop() {
         if (!Array.isArray(apiProducts)) {
           apiProducts = [];
         }
-        console.log("Products fetched from API:", apiProducts?.length, "products", "Response:", res.data);
+        console.log("Products fetched from API:", apiProducts?.length, "products");
         if (apiProducts && apiProducts.length > 0) {
           // Use API products as primary source
           const mergedProducts = apiProducts.map((apiProduct) => {
@@ -109,17 +108,15 @@ function Shop() {
           });
           console.log("Merged products, displaying:", mergedProducts.length);
           setProducts(mergedProducts);
-          setIsLoadingProducts(false);
+          setProductsLoaded(true);
         } else {
           console.warn("No products from API, using local fallback");
-          setProducts(localProducts);
-          setIsLoadingProducts(false);
+          setProductsLoaded(true);
         }
       })
       .catch((err) => {
         console.error("Failed to fetch products from API:", err.message);
-        setProducts(localProducts);
-        setIsLoadingProducts(false);
+        setProductsLoaded(true);
       });
   }, []);
 
@@ -147,7 +144,7 @@ function Shop() {
   const availableSubcategories = activeCategoryObject.subcategories || [];
 
   const filteredProducts = useMemo(() => {
-    if (!products) return [];
+    if (!products || products.length === 0) return [];
     let result = products.filter((product) => {
       const matchesMainCategory =
         selectedMainCategory === "All" ||
@@ -401,7 +398,7 @@ function Shop() {
           </aside>
 
           <div className="shop-content">
-            {isLoadingProducts || products === null ? (
+            {!productsLoaded ? (
               <div style={{ textAlign: "center", padding: "60px 20px" }}>
                 <p style={{ fontSize: "18px", color: "#999" }}>{t("loading") || "Loading products..."}</p>
               </div>
