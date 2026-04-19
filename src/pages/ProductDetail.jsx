@@ -91,6 +91,20 @@ function ProductDetail() {
   }
 
   const handleAddToCart = () => {
+    // Prevent adding if out of stock
+    if (product?.stock !== undefined && product?.stock <= 0) {
+      setToastType("error");
+      setToastMessage("This item is out of stock");
+      return;
+    }
+
+    // Prevent adding more than available stock
+    if (product?.stock !== undefined && quantity > product.stock) {
+      setToastType("error");
+      setToastMessage(`Only ${product.stock} item${product.stock !== 1 ? 's' : ''} available`);
+      return;
+    }
+
     for (let i = 0; i < quantity; i++) {
       addToCart({
         id: product.id,
@@ -248,10 +262,10 @@ function ProductDetail() {
                 <button
                   type="button"
                   onClick={() => setQuantity((q) => {
-                    const maxStock = product?.stock || 999;
+                    const maxStock = (product?.stock !== undefined && product?.stock > 0) ? product.stock : 1;
                     return Math.min(q + 1, maxStock);
                   })}
-                  disabled={product?.stock !== undefined && quantity >= product.stock}
+                  disabled={product?.stock === undefined || product?.stock === 0 || quantity >= product.stock}
                 >
                   +
                 </button>
