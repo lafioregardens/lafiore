@@ -420,7 +420,7 @@ function Home() {
                 title: t("exquisiteBouquets"),
                 desc: t("expertlyCraftedBouquets"),
                 price: "AED 180",
-                link: "/shop",
+                link: "/shop?category=Bouquets",
                 image: home3
               },
               {
