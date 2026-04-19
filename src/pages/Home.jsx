@@ -36,10 +36,10 @@ const reviews = [
 ];
 
 const products = [
-  { name: "Rose Deluxe Bouquet", price: "AED 200", tag: "Bestseller", image: rose },
-  { name: "Lavender Plant",      price: "AED 95",  tag: "New", image: lavenderplant },
-  { name: "Scented Candle Set",  price: "AED 60",  tag: null, image: candleSet },
-  { name: "Garden Tool Set",     price: "AED 60",  tag: null, image: toolSet },
+  { name: "Rose Deluxe Bouquet", price: "AED 200", tag: "Bestseller", image: rose, link: "/shop?category=Bouquets" },
+  { name: "Lavender Plant",      price: "AED 95",  tag: "New", image: lavenderplant, link: "/shop?category=Plants" },
+  { name: "Scented Candle Set",  price: "AED 60",  tag: null, image: candleSet, link: "/shop?category=Candles" },
+  { name: "Garden Tool Set",     price: "AED 60",  tag: null, image: toolSet, link: "/shop?category=Garden Sets" },
 ];
 
 /* ─────────────────────────────────────
@@ -477,9 +477,9 @@ function Home() {
                 </div>
                 <div className="product-info">
                   <h3 className="product-name">{p.name}</h3>
-                  <button className="product-btn">
+                  <Link to={p.link} className="product-btn">
                     {p.price} <span className="btn-arrow">→</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
