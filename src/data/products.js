@@ -34,6 +34,9 @@ import snakeplant from "../assets/products/plants/snakeplant.jpg";
 import spiderplant from "../assets/products/plants/spiderplant.jpg";
 import succulentmix from "../assets/products/plants/succulentmix.jpg";
 import zz from "../assets/products/plants/zz.jpg";
+import anubias from "../assets/products/plants/anubias.jpg";
+import applep from "../assets/products/plants/applep.jpg";
+import arecapalm from "../assets/products/plants/arecapalm.jpg";
 
 import dibber from "../assets/products/tools/dibber.jpg";
 import gardenfork from "../assets/products/tools/gardenfork.jpg";
@@ -167,6 +170,7 @@ import moringa from "../assets/products/seeds/moringa.png";
 import neem from "../assets/products/seeds/neem.png";
 import olive from "../assets/products/seeds/olive.png";
 import palm from "../assets/products/seeds/palm.png";
+import astermix from "../assets/products/seeds/astermix.png";
 
 const p = (
   id,
@@ -587,7 +591,7 @@ const products = [
     "A tall seasonal plant known for its large yellow flowers. It requires full sunlight and regular watering.",
     ["Seasonal", "Bright"],
     4,
-    "",
+    sunflowerp,
     ["Seasonal"]
   ),
   p(
@@ -598,7 +602,7 @@ const products = [
     "A seasonal plant widely used for decorative displays, especially during winter. It prefers bright light and moderate watering.",
     ["Seasonal", "Winter"],
     4,
-    "",
+    poinsettia,
     ["Seasonal"]
   ),
   p(
@@ -609,7 +613,7 @@ const products = [
     "A climbing flowering plant known for its fragrant blooms. It grows well on supports such as trellises and fences.",
     ["Seasonal", "Climbing"],
     4,
-    "",
+    sweetpea,
     ["Seasonal"]
   ),
   p(
@@ -620,7 +624,7 @@ const products = [
     "An aquatic plant with floating leaves and attractive flowers that rest on the water surface. It grows well in ponds and water gardens.",
     ["Aquatic", "Pond Plant"],
     5,
-    "",
+    waterlily,
     ["Aquatic"]
   ),
   p(
@@ -631,7 +635,7 @@ const products = [
     "A well-known aquatic plant valued for its large blooms and floating foliage. It thrives in ponds with still water.",
     ["Aquatic", "Flowering"],
     5,
-    "",
+    lotusp,
     ["Aquatic"]
   ),
   p(
@@ -642,7 +646,7 @@ const products = [
     "A floating aquatic plant with broad leaves and upright flower spikes. It helps improve water quality.",
     ["Aquatic", "Floating"],
     4,
-    "",
+    waterhyacinth,
     ["Aquatic"]
   ),
   p(
@@ -653,7 +657,7 @@ const products = [
     "A tall aquatic plant with grass-like stems. It is commonly planted near ponds and water features.",
     ["Aquatic", "Tall"],
     4,
-    "",
+    papyrus,
     ["Aquatic"]
   ),
   p(
@@ -664,7 +668,7 @@ const products = [
     "A wetland plant with tall stems and cylindrical flower spikes. It grows well along pond edges.",
     ["Aquatic", "Wetland"],
     4,
-    "",
+    cattail,
     ["Aquatic"]
   ),
   p(
@@ -675,7 +679,7 @@ const products = [
     "A small floating plant that spreads across water surfaces. It provides shade and supports aquatic ecosystems.",
     ["Aquatic", "Floating"],
     4,
-    "",
+    duckweed,
     ["Aquatic"]
   ),
   p(
@@ -686,7 +690,7 @@ const products = [
     "A floating aquatic plant with rounded leaves. It helps reduce algae growth and improves water balance.",
     ["Aquatic", "Floating"],
     4,
-    "",
+    frogbit,
     ["Aquatic"]
   ),
   p(
@@ -697,7 +701,7 @@ const products = [
     "A slow-growing aquatic plant commonly used in aquariums. It requires minimal light and maintenance.",
     ["Aquatic", "Aquarium"],
     4,
-    "",
+    anubias,
     ["Aquatic"]
   ),
   p(
@@ -708,7 +712,7 @@ const products = [
     "A versatile aquatic plant used for aquariums and ponds. It provides shelter for small aquatic organisms.",
     ["Aquatic", "Aquarium"],
     4,
-    "",
+    javamoss,
     ["Aquatic"]
   ),
   p(
@@ -719,7 +723,7 @@ const products = [
     "A submerged aquatic plant that helps maintain water clarity. It grows freely without rooting in soil.",
     ["Aquatic", "Water Clarity"],
     4,
-    "",
+    hornwort,
     ["Aquatic"]
   ),
   p(
@@ -730,7 +734,7 @@ const products = [
     "A medicinal herb valued for its refreshing aroma and digestive properties. It grows well in pots and garden beds.",
     ["Medicinal", "Herb"],
     5,
-    "",
+    peppermintp,
     ["Medicinal"]
   ),
   p(
@@ -741,7 +745,7 @@ const products = [
     "A medicinal flowering plant commonly used to support immune health. It grows best in sunny outdoor areas.",
     ["Medicinal", "Flowering"],
     4,
-    "",
+    echinacea,
     ["Medicinal"]
   ),
   p(
@@ -752,7 +756,7 @@ const products = [
     "A medicinal plant cultivated for its underground rhizomes. It prefers warm conditions and moist soil.",
     ["Medicinal", "Root"],
     4,
-    "",
+    turmericp,
     ["Medicinal"]
   ),
   p(
@@ -763,7 +767,7 @@ const products = [
     "A medicinal herb commonly used in herbal preparations. It grows well in gardens and containers.",
     ["Medicinal", "Herb"],
     5,
-    "",
+    chamomilep,
     ["Medicinal"]
   ),
   p(
@@ -774,7 +778,7 @@ const products = [
     "A medicinal tree plant traditionally used to support circulation and memory. It grows well in outdoor environments.",
     ["Medicinal", "Tree"],
     4,
-    "",
+    ginkgo,
     ["Medicinal", "Trees"]
   ),
   p(
@@ -785,7 +789,7 @@ const products = [
     "A medicinal root plant widely used in cooking and wellness practices. It thrives in warm moist conditions.",
     ["Medicinal", "Root"],
     4,
-    "",
+    gingerp,
     ["Medicinal"]
   ),
   p(
@@ -796,7 +800,7 @@ const products = [
     "A medicinal herb with a mild citrus scent. It grows easily in gardens and pots and is often included in home herb collections.",
     ["Medicinal", "Herb"],
     4,
-    "",
+    lemonbalm,
     ["Medicinal"]
   ),
   p(
@@ -807,7 +811,7 @@ const products = [
     "A sacred medicinal plant valued for its health benefits. It grows well in sunlight and requires minimal care.",
     ["Medicinal", "Herb"],
     5,
-    "",
+    tulsi,
     ["Medicinal"]
   ),
   p(
@@ -818,7 +822,7 @@ const products = [
     "A medicinal plant traditionally used for stress relief and overall wellness. It prefers warm climates.",
     ["Medicinal", "Wellness"],
     4,
-    "",
+    ashwagandha,
     ["Medicinal"]
   ),
   p(
@@ -829,7 +833,7 @@ const products = [
     "A strong long-living tree commonly used for shade and landscaping. It grows best in open outdoor spaces.",
     ["Tree", "Shade"],
     4,
-    "",
+    oak,
     ["Trees"]
   ),
   p(
@@ -840,7 +844,7 @@ const products = [
     "A deciduous tree known for its seasonal foliage color. It enhances landscapes with shade and visual appeal.",
     ["Tree", "Landscape"],
     4,
-    "",
+    maple,
     ["Trees"]
   ),
   p(
@@ -851,7 +855,7 @@ const products = [
     "A miniature tree grown for decorative purposes. It requires careful pruning and regular maintenance.",
     ["Tree", "Decorative"],
     5,
-    "",
+    bonsai,
     ["Trees"]
   ),
   p(
@@ -862,7 +866,7 @@ const products = [
     "A fruit-bearing tree that produces edible apples. It grows well in sunny locations with proper care.",
     ["Tree", "Fruit Bearing"],
     4,
-    "",
+    applep,
     ["Trees", "Edible"]
   ),
   p(
@@ -873,7 +877,7 @@ const products = [
     "An evergreen tree with needle-like leaves and a fresh scent. It is suitable for gardens and larger landscapes.",
     ["Tree", "Evergreen"],
     4,
-    "",
+    pine,
     ["Trees"]
   ),
   p(
@@ -884,7 +888,7 @@ const products = [
     "A decorative tree admired for its beautiful seasonal blooms. It is commonly planted in parks and gardens.",
     ["Tree", "Flowering"],
     5,
-    "",
+    cherryblossom,
     ["Trees"]
   ),
   p(
@@ -895,7 +899,7 @@ const products = [
     "A slender tree with distinctive bark and graceful appearance. It grows well in cooler climates.",
     ["Tree", "Landscape"],
     4,
-    "",
+    birchtree,
     ["Trees"]
   ),
   p(
@@ -906,7 +910,7 @@ const products = [
     "A tropical tree that adds an exotic look to outdoor spaces. It thrives in warm and sunny environments.",
     ["Tree", "Tropical"],
     4,
-    "",
+    palmp,
     ["Trees"]
   ),
   p(
@@ -917,7 +921,7 @@ const products = [
     "A hardy tree known for its longevity and olive fruit production. It is suitable for outdoor gardens in warm climates.",
     ["Tree", "Fruit Bearing"],
     4,
-    "",
+    olivep,
     ["Trees", "Edible"]
   ),
   p(
@@ -928,7 +932,7 @@ const products = [
     "A fast-growing tree with long drooping branches. It is often planted near water bodies.",
     ["Tree", "Landscape"],
     4,
-    "",
+    willow,
     ["Trees"]
   ),
   p(
@@ -939,7 +943,7 @@ const products = [
     "A graceful palm with lush feathery fronds that suits bright interiors and sheltered spaces. It is often chosen as a decorative indoor tree.",
     ["Indoor", "Tree"],
     5,
-    "",
+    arecapalm,
     ["Trees", "Indoor"]
   ),
   p(
@@ -950,7 +954,7 @@ const products = [
     "A compact palm admired for its soft tropical look and suitability for indoor styling. It grows well in bright indirect light.",
     ["Indoor", "Tree"],
     5,
-    "",
+    parlourpalm,
     ["Trees", "Indoor"]
   ),
 
@@ -1596,7 +1600,7 @@ const products = [
     "Grows into colorful flowering plants that attract pollinators and enhance garden aesthetics.",
     ["Seeds", "Flower"],
     4,
-    aster,
+    astermix,
     ["Flower Seeds"]
   ),
   p(
