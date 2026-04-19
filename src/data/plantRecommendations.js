@@ -15,6 +15,9 @@ import jadeplant from "../assets/products/plants/jadeplant.jpg";
 import hibiscus from "../assets/products/plants/hibiscus.jpg";
 import lavenderplant from "../assets/products/plants/lavenderplant.jpg";
 import fern from "../assets/products/plants/fern.jpg";
+import bonsai from "../assets/products/plants/bonsai.jpg";
+import arecapalm from "../assets/products/plants/arecapalm.jpg";
+import parlourpalm from "../assets/products/plants/parlourpalm.jpg";
 
 const plantRecommendations = [
   {
@@ -149,7 +152,7 @@ const plantRecommendations = [
   {
     id: 10,
     name: "Areca Palm",
-    image: "",
+    image: arecapalm,
     climate: ["Humid", "Moderate"],
     location: ["Indoors", "Outdoors", "Both"],
     sunlight: ["Partial Sun", "Full Sun"],
@@ -205,7 +208,7 @@ const plantRecommendations = [
   {
     id: 14,
     name: "Bonsai",
-    image: "",
+    image: bonsai,
     climate: ["Moderate"],
     location: ["Indoors", "Outdoors", "Both"],
     sunlight: ["Partial Sun", "Full Sun"],
@@ -261,7 +264,7 @@ const plantRecommendations = [
   {
     id: 18,
     name: "Parlor Palm",
-    image: "",
+    image: parlourpalm,
     climate: ["Moderate", "Humid"],
     location: ["Indoors"],
     sunlight: ["Low Light", "Partial Sun"],
