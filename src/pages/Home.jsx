@@ -36,10 +36,10 @@ const reviews = [
 ];
 
 const products = [
-  { name: "Crimson Passion", price: "AED 290.00", tag: "Bestseller", image: rose, link: "/shop?productId=251" },
-  { name: "The Desert Bloom Collection", price: "AED 180.00", tag: "New", image: candleSet, link: "/shop?productId=265" },
-  { name: "Lavender Plant",      price: "AED 95.00",  tag: null, image: lavenderplant, link: "/shop?productId=17" },
-  { name: "Starter Set",     price: "AED 350.00",  tag: null, image: toolSet, link: "/shop?productId=262" },
+  { name: "Crimson Passion", price: "AED 290.00", tag: "Bestseller", image: rose, link: "/shop?category=Bouquets&productId=251" },
+  { name: "The Desert Bloom Collection", price: "AED 180.00", tag: "New", image: candleSet, link: "/shop?category=Candle Sets&productId=265" },
+  { name: "Lavender Plant",      price: "AED 95.00",  tag: null, image: lavenderplant, link: "/shop?category=Plants&productId=17" },
+  { name: "Starter Set",     price: "AED 350.00",  tag: null, image: toolSet, link: "/shop?category=Garden Sets&productId=262" },
 ];
 
 /* ─────────────────────────────────────

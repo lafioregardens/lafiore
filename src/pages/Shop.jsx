@@ -71,6 +71,14 @@ function Shop() {
 
   const productsPerPage = 12;
 
+  // Sync category/subcategory with URL parameters
+  useEffect(() => {
+    const urlCategory = searchParams.get("category") || "All";
+    const urlSubcategory = searchParams.get("subcategory") || "";
+    setSelectedMainCategory(urlCategory);
+    setSelectedSubCategory(urlSubcategory);
+  }, [searchParams]);
+
   // Fetch products from API to get stock information
   useEffect(() => {
     // Use local products immediately
@@ -250,9 +258,9 @@ function Shop() {
         if (element) {
           element.scrollIntoView({ behavior: "smooth", block: "center" });
         }
-      }, 100);
+      }, 300);
     }
-  }, [searchParams]);
+  }, [searchParams, selectedMainCategory, filteredProducts]);
 
   const handleMainCategoryChange = (categoryName) => {
     let newCategory, newSubcategory;
