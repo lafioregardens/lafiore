@@ -276,8 +276,7 @@ import raisedbedsoil from "../assets/products/soil&fertilizer/raisedbedsoil.png"
 import orchidmix from "../assets/products/soil&fertilizer/orchidmix.png";
 import succulentcactusmix from "../assets/products/soil&fertilizer/succulentcactusmix.png";
 import pottingmix from "../assets/products/soil&fertilizer/plottingmix.png";
-
-const epsomsalt = require("../assets/products/soil&fertilizer/epsom salt.png").default;
+import epsomsalt from "../assets/products/soil&fertilizer/epsom%20salt.png";
 
 const p = (
   id,
