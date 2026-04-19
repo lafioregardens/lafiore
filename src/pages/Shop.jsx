@@ -56,13 +56,8 @@ function Shop() {
   const { t } = useLanguage();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Initialize products with stock data for immediate display
-  const [products, setProducts] = useState(() => {
-    return localProducts.map((p, idx) => ({
-      ...p,
-      stock: idx === 0 ? 0 : idx === 1 ? 2 : undefined  // Tomato is out of stock, Basil has 2 left
-    }));
-  });
+  // Initialize with local products, will be replaced by API data
+  const [products, setProducts] = useState(localProducts);
 
   // Read category from URL, default to "All"
   const [selectedMainCategory, setSelectedMainCategory] = useState(searchParams.get("category") || "All");
@@ -109,22 +104,12 @@ function Shop() {
           setProducts(mergedProducts);
         } else {
           console.warn("No products from API, using local fallback");
-          // Fallback to local products with test stock data
-          const withStock = localProducts.map((p, idx) => ({
-            ...p,
-            stock: idx === 0 ? 0 : idx === 1 ? 2 : undefined
-          }));
-          setProducts(withStock);
+          setProducts(localProducts);
         }
       })
       .catch((err) => {
         console.error("Failed to fetch products from API:", err.message);
-        // Fallback to local products with test stock data
-        const withStock = localProducts.map((p, idx) => ({
-          ...p,
-          stock: idx === 0 ? 0 : idx === 1 ? 2 : undefined
-        }));
-        setProducts(withStock);
+        setProducts(localProducts);
       });
   }, []);
 
@@ -428,7 +413,7 @@ function Shop() {
                         )}
 
                         {/* Stock Status Badge - Low Stock */}
-                        {product.stock !== undefined && product.stock > 0 && product.stock < 3 && (
+                        {product.stock !== undefined && product.stock > 0 && product.stock <= 3 && (
                           <span className="shop-card-badge shop-card-badge--low">
                             {t("lastRemaining").replace("{count}", product.stock)}
                           </span>

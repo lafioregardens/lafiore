@@ -220,7 +220,7 @@ function ProductDetail() {
                 ? `AED ${product.price.toFixed(2)}`
                 : product?.price}
             </span>
-            {product?.stock !== undefined && product?.stock > 0 && product?.stock < 3 && (
+            {product?.stock !== undefined && product?.stock > 0 && product?.stock <= 3 && (
               <span className="product-status-low">{t("lastRemaining").replace("{count}", product?.stock)}</span>
             )}
           </div>
