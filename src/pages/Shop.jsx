@@ -61,22 +61,24 @@ function Shop() {
   const [productsLoaded, setProductsLoaded] = useState(false);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
-  // Read category from URL, default to "All"
+  // Read category and page from URL, default to "All" and page 1
   const [selectedMainCategory, setSelectedMainCategory] = useState(searchParams.get("category") || "All");
   const [selectedSubCategory, setSelectedSubCategory] = useState(searchParams.get("subcategory") || "");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("default");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(parseInt(searchParams.get("page")) || 1);
   const [productReviews, setProductReviews] = useState({});
 
   const productsPerPage = 12;
 
-  // Sync category/subcategory with URL parameters
+  // Sync category/subcategory/page with URL parameters
   useEffect(() => {
     const urlCategory = searchParams.get("category") || "All";
     const urlSubcategory = searchParams.get("subcategory") || "";
+    const urlPage = parseInt(searchParams.get("page")) || 1;
     setSelectedMainCategory(urlCategory);
     setSelectedSubCategory(urlSubcategory);
+    setCurrentPage(urlPage);
   }, [searchParams]);
 
   // Fetch products from API to get stock information
@@ -317,6 +319,13 @@ function Shop() {
     setCurrentPage(1);
   };
 
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+    const params = new URLSearchParams(searchParams);
+    params.set("page", newPage);
+    setSearchParams(params);
+  };
+
   const renderStars = (rating) => {
     return "★".repeat(rating) + "☆".repeat(5 - rating);
   };
@@ -522,7 +531,7 @@ function Shop() {
                     <button
                       className="pagination-btn"
                       disabled={currentPage === 1}
-                      onClick={() => setCurrentPage((prev) => prev - 1)}
+                      onClick={() => handlePageChange(currentPage - 1)}
                     >
                       {t("previous")}
                     </button>
@@ -536,7 +545,7 @@ function Shop() {
                               ? "pagination-number active-pagination-number"
                               : "pagination-number"
                           }
-                          onClick={() => setCurrentPage(page)}
+                          onClick={() => handlePageChange(page)}
                         >
                           {page}
                         </button>
@@ -552,7 +561,7 @@ function Shop() {
                                 ? "pagination-number active-pagination-number"
                                 : "pagination-number"
                             }
-                            onClick={() => setCurrentPage(totalPages)}
+                            onClick={() => handlePageChange(totalPages)}
                           >
                             {totalPages}
                           </button>
@@ -563,7 +572,7 @@ function Shop() {
                     <button
                       className="pagination-btn"
                       disabled={currentPage === totalPages}
-                      onClick={() => setCurrentPage((prev) => prev + 1)}
+                      onClick={() => handlePageChange(currentPage + 1)}
                     >
                       {t("next")}
                     </button>
