@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Slideshow from "../components/Slideshow";
 import { useLanguage } from "../context/LanguageContext";
+import planteriorImg from "../assets/images/planterior.jpg";
+import service1Img from "../assets/images/service1.jpg";
 import "./ServiceDetail.css";
 
 function ServicePlanteriorDesign() {
@@ -28,9 +31,7 @@ function ServicePlanteriorDesign() {
               <p>{t("planteriorDesc1")}</p>
               <p>{t("planteriorDesc2")}</p>
             </div>
-            <div className="service-image-placeholder">
-              {/* Image Placeholder */}
-            </div>
+            <Slideshow images={[planteriorImg, service1Img]} />
           </div>
         </section>
 

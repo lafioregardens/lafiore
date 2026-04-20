@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Slideshow from "../components/Slideshow";
 import { useLanguage } from "../context/LanguageContext";
+import gardenImg from "../assets/images/garden.jpg";
+import service1Img from "../assets/images/service1.jpg";
 import "./ServiceDetail.css";
 
 function ServiceGardenPlanning() {
@@ -28,9 +31,7 @@ function ServiceGardenPlanning() {
               <p>{t("gardenDesc1")}</p>
               <p>{t("gardenDesc2")}</p>
             </div>
-            <div className="service-image-placeholder">
-              {/* Image Placeholder */}
-            </div>
+            <Slideshow images={[gardenImg, service1Img]} />
           </div>
         </section>
 

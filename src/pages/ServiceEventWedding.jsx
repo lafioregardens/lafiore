@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Slideshow from "../components/Slideshow";
 import { useLanguage } from "../context/LanguageContext";
+import eventImg from "../assets/images/event.jpg";
+import service1Img from "../assets/images/service1.jpg";
 import "./ServiceDetail.css";
 
 function ServiceEventWedding() {
@@ -28,9 +31,7 @@ function ServiceEventWedding() {
               <p>{t("eventWeddingDesc1")}</p>
               <p>{t("eventWeddingDesc2")}</p>
             </div>
-            <div className="service-image-placeholder">
-              {/* Image Placeholder */}
-            </div>
+            <Slideshow images={[eventImg, service1Img]} />
           </div>
         </section>
 
