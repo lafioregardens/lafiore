@@ -204,14 +204,16 @@ function Shop() {
   }, [selectedMainCategory, selectedSubCategory, searchTerm, sortBy, maxPrice]);
 
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
-  const startIndex = (currentPage - 1) * productsPerPage;
+  // Ensure currentPage doesn't exceed totalPages
+  const validPage = currentPage > totalPages ? 1 : currentPage;
+  const startIndex = (validPage - 1) * productsPerPage;
   const paginatedProducts = filteredProducts.slice(
     startIndex,
     startIndex + productsPerPage
   );
 
   const pagesPerGroup = 5;
-  const currentGroup = Math.ceil(currentPage / pagesPerGroup);
+  const currentGroup = Math.ceil(validPage / pagesPerGroup);
   const startPage = (currentGroup - 1) * pagesPerGroup + 1;
   const endPage = Math.min(startPage + pagesPerGroup - 1, totalPages);
 
@@ -286,11 +288,12 @@ function Shop() {
     setSelectedSubCategory(newSubcategory);
     setCurrentPage(1);
 
-    // Update URL with category
+    // Update URL with category and reset page
     const params = new URLSearchParams(searchParams);
     params.set("category", newCategory);
     if (newSubcategory) params.set("subcategory", newSubcategory);
     else params.delete("subcategory");
+    params.delete("page");
     setSearchParams(params);
   };
 
@@ -298,9 +301,10 @@ function Shop() {
     setSelectedSubCategory(subcategory);
     setCurrentPage(1);
 
-    // Update URL with subcategory
+    // Update URL with subcategory and reset page
     const params = new URLSearchParams(searchParams);
     params.set("subcategory", subcategory);
+    params.delete("page");
     setSearchParams(params);
   };
 
@@ -530,8 +534,8 @@ function Shop() {
                   <div className="shop-pagination">
                     <button
                       className="pagination-btn"
-                      disabled={currentPage === 1}
-                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={validPage === 1}
+                      onClick={() => handlePageChange(validPage - 1)}
                     >
                       {t("previous")}
                     </button>
@@ -541,7 +545,7 @@ function Shop() {
                         <button
                           key={page}
                           className={
-                            currentPage === page
+                            validPage === page
                               ? "pagination-number active-pagination-number"
                               : "pagination-number"
                           }
@@ -557,7 +561,7 @@ function Shop() {
 
                           <button
                             className={
-                              currentPage === totalPages
+                              validPage === totalPages
                                 ? "pagination-number active-pagination-number"
                                 : "pagination-number"
                             }
@@ -571,8 +575,8 @@ function Shop() {
 
                     <button
                       className="pagination-btn"
-                      disabled={currentPage === totalPages}
-                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={validPage === totalPages}
+                      onClick={() => handlePageChange(validPage + 1)}
                     >
                       {t("next")}
                     </button>
