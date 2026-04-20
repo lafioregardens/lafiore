@@ -4,7 +4,10 @@ import Footer from "../components/Footer";
 import Slideshow from "../components/Slideshow";
 import { useLanguage } from "../context/LanguageContext";
 import planteriorImg from "../assets/images/planterior.jpg";
-import service1Img from "../assets/images/service1.jpg";
+import in1 from "../assets/images/in1.jpg";
+import in2 from "../assets/images/in2.jpg";
+import in3 from "../assets/images/in3.jpg";
+import in4 from "../assets/images/in4.jpg";
 import "./ServiceDetail.css";
 
 function ServicePlanteriorDesign() {
@@ -31,7 +34,7 @@ function ServicePlanteriorDesign() {
               <p>{t("planteriorDesc1")}</p>
               <p>{t("planteriorDesc2")}</p>
             </div>
-            <Slideshow images={[planteriorImg, service1Img]} />
+            <Slideshow images={[planteriorImg, in1, in2, in3, in4]} />
           </div>
         </section>
 

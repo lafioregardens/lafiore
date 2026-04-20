@@ -4,7 +4,10 @@ import Footer from "../components/Footer";
 import Slideshow from "../components/Slideshow";
 import { useLanguage } from "../context/LanguageContext";
 import eventImg from "../assets/images/event.jpg";
-import service1Img from "../assets/images/service1.jpg";
+import wed1 from "../assets/images/wed1.jpg";
+import wed2 from "../assets/images/wed2.jpg";
+import wed3 from "../assets/images/wed3.jpg";
+import wed4 from "../assets/images/wed4.jpg";
 import "./ServiceDetail.css";
 
 function ServiceEventWedding() {
@@ -31,7 +34,7 @@ function ServiceEventWedding() {
               <p>{t("eventWeddingDesc1")}</p>
               <p>{t("eventWeddingDesc2")}</p>
             </div>
-            <Slideshow images={[eventImg, service1Img]} />
+            <Slideshow images={[eventImg, wed1, wed2, wed3, wed4]} />
           </div>
         </section>
 
