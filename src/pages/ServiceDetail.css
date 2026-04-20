@@ -17,6 +17,27 @@
   margin: 0 auto;
   padding: 120px 20px 80px;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-hero::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle at 30% 30%, rgba(102, 122, 79, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.service-hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .service-hero-image {
