@@ -14,9 +14,6 @@ function ServiceEventWedding() {
       <main className="service-detail-page">
         {/* Hero Section */}
         <section className="service-hero">
-          <div className="service-hero-image">
-            {/* Image Placeholder */}
-          </div>
           <div className="service-hero-content">
             <h1>{t("eventWeddingFlowers")}</h1>
             <p>{t("bespokeFloralStyling")}</p>
