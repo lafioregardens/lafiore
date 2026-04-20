@@ -1,6 +1,7 @@
 import { useSearchParams, Link, useLocation } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { CartContext } from "../context/CartContext";
 import { useLanguage } from "../context/LanguageContext";
 import "./Checkout.css";
@@ -138,6 +139,8 @@ function OrderSuccess() {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Toast from "../components/Toast";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
@@ -629,6 +630,8 @@ function Checkout() {
           </aside>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }

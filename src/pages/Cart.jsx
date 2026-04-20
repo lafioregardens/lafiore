@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
@@ -257,6 +258,8 @@ function Cart() {
           </div>
         )}
       </main>
+
+      <Footer />
     </div>
   );
 }

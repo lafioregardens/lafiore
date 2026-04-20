@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { useMemo, useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
@@ -594,6 +595,8 @@ function Shop() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "./OrderTracking.css";
 
 function OrderTracking() {
@@ -69,6 +70,8 @@ function OrderTracking() {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
