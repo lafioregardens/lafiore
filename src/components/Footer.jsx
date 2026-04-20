@@ -42,7 +42,6 @@ function Footer() {
             <li><Link to="/shop">Bouquets</Link></li>
             <li><Link to="/shop">Plants</Link></li>
             <li><Link to="/shop">Gifts</Link></li>
-            <li><Link to="/shop">Accessories</Link></li>
           </ul>
         </div>
 
@@ -61,7 +60,6 @@ function Footer() {
         <div className="footer-col">
           <h4 className="footer-heading">Company</h4>
           <ul className="footer-links">
-            <li><Link to="/about">About Us</Link></li>
             <li><Link to="/contact">Contact</Link></li>
             <li><Link to="/delivery-info">Delivery Info</Link></li>
             <li><Link to="/care-guide">Care Guide</Link></li>

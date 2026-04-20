@@ -7,7 +7,6 @@ import cucumberp from "../assets/products/plants/cucumberp.jpg";
 import kalep from "../assets/products/plants/kalep.jpg";
 import spinachp from "../assets/products/plants/spinachp.jpg";
 import strawberryp from "../assets/products/plants/strawberryp.jpg";
-import carrot from "../assets/products/plants/carrots.jpeg";
 import agave from "../assets/products/plants/agave.jpg";
 import aloevera from "../assets/products/plants/aloevera.jpg";
 import azalea from "../assets/products/plants/azalea.jpg";
@@ -76,6 +75,7 @@ import turmericp from "../assets/products/plants/turmericp.jpg";
 import waterhyacinth from "../assets/products/plants/waterhyacinth.jpg";
 import waterlily from "../assets/products/plants/waterlily.jpg";
 import willow from "../assets/products/plants/willow.jpg";
+import zucchinip from "../assets/products/plants/zucchinip.jpeg";
 
 import anemonef from "../assets/products/flowers/anemonef.jpg";
 import arnicaf from "../assets/products/flowers/arnicaf.jpg";
@@ -312,7 +312,7 @@ const products = [
     "A widely grown edible plant valued for its juicy and flavorful fruits. It grows well in garden beds and containers, requiring regular watering and sufficient sunlight for healthy fruit production.",
     ["Edible", "Fruit Plant"],
     4,
-    tomato,
+    tomatop,
     ["Edible"]
   ),
   p(
@@ -323,7 +323,7 @@ const products = [
     "A fragrant herb commonly used in cooking and food preparation. It grows well in pots or garden beds and prefers warm conditions with moderate watering.",
     ["Edible", "Herb"],
     5,
-    basil,
+    basilp,
     ["Edible"]
   ),
   p(
@@ -334,7 +334,7 @@ const products = [
     "A root vegetable cultivated for its nutritional value and crisp texture. It grows best in loose, well-drained soil and requires consistent moisture for proper development.",
     ["Edible", "Root Vegetable"],
     4,
-    carrots,
+    carrotp,
     ["Edible"]
   ),
   p(
@@ -345,7 +345,7 @@ const products = [
     "A leafy green vegetable known for its rich nutrient content. It thrives in cooler temperatures and can be harvested multiple times during its growth cycle.",
     ["Edible", "Leafy Green"],
     4,
-    kale,
+    kalep,
     ["Edible"]
   ),
   p(
@@ -356,7 +356,7 @@ const products = [
     "A fruit-producing plant that yields sweet red berries. Suitable for pots, hanging baskets, and garden beds, it requires good sunlight and regular care.",
     ["Edible", "Fruit Plant"],
     5,
-    strawberry,
+    strawberryp,
     ["Edible"]
   ),
   p(
@@ -367,7 +367,7 @@ const products = [
     "A vegetable plant grown for its mild-flavored and colorful peppers. It performs best in warm climates with well-drained soil and adequate sunlight.",
     ["Edible", "Vegetable"],
     4,
-    bellpeppers,
+    bellpepperp,
     ["Edible"]
   ),
   p(
@@ -378,7 +378,7 @@ const products = [
     "A fast-growing vine plant that produces crisp, refreshing fruits. It grows well with support structures and needs frequent watering and sunlight.",
     ["Edible", "Vine Plant"],
     4,
-    cucumber,
+    cucumberp,
     ["Edible"]
   ),
   p(
@@ -389,7 +389,7 @@ const products = [
     "A leafy vegetable commonly grown for its health benefits and quick harvest. It prefers cooler temperatures and moist, fertile soil.",
     ["Edible", "Leafy Green"],
     4,
-    spinach,
+    spinachp,
     ["Edible"]
   ),
   p(
@@ -400,7 +400,7 @@ const products = [
     "A fruit-bearing shrub that produces nutritious berries. It grows best in acidic soil and requires consistent watering for good yield.",
     ["Edible", "Fruit Shrub"],
     4,
-    bluberry,
+    blueberryp,
     ["Edible"]
   ),
   p(
@@ -411,7 +411,7 @@ const products = [
     "A productive vegetable plant that produces elongated green fruits. It requires space, sunlight, and regular watering to support healthy growth.",
     ["Edible", "Vegetable"],
     4,
-    zucchini,
+    zucchinip,
     ["Edible"]
   ),
   p(
