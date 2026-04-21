@@ -134,7 +134,7 @@ import wateringcan from "../assets/products/tools/wateringcan.jpg";
 import wheelbarrow from "../assets/products/tools/wheelbarrow.jpg";
 
 import espresso from "../assets/products/soaps/espresso.jpeg";
-import charcoaldetox from "../assets/products/soaps/charcoaldetox.jpeg";
+import charcoal from "../assets/products/soaps/charcoal.jpeg";
 import lavenderoat from "../assets/products/soaps/lavenderoat.jpeg";
 import roseclay from "../assets/products/soaps/roseclay.jpeg";
 import eucalyptusmint from "../assets/products/soaps/eucalyptusmint.jpeg";
@@ -153,6 +153,7 @@ import selfwatering from "../assets/products/pots/selfwatering.jpg";
 import smartaiplanter from "../assets/products/pots/smartaiplanter.jpg";
 import wooden from "../assets/products/pots/wooden.jpg";
 import wovenrattarplanter from "../assets/products/pots/wovenrattarplanter.jpeg";
+import fiberstone from "../assets/products/pots/fiberstone.jpeg";
 
 import arabianjasmine from "../assets/products/candles/arabianjasmine.jpeg";
 import bergamot from "../assets/products/candles/bergamot.jpeg";
@@ -169,7 +170,7 @@ import apothecarytrio1 from "../assets/products/candleset/apothecarytrio1.jpeg";
 import desertbloom1 from "../assets/products/candleset/desertbloom1.jpeg";
 import signaturescent from "../assets/products/candleset/signaturescent.jpeg";
 
-import botanicalset1 from "../assets/products/gardenset/botanicalset1.jpeg";
+import botanicalset from "../assets/products/gardenset/botanicalset.jpeg";
 import masterset from "../assets/products/gardenset/masterset.jpeg";
 import starterset from "../assets/products/gardenset/starterset.jpeg";
 
@@ -2341,7 +2342,7 @@ const products = [
     "Deeply cleansing bar that pulls impurities from pores. Ideal for oily and acne-prone skin types.",
     ["Soaps", "Detox"],
     5,
-    charcoaldetox,
+    charcoal,
     ["Natural Ingredients"]
   ),
   p(
@@ -3003,7 +3004,7 @@ const products = [
     "Lightweight composite pots with a sleek modern finish. Durable, weather-resistant, and available in neutral tones.",
     ["Pots", "Modern", "Lightweight"],
     5,
-    "",
+    fiberstone,
     ["Planters"]
   ),
   p(
@@ -3128,7 +3129,7 @@ const products = [
     "Luxury set including rare plant varieties, premium tools, botanical guides, and specialty potting mixes. A complete garden experience.",
     ["Garden Sets", "Luxury", "Rare Plants"],
     5,
-    botanicalset1,
+    botanicalset,
     ["Tool Kits"]
   ),
 
