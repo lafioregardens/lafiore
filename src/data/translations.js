@@ -3694,8 +3694,8 @@ const translations = {
     zzPlant: "ZZ Plant",
     zzPlantDesc: "A great choice for low light and busy plant owners."
   },
-  ta: {
-    aboutUs: "எங்களைப் பற்றி",
+  ml: {
+    aboutUs: "ഞാങ്കളെ പറ്റി",
     account: "கணக்கு",
     accountSettings: "கணக்கு அமைப்பாய் உத்திரவাதங்கள்",
     acrossUAE: "UAE முழுவதும்",

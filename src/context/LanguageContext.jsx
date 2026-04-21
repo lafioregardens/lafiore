@@ -12,7 +12,6 @@ const languages = [
   { code: "ko", label: "한국어", flag: "🇰🇷" },
   { code: "ja", label: "日本語", flag: "🇯🇵" },
   { code: "ru", label: "Русский", flag: "🇷🇺" },
-  { code: "ta", label: "தமிழ்", flag: "🇮🇳" },
   { code: "ml", label: "മലയാളം", flag: "🇮🇳" },
   { code: "zh", label: "中文", flag: "🇨🇳" },
 ];
