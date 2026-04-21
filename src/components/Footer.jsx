@@ -10,7 +10,7 @@ function Footer() {
         <div className="footer-col">
           <h3 className="footer-logo">LA FIORE </h3>
           <p className="footer-tagline">
-            Bringing beauty and nature into your everyday life, one bloom at a time.
+            {t("footerTagline")}
           </p>
           <div className="footer-social">
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link">
@@ -38,10 +38,10 @@ function Footer() {
         <div className="footer-col">
           <h4 className="footer-heading">{t("shop")}</h4>
           <ul className="footer-links">
-            <li><Link to="/shop">All Products</Link></li>
-            <li><Link to="/shop">Bouquets</Link></li>
-            <li><Link to="/shop">Plants</Link></li>
-            <li><Link to="/shop">Gifts</Link></li>
+            <li><Link to="/shop">{t("allProducts")}</Link></li>
+            <li><Link to="/shop">{t("catBouquets")}</Link></li>
+            <li><Link to="/shop">{t("catPlants")}</Link></li>
+            <li><Link to="/shop">{t("gifts")}</Link></li>
           </ul>
         </div>
 
@@ -49,20 +49,20 @@ function Footer() {
         <div className="footer-col">
           <h4 className="footer-heading">{t("ourServices")}</h4>
           <ul className="footer-links">
-            <li><Link to="/plantfinder">Plant Finder</Link></li>
-            <li><Link to="/customize">Customize Bouquet</Link></li>
-            <li><Link to="/birth-month">Birth Month Flowers</Link></li>
-            <li><Link to="/consultation">Events & Corporate</Link></li>
+            <li><Link to="/plantfinder">{t("plantFinder")}</Link></li>
+            <li><Link to="/customize">{t("customizeBouquet")}</Link></li>
+            <li><Link to="/birth-month">{t("birthMonthFlowers")}</Link></li>
+            <li><Link to="/consultation">{t("eventsAndCorporate")}</Link></li>
           </ul>
         </div>
 
         {/* Column 4 - Company */}
         <div className="footer-col">
-          <h4 className="footer-heading">Company</h4>
+          <h4 className="footer-heading">{t("company")}</h4>
           <ul className="footer-links">
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/delivery-info">Delivery Info</Link></li>
-            <li><Link to="/care-guide">Care Guide</Link></li>
+            <li><Link to="/#about-section">{t("aboutUs")}</Link></li>
+            <li><Link to="/delivery-info">{t("deliveryInfo")}</Link></li>
+            <li><Link to="/care-guide">{t("careGuide")}</Link></li>
           </ul>
         </div>
 
@@ -98,7 +98,7 @@ function Footer() {
       <div className="footer-bottom">
         <div className="footer-bottom-content">
           <p className="footer-copyright">
-            © 2026 La Fiore. All rights reserved.
+            {t("footerCopyright")}
           </p>
           <div className="footer-legal">
             <Link to="/privacy-policy">{t("privacyPolicy")}</Link>

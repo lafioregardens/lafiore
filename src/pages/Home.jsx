@@ -7,7 +7,7 @@ import home2 from "../assets/images/home2.png";
 import rose from "../assets/products/premadebouquet/crimsonpassion.jpeg";
 import lavenderplant from "../assets/images/lavenderpl.jpg";
 import candleSet from "../assets/products/candleset/desertbloom1.jpeg";
-import toolSet from "../assets/products/gardenset/starterset1.jpeg";
+import toolSet from "../assets/products/gardenset/starterset.jpeg";
 import story from "../assets/images/story.jpg";
 import home1 from "../assets/images/home1.png";
 import home3 from "../assets/products/premadebouquet/blushserenity.jpeg";
@@ -489,7 +489,7 @@ function Home() {
         </section>
 
         {/* ── ABOUT ── */}
-        <section ref={aboutRef} className={`about-section ${aboutIn ? "visible" : ""}`}>
+        <section id="about-section" ref={aboutRef} className={`about-section ${aboutIn ? "visible" : ""}`}>
           <div className="about-image-col">
             <div className="about-img-main">
               <img src={story} alt="LaFiore Story" style={{ width: "100%", height: "100%", objectFit: "cover" }} />

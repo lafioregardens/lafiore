@@ -488,7 +488,14 @@ const translations = {
     yourName: "Your Name",
     yourReview: "Your Review",
     zzPlant: "ZZ Plant",
-    zzPlantDesc: "A great choice for low light and busy plant owners."
+    zzPlantDesc: "A great choice for low light and busy plant owners.",
+    allProducts: "All Products",
+    gifts: "Gifts",
+    company: "Company",
+    deliveryInfo: "Delivery Info",
+    eventsAndCorporate: "Events & Corporate",
+    footerTagline: "Bringing beauty and nature into your everyday life, one bloom at a time.",
+    footerCopyright: "© 2026 La Fiore. All rights reserved."
   },
   ar: {
     aboutUs: "من نحن",
@@ -890,7 +897,14 @@ const translations = {
     yourName: "اسمك",
     yourReview: "تقييمك",
     zzPlant: "ZZ Plant",
-    zzPlantDesc: "A great choice for low light and busy plant owners."
+    zzPlantDesc: "A great choice for low light and busy plant owners.",
+    allProducts: "جميع المنتجات",
+    gifts: "الهدايا",
+    company: "الشركة",
+    deliveryInfo: "معلومات التسليم",
+    eventsAndCorporate: "الأحداث والشركات",
+    footerTagline: "إحضار الجمال والطبيعة إلى حياتك اليومية، زهرة واحدة في كل مرة.",
+    footerCopyright: "© 2026 لا فيوري. جميع الحقوق محفوظة.",
   },
   es: {
     aboutUs: "Sobre Nosotros",
@@ -1728,7 +1742,14 @@ const translations = {
     yourName: "您的名字",
     yourReview: "您的评价",
     zzPlant: "ZZ Plant",
-    zzPlantDesc: "A great choice for low light and busy plant owners."
+    zzPlantDesc: "A great choice for low light and busy plant owners.",
+    allProducts: "所有产品",
+    gifts: "礼物",
+    company: "公司",
+    deliveryInfo: "送货信息",
+    eventsAndCorporate: "活动和企业",
+    footerTagline: "将美丽和自然融入您的日常生活，一次一朵花。",
+    footerCopyright: "© 2026 La Fiore。保留所有权利。",
   },
   ko: {
     aboutUs: "우리에 대해",
