@@ -6,7 +6,21 @@ export const WishlistContext = createContext();
 export function WishlistProvider({ children }) {
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [productImageCache, setProductImageCache] = useState({});
+
+  // Load product image cache from localStorage
+  const [productImageCache, setProductImageCache] = useState(() => {
+    try {
+      const cached = localStorage.getItem("wishlistProductImages");
+      return cached ? JSON.parse(cached) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Persist image cache to localStorage when it changes
+  useEffect(() => {
+    localStorage.setItem("wishlistProductImages", JSON.stringify(productImageCache));
+  }, [productImageCache]);
 
   // Fetch wishlist when component mounts or user logs in
   useEffect(() => {
@@ -33,7 +47,7 @@ export function WishlistProvider({ children }) {
     };
 
     loadWishlist();
-  }, []);
+  }, [productImageCache]);
 
   // Add product to wishlist
   const addToWishlist = async (product) => {
