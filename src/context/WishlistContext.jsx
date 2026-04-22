@@ -6,6 +6,7 @@ export const WishlistContext = createContext();
 export function WishlistProvider({ children }) {
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [productImageCache, setProductImageCache] = useState({});
 
   // Fetch wishlist when component mounts or user logs in
   useEffect(() => {
@@ -13,7 +14,15 @@ export function WishlistProvider({ children }) {
       try {
         setLoading(true);
         const res = await api.get("/wishlist");
-        setWishlist(res.data?.data?.products || []);
+        const products = res.data?.data?.products || [];
+
+        // Merge with cached images
+        const productsWithImages = products.map(product => ({
+          ...product,
+          image: product.image || productImageCache[product.productId]
+        }));
+
+        setWishlist(productsWithImages);
       } catch (error) {
         console.warn("Could not load wishlist:", error.message);
         // If not logged in, wishlist will be empty
@@ -30,11 +39,27 @@ export function WishlistProvider({ children }) {
   const addToWishlist = async (product) => {
     try {
       setLoading(true);
+
+      // Cache product image for later use
+      if (product.image) {
+        setProductImageCache(prev => ({
+          ...prev,
+          [product.id]: product.image
+        }));
+      }
+
       const res = await api.post("/wishlist", {
         productId: product.id,
       });
 
-      setWishlist(res.data?.data?.products || []);
+      // Merge response with cached images
+      const products = res.data?.data?.products || [];
+      const productsWithImages = products.map(item => ({
+        ...item,
+        image: item.image || productImageCache[item.productId] || product.image
+      }));
+
+      setWishlist(productsWithImages);
       return { success: true, message: "Added to wishlist" };
     } catch (error) {
       console.error("Error adding to wishlist:", error);
@@ -85,7 +110,14 @@ export function WishlistProvider({ children }) {
       setLoading(true);
       const res = await api.delete(`/wishlist/${productId}`);
 
-      setWishlist(res.data?.data?.products || []);
+      // Merge response with cached images
+      const products = res.data?.data?.products || [];
+      const productsWithImages = products.map(item => ({
+        ...item,
+        image: item.image || productImageCache[item.productId]
+      }));
+
+      setWishlist(productsWithImages);
       return { success: true, message: "Removed from wishlist" };
     } catch (error) {
       console.error("Error removing from wishlist:", error);
