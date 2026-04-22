@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import StarRating from "../components/StarRating";
 import FormToast from "../components/FormToast";
-import Footer from "../components/Footer";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
 import { useLanguage } from "../context/LanguageContext";
@@ -478,8 +477,6 @@ function ProductDetail() {
           <p>{product.description}</p>
         </div>
       )}
-
-      <Footer />
     </div>
   );
 }

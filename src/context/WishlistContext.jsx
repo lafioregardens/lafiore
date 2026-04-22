@@ -30,10 +30,20 @@ export function WishlistProvider({ children }) {
         const res = await api.get("/wishlist");
         const products = res.data?.data?.products || [];
 
+        // Load current image cache
+        const currentCache = (() => {
+          try {
+            const cached = localStorage.getItem("wishlistProductImages");
+            return cached ? JSON.parse(cached) : {};
+          } catch {
+            return {};
+          }
+        })();
+
         // Merge with cached images
         const productsWithImages = products.map(product => ({
           ...product,
-          image: product.image || productImageCache[product.productId]
+          image: product.image || currentCache[product.productId]
         }));
 
         setWishlist(productsWithImages);
@@ -47,7 +57,7 @@ export function WishlistProvider({ children }) {
     };
 
     loadWishlist();
-  }, [productImageCache]);
+  }, []);
 
   // Add product to wishlist
   const addToWishlist = async (product) => {
