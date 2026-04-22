@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { BouquetVisualizer } from "../components/BouquetVisualizer";
 import { useLanguage } from "../context/LanguageContext";
+import products from "../data/products";
 
 function Cart() {
   const {
@@ -88,13 +89,17 @@ function Cart() {
                           </div>
                         ) : (
                           <div className="cart-item-image">
-                            {item.image ? (
-                              <img src={item.image} alt={item.flower} />
-                            ) : (
-                              <div className="cart-item-placeholder">
-                                {item.customType === "bouquet" ? "💐" : "🌿"}
-                              </div>
-                            )}
+                            {(() => {
+                              // Try to get image from cart item first, then from local products data
+                              const itemImage = item.image || products.find(p => p.id === item.id)?.image;
+                              return itemImage ? (
+                                <img src={itemImage} alt={item.flower} />
+                              ) : (
+                                <div className="cart-item-placeholder">
+                                  {item.customType === "bouquet" ? "💐" : "🌿"}
+                                </div>
+                              );
+                            })()}
                           </div>
                         )}
 
