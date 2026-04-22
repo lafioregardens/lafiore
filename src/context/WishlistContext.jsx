@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import api from "../utils/api";
+import products from "../data/products";
 
 export const WishlistContext = createContext();
 
@@ -13,27 +14,16 @@ export function WishlistProvider({ children }) {
       try {
         setLoading(true);
         const res = await api.get("/wishlist");
-        const products = res.data?.data?.products || [];
+        const wishlistProducts = res.data?.data?.products || [];
 
-        // Fetch full product data to get images
-        const productsWithImages = await Promise.all(
-          products.map(async (product) => {
-            try {
-              // Try to fetch full product details from API
-              const productRes = await api.get(`/products/${product.productId || product.id}`);
-              const apiProduct = productRes.data?.data;
-              if (apiProduct?.image) {
-                return {
-                  ...product,
-                  image: apiProduct.image
-                };
-              }
-            } catch (err) {
-              // If API fetch fails, just return product as is
-            }
-            return product;
-          })
-        );
+        // Get images from local products data
+        const productsWithImages = wishlistProducts.map(product => {
+          const localProduct = products.find(p => p.id === (product.productId || product.id));
+          return {
+            ...product,
+            image: localProduct?.image || product.image
+          };
+        });
 
         setWishlist(productsWithImages);
       } catch (error) {
@@ -57,25 +47,15 @@ export function WishlistProvider({ children }) {
         productId: product.id,
       });
 
-      // Fetch full product data to get images
-      const products = res.data?.data?.products || [];
-      const productsWithImages = await Promise.all(
-        products.map(async (item) => {
-          try {
-            const productRes = await api.get(`/products/${item.productId || item.id}`);
-            const apiProduct = productRes.data?.data;
-            if (apiProduct?.image) {
-              return {
-                ...item,
-                image: apiProduct.image
-              };
-            }
-          } catch (err) {
-            // If API fetch fails, use provided image or fallback
-          }
-          return item;
-        })
-      );
+      // Get images from local products data
+      const wishlistProducts = res.data?.data?.products || [];
+      const productsWithImages = wishlistProducts.map(item => {
+        const localProduct = products.find(p => p.id === (item.productId || item.id));
+        return {
+          ...item,
+          image: localProduct?.image || item.image
+        };
+      });
 
       setWishlist(productsWithImages);
       return { success: true, message: "Added to wishlist" };
@@ -128,25 +108,15 @@ export function WishlistProvider({ children }) {
       setLoading(true);
       const res = await api.delete(`/wishlist/${productId}`);
 
-      // Fetch full product data to get images
-      const products = res.data?.data?.products || [];
-      const productsWithImages = await Promise.all(
-        products.map(async (item) => {
-          try {
-            const productRes = await api.get(`/products/${item.productId || item.id}`);
-            const apiProduct = productRes.data?.data;
-            if (apiProduct?.image) {
-              return {
-                ...item,
-                image: apiProduct.image
-              };
-            }
-          } catch (err) {
-            // If API fetch fails, return item as is
-          }
-          return item;
-        })
-      );
+      // Get images from local products data
+      const wishlistProducts = res.data?.data?.products || [];
+      const productsWithImages = wishlistProducts.map(item => {
+        const localProduct = products.find(p => p.id === (item.productId || item.id));
+        return {
+          ...item,
+          image: localProduct?.image || item.image
+        };
+      });
 
       setWishlist(productsWithImages);
       return { success: true, message: "Removed from wishlist" };
