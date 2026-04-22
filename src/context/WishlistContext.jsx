@@ -7,21 +7,6 @@ export function WishlistProvider({ children }) {
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Load product image cache from localStorage
-  const [productImageCache, setProductImageCache] = useState(() => {
-    try {
-      const cached = localStorage.getItem("wishlistProductImages");
-      return cached ? JSON.parse(cached) : {};
-    } catch {
-      return {};
-    }
-  });
-
-  // Persist image cache to localStorage when it changes
-  useEffect(() => {
-    localStorage.setItem("wishlistProductImages", JSON.stringify(productImageCache));
-  }, [productImageCache]);
-
   // Fetch wishlist when component mounts or user logs in
   useEffect(() => {
     const loadWishlist = async () => {
@@ -30,21 +15,25 @@ export function WishlistProvider({ children }) {
         const res = await api.get("/wishlist");
         const products = res.data?.data?.products || [];
 
-        // Load current image cache
-        const currentCache = (() => {
-          try {
-            const cached = localStorage.getItem("wishlistProductImages");
-            return cached ? JSON.parse(cached) : {};
-          } catch {
-            return {};
-          }
-        })();
-
-        // Merge with cached images
-        const productsWithImages = products.map(product => ({
-          ...product,
-          image: product.image || currentCache[product.productId] || currentCache[product.id]
-        }));
+        // Fetch full product data to get images
+        const productsWithImages = await Promise.all(
+          products.map(async (product) => {
+            try {
+              // Try to fetch full product details from API
+              const productRes = await api.get(`/products/${product.productId || product.id}`);
+              const apiProduct = productRes.data?.data;
+              if (apiProduct?.image) {
+                return {
+                  ...product,
+                  image: apiProduct.image
+                };
+              }
+            } catch (err) {
+              // If API fetch fails, just return product as is
+            }
+            return product;
+          })
+        );
 
         setWishlist(productsWithImages);
       } catch (error) {
@@ -64,24 +53,29 @@ export function WishlistProvider({ children }) {
     try {
       setLoading(true);
 
-      // Cache product image for later use
-      if (product.image) {
-        setProductImageCache(prev => ({
-          ...prev,
-          [product.id]: product.image
-        }));
-      }
-
       const res = await api.post("/wishlist", {
         productId: product.id,
       });
 
-      // Merge response with cached images
+      // Fetch full product data to get images
       const products = res.data?.data?.products || [];
-      const productsWithImages = products.map(item => ({
-        ...item,
-        image: item.image || productImageCache[item.productId] || productImageCache[item.id] || product.image
-      }));
+      const productsWithImages = await Promise.all(
+        products.map(async (item) => {
+          try {
+            const productRes = await api.get(`/products/${item.productId || item.id}`);
+            const apiProduct = productRes.data?.data;
+            if (apiProduct?.image) {
+              return {
+                ...item,
+                image: apiProduct.image
+              };
+            }
+          } catch (err) {
+            // If API fetch fails, use provided image or fallback
+          }
+          return item;
+        })
+      );
 
       setWishlist(productsWithImages);
       return { success: true, message: "Added to wishlist" };
@@ -134,12 +128,25 @@ export function WishlistProvider({ children }) {
       setLoading(true);
       const res = await api.delete(`/wishlist/${productId}`);
 
-      // Merge response with cached images
+      // Fetch full product data to get images
       const products = res.data?.data?.products || [];
-      const productsWithImages = products.map(item => ({
-        ...item,
-        image: item.image || productImageCache[item.productId] || productImageCache[item.id]
-      }));
+      const productsWithImages = await Promise.all(
+        products.map(async (item) => {
+          try {
+            const productRes = await api.get(`/products/${item.productId || item.id}`);
+            const apiProduct = productRes.data?.data;
+            if (apiProduct?.image) {
+              return {
+                ...item,
+                image: apiProduct.image
+              };
+            }
+          } catch (err) {
+            // If API fetch fails, return item as is
+          }
+          return item;
+        })
+      );
 
       setWishlist(productsWithImages);
       return { success: true, message: "Removed from wishlist" };
