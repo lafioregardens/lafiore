@@ -43,7 +43,7 @@ export function WishlistProvider({ children }) {
         // Merge with cached images
         const productsWithImages = products.map(product => ({
           ...product,
-          image: product.image || currentCache[product.productId]
+          image: product.image || currentCache[product.productId] || currentCache[product.id]
         }));
 
         setWishlist(productsWithImages);
@@ -80,7 +80,7 @@ export function WishlistProvider({ children }) {
       const products = res.data?.data?.products || [];
       const productsWithImages = products.map(item => ({
         ...item,
-        image: item.image || productImageCache[item.productId] || product.image
+        image: item.image || productImageCache[item.productId] || productImageCache[item.id] || product.image
       }));
 
       setWishlist(productsWithImages);
@@ -138,7 +138,7 @@ export function WishlistProvider({ children }) {
       const products = res.data?.data?.products || [];
       const productsWithImages = products.map(item => ({
         ...item,
-        image: item.image || productImageCache[item.productId]
+        image: item.image || productImageCache[item.productId] || productImageCache[item.id]
       }));
 
       setWishlist(productsWithImages);
