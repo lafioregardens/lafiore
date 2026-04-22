@@ -366,6 +366,28 @@ function Home() {
   const [faqRef, faqIn]        = useInView();
   const [revRef, revIn]        = useInView();
 
+  // Handle hash-based scroll navigation
+  useEffect(() => {
+    const handleHashScroll = () => {
+      const hash = window.location.hash.slice(1); // Remove '#'
+      if (hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 0);
+        }
+      }
+    };
+
+    // Handle initial hash on page load
+    handleHashScroll();
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashScroll);
+    return () => window.removeEventListener('hashchange', handleHashScroll);
+  }, []);
+
   return (
     <div className="lf-root">
       <Navbar />
